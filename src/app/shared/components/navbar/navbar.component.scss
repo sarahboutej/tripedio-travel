@@ -1,0 +1,11 @@
+@import '../../../../styles/variables';
+.home-page-navbar {
+  .home-page-menu {
+    .nav-item {
+      padding: 0 0.346rem;
+      .nav-link.active {
+        color: $primaryColor!important;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<section class="destination-container section-bp">
+  <div class="container-lg">
+    <div class="row align-items-center">
+      <h3 class="user-big-text title-color fw-bold">Reiseziele</h3>
+      <span class="text-color paragraphe-fs title-pb">Finden Sie Ihren Experten nach Reisezielen</span>
+    </div>
+    <div class="row">
+      <owl-carousel-o [options]="slideOptions">
+
+        <ng-container *ngFor="let slide of images">
+          <ng-template carouselSlide [id]="slide.id">
+            <span class="destination-img-title text-white user-meduim-text fw-extra-bold" >{{ slide.title }}</span>
+            <img [src]="slide.src" [alt]="slide.title" [title]="slide.title">
+          </ng-template>
+        </ng-container>
+    
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>

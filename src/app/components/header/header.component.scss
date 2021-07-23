@@ -1,0 +1,39 @@
+.header-container {
+  min-height: calc(100vh - 75px);
+  height: calc(100vh - 75px);
+  margin-top: 4.7rem;
+  background-image: url(../../../assets/images/header.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 100%;
+  .content-wrapper {
+    min-height: calc(100vh - 75px);
+    height: calc(100vh - 75px);
+    .header-content {
+      .header-fixed.pa-3 {
+        position: absolute;
+        width: 400px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background: white;
+        padding: 16px;
+        border-radius: 8px;
+    }
+    }
+  }
+  .img-wrapper {
+    min-height: calc(100vh - 75px);
+    height: calc(100vh - 75px);
+  }
+}
+
+.header-fixed.pa-3 {
+  position: absolute;
+  width: 400px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: #fff;
+  padding: 16px;
+}

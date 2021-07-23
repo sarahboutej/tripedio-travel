@@ -1,0 +1,134 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import '../src/styles/variables';
+
+/*----------------- Global Style ---------------------------*/
+
+@font-face {
+  font-family: $font-family-Inter;
+  src:url("assets/font/Inter/Inter-Regular.ttf");
+}
+
+@font-face {
+  font-family: $font-family-Inter;
+  src:url("assets/font/Inter/Inter-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: $font-family-Inter;
+  src:url("assets/font/Inter/Inter-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
+  font-family: $font-family-Inter;
+  font-size: 0.875 rem!important;
+}
+
+.primary-color {
+  color: $primaryColor!important;
+}
+.grey-color {
+  color: $secondaryColor!important;
+}
+.text-color {
+  color: $textColor!important;
+}
+.dark-grey-color {
+  color: $darkGreyColor!important;
+}
+.grey-meduim-color {
+  color: $greyMediumColor!important;
+}
+.orange-color {
+  color: $orangeColor!important;
+}
+.orange-gb {
+  background-color: $orangeColor!important;
+}
+.bg-light-grey {
+  background-color: $bgLightGrey!important;
+}
+.title-color {
+  color: $titleColor!important;
+}
+.user-x-small-text {
+  font-size: 0.875rem!important;
+}
+.user-small-text {
+  font-size: 1rem!important;
+}
+.user-big-text {
+  font-size: 2.5rem!important;
+}
+.user-xbig-text {
+  font-size: 3.375rem!important;
+}
+.user-meduim-text {
+  font-size: 1.5rem!important;
+}
+
+.paragraphe-fs {
+  font-size: 1.125rem;
+}
+.spacing-1 {
+  letter-spacing: .5px !important;
+}
+
+.title-pb {
+  padding-bottom: 5rem!important;
+}
+
+.section-bp {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+.user-btn {
+  width: auto!important;
+  transition: 0.25s;
+  &:hover {
+    box-shadow: inset 19.5em 0 0 0 $bgLightGrey;
+    color: $orangeColor!important;
+  }
+}
+
+.fw-medium {
+  font-weight: 600!important;
+}
+
+.fw-extra-bold {
+  font-weight: 800!important;
+}
+
+.destination-container {
+  .owl-carousel {
+    .owl-item {
+      span.destination-img-title.ng-star-inserted {
+        position: absolute;
+        bottom: 24px;
+        left: 24px;
+      }
+      padding: 0 12px!important;
+      img {
+      border-radius: 8px!important;
+      }
+    }
+  }
+  .owl-nav {
+    position: absolute;
+    top:-160px;
+    right: 0;
+    [class*=owl-] {
+      background-color: $orangeColor!important;
+      margin: 4px !important;
+      border-radius: 4px !important;
+      width: 40px;
+      height: 40px;
+      padding-top: 7px;
+      font-size: 18px;
+    }
+  }
+}

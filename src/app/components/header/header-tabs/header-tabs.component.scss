@@ -1,0 +1,33 @@
+@import '../../../../styles/variables';
+
+.header-tab-container {
+
+  .nav-link {
+    background-color: $greyBg;
+    color: $secondaryColor;
+  }
+  .nav-link.active {
+    color: white;
+    background-color: $primaryColor;
+    border-color: transparent;
+  }
+}
+
+#tab-content-wrapper {
+  padding: 2.5rem 1.5rem;
+  background: $primaryColor;
+  border-radius: 0 8px 8px 8px;
+  .tab-pane-wrapper {
+    position: relative;
+    .search-city {
+      position: absolute;
+      top:6px;
+      left: 12px;
+    }
+    .input-address {
+      &::placeholder {
+        color: $greyMediumColor;
+      }
+    }
+  }
+}

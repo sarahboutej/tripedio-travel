@@ -1,0 +1,27 @@
+@import '../../../styles/variables';
+
+.steps-container {
+  .step-wrapper {
+    .step-number {
+      span {
+        width: 92px;
+        height: 92px;
+        background: white;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+    }
+    .step-text {
+      padding-left: 1.5rem;
+      .step-title {
+      }
+      .step-description {
+
+      }
+    }
+  }
+  
+}
