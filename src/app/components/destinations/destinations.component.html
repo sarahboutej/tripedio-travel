@@ -6,14 +6,12 @@
     </div>
     <div class="row">
       <owl-carousel-o [options]="slideOptions">
-
         <ng-container *ngFor="let slide of images">
           <ng-template carouselSlide [id]="slide.id">
             <span class="destination-img-title text-white user-meduim-text fw-extra-bold" >{{ slide.title }}</span>
             <img [src]="slide.src" [alt]="slide.title" [title]="slide.title">
           </ng-template>
         </ng-container>
-    
       </owl-carousel-o>
     </div>
   </div>

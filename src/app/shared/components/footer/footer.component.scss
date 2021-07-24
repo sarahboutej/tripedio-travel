@@ -1,0 +1,21 @@
+@import '../../../../styles/variables';
+.footer-container {
+  .footer-container-wrapper {
+    h3 {
+      line-height: 2rem;
+    }
+    a {
+      line-height: 1.75rem!important;
+      &:hover {
+        color: $orangeColor!important;
+      }
+    }
+    .social-media-icons {
+      a {
+        i {
+          font-size: 21px;
+        }
+      }
+    }
+  }
+}

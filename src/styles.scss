@@ -46,15 +46,19 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .orange-color {
   color: $orangeColor!important;
 }
+.title-color {
+  color: $titleColor!important;
+}
+.text-dark {
+  color: black!important;
+}
 .orange-gb {
   background-color: $orangeColor!important;
 }
 .bg-light-grey {
   background-color: $bgLightGrey!important;
 }
-.title-color {
-  color: $titleColor!important;
-}
+
 .user-x-small-text {
   font-size: 0.875rem!important;
 }
@@ -94,16 +98,18 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
     color: $orangeColor!important;
   }
 }
-
 .fw-medium {
   font-weight: 600!important;
 }
-
 .fw-extra-bold {
   font-weight: 800!important;
 }
+.link-td {
+  text-decoration: none!important;
+}
 
-.destination-container {
+
+.destination-container, .travel-type-container {
   .owl-carousel {
     .owl-item {
       span.destination-img-title.ng-star-inserted {
