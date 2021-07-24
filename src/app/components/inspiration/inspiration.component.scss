@@ -5,4 +5,34 @@
   background-position: bottom left;
   background-size: cover;
   background-repeat: no-repeat;
+  .newletter-wrapper {
+    .newletter-email {
+      .email-address {
+        border-radius: 4px 0 0 4px;
+        padding: 8px 16px!important;
+        border: 1px solid white;
+        &::placeholder {
+          color: $secondaryColor;
+          font-size: 18px!important;
+        }
+        &:focus {
+          box-shadow: none!important;
+          border-color: white!important;
+        }
+      }
+      .news-btn {
+        border-radius: 0 4px 4px 0;
+        border-color: white!important;
+        transition: 0.5s;
+        &:focus {
+          box-shadow: none!important;
+          color: #ffc107!important;
+        }
+        &:hover {
+          box-shadow: inset 19.5em 0 0 0 $textColor!important;
+          color: #ffc107!important;
+        }
+      }
+    }
+  }
 }
