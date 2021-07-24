@@ -32,29 +32,29 @@ export class DestinationsComponent implements OnInit {
   };
 
   images = [
-    { 
+    {
       id: '1',
-      src: '../../../assets/images/owl-1.jpg',
+      src: 'assets/images/owl-1.jpg',
       title: 'Test 1'
     },
-    { 
+    {
       id: '2',
-      src: '../../../assets/images/owl-2.jpeg',
+      src: 'assets/images/owl-2.jpeg',
       title: 'Test 2'
     },
-    { 
+    {
       id: '3',
-      src: '../../../assets/images/owl-3.jpg',
+      src: 'assets/images/owl-3.jpg',
       title: 'Test 3'
     },
-    { 
+    {
       id: '4',
-      src: '../../../assets/images/owl-4.jpg',
+      src: 'assets/images/owl-4.jpg',
       title: 'Test 4'
     },
-    { 
+    {
       id: '5',
-      src: '../../../assets/images/owl-1.jpg',
+      src: 'assets/images/owl-1.jpg',
       title: 'Test 5'
     }
   ];
