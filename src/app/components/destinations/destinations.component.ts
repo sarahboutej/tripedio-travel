@@ -35,27 +35,27 @@ export class DestinationsComponent implements OnInit {
     {
       id: '1',
       src: 'assets/images/owl-1.jpg',
-      title: 'Test 1'
+      title: 'Afrika'
     },
     {
       id: '2',
       src: 'assets/images/owl-2.jpeg',
-      title: 'Test 2'
+      title: 'Asien'
     },
     {
       id: '3',
       src: 'assets/images/owl-3.jpg',
-      title: 'Test 3'
+      title: 'Australien'
     },
     {
       id: '4',
       src: 'assets/images/owl-4.jpg',
-      title: 'Test 4'
+      title: 'Europa'
     },
     {
       id: '5',
       src: 'assets/images/owl-1.jpg',
-      title: 'Test 5'
+      title: 'Afrika'
     }
   ];
 
