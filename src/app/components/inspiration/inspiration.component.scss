@@ -10,7 +10,8 @@
       .email-address {
         border-radius: 4px 0 0 4px;
         padding: 8px 16px!important;
-        border: 1px solid white;
+        border: 1px solid #ffc107;
+        height: 48px!important;
         &::placeholder {
           color: $secondaryColor;
           font-size: 18px!important;
@@ -22,7 +23,7 @@
       }
       .news-btn {
         border-radius: 0 4px 4px 0;
-        border-color: white!important;
+        border-color: #ffc107!important;
         transition: 0.5s;
         &:focus {
           box-shadow: none!important;
@@ -33,6 +34,15 @@
           color: #ffc107!important;
         }
       }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .newletter-wrapper {
+    .newletter-email {
+      width: 636px!important;
+      margin: auto;
     }
   }
 }
