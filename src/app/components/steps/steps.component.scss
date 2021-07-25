@@ -23,5 +23,16 @@
       }
     }
   }
-  
+}
+
+@media screen and (max-width: 767px) {
+  .steps-container {
+    .step-wrapper {
+     padding-bottom: 1rem!important;
+    }
+    .user-btn {
+      width: 90%!important;
+      margin-top: 5rem!important;
+    }
+  }
 }

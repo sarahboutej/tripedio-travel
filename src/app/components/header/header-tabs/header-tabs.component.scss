@@ -5,11 +5,14 @@
   .nav-link {
     background-color: $greyBg;
     color: $secondaryColor;
+    border-radius: 8px 8px 0 0!important;
+    margin-left: 1px;
   }
   .nav-link.active {
     color: white;
     background-color: $primaryColor;
     border-color: transparent;
+    border-radius: 8px 8px 0 0!important;
   }
 }
 
@@ -17,6 +20,8 @@
   padding: 2.5rem 1.5rem;
   background: $primaryColor;
   border-radius: 0 8px 8px 8px;
+  max-width: 548px;
+  width: 548px;
   .tab-pane-wrapper {
     position: relative;
     .search-city {
@@ -29,5 +34,12 @@
         color: $greyMediumColor;
       }
     }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #tab-content-wrapper {
+    max-width: 100%!important;
+    width: 100%!important;
   }
 }

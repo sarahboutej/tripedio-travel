@@ -1,5 +1,10 @@
 @import '../../../../styles/variables';
 .footer-container {
+  .user-footer-p1 {
+    .border-ft {
+      border-color: $secondaryColor!important;
+    }
+  }
   .footer-container-wrapper {
     h3 {
       line-height: 2rem;

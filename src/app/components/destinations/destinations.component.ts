@@ -51,11 +51,6 @@ export class DestinationsComponent implements OnInit {
       id: '4',
       src: 'assets/images/owl-4.jpg',
       title: 'Europa'
-    },
-    {
-      id: '5',
-      src: 'assets/images/owl-1.jpg',
-      title: 'Afrika'
     }
   ];
 
