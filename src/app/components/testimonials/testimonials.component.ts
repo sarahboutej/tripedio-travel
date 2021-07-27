@@ -18,13 +18,12 @@ export class TestimonialsComponent implements OnInit {
       0: {
         items: 1
       },
-      400: {
+      768: {
         items: 2
       },
-      740: {
+      992: {
         items: 3
-      },
-
+      }
     },
     nav: true
   };
