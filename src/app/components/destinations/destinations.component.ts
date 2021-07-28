@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+// import Swiper core and required modules
+import SwiperCore, {
+  Navigation
+} from 'swiper/core';
+
+// install Swiper modules
+SwiperCore.use([ Navigation ]);
 
 @Component({
   selector: 'app-destinations',
@@ -21,10 +28,10 @@ export class DestinationsComponent implements OnInit {
       400: {
         items: 2
       },
-      740: {
+      768: {
         items: 3
       },
-      940: {
+      992: {
         items: 4
       }
     },

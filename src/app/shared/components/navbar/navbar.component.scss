@@ -25,4 +25,54 @@
     left: 100px;
     top: 15px;
   }
+
+  .tripedeo-mobile-menu {
+    margin-top: 40px!important;
+    .navbar-nav {
+      position: fixed;
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 0;
+      padding-top: 120px;
+      padding-left: 1.75rem;
+      padding-right: 1.75rem;
+      .nav-item {
+        padding: 0!important;
+        .nav-link {
+          font-size: 1.5rem!important;
+          color: $textColor!important;
+          margin: 1rem 0!important;
+          i {
+            font-size: 1.5rem!important;
+            color: $textColor!important;
+            padding-right: 20px!important;
+          }
+        }
+        .nav-link.active {
+          color: $textColor!important;
+          i {
+            color: $textColor!important;
+          }
+        }
+      }
+    }
+    .user-menu-button {
+      position: absolute;
+      right: 18px;
+      top: 15px;
+      border-color: #0000!important;
+      z-index: 1;
+      .close-menu-btn {
+        color: $textColor!important;
+        font-size: 1rem!important;
+    }
+    }
+    .home-page-logo {
+      left: 24px;
+      z-index: 1;
+  }
+  }
 }

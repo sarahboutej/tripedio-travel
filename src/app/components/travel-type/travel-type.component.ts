@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
+// import Swiper core and required modules
+import SwiperCore, {
+  Navigation
+} from 'swiper/core';
+
+// install Swiper modules
+SwiperCore.use([ Navigation ]);
+
 @Component({
   selector: 'app-travel-type',
   templateUrl: './travel-type.component.html',
@@ -21,10 +29,10 @@ export class TravelTypeComponent implements OnInit {
       400: {
         items: 2
       },
-      740: {
+      768: {
         items: 3
       },
-      940: {
+      992: {
         items: 4
       }
     },
@@ -44,16 +52,11 @@ export class TravelTypeComponent implements OnInit {
     },
     { 
       id: '3',
-      src: 'assets/images/travel-type-3.jpg',
-      title: 'Wanderurlaub'
-    },
-    { 
-      id: '4',
       src: 'assets/images/travel-type-4.jpg',
       title: 'Golfurlaub'
     },
     { 
-      id: '5',
+      id: '4',
       src: 'assets/images/travel-type-3.jpg',
       title: 'Wanderurlaub'
     }
@@ -63,5 +66,5 @@ export class TravelTypeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }

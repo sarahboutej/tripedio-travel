@@ -5,14 +5,31 @@
       <span class="text-color paragraphe-fs title-pb">Finden Sie Ihren Experten nach Reisezielen</span>
     </div>
     <div class="row">
-      <owl-carousel-o [options]="slideOptions">
-        <ng-container *ngFor="let slide of images">
-          <ng-template carouselSlide [id]="slide.id">
-            <span class="destination-img-title text-white user-meduim-text fw-extra-bold" >{{ slide.title }}</span>
-            <img [src]="slide.src" [alt]="slide.title" [title]="slide.title">
+      <div class="owl-wrapper d-none d-md-block">
+        <owl-carousel-o [options]="slideOptions">
+          <ng-container *ngFor="let slide of images">
+            <ng-template carouselSlide [id]="slide.id">
+              <span class="destination-img-title text-white user-meduim-text fw-extra-bold" >{{ slide.title }}</span>
+              <img [src]="slide.src" [alt]="slide.title" [title]="slide.title">
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </div>
+      <div class="swipe-wrapper d-block d-md-none">
+        <swiper
+        [direction]="'vertical'"
+        [slidesPerView]="4"
+        [spaceBetween]="24"
+        [loop]="true"
+        [navigation]="true"
+        class="mySwiper">
+          <ng-template swiperSlide *ngFor="let slide of images">
+            <div [ngStyle]="{'background-image': 'url(' + slide.src + ')'}" class="swiper-img">
+              <span class="destination-img-title text-white user-meduim-text fw-extra-bold" >{{ slide.title }}</span>
+            </div>
           </ng-template>
-        </ng-container>
-      </owl-carousel-o>
+        </swiper>
+      </div>
     </div>
   </div>
 </section>
