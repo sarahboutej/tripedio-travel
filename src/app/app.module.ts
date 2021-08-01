@@ -18,6 +18,11 @@ import { BenefitsComponent } from './components/benefits/benefits.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { InspirationComponent } from './components/inspiration/inspiration.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { AgentsSearchResultComponent } from './pages/agents-search-result/agents-search-result.component';
+import { AgentsTitleComponent } from './components/agents-title/agents-title.component';
+import { AgentsBodyComponent } from './components/agents-body/agents-body.component';
+import { AgentsBodySidebarComponent } from './components/agents-body/agents-body-sidebar/agents-body-sidebar.component';
+import { AgentsBodyContentComponent } from './components/agents-body/agents-body-content/agents-body-content.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,12 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     BenefitsComponent,
     TestimonialsComponent,
     InspirationComponent,
-    FooterComponent
+    FooterComponent,
+    AgentsSearchResultComponent,
+    AgentsTitleComponent,
+    AgentsBodyComponent,
+    AgentsBodySidebarComponent,
+    AgentsBodyContentComponent
   ],
   imports: [
     BrowserModule,

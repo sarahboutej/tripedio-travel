@@ -1,0 +1,40 @@
+@import '../../../../styles/variables';
+.agent-items-container {
+  margin-bottom: 7.5rem;
+  .agent-item {
+    box-shadow: 0px 0px 16px 0px #CECECE40;
+    padding: 2rem 1.5rem;
+    border-radius: 1rem;
+    .avatar-container {
+      .agent-avatar {
+        width: 130px;
+      }
+    }
+    .agent-detail-container {
+      .agent-details {
+        margin-left: 2.5rem;
+      }
+    }
+    .agent-actions-container {
+      .agent-action-header {
+        min-width: 230px;
+      }
+      .agent-availability {
+        .days-label {
+          min-width: 80px;
+        }
+      }
+      .agent-buttons {
+        .user-btn {
+          width: 100%!important;
+        }
+        .grey-btn {
+          &:hover {
+            background-color: $greyHoverColor!important;
+            color: $primaryColor!important;
+          }
+        }
+      }
+    }
+  }
+}

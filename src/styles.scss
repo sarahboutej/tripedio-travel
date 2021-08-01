@@ -61,8 +61,14 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .grey-dark {
   color: $greyDarkColor!important;
 }
+.start-grey-color {
+  color: $stars-grey-color;
+}
 .orange-gb {
   background-color: $orangeColor!important;
+}
+.grey-gb {
+  background-color: $stars-grey-color!important;
 }
 .bg-light-grey {
   background-color: $bgLightGrey!important;
@@ -83,9 +89,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .user-meduim-text {
   font-size: 1.5rem!important;
 }
-
 .paragraphe-fs {
   font-size: 1.125rem;
+}
+.title-padding {
+  padding: 2.5rem 0;
 }
 .spacing-1 {
   letter-spacing: .5px !important;
@@ -120,6 +128,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .light-heigth-xbig {
   line-height: 60px;
 }
+.line-heigth-24 {
+  line-height: 1.5rem;
+}
 .user-btn {
   width: auto!important;
   height: 40px !important;
@@ -131,7 +142,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   }
   &:focus {
     box-shadow: none!important;
-    background-color: $orangeFocusColor!important;
   }
 }
 .fw-medium {
