@@ -23,6 +23,9 @@ import { AgentsTitleComponent } from './components/agents-title/agents-title.com
 import { AgentsBodyComponent } from './components/agents-body/agents-body.component';
 import { AgentsBodySidebarComponent } from './components/agents-body/agents-body-sidebar/agents-body-sidebar.component';
 import { AgentsBodyContentComponent } from './components/agents-body/agents-body-content/agents-body-content.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -47,10 +50,14 @@ import { AgentsBodyContentComponent } from './components/agents-body/agents-body
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     CarouselModule,
     BrowserAnimationsModule,
-    SwiperModule
+    SwiperModule,
+    NgSelectModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

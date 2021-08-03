@@ -28,6 +28,7 @@
       position: absolute;
       top:6px;
       left: 12px;
+      z-index: 9999999999;
     }
     .input-address {
       &::placeholder {
@@ -42,4 +43,35 @@
     max-width: 100%!important;
     width: 100%!important;
   }
+}
+
+:host ::ng-deep ng-select .ng-select-container > .ng-value-container {
+  padding: .375rem 2.25rem !important;
+}
+
+:host ::ng-deep ng-select .ng-select-container > .ng-value-container > div[role="combobox"] {
+  padding: 0 !important;
+}
+
+:host ::ng-deep ng-select .ng-select-container > .ng-value-container > .ng-value {
+  margin-bottom: 0 !important;
+}
+
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar {
+  width: 8px;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+:host ::ng-deep ng-select div.ng-select-container > span.ng-clear-wrapper .ng-clear,
+:host ::ng-deep ng-select div.ng-select-container > span.ng-arrow-wrapper .ng-arrow {
+  display: none !important;
 }
