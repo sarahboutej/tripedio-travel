@@ -1,0 +1,74 @@
+@import '../../../../../styles/variables';
+.travel-type-filter-wrapper {
+  .form-group {
+    position: relative;
+    .search-travel-type {
+      padding-left: 2.3rem;
+      background: transparent;
+      margin-bottom: 1.125rem;
+      border-color: $stars-grey-color!important;
+      &::placeholder {
+        color: $greyMediumColor!important;
+      }
+      &:focus {
+        outline: none!important;
+        box-shadow: none!important;
+        border-color: $stars-grey-color!important;
+      }
+    }
+    .bi-search {
+      position: absolute;
+      top: 7px;
+      left: 10px;
+      color: $secondaryColor!important;
+    }
+  }
+  .travel-options {
+    .form-group {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .form-group input {
+      padding: 0;
+      height: initial;
+      width: initial;
+      margin-bottom: 0;
+      display: none;
+      cursor: pointer;
+    }
+    
+    .form-group label {
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .form-group label:before {
+      content:'';
+      -webkit-appearance: none;
+      background-color: transparent;
+      border: 2px solid $stars-grey-color;
+      padding: 8px;
+      border-radius: 4px;
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      cursor: pointer;
+      margin-right: 5px;
+      margin-bottom: 3px;
+    }
+    
+    .form-group input:checked + label:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 6px;
+      left: 8px;
+      width: 5px;
+      height: 11px;
+      border: solid  $stars-grey-color;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+}

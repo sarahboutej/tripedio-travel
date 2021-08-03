@@ -1,0 +1,26 @@
+<div class="destination-filter-wrapper border-bottom">
+  <div class="destination-filter-title d-flex align-items-center justify-content-between pb-3">
+    <span class="title-lebel fw-medium user-x-small-text text-color line-heigth-24">Reiseziele</span>
+    <i class="bi bi-chevron-up"></i>
+  </div>
+  <div class="form-group destination-input-group">
+    <i class="bi bi-search"></i>
+    <input
+      [(ngModel)]="destinationSelectedValue"
+      class="form-control destination-data-input" 
+      list="destinationlistOptions" 
+      id="destinationDataList" 
+      placeholder="Suche nach Reiseziel" 
+      (change)="saveCode($event)">
+  </div>
+  <div *ngIf="destinationSelectedValue" class="destination-chip">
+    <div class="alert alert-primary destination-alert alert-dismissible fade show" role="alert">
+      <span>{{ destinationSelectedValue }}</span>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+  <datalist id="destinationlistOptions">
+   <option *ngFor="let destination of destinationsList" [value]="destination.name" class="destionation-option">
+   </option>
+  </datalist>
+</div>

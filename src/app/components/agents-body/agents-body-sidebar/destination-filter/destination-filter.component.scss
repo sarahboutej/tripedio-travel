@@ -1,0 +1,50 @@
+@import '../../../../../styles/variables';
+.destination-filter-wrapper {
+  .destination-input-group {
+    position: relative;
+    .destination-data-input {
+      padding-left: 2.3rem;
+      background: transparent;
+      margin-bottom: 1.125rem;
+      border-color: $stars-grey-color!important;
+      &::placeholder {
+        color: $greyMediumColor!important;
+      }
+      &:focus {
+        outline: none!important;
+        box-shadow: none!important;
+        border-color: $stars-grey-color!important;
+      }
+      .destination-data-input::-webkit-calendar-picker-indicator {
+        display: none;
+      }
+    }
+    .bi-search {
+      position: absolute;
+      top: 7px;
+      left: 10px;
+      color: $secondaryColor!important;
+    }
+  }
+
+  .destination-chip {
+    .destination-alert {
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      padding-left: 0.5rem;
+      padding-right: 2rem;
+      display: inline;
+      background-color: $primaryChip!important;
+      color: white!important;
+      border-radius: 8px;
+      border: none;
+      .btn-close {
+        padding: 0.625rem!important;
+        font-size: 0.5rem!important;
+        color: white!important;
+        opacity: 1;
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}

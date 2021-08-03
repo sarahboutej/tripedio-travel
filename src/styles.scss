@@ -41,6 +41,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .text-color {
   color: $textColor!important;
 }
+.text-black {
+  color: black !important;
+}
 .dark-grey-color {
   color: $darkGreyColor!important;
 }
@@ -154,7 +157,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .link-td {
   text-decoration: none!important;
 }
-
+.border-bottom {
+  border-color: #F1F1F1!important;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
 
 .destination-container, .travel-type-container {
   .owl-carousel {

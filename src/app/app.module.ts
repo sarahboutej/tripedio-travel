@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SwiperModule } from 'swiper/angular';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,9 +26,9 @@ import { AgentsTitleComponent } from './components/agents-title/agents-title.com
 import { AgentsBodyComponent } from './components/agents-body/agents-body.component';
 import { AgentsBodySidebarComponent } from './components/agents-body/agents-body-sidebar/agents-body-sidebar.component';
 import { AgentsBodyContentComponent } from './components/agents-body/agents-body-content/agents-body-content.component';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { DestinationFilterComponent } from './components/agents-body/agents-body-sidebar/destination-filter/destination-filter.component';
+import { AgentOptionsComponent } from './components/agents-body/agents-body-sidebar/agent-options/agent-options.component';
+import { TravelTypeFilterComponent } from './components/agents-body/agents-body-sidebar/travel-type-filter/travel-type-filter.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { HttpClientModule } from '@angular/common/http';
     AgentsTitleComponent,
     AgentsBodyComponent,
     AgentsBodySidebarComponent,
-    AgentsBodyContentComponent
+    AgentsBodyContentComponent,
+    DestinationFilterComponent,
+    AgentOptionsComponent,
+    TravelTypeFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     SwiperModule,
     NgSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
