@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agents-body.component.scss']
 })
 export class AgentsBodyComponent implements OnInit {
-
+  displaySidebar: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+displaySidebarMobile() {
+  this.displaySidebar = !this.displaySidebar;
+}
 }

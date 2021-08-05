@@ -22,7 +22,6 @@ import { TestimonialsComponent } from './components/testimonials/testimonials.co
 import { InspirationComponent } from './components/inspiration/inspiration.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { AgentsSearchResultComponent } from './pages/agents-search-result/agents-search-result.component';
-import { AgentsTitleComponent } from './components/agents-title/agents-title.component';
 import { AgentsBodyComponent } from './components/agents-body/agents-body.component';
 import { AgentsBodySidebarComponent } from './components/agents-body/agents-body-sidebar/agents-body-sidebar.component';
 import { AgentsBodyContentComponent } from './components/agents-body/agents-body-content/agents-body-content.component';
@@ -46,7 +45,6 @@ import { TravelTypeFilterComponent } from './components/agents-body/agents-body-
     InspirationComponent,
     FooterComponent,
     AgentsSearchResultComponent,
-    AgentsTitleComponent,
     AgentsBodyComponent,
     AgentsBodySidebarComponent,
     AgentsBodyContentComponent,

@@ -1,3 +1,35 @@
+@import '../../../styles/variables';
+.agents-title-container {
+  margin-top: 4.7rem;
+  h1 {
+    line-height: 32px;
+  }
+  .bi-sliders {
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    background: $bgGreyColor;
+    border-radius: 4px;
+    color: $secondaryColor;
+  }
+}
 .agents-body-container {
   margin-bottom: 7.5rem;
+}
+
+.agents-filter-mobile {
+  position: fixed;
+  background: white;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+@media screen and (max-width: 767px) {
+  .agents-body-mobile {
+    width: 100%!important;
+  }
 }

@@ -37,5 +37,43 @@
         }
       }
     }
+    .user-status {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      border-radius: 50%;
+      margin-left: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .agent-items-container {
+    padding-left: 0!important;
+    .agent-item {
+      .item-wrapper {
+        flex-wrap: wrap;
+        .avatar-container {
+          .agent-avatar {
+            width: 80px;
+          }
+        }
+        .agent-detail-container {
+          .agent-details {
+            margin: 0!important;
+            .agent-desc {
+              margin-top: 1.5rem!important;
+              margin-bottom: 1.5rem!important;
+            }
+            .agent-information {
+              margin-bottom: 1.5rem;
+            }
+          }
+        }
+        .agent-actions-container { 
+          flex: 1 1;
+        }
+      }
+    }
   }
 }

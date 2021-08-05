@@ -17,7 +17,7 @@ export class AgentsBodyContentComponent implements OnInit {
       matching: '90%',
       stars: 3,
       review: '2',
-      availability: [
+      availabilityDate: [
         {
           days: 'Mo. - Fr.',
           time: '09:00 - 18:00'
@@ -26,7 +26,8 @@ export class AgentsBodyContentComponent implements OnInit {
           days: 'Sa.',
           time: '09:00 - 16:00'
         }
-      ]
+      ],
+      status: 'online'
     },
 
     {
@@ -38,7 +39,7 @@ export class AgentsBodyContentComponent implements OnInit {
       matching: '90%',
       stars: 3,
       review: '2',
-      availability: [
+      availabilityDate: [
         {
           days: 'Mo. - Fr.',
           time: '09:00 - 18:00'
@@ -47,7 +48,8 @@ export class AgentsBodyContentComponent implements OnInit {
           days: 'Sa.',
           time: '09:00 - 16:00'
         }
-      ]
+      ],
+      status: 'away'
     },
 
     {
@@ -59,7 +61,7 @@ export class AgentsBodyContentComponent implements OnInit {
       matching: '90%',
       stars: 3,
       review: '3',
-      availability: [
+      availabilityDate: [
         {
           days: 'Mo. - Fr.',
           time: '09:00 - 18:00'
@@ -68,7 +70,8 @@ export class AgentsBodyContentComponent implements OnInit {
           days: 'Sa.',
           time: '09:00 - 16:00'
         }
-      ]
+      ],
+      status: 'online'
     },
 
     {
@@ -80,7 +83,7 @@ export class AgentsBodyContentComponent implements OnInit {
       matching: '90%',
       stars: 5,
       review: '4',
-      availability: [
+      availabilityDate: [
         {
           days: 'Mo. - Fr.',
           time: '09:00 - 18:00'
@@ -89,7 +92,8 @@ export class AgentsBodyContentComponent implements OnInit {
           days: 'Sa.',
           time: '09:00 - 16:00'
         }
-      ]
+      ],
+      status: 'offline'
     },
 
     {
@@ -101,7 +105,7 @@ export class AgentsBodyContentComponent implements OnInit {
       matching: '90%',
       stars: 3,
       review: '3',
-      availability: [
+      availabilityDate: [
         {
           days: 'Mo. - Fr.',
           time: '09:00 - 18:00'
@@ -110,7 +114,8 @@ export class AgentsBodyContentComponent implements OnInit {
           days: 'Sa.',
           time: '09:00 - 16:00'
         }
-      ]
+      ],
+      status: 'online'
     }
   ]
 

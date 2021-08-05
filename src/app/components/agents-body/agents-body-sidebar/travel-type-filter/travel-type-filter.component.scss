@@ -57,10 +57,8 @@
       margin-right: 5px;
       margin-bottom: 3px;
     }
-    
     .form-group input:checked + label:after {
       content: '';
-      display: block;
       position: absolute;
       top: 6px;
       left: 8px;

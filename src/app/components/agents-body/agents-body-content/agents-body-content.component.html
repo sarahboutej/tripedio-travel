@@ -1,13 +1,15 @@
 <div class="agent-items-container">
   <div class="agent-item mb-4" *ngFor="let agent of agentItems">
-    <div class="d-flex">
+    <div class="d-flex item-wrapper">
       <div class="avatar-container">
         <img [src]="agent.agentAvatar" class="agent-avatar rounded-circle" />
+        <h3 class="text-color paragraphe-fs fw-medium mb-4 ms-3 line-heigth-24 d-inline d-lg-none">{{ agent.agentName }} <span class="user-status" [ngClass]="agent.status"></span></h3>
       </div>
       <div class="agent-detail-container">
         <div class="agent-details me-4">
-          <h3 class="text-color paragraphe-fs fw-medium mb-4 line-heigth-24">{{ agent.agentName }}</h3>
-          <p class="user-x-small-text grey-color line-heigth-24">{{ agent.agentDetail }}</p>
+          <h3 class="text-color paragraphe-fs fw-medium mb-4 line-heigth-24 d-none d-lg-block">
+            {{ agent.agentName }} <span class="user-status" [ngClass]="agent.status"></span></h3>
+          <p class="user-x-small-text grey-color line-heigth-24 agent-desc">{{ agent.agentDetail }}</p>
           <div class="agent-information">
             <p class="mb-2">
               <span class="fw-medium user-x-small-text text-color line-heigth-24 me-3">Reiseziele</span>
@@ -38,7 +40,7 @@
         </div>
         <div class="agent-availability mb-4">
           <p class="mb-0 fw-medium user-x-small-text text-color line-heigth-24 me-3">Verfügbarkeit</p>
-          <p *ngFor="let time of agent.availability" class="mb-2 d-flex">
+          <p *ngFor="let time of agent.availabilityDate" class="mb-2 d-flex">
             <span class="user-x-small-text text-color line-heigth-24 me-3 days-label">{{ time.days }}</span>
             <span class="primary-color user-x-small-text line-heigth-24 me-2 text-decoration-none time-label">{{ time.time }}</span>
           </p>

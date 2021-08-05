@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agents-body-sidebar.component.scss']
 })
 export class AgentsBodySidebarComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

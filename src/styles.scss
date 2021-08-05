@@ -44,6 +44,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .text-black {
   color: black !important;
 }
+.blue-color {
+  color: $primaryChip!important;
+}
 .dark-grey-color {
   color: $darkGreyColor!important;
 }
@@ -77,7 +80,15 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .bg-light-grey {
   background-color: $bgLightGrey!important;
 }
-
+.online {
+  background-color: $userOnline!important;
+}
+.away {
+  background-color: $userAway!important;
+}
+.offline {
+  background-color: $stars-grey-color!important;
+}
 .user-x-small-text {
   font-size: 0.875rem!important;
 }
@@ -249,21 +260,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .swiper-wrapper {
   height: 500px!important;
 }
-/*
-.testimonials-container {
-  .swipe-wrapper {
-    .swiper-wrapper {
-      height: 800px!important;
-    }
-  }
-}
-
-.testimonial-item {
-  box-shadow: -1px 4px 26px -4px #e0e0e0;
-  margin: 20px 20px;
-  border-radius: 8px;
-}
-*/
 
 .swiper-slide img {
   display: block;
