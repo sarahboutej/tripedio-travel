@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseApiUrl: 'http://localhost:8099'
+  baseApiUrl: 'http://tripedeopreprod.website/api'
 };
