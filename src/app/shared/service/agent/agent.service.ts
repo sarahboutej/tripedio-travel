@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UtilsService } from '../utils.service';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { Subscription } from '../../model/subscription.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 export class AgentService {
   SUPER_PLACE_API = UtilsService.BASE_API_URL + '/api/super-places';
   ACTIVITIES_API = UtilsService.BASE_API_URL + '/api/activities';
-
+  API_SUBSCRIPTION=UtilsService.BASE_API_URL+'/api/subscriptions';
   constructor(private http: HttpClient) { }
   
 
@@ -29,5 +30,9 @@ export class AgentService {
     }
     
     return this.http.get<any>(api);
+  }
+  saveSubscritpion(subscription:Subscription): Observable<any>
+  {
+    return this.http.post(this.API_SUBSCRIPTION,subscription);
   }
 }
