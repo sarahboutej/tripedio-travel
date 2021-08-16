@@ -28,6 +28,8 @@ import { AgentsBodyContentComponent } from './components/agents-body/agents-body
 import { DestinationFilterComponent } from './components/agents-body/agents-body-sidebar/destination-filter/destination-filter.component';
 import { AgentOptionsComponent } from './components/agents-body/agents-body-sidebar/agent-options/agent-options.component';
 import { TravelTypeFilterComponent } from './components/agents-body/agents-body-sidebar/travel-type-filter/travel-type-filter.component';
+import { AgentProfileComponent } from './components/agent-profile/agent-profile.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { TravelTypeFilterComponent } from './components/agents-body/agents-body-
     AgentsBodyContentComponent,
     DestinationFilterComponent,
     AgentOptionsComponent,
-    TravelTypeFilterComponent
+    TravelTypeFilterComponent,
+    AgentProfileComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

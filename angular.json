@@ -134,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "tripedeo-home-page"
+  "defaultProject": "tripedeo-home-page",
+  "cli": {
+    "analytics": false
+  }
 }
