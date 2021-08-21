@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AgentsSearchResultComponent } from './pages/agents-search-result/agents-search-result.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ImprintComponent } from './pages/imprint/imprint.component';
+import { DatenschutzComponent } from './pages/datenschutz/datenschutz.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,14 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+  },
+  { 
+    path: 'imprint', 
+    component: ImprintComponent 
+  },
+  { 
+    path: 'datenschutz', 
+    component: DatenschutzComponent 
   },
 ];
 

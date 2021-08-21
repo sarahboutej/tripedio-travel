@@ -1,7 +1,15 @@
 <div class="main-content-profile">
     <div class="entry-content">
-        <img class="d-none d-lg-block d-md-block img-fluid" src="assets/images/img-video.jpg">
-        <img class="d-sm-block d-md-none img-fluid" src="assets/images/img-video.jpg">
+        <img *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" class="d-none d-lg-block d-md-block img-fluid" src="assets/images/img-video.jpg">
+        <img *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" class="d-sm-block d-md-none img-fluid" src="assets/images/img-video.jpg">
+        
+        <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo!=null && agent.agentVideo!=undefined" height="484" width="100%" class="d-none d-lg-block d-md-block video-block"  loop controls>
+            <source  [src]="urlBack+agent.agentVideo.mediaUrl"  type="video/mp4"/>
+        </video>
+
+        <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo!=null && agent.agentVideo!=undefined" height="169" width="100%" class="d-sm-block d-md-none video-block"  loop controls>
+            <source  [src]="urlBack+agent.agentVideo.mediaUrl"  type="video/mp4"/>
+        </video>
     </div>
     <div class="inner-content"> 
         <div class="container">
@@ -13,12 +21,14 @@
             <div class="row">
                 <div class="col-lg-4 col-sm-12">
                     <div class="info-profile">
-                        <div class="agent-img-wrapper">
-                            <img class="agent-avatar rounded-circle d-none d-lg-block d-md-block img-fluid" src="assets/images/image.jpg">
-                            <img class="agent-avatar rounded-circle d-sm-block d-md-none img-fluid" src="assets/images/Mimg-profile.png">
+                        <div *ngIf="agent!=null && agent!=undefined" class="agent-img-wrapper">
+                            <img *ngIf="agent.agentPhoto!=null && agent.agentPhoto!=undefined" class="agent-avatar rounded-circle d-none d-lg-block d-md-block img-fluid img-profile" [src]="urlBack+agent.agentPhoto.mediaUrl">
+                            <img *ngIf="agent.agentPhoto!=null && agent.agentPhoto!=undefined" class="agent-avatar rounded-circle d-sm-block d-md-none img-fluid img-profile-mobile" [src]="urlBack+agent.agentPhoto.mediaUrl">
+                            <div *ngIf="agent.agentPhoto==null || agent.agentPhoto==undefined" class="agent-avatar rounded-circle d-none d-lg-block d-md-block img-fluid img-profile" id="profileImageEdit">{{abbriviation}}</div>
+                            <div *ngIf="agent.agentPhoto==null || agent.agentPhoto==undefined" class="agent-avatar rounded-circle d-sm-block d-md-none img-fluid img-profile-mobile" id="profileImageEditMobile">{{abbriviation}}</div>
                         </div>
-                        <div class="details-profile">
-                            <h2 class="text-color  fw-medium mb-4 line-heigth-24">Cameron Williamson <span class="user-status"></span></h2>
+                        <div *ngIf="agent!=null && agent!=undefined" class="details-profile">
+                            <h2 class="text-color  fw-medium mb-4 line-heigth-24">{{agent.agentFirstName}} {{agent.agentLastName}} <span class="user-status"></span></h2>
                         </div>
                         <div class="button-content">
                             <button _ngcontent-vvu-c76="" type="button" class="btn user-btn orange-gb   d-sm-block d-md-none text-white user-x-small-text fw-medium">
@@ -28,53 +38,39 @@
                         <p class="grey-color  mb-0 d-sm-block d-md-none">
                             I  believe great trip comes from focusing on the right questions, not the right answers.
                         </p>
-                        <div class="stars d-none d-lg-block d-md-block">
+                        <!--<div class="stars d-none d-lg-block d-md-block">
                             <i _ngcontent-krp-c80="" class="bi bi-star-fill text-warning pe-2 ng-star-inserted"></i>
                             <i _ngcontent-krp-c80="" class="bi bi-star-fill text-warning pe-2 ng-star-inserted"></i>
                             <i _ngcontent-krp-c80="" class="bi bi-star-fill text-warning pe-2 ng-star-inserted"></i>
                             <i _ngcontent-krp-c80="" class="bi bi-star-fill text-warning pe-2 ng-star-inserted"></i>
-                        </div>
-                        <div class="destinations">
+                        </div>-->
+                        <div *ngIf="listCountries!=null&&listCountries!=undefined&&listCountries.length > 0" class="destinations">
                             <h5 class="user-small-text fw-bold text-color">Reiseziele</h5>
-                            <span>Baltic Sea</span>
-                            <span>Russia</span>
-                            <span>Spain</span>
-                            <span>Greece</span>
+                            <span *ngFor="let place of listCountries">{{place.specialityLabel}}</span>
                         </div>
-                        <div class="activities">
+                        <div *ngIf="listactivities!=null&&listactivities!=undefined&&listactivities.length > 0" class="activities">
                             <h5 class="user-small-text fw-bold text-color">Reisearten</h5>
-                            <span>Cruise</span>
-                            <span>Family Holiday</span>
-                            <span>Sport</span>
+                            <span  *ngFor="let act of listactivities">{{act.activityLabel}}</span>
                         </div>
-                        <div class="prices">
+                        <div *ngIf="agent!=null && agent!=undefined&&agent.agentConsultancyFee!=null && agent.agentConsultancyFee!=undefined" class="prices">
                             <h5 class="user-small-text fw-bold text-color">Beratungsgebühr</h5>
-                            <span>10€</span>
+                            <span>{{agent.agentConsultancyFee}}€</span>
                         </div>
                         
                     </div>
                 </div>
                 <div class="col-lg-8 col-sm-12">
-                    <div class="about-profile">
-                        <h3 class="fw-medium mb-4 line-heigth-24 ">About Cameron</h3>
+                    <div *ngIf="agent!=null && agent!=undefined" class="about-profile">
+                        <h3 class="fw-medium mb-4 line-heigth-24 ">About {{agent.agentFirstName}}</h3>
                             <p class="grey-color  mb-0">
-                                A redesign of the Agent Profile from user perspective. First the Reviews take to much space and we don't have any at the start. We need to play with the things we have. For example showing pictures for travel types. We can also use more space for description and photo of the agent. So maby it makes sence to switch the Reviews with the details of the Agent etc. We also would like to kick out the availabilities and the matching in the profile. I think we need to have a phone call about this one.
+                                {{agent.agentDescription}}
                             </p>
                     </div>
-                    <div class="galleries">
+                    <div *ngIf="listactivities!=null&&listactivities!=undefined&&listactivities.length > 0" class="galleries">
                         <h3 class="fw-medium mb-4 line-heigth-24 ">Travel types gallery</h3>
-                        <div class="row">
-                            <div class="col-6 col-md-3 col-sm-6 col-xs-6">
-                                <img class="img-fluid" src="assets/images/dest-1.png">
-                            </div>
-                            <div class="col-6 col-md-3 col-sm-6 col-xs-6">
-                                <img class="img-fluid" src="assets/images/dest-2.png">                   
-                            </div>
-                            <div class="col-6 col-md-3 col-sm-6 col-xs-6">
-                                <img class="img-fluid" src="assets/images/dest-3.png">                 
-                            </div>
-                            <div class="col-6 col-md-3 col-sm-6 col-xs-6">
-                                <img class="img-fluid" src="assets/images/dest-4.png">                   
+                        <div class="row" >
+                            <div  *ngFor="let act of listactivities" class="col-6 col-md-3 col-sm-6 col-xs-6">
+                                <img *ngIf="act.activityPhoto" class="img-fluid img-activity" [src]="urlBack+act.activityPhoto.mediaUrl">
                             </div>
                         </div>
                     </div>

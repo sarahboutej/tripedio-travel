@@ -25,9 +25,10 @@
                     color: $primaryColor;
                     font-size: 14px;
                     display: inline-block;
-                    &:not(:first-of-type){
-                        padding-left: 8px;
-                    }
+                    padding-right: 8px;
+                    /*{
+                        padding-right: 8px;
+                    }*/
                 }
             }
         }
@@ -44,6 +45,46 @@
                 }
             }
         }
+    }
+    .about-profile p{
+        word-wrap: break-word;
+    }
+
+    #profileImageEdit {
+        /*font-family: Arial, Helvetica, sans-serif;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;*/
+        background: #3D626F;
+        font-size: 6.5rem;
+        color: white;
+        text-align: center;
+      }
+      #profileImageEditMobile {
+        /*font-family: Arial, Helvetica, sans-serif;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;*/
+        background: #3D626F;
+        font-size: 3rem;
+        color: white;
+        text-align: center;
+        padding-top: 10px;
+      }  
+      .img-activity{
+         padding-top: 20px;
+      }  
+      .video-block{
+        object-fit: fill;
+      }
+
+      .img-profile{
+        width: 180px;
+        height: 180px;
+      }
+      .img-profile-mobile{
+        width: 106px;
+        height: 106px;
     }
 }
 

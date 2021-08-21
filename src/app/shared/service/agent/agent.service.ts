@@ -12,6 +12,10 @@ export class AgentService {
   SUPER_PLACE_API = UtilsService.BASE_API_URL + '/api/super-places';
   ACTIVITIES_API = UtilsService.BASE_API_URL + '/api/activities';
   API_SUBSCRIPTION=UtilsService.BASE_API_URL+'/api/subscriptions';
+  AGENT_API = UtilsService.BASE_API_URL + '/api/agents';
+  AGENT_PLACE_API = UtilsService.BASE_API_URL + '/api/specialities';
+  AGENT_ACTIVITY_API = UtilsService.BASE_API_URL + '/api/agent-activities';
+
   constructor(private http: HttpClient) { }
   
   getFiltredPlaces(superPlaceLabel?: string, offset?: number): Observable<any> {
@@ -64,5 +68,17 @@ export class AgentService {
   saveSubscritpion(subscription:Subscription): Observable<any>
   {
     return this.http.post(this.API_SUBSCRIPTION,subscription);
+  }
+
+  getAgentByUuid(uuid: string ): Observable<any> {
+    return this.http.get<any>(`${this.AGENT_API}/${uuid}`);
+  }
+
+  getAgentActivities(uuid: string ): Observable<any> {
+    return this.http.get<any>(`${this.AGENT_ACTIVITY_API}/${uuid}`);
+  }
+
+  getAgentPlaces(uuid: string ): Observable<any> {
+    return this.http.get<any>(`${this.AGENT_PLACE_API}/${uuid}`);
   }
 }

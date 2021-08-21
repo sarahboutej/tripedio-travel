@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+
+.why-use-container {
+    background-color: $bgGreyColor;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .why-use-container {
+      .why-use-img-wrapper {
+        display: block;
+        margin: auto;
+      }
+    }
+  }
