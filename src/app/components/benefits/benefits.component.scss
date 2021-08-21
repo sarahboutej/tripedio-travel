@@ -6,10 +6,17 @@
   }
 }
 
+
 @media screen and (max-width: 991px) {
   .benefits-container {
     .col {
       flex: 0 1 33.33%;
     }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .benefit-item {
+    flex: 1 1 100%!important;
   }
 }
