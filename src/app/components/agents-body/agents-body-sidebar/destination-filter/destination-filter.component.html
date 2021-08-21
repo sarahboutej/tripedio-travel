@@ -5,22 +5,28 @@
   </div>
   <div class="form-group destination-input-group">
     <i class="bi bi-search"></i>
-    <input
-      [(ngModel)]="destinationSelectedValue"
-      class="form-control destination-data-input" 
-      list="destinationlistOptions" 
-      id="destinationDataList" 
-      placeholder="Suche nach Reiseziel" 
-      (change)="saveCode($event)">
+      <ng-select #placesSelect (close)="placesSelect.blur()" class="form-control destination-data-input" style="padding: 0; border: none;" [items]="destinationsList" 
+          [multiple]="true" bindLabel="superPlaceLabel" notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" 
+          placeholder="Suche nach Reiseziel" (add)="test()" [selectOnTab]="true" (search)="getFiltredDestination($event.term)">
+          <ng-template ng-multi-label-tmp let-items="items" let-clear="clear"></ng-template>
+          <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+            <div class="destination-option">
+              <div class="destination-option-label">{{item.superPlaceLabel}}</div>
+              <div>
+                <i *ngIf="!commitedDestinations.includes(item.superPlaceLabel)" class="bi bi-circle unselected-item" (click)="commitSelectedDestinations(item.superPlaceLabel, true)"></i>
+                <i *ngIf="commitedDestinations.includes(item.superPlaceLabel)" class="bi bi-check-circle selected-item" (click)="commitSelectedDestinations(item.superPlaceLabel, false)"></i>
+              </div>
+            </div>
+        </ng-template>
+        <ng-template ng-footer-tmp>
+          <button type="button" class="btn user-btn orange-gb text-white user-x-small-text fw-medium mb-2" (click)="pushSelectedDestinations()">Anwenden</button>
+        </ng-template>
+        </ng-select>
   </div>
-  <div *ngIf="destinationSelectedValue" class="destination-chip">
-    <div class="alert alert-primary destination-alert alert-dismissible fade show" role="alert">
-      <span>{{ destinationSelectedValue }}</span>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <div class="destination-chip">
+    <div *ngFor="let selectedDestination of selectedDestinations" class="alert alert-primary destination-alert alert-dismissible fade show" style="margin-right: .25rem;" role="alert">
+      <span>{{ selectedDestination }}</span>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="removeDestination(selectedDestination)"></button>
     </div>
   </div>
-  <datalist id="destinationlistOptions">
-   <option *ngFor="let destination of destinationsList" [value]="destination.name" class="destionation-option">
-   </option>
-  </datalist>
 </div>

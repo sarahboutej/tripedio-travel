@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AgentService } from 'src/app/shared/service/agent/agent.service';
 
 @Component({
   selector: 'app-agents-body',
@@ -6,12 +8,47 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agents-body.component.scss']
 })
 export class AgentsBodyComponent implements OnInit {
+  filtredAgents: any = {};
+  filtredMap: any = {};
+
   displaySidebar: boolean = false;
-  constructor() { }
+
+  constructor(private route: ActivatedRoute, private agentService: AgentService) { }
 
   ngOnInit(): void {
+    this.filtredMap.page = 1;
+    this.filtredMap.offset = 9;
+    this.filtredMap.noConsultancyFee = false;
+    this.route.queryParams.subscribe(params => {
+      if(params['reisearten']) {
+        this.filtredMap.activity = params['reisearten'].split(",");
+      }
+      if(params['reiseziele']) {
+        this.filtredMap.place = params['reiseziele'].split(",");
+      }
+      this.getFiltredAgents();
+    });
   }
-displaySidebarMobile() {
-  this.displaySidebar = !this.displaySidebar;
-}
+
+  getFiltredAgents() {
+    this.agentService.getFiltredAgents(this.filtredMap).subscribe(
+      result => {
+        this.filtredAgents = result;
+      }
+    );
+  }
+
+  consultancyFeeChange(event: any) {
+    this.filtredMap.noConsultancyFee = event || false;
+
+    this.agentService.getFiltredAgents(this.filtredMap).subscribe(
+      result => {
+        this.filtredAgents = result;
+      }
+    );
+  }
+  
+  displaySidebarMobile() {
+    this.displaySidebar = !this.displaySidebar;
+  }
 }

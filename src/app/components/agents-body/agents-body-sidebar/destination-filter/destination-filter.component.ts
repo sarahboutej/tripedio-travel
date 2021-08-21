@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AgentService } from 'src/app/shared/service/agent/agent.service';
 
 @Component({
   selector: 'app-destination-filter',
@@ -7,27 +9,68 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DestinationFilterComponent implements OnInit {
   destinationSelectedValue = '';
-  destinationsList = [
-    { id: 1, name: 'Egypt' },
-    { id: 2, name: 'Albania' },
-    { id: 3, name: 'Algeria' },
-    { id: 4, name: 'Andorra' },
-    { id: 5, name: 'Angola' }
-  ];
+  destinationsList: any[] = [];
 
-  constructor() { }
+  selectedDestinations: string[] = [];
+
+  constructor(private router: Router, private route: ActivatedRoute, private agentService: AgentService) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if(params['reiseziele']) {
+        this.selectedDestinations = params['reiseziele'].split(",");
+        this.commitedDestinations = Object.assign([], this.selectedDestinations);
+      }
+      this.getDestinations();
+    });
   }
 
- saveCode(e : any): void {
-  let name = e.target.value;
-  let destination = this.destinationsList.filter(x => x.name === name)[0];
-  if( destination ) {
-    this.destinationSelectedValue = destination.name;
-  } else {
-    this.destinationSelectedValue = '';
+  getDestinations() {
+    this.agentService.getFiltredPlaces(this.destinationSelectedValue, 5).subscribe(
+      result => {
+        this.destinationsList = [...result];
+      }
+    );
   }
-}
 
+  getFiltredDestination(text: any): void {
+    this.agentService.getFiltredPlaces(text, 5).subscribe(
+      result => {
+        this.destinationsList = [...result];
+      }
+    );
+  }
+
+  removeDestination(destinationName: string) {
+    this.selectedDestinations = this.selectedDestinations.filter(item => item !== destinationName);
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        reiseziele: this.selectedDestinations.join(',')
+      },
+      queryParamsHandling: 'merge'
+    });
+  }
+
+  commitedDestinations: string[] = [];
+
+  commitSelectedDestinations(destinationLabel: string, isChecked: boolean) {
+    if(isChecked) {
+      this.commitedDestinations.push(destinationLabel);
+    } else {
+      this.commitedDestinations = this.commitedDestinations.filter(item => item !== destinationLabel);
+    }
+  }
+
+  pushSelectedDestinations() {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        reiseziele: this.commitedDestinations.join(',')
+      },
+      queryParamsHandling: 'merge'
+    });
+  }
+
+  test() {}
 }

@@ -24,10 +24,14 @@
       top: 7px;
       left: 10px;
       color: $secondaryColor!important;
+      z-index: 9999;
     }
   }
 
   .destination-chip {
+    display: flex;
+    flex-wrap: wrap;
+    
     .destination-alert {
       padding-top: 0.25rem;
       padding-bottom: 0.25rem;
@@ -47,4 +51,71 @@
       }
     }
   }
+}
+
+
+:host ::ng-deep ng-select .ng-select-container > .ng-value-container {
+  padding: .375rem 2.25rem !important;
+}
+
+:host ::ng-deep ng-select .ng-select-container > .ng-value-container > div[role="combobox"] {
+  padding: 0 !important;
+}
+
+:host ::ng-deep ng-select .ng-select-container > .ng-value-container > .ng-value {
+  margin-bottom: 0 !important;
+}
+
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar {
+  width: 8px;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items .ng-option {
+  padding: 3px 10px !important;
+  background-color: #ffffff !important;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-footer {
+  border-top: none !important;
+}
+
+:host ::ng-deep ng-select div.ng-select-container > span.ng-clear-wrapper .ng-clear,
+:host ::ng-deep ng-select div.ng-select-container > span.ng-arrow-wrapper .ng-arrow {
+  display: none !important;
+}
+
+.user-btn {
+  width: 100% !important;
+}
+
+.destination-option {
+  display: flex; 
+  padding: 5px; 
+  justify-content: space-between;
+  .destination-option-label {
+    color: #2D2D2D;
+    font-family: Inter; 
+    font-style: normal; 
+    font-weight: normal; 
+    font-size: 14px; 
+    line-height: 24px;
+  }
+}
+
+.selected-item {
+  color: #5AE1C1; 
+  cursor: pointer;
+}
+
+.unselected-item {
+  color: #797979; 
+  cursor: pointer;
 }

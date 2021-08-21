@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-agents-body-sidebar',
@@ -6,9 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agents-body-sidebar.component.scss']
 })
 export class AgentsBodySidebarComponent implements OnInit {
+  @Output() consultancyEvent = new EventEmitter<boolean>();
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  consultancyFeeChange(event: any) {
+    this.consultancyEvent.emit(event);
+  }
 }

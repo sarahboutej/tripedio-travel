@@ -19,11 +19,18 @@ export class HeaderTabsComponent implements OnInit {
   ngOnInit(): void { }
 
   public goToAgentsList() {
-    this.router.navigateByUrl(`/agents`)
+    let queryParams: any = {};
+    if(this.selectedActivityItems.length > 0) {
+      queryParams.reisearten = this.selectedActivityItems.map(item => item.activityTypeLabel).join(',');
+    }
+    if(this.selectedPlacesItems.length > 0) {
+      queryParams.reiseziele = this.selectedPlacesItems.map(item => item.superPlaceLabel).join(',');
+    }
+    this.router.navigate([`/reiseexperten`], { queryParams: queryParams});
   }
 
   getFiltredPlaces(text: any) {
-    this.agentService.getFiltredPlaces(text.term).subscribe(
+    this.agentService.getFiltredPlaces(text.term, 5).subscribe(
       result => {
         this.places = [...result];
       }
@@ -31,7 +38,7 @@ export class HeaderTabsComponent implements OnInit {
   }
 
   getFiltredActivities(text: any) {
-    this.agentService.getFiltredActivities(text.term).subscribe(
+    this.agentService.getFiltredActivities(text.term, 5).subscribe(
       result => {
         this.activities = [...result];
       }

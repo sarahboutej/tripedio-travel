@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AgentService } from 'src/app/shared/service/agent/agent.service';
 
 @Component({
   selector: 'app-travel-type-filter',
@@ -8,78 +10,55 @@ import { Component, OnInit } from '@angular/core';
 export class TravelTypeFilterComponent implements OnInit {
   optionToShow = 5;
   buttonText= 'Vollständige Liste öffnen'
-  travelTypeOption = [
-    {
-      'name': 'sport',
-      'value':'Sport'
-    },
-    {
-      'name': 'golf',
-      'value':'Golf'
-    },
-    {
-      'name': 'packing',
-      'value':'Packing travel'
-    },
-    {
-      'name': 'Cruise',
-      'value':'Cruise'
-    },
-    {
-      'name': 'Health',
-      'value':'Health'
-    },
-    {
-      'name': 'mixture',
-      'value':'Mixture'
-    },
-    {
-      'name': 'sympathy',
-      'value':'Sympathy'
-    },
-    {
-      'name': 'internet',
-      'value':'Internet'
-    },
-    {
-      'name': 'sister',
-      'value':'Sister'
-    },
-    {
-      'name': 'soup',
-      'value':'Soup'
-    },
-    {
-      'name': 'actor',
-      'value':'Actor'
-    },
-    {
-      'name': 'entry',
-      'value':'Entry'
-    },
-    {
-      'name': 'length',
-      'value':'Length'
-    },
-    {
-      'name': 'death',
-      'value':'Death'
-    },
+  travelTypeOption: any[] = [];
 
-  ]
-  constructor() { }
+  activityLabel: string = '';
+  reisearten: string[] = [];
+
+  constructor(private router: Router, private route: ActivatedRoute, private agentService: AgentService) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if(params['reisearten']) {
+        this.reisearten = params['reisearten'].split(",");
+      }
+      this.getActivities();
+    });
+  }
+
+  getActivities() {
+    this.agentService.getFiltredActivities(this.activityLabel, this.optionToShow).subscribe(
+      result => {
+        this.travelTypeOption = result;
+      }
+    );
   }
 
   showMore() {
     if( this.optionToShow === 5 ) {
-      this.optionToShow = this.travelTypeOption.length;
+      this.optionToShow = -1;
       this.buttonText = 'Zeige weniger'
+      this.getActivities();
     } else {
       this.optionToShow = 5;
       this.buttonText = 'Vollständige Liste öffnen'
+      this.getActivities();
     }
   }
 
+  checkValue(activityTypeLabel: string, event:Event){
+    const ischecked = (<HTMLInputElement>event.target).checked;
+    if(ischecked) {
+      this.reisearten.push(activityTypeLabel);
+    } else {
+      this.reisearten = this.reisearten.filter(item => item !== activityTypeLabel);
+    }
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        reisearten: this.reisearten.join(',')
+      },
+      queryParamsHandling: 'merge'
+    });
+  }
 }

@@ -60,13 +60,17 @@
     .form-group input:checked + label:after {
       content: '';
       position: absolute;
-      top: 6px;
-      left: 8px;
+      top: 4px;
+      left: 7px;
       width: 5px;
       height: 11px;
       border: solid  $stars-grey-color;
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
+    }
+
+    .form-group input:checked + label::before {
+      background-color: $primaryChip;
     }
   }
 }

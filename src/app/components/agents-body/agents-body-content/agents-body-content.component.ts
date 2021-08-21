@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UtilsService } from 'src/app/shared/service/utils.service';
 
 @Component({
   selector: 'app-agents-body-content',
@@ -7,117 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgentsBodyContentComponent implements OnInit {
 
-  agentItems= [
-    {
-      agentName: 'Cameron Williamson',
-      agentAvatar:'assets/images/user-1.jpg',
-      agentDetail: 'I  believe great trip comes from focusing on the right questions, not the right answers.',
-      destination: ['Baltic Sea','Russia','Spain','Greece'],
-      travelType: ['Cruise','Family Holiday','Sport'],
-      matching: '90%',
-      stars: 3,
-      review: '2',
-      availabilityDate: [
-        {
-          days: 'Mo. - Fr.',
-          time: '09:00 - 18:00'
-        },
-        {
-          days: 'Sa.',
-          time: '09:00 - 16:00'
-        }
-      ],
-      status: 'online'
-    },
+  @Input()
+  agentItems: any[] = [];
 
-    {
-      agentName: 'Brooklyn Simmons',
-      agentAvatar:'assets/images/user-2.jpg',
-      agentDetail: 'I  believe great trip comes from focusing on the right questions, not the right answers.',
-      destination: ['Baltic Sea','Russia','Spain','Greece'],
-      travelType: ['Cruise','Family Holiday','Sport'],
-      matching: '90%',
-      stars: 3,
-      review: '2',
-      availabilityDate: [
-        {
-          days: 'Mo. - Fr.',
-          time: '09:00 - 18:00'
-        },
-        {
-          days: 'Sa.',
-          time: '09:00 - 16:00'
-        }
-      ],
-      status: 'away'
-    },
-
-    {
-      agentName: 'Ronald Richards',
-      agentAvatar:'assets/images/user-3.jpg',
-      agentDetail: 'I  believe great trip comes from focusing on the right questions, not the right answers.',
-      destination: ['Baltic Sea','Russia','Spain','Greece'],
-      travelType: ['Cruise','Family Holiday','Sport'],
-      matching: '90%',
-      stars: 3,
-      review: '3',
-      availabilityDate: [
-        {
-          days: 'Mo. - Fr.',
-          time: '09:00 - 18:00'
-        },
-        {
-          days: 'Sa.',
-          time: '09:00 - 16:00'
-        }
-      ],
-      status: 'online'
-    },
-
-    {
-      agentName: 'Devon Lane',
-      agentAvatar:'assets/images/user-4.jpg',
-      agentDetail: 'I  believe great trip comes from focusing on the right questions, not the right answers.',
-      destination: ['Baltic Sea','Russia','Spain','Greece'],
-      travelType: ['Cruise','Family Holiday','Sport'],
-      matching: '90%',
-      stars: 5,
-      review: '4',
-      availabilityDate: [
-        {
-          days: 'Mo. - Fr.',
-          time: '09:00 - 18:00'
-        },
-        {
-          days: 'Sa.',
-          time: '09:00 - 16:00'
-        }
-      ],
-      status: 'offline'
-    },
-
-    {
-      agentName: 'Arlene McCoy',
-      agentAvatar:'assets/images/user-5.jpg',
-      agentDetail: 'I  believe great trip comes from focusing on the right questions, not the right answers.',
-      destination: ['Baltic Sea','Russia','Spain','Greece'],
-      travelType: ['Cruise','Family Holiday','Sport'],
-      matching: '90%',
-      stars: 3,
-      review: '3',
-      availabilityDate: [
-        {
-          days: 'Mo. - Fr.',
-          time: '09:00 - 18:00'
-        },
-        {
-          days: 'Sa.',
-          time: '09:00 - 16:00'
-        }
-      ],
-      status: 'online'
-    }
-  ]
+  urlPhotoBack= UtilsService.BASE_API_URL;
 
   constructor() { }
 

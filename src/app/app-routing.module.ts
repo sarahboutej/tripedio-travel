@@ -11,7 +11,7 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'agents',
+    path: 'reiseexperten',
     component: AgentsSearchResultComponent,
   },
   {

@@ -16,7 +16,7 @@
           placeholder="z.b: Spanien, Süd Afrika" [(ngModel)]="selectedPlacesItems" [selectOnTab]="true"
           (search)="getFiltredPlaces($event)" (open)="onOpen(placesSelect)">
         </ng-select>
-      <button type="button" routerLink="/agents" class="btn user-btn orange-gb text-white user-x-small-text fw-medium mt-3">Reiseexperten jetzt finden</button>
+      <button type="button" (click)="goToAgentsList()" class="btn user-btn orange-gb text-white user-x-small-text fw-medium mt-3">Reiseexperten jetzt finden</button>
     </div>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
