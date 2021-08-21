@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
 import { AgentService } from 'src/app/shared/service/agent/agent.service';
 import { UtilsService } from 'src/app/shared/service/utils.service';
 
@@ -13,11 +14,14 @@ export class AgentProfileComponent implements OnInit {
   listactivities:any=[];
   urlBack= UtilsService.BASE_API_URL;
   abbriviation='';
+  @Input()
+  agentUuid: any = '';
+
 
   constructor(private agentService:AgentService) { }
 
   ngOnInit(): void {
-    this.agentService.getAgentByUuid('5342548f-995d-4227-8300-4800e5d7416a').subscribe(response => {
+    this.agentService.getAgentByUuid(this.agentUuid).subscribe(response => {
       this.agent=response;
       if(this.agent!= null&&this.agent!=undefined&&this.agent.agentPhoto==null){
         const fullName = this.agent.agentFirstName+' '+this.agent.agentLastName;
@@ -35,8 +39,9 @@ export class AgentProfileComponent implements OnInit {
         
       }
     });
-    this.getAgentActivities('5342548f-995d-4227-8300-4800e5d7416a');
-    this.getAgentPlaces('5342548f-995d-4227-8300-4800e5d7416a');
+    this.getAgentActivities(this.agentUuid);
+    this.getAgentPlaces(this.agentUuid);
+
   }
 
   getAgentActivities(uuid:any){

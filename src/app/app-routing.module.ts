@@ -17,7 +17,7 @@ const routes: Routes = [
     component: AgentsSearchResultComponent,
   },
   {
-    path: 'profile',
+    path: ':agentUuid',
     component: ProfileComponent,
   },
   { 
