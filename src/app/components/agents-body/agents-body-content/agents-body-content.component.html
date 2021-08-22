@@ -14,13 +14,13 @@
             <p class="mb-2">
               <span class="fw-medium user-x-small-text text-color line-heigth-24 me-3">Reiseziele</span>
               <a *ngFor="let destionation of agent.destination" 
-              href="#"
+              [routerLink]="['.']" [queryParams]="{reiseziele: destionation}"
               class="destination-label primary-color user-x-small-text line-heigth-24 me-2 text-decoration-none">{{ destionation }}</a>
             </p>
             <p class="mb-2">
               <span class="fw-medium user-x-small-text text-color line-heigth-24 me-3">Reisearten</span>
               <a *ngFor="let travel of agent.travelType" 
-              href="#"
+              [routerLink]="['.']" [queryParams]="{reisearten: travel}"
               class="destination-label primary-color user-x-small-text line-heigth-24 me-2 text-decoration-none">{{ travel }}</a>
             </p>
             <p class="mb-2">
