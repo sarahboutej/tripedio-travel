@@ -32,6 +32,7 @@ import { AgentProfileComponent } from './components/agent-profile/agent-profile.
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DatenschutzComponent } from './pages/datenschutz/datenschutz.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { ImprintComponent } from './pages/imprint/imprint.component';
     SwiperModule,
     NgSelectModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule, 
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

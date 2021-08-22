@@ -2,7 +2,7 @@
   <div class="container-lg">
     <div class="row">
       <div class="col d-flex align-items-center justify-content-between">
-        <h1 class="fw-normal text-color user-meduim-text title-padding mb-0">{{ filtredAgents?.count }} Reiseexperten gefunden, die Ihren Kriterien entsprechen</h1>
+        <h1 class="fw-normal text-color user-meduim-text title-padding mb-0">{{ filtredAgentsCount }} Reiseexperten gefunden, die Ihren Kriterien entsprechen</h1>
         <div class="filter-icon-container">
           <i class="bi bi-sliders d-flex d-md-none" (click)="displaySidebarMobile()"></i>
         </div>
@@ -21,9 +21,9 @@
         </div>
         <app-agents-body-sidebar (consultancyEvent)="consultancyFeeChange($event)"></app-agents-body-sidebar>
       </div>
-      <div class="col-9 agents-body-mobile">
-        <app-agents-body-content *ngIf="filtredAgents?.count > 0" [agentItems]="filtredAgents?.items"></app-agents-body-content>
-        <div *ngIf="filtredAgents?.count == 0" class="empty-container">
+      <div infinite-scroll (scrolled)="onScrollDown()" class="col-9 agents-body-mobile">
+        <app-agents-body-content *ngIf="filtredAgentsCount > 0" [agentItems]="filtredAgents"></app-agents-body-content>
+        <div *ngIf="filtredAgentsCount == 0" class="empty-container">
           <h3 class="user-meduim-text fw-medium">Keine Ergebnisse gefunden!</h3>
           <p class="paragraphe-fs">Versuchen Sie, mindestens ein Ziel oder eine Reiseart auszuwählen</p>
         </div>

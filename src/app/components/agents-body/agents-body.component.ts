@@ -8,8 +8,11 @@ import { AgentService } from 'src/app/shared/service/agent/agent.service';
   styleUrls: ['./agents-body.component.scss']
 })
 export class AgentsBodyComponent implements OnInit {
-  filtredAgents: any = {};
-  filtredMap: any = {};
+  filtredAgents: any[] = [];
+  filtredAgentsCount: number = 0;
+  filtredMap: any = {
+    offset: 10
+  };
 
   displaySidebar: boolean = false;
 
@@ -17,7 +20,6 @@ export class AgentsBodyComponent implements OnInit {
 
   ngOnInit(): void {
     this.filtredMap.page = 1;
-    this.filtredMap.offset = 9;
     this.filtredMap.noConsultancyFee = false;
     this.route.queryParams.subscribe(params => {
       if(params['reisearten']) {
@@ -33,7 +35,8 @@ export class AgentsBodyComponent implements OnInit {
   getFiltredAgents() {
     this.agentService.getFiltredAgents(this.filtredMap).subscribe(
       result => {
-        this.filtredAgents = result;
+        this.filtredAgentsCount = result.count;
+        this.filtredAgents = result.items;
       }
     );
   }
@@ -50,5 +53,17 @@ export class AgentsBodyComponent implements OnInit {
   
   displaySidebarMobile() {
     this.displaySidebar = !this.displaySidebar;
+  }
+  
+  onScrollDown() {  
+    if(this.filtredAgentsCount > 0 && this.filtredMap.page * this.filtredMap.offset < this.filtredAgentsCount) {
+      console.log("onScrollDown");
+      this.filtredMap.page = this.filtredMap.page + 1;
+      this.agentService.getFiltredAgents(this.filtredMap).subscribe(
+        result => {
+          this.filtredAgents = [...this.filtredAgents, ...result.items];
+        }
+      );
+    }
   }
 }
