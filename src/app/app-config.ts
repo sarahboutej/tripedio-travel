@@ -4,7 +4,6 @@ import { throwError as observableThrowError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { environment } from 'src/environments/environment';
 import { UtilsService } from './shared/service/utils.service';
 
 export interface Configuration {
@@ -15,8 +14,7 @@ export interface Configuration {
     providedIn: 'root'
 })
 export class AppConfig {
-    private readonly CONFIG_PREFIX = "./assets/settings/environment-";
-    private readonly CONFIG_SUFFIX = ".json";
+    private readonly CONFIG_URL = "./assets/settings/environment.json";
     private config: Configuration = {} as Configuration;
 
     constructor(private http: HttpClient) {
@@ -28,7 +26,7 @@ export class AppConfig {
 
     public load() {
         return new Promise((resolve, reject) => {
-            this.http.get<Configuration>(`${this.CONFIG_PREFIX}${environment.stage}${this.CONFIG_SUFFIX}`).pipe(
+            this.http.get<Configuration>(`${this.CONFIG_URL}`).pipe(
                 catchError((error: any) => {
                     console.error('Error reading configuration file');
                     reject(error);
