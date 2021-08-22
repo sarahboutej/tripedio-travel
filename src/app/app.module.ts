@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -32,7 +32,12 @@ import { AgentProfileComponent } from './components/agent-profile/agent-profile.
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DatenschutzComponent } from './pages/datenschutz/datenschutz.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
+import { AppConfig } from './app-config';
 
+// Configs
+export function initConfig(config: AppConfig) {
+  return () => config.load();
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,9 +75,16 @@ import { ImprintComponent } from './pages/imprint/imprint.component';
     SwiperModule,
     NgSelectModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initConfig,
+      deps: [AppConfig],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
