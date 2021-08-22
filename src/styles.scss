@@ -333,7 +333,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   .carousel-mb {
     margin-bottom: 3.75rem;
   }
-
   .owl-nav {
     top:-110px!important;
     left: 0!important;
@@ -342,6 +341,18 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   .section-bp {
     padding-top: 5rem;
     padding-bottom: 5rem;
+  }
+  .mobile-title-space {
+    margin-top: 32px!important;
+  }
+  .title-size {
+    font-size: 2rem!important;
+  }
+  .small-title-size {
+    font-size: 1rem!important;
+  }
+  .line-heigth-40 {
+    line-height: 2.5rem!important;
   }
 }
 
