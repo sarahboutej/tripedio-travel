@@ -43,6 +43,7 @@ export class DestinationFilterComponent implements OnInit {
 
   removeDestination(destinationName: string) {
     this.selectedDestinations = this.selectedDestinations.filter(item => item !== destinationName);
+    this.commitedDestinations = this.commitedDestinations.filter(item => item !== destinationName);
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {
