@@ -11,13 +11,13 @@
             {{ agent.agentFullName }}</h3>
           <p class="user-x-small-text grey-color line-heigth-24 agent-desc">{{ agent.agentDescription }}</p>
           <div class="agent-information">
-            <p class="mb-2">
+            <p class="mb-2 information-list">
               <span class="fw-medium user-x-small-text text-color line-heigth-24 me-3">Reiseziele</span>
               <a *ngFor="let destionation of agent.destination" 
               [routerLink]="['.']" [queryParams]="{reiseziele: destionation}"
               class="destination-label primary-color user-x-small-text line-heigth-24 me-2 text-decoration-none">{{ destionation }}</a>
             </p>
-            <p class="mb-2">
+            <p class="mb-2  information-list">
               <span class="fw-medium user-x-small-text text-color line-heigth-24 me-3">Reisearten</span>
               <a *ngFor="let travel of agent.travelType" 
               [routerLink]="['.']" [queryParams]="{reisearten: travel}"
