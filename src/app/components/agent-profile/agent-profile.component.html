@@ -14,7 +14,7 @@
     <div class="inner-content"> 
         <div class="container">
             <div class="button-content">
-                <button type="button" class="btn user-btn orange-gb  d-none d-lg-block d-md-block text-white user-x-small-text fw-medium">
+                <button type="button" class="btn user-btn orange-gb  d-none d-lg-block d-md-block text-white user-x-small-text fw-medium" (click)="openModal()">
                     Videoanruf vereinbaren
                 </button>
             </div>
@@ -79,3 +79,7 @@
         </div>
     </div>
 </div>
+
+<app-appointement-modal #modal [modalConfig]="modalConfig">
+    <!--  body of the modal  -->
+</app-appointement-modal>

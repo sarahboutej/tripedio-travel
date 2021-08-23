@@ -77,6 +77,22 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .grey-gb {
   background-color: $stars-grey-color!important;
 }
+.grey-cancel {
+  width: auto!important;
+  height: 40px !important;
+  transition: 0.25s;
+  padding: 8px 24px;
+  margin-right: 7px;
+  background-color: $bgGreyColor!important;
+  color:$secondaryColor!important;
+  &:hover {
+    background-color: $greyHoverColor!important;
+  }
+  &:focus {
+    box-shadow: none!important;
+  }
+}
+
 .bg-light-grey {
   background-color: $bgLightGrey!important;
 }
@@ -353,6 +369,47 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   }
   .line-heigth-40 {
     line-height: 2.5rem!important;
+  }
+}
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+ /*-------------------Calendar ------------------------*/
+ .mat-calendar-header {
+  padding: 0!important;
+  .mat-calendar-controls {
+    .mat-calendar-period-button {
+      padding: 0!important ;
+      width: 50%;
+    }
+  }
+}
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical), .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical), .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  background-color: rgb(236 245 255);
+}
+
+.mat-calendar-table-header tr th abbr {
+  text-decoration: none!important;
+  font-size: 14px;
+  color: #A5B2BC;
+  line-height: 24px;
+}
+
+.mat-calendar-table-header-divider {
+  &:after {
+    height: 0 !important;
+  }
+}
+
+.datepicker-container input {
+  height: 32px!important;
+  border-radius: .25rem!important;
+  margin-bottom: 0px;
+  &::placeholder {
+    color: $secondaryColor;
+    font-size: 14px;
   }
 }
 

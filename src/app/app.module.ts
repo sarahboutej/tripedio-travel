@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -32,6 +32,10 @@ import { AgentProfileComponent } from './components/agent-profile/agent-profile.
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DatenschutzComponent } from './pages/datenschutz/datenschutz.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
+import { AppointementModalComponent } from './components/appointement-modal/appointement-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
@@ -59,7 +63,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     AgentProfileComponent,
     ProfileComponent,
     DatenschutzComponent,
-    ImprintComponent
+    ImprintComponent,
+    AppointementModalComponent
   ],
   imports: [
     BrowserModule,
@@ -71,10 +76,14 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     SwiperModule,
     NgSelectModule,
     HttpClientModule,
-    FormsModule, 
+    FormsModule,
+    NgbModule ,
+    MatDatepickerModule,
+    MatNativeDateModule,
     InfiniteScrollModule
   ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'de-DE'},
+  {provide: LOCALE_ID, useValue: 'de'},],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
