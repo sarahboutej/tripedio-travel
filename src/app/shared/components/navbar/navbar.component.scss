@@ -40,6 +40,8 @@
 
   .tripedeo-mobile-menu {
     margin-top: 40px!important;
+    position: relative;
+    z-index:  38;
     .navbar-nav {
       position: fixed;
       background: #fff;
