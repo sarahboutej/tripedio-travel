@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+declare const gtag: Function;
 
 @Component({
   selector: 'app-root',
@@ -10,6 +14,9 @@ export class AppComponent implements OnInit{
   cookieMessage = 'Wir verwenden Cookies auf unserer Website, um Ihnen das relevanteste Erlebnis zu bieten, indem wir uns an Ihre Präferenzen und wiederholten Besuche erinnern. Indem Sie auf “Akzeptieren” klicken, erklären Sie sich mit der Verwendung von ALLEN Cookies einverstanden';
   cookieDismiss = 'Akzeptieren';
   cookieLinkText = 'Cookie-Einstellung';
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
     let cc = window as any;
@@ -31,5 +38,27 @@ export class AppComponent implements OnInit{
         href: "/datenschutz"
       }
     });
+    this.initializeGoogleAnalytics();
+  }
+
+  initializeGoogleAnalytics() {
+    this.addGAScript();
+    this.router.events
+    .pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      gtag('event', 'page_view', {
+        page_path: event.urlAfterRedirects
+      })
+    })
+  }
+
+  /** Add Google Analytics Script Dynamically */
+  addGAScript() {
+    let gtagScript: HTMLScriptElement = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + environment.GA_TRACKING_ID;
+    document.head.prepend(gtagScript);
+    gtag('config', environment.GA_TRACKING_ID, { send_page_view: false });
   }
 }

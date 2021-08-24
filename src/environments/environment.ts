@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
 
-  baseApiUrl: 'http://localhost:8099'
+  baseApiUrl: 'http://localhost:8099',
+  GA_TRACKING_ID: ""
 };
 
 /*
