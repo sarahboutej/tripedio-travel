@@ -22,9 +22,7 @@
 
 @media screen and (max-width: 767px) {
   div#navbarNav {
-    margin-top: 1.875rem;
-    position: relative;
-    z-index:  38;
+    margin-top: 1.875rem; 
   } 
   .user-menu-button {
     &:focus {
