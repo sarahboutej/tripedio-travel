@@ -31,24 +31,9 @@
         </div>
       </div>
       <div class="agent-actions-container">
-        <!-- <div class="agent-action-header mb-4 d-flex justify-content-between">
-          <div class="agent-stars-rate d-flex">
-            <i *ngFor="let n of counter(3) ;let k = index" class="bi bi-star-fill text-warning pe-2"></i>
-            <i *ngFor="let n of counter(2) ;let k = index" class="bi bi-star-fill start-grey-color pe-2"></i>
-          </div>
-          <a class="text-color user-x-small-text line-heigth-24 ms-2 text-decoration-none" href="#"> review Bewertungen</a>
-        </div> -->
-        <div class="agent-availability mb-4">
-          <p class="mb-0 fw-medium user-x-small-text text-color line-heigth-24 me-3">Verfügbarkeit</p>
-          <p *ngFor="let time of agent.availabilityDate" class="mb-2 d-flex">
-            <span class="user-x-small-text text-color line-heigth-24 me-3 days-label">{{ time.days }}</span>
-            <span class="primary-color user-x-small-text line-heigth-24 me-2 text-decoration-none time-label">{{ time.time }}</span>
-          </p>
-        </div>
         <div class="agent-buttons">
           <button type="button" class="btn user-btn orange-gb text-white user-x-small-text fw-medium mb-2" (click)="openModal(agent.agentUuid)">Videoanruf vereinbaren</button>
           <button type="button" class="btn user-btn grey-btn grey-gb primary-color user-x-small-text fw-medium" routerLink="/{{agent.agentUuid}}">Gesamtes Profil anzeigen</button>
-
         </div>
       </div>
     </div>

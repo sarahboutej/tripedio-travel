@@ -36,7 +36,7 @@ export class AgentsBodyComponent implements OnInit {
     this.agentService.getFiltredAgents(this.filtredMap).subscribe(
       result => {
         this.filtredAgentsCount = result.count;
-        this.filtredAgents = result.items;
+        this.filtredAgents = [...result.items];
       }
     );
   }
@@ -46,7 +46,8 @@ export class AgentsBodyComponent implements OnInit {
 
     this.agentService.getFiltredAgents(this.filtredMap).subscribe(
       result => {
-        this.filtredAgents = result;
+        this.filtredAgentsCount = result.count;
+        this.filtredAgents = [...result.items];
       }
     );
   }
