@@ -1,11 +1,11 @@
 <div class="agent-items-container">
   <div class="agent-item mb-4" *ngFor="let agent of agentItems">
     <div class="d-flex item-wrapper">
-      <div class="avatar-container">
+      <div class="avatar-container col-lg-2">
         <img [src]="urlPhotoBack + agent?.agentPhoto?.mediaUrl" class="agent-avatar rounded-circle" />
         <h3 class="text-color paragraphe-fs fw-medium mb-4 ms-3 line-heigth-24 d-inline d-lg-none">{{ agent.agentFullName }}</h3>
       </div>
-      <div class="agent-detail-container">
+      <div class="agent-detail-container col-lg-7">
         <div class="agent-details me-4">
           <h3 class="text-color paragraphe-fs fw-medium mb-4 line-heigth-24 d-none d-lg-block">
             {{ agent.agentFullName }}</h3>
@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div class="agent-actions-container">
+      <div class="agent-actions-container col-lg-3">
         <div class="agent-buttons">
           <button type="button" class="btn user-btn orange-gb text-white user-x-small-text fw-medium mb-2" (click)="openModal(agent.agentUuid)">Videoanruf vereinbaren</button>
           <button type="button" class="btn user-btn grey-btn grey-gb primary-color user-x-small-text fw-medium" routerLink="/{{agent.agentUuid}}">Gesamtes Profil anzeigen</button>
