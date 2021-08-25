@@ -1,8 +1,14 @@
 <div class="main-content-profile">
     <div class="entry-content">
-        <img *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" class="d-none d-lg-block d-md-block img-fluid" src="assets/images/img-video.jpg">
-        <img *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" class="d-sm-block d-md-none img-fluid" src="assets/images/img-video.jpg">
-        
+        <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" height="484" width="100%" class="d-none d-lg-block d-md-block video-block"  loop controls>
+            <source  src="assets/videos/intro.mp4"  type="video/mp4"/>
+        </video>
+
+        <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" height="169" width="100%" class="d-sm-block d-md-none video-block"  loop controls>
+            <source  src="assets/videos/intro.mp4"  type="video/mp4"/>
+        </video>
+
+
         <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo!=null && agent.agentVideo!=undefined" height="484" width="100%" class="d-none d-lg-block d-md-block video-block"  loop controls>
             <source  [src]="urlBack+agent.agentVideo.mediaUrl"  type="video/mp4"/>
         </video>
