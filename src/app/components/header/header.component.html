@@ -1,7 +1,10 @@
 <header class="header-container">
   <div class="container-lg">
     <div class="row align-items-center">
-      <div class="col-md-7  order-1 content-wrapper d-flex align-items-center">
+      <div class="col-md-5 d-md-none d-block img-wrapper">
+        <img class="img-fluid" src="assets/images/header-mobile.png" />
+      </div>
+      <div class="col-md-7 content-wrapper d-flex align-items-center">
         <div class="header-content">
           <div class="header-text">
             <span class="user-meduim-text dark-grey-color small-title-size">Finden Sie den besten Experten für Ihre Reise</span>
@@ -13,13 +16,18 @@
               <span class="fw-bold">online beraten & buchen Sie den Urlaub Ihrer Träume.</span>
             </p>
           </div>
-          <div class="header-tabs ">
+          <div class="header-tabs d-none d-xl-block">
             <app-header-tabs></app-header-tabs>
           </div>
         </div>
       </div>
-      <div class="col-md-5 d-md-none d-block img-wrapper order-0">
+      <div class="col-md-5 img-wrapper d-none img-wrapper-xl">
         <img class="img-fluid" src="assets/images/header-mobile.png" />
+      </div>
+    </div>
+    <div class="row align-items-center d-block d-xl-none">
+      <div class="header-tabs tab-header-xl">
+        <app-header-tabs></app-header-tabs>
       </div>
     </div>
   </div>
