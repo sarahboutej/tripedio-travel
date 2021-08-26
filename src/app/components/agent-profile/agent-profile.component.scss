@@ -43,6 +43,13 @@
                 h3{
                     margin-bottom: 1.5rem;
                 }
+                .under-content{
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    padding-top: 0;
+                    margin-bottom: .875rem;
+                }
             }
         }
     }
@@ -107,6 +114,9 @@
                     }
                 }
             }
+            .under-content{
+                height: 180px;
+            }
         }
     }
 }
@@ -133,6 +143,9 @@
                 >div{
                     >div{
                         margin-bottom: 1.5rem;
+                        .under-content{
+                            height: 150px;
+                        }
                     }
                 }
             }

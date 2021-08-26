@@ -76,7 +76,8 @@
                         <h3 class="fw-medium mb-4 line-heigth-24 ">Reisearten</h3>
                         <div class="row" >
                             <div  *ngFor="let act of listactivities" class="col-6 col-md-3 col-sm-6 col-xs-6">
-                                <img *ngIf="act.activityPhoto" class="img-fluid img-activity" [src]="urlBack+act.activityPhoto.mediaUrl">
+                                
+                                <div *ngIf="act.activityPhoto" class="under-content img-fluid img-activity" [ngStyle]="{'background-image': 'url(' + urlBack + act.activityPhoto.mediaUrl + ')'}"></div>
                             </div>
                         </div>
                     </div>
