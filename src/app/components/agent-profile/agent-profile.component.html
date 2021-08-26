@@ -67,13 +67,13 @@
                 </div>
                 <div class="col-lg-8 col-sm-12">
                     <div *ngIf="agent!=null && agent!=undefined" class="about-profile">
-                        <h3 class="fw-medium mb-4 line-heigth-24 ">About {{agent.agentFirstName}}</h3>
+                        <h3 class="fw-medium mb-4 line-heigth-24 ">Über {{agent.agentFirstName}}</h3>
                             <p class="grey-color  mb-0">
                                 {{agent.agentDescription}}
                             </p>
                     </div>
                     <div *ngIf="listactivities!=null&&listactivities!=undefined&&listactivities.length > 0" class="galleries">
-                        <h3 class="fw-medium mb-4 line-heigth-24 ">Travel types gallery</h3>
+                        <h3 class="fw-medium mb-4 line-heigth-24 ">Reisearten</h3>
                         <div class="row" >
                             <div  *ngFor="let act of listactivities" class="col-6 col-md-3 col-sm-6 col-xs-6">
                                 <img *ngIf="act.activityPhoto" class="img-fluid img-activity" [src]="urlBack+act.activityPhoto.mediaUrl">

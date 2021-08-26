@@ -5,11 +5,13 @@ import { AgentService } from 'src/app/shared/service/agent/agent.service';
 import { AppointementModel } from 'src/app/shared/model/appointement.model';
 import { AppointmentService } from 'src/app/shared/service/appointment/appointment.service';
 import { ActivityTypeModel } from 'src/app/shared/model/activity-type.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-appointement-modal',
   templateUrl: './appointement-modal.component.html',
-  styleUrls: ['./appointement-modal.component.scss']
+  styleUrls: ['./appointement-modal.component.scss'],
+  providers: [DatePipe]
 })
 @Injectable()
 export class AppointementModalComponent implements OnInit {
@@ -25,14 +27,17 @@ export class AppointementModalComponent implements OnInit {
   startAt = new Date();
   appointementPlaces: Array<any> = [];
   appointementActivities: Array<any> = [];
-  appointement:AppointementModel=new AppointementModel(new Date(),"","","","",this.appointementPlaces,this.appointementActivities,0,"Single");
+  appointement:AppointementModel=new AppointementModel(new Date(),"","","","",this.appointementPlaces,this.appointementActivities,0,"Single","");
 
   
   selected:string="";
 
   agentUuid='';
 
-  constructor(private modalService: NgbModal, private agentService: AgentService,private appointmentService:AppointmentService) { }
+  format = 'yyyy-MM-dd';
+  availibilities: Array<any> = [];
+
+  constructor(private modalService: NgbModal, private agentService: AgentService,private appointmentService:AppointmentService,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
     this.initialise();
@@ -57,25 +62,8 @@ export class AppointementModalComponent implements OnInit {
 
   async dismiss(): Promise<void> {
     if(this.selected!==''){
-      if(this.selected=='radio9'){
-        this.selectedDate.setHours(9, 0, 0);
-      }else if(this.selected=='radio10'){
-        this.selectedDate.setHours(10, 0, 0);
-      }else if(this.selected=='radio11'){
-        this.selectedDate.setHours(11, 0, 0);
-      }else if(this.selected=='radio12'){
-        this.selectedDate.setHours(12, 0, 0);
-      }else if(this.selected=='radio13'){
-        this.selectedDate.setHours(13, 0, 0);
-      }else if(this.selected=='radio14'){
-        this.selectedDate.setHours(14, 0, 0);
-      }else if(this.selected=='radio15'){
-        this.selectedDate.setHours(15, 0, 0);
-      }else if(this.selected=='radio16'){
-        this.selectedDate.setHours(16, 0, 0);
-      }else if(this.selected=='radio17'){
-        this.selectedDate.setHours(17, 0, 0);
-      }
+      var splited=this.selected.split(":");
+      this.selectedDate.setHours(Number(splited[0]), Number(splited[1]), 0);    
     }
     this.appointementActivities=[];
     for(let i=0; i<this.selectedActivityItems.length;i++){     
@@ -126,17 +114,33 @@ export class AppointementModalComponent implements OnInit {
 
   onSelect(event: any) {
     this.selectedDate = event;
+    var formatedDate=this.datepipe.transform(this.selectedDate, this.format);
+    this.appointmentService.getAvalibilityByDay(this.agentUuid, formatedDate).subscribe(
+      result => {
+        this.availibilities=result;
+      }
+    );
 
   }
 
   initialise(){
     this.appointementPlaces = [];
     this.appointementActivities= [];
-    this.appointement=new AppointementModel(new Date(),"","","","",this.appointementPlaces,this.appointementActivities,0,"Single");
+    this.appointement=new AppointementModel(new Date(),"","","","",this.appointementPlaces,this.appointementActivities,0,"Single","");
     this.selected='';
     this.selectedDate=new Date();
     this.selectedPlacesItems=[];
     this.selectedActivityItems=[];
+    if(this.agentUuid)
+    {
+      var formatedDate=this.datepipe.transform(this.selectedDate, this.format);
+      this.appointmentService.getAvalibilityByDay(this.agentUuid, formatedDate).subscribe(
+        result => {
+          this.availibilities=result;
+        }
+      );
+    }
+    
   }
 
 }

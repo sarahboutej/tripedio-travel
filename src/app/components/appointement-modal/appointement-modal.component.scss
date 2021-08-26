@@ -87,7 +87,7 @@
       background-color: #FFFFFF;
       color: #2C67FF;
       padding: 10px 20px;
-      font-size: 14px;
+      font-size: 12px;
       font-family: Inter;
       border: 1px solid #2C67FF;
       border-radius: 4px;
@@ -106,7 +106,6 @@
   }
 
   .radio-actions{
-     width: 100%;
      padding-bottom: 5px;
   }
 
@@ -116,7 +115,7 @@
 
   .Mycalendar{
     padding-bottom: 20px;
-    width: 70%;
+    width: 100%;
   }
 
   .label-actions{
@@ -142,3 +141,11 @@
     color: #A5B2BC;
     font-size: 14px;
   }
+
+  .availibilities{
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 0;
+  }
+
+  

@@ -13,18 +13,26 @@
     <div class="modal-body body-model">
         <form id="form"  (ngSubmit)="dismiss()" role="form" #testForm="ngForm" ngNativeValidate>
             <div class="row input-actions">
+                <div class="col-lg-6 col-sm-12">
                 <label class="label-actions">Vorname</label>
-                <input [(ngModel)]="appointement.userFirstName" [ngModelOptions]="{standalone: true}" required type="text" class="form-control search-travel-type" placeholder="Ihr Vorname">
-            </div>
-            <div class="row input-actions">
-                <label class="label-actions">Nachname</label>
-                <input [(ngModel)]="appointement.userLastName"  [ngModelOptions]="{standalone: true}" required type="text" class="form-control search-travel-type" placeholder="Ihr Nachname">
+                <input [(ngModel)]="appointement.userFirstName" [ngModelOptions]="{standalone: true}" required type="text" class="form-control search-travel-type" placeholder="Ihr Vorname">          
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <label class="label-actions">Nachname</label>
+                    <input [(ngModel)]="appointement.userLastName"  [ngModelOptions]="{standalone: true}" required type="text" class="form-control search-travel-type" placeholder="Ihr Nachname">    
+                </div>
             </div>
 
             <div class="row input-actions">
                 <label class="label-actions">E-Mail Adresse</label>
                 <input [(ngModel)]="appointement.userEmail" [ngModelOptions]="{standalone: true}" required type="email" class="form-control search-travel-type" placeholder="Ihre E-Mail-Adresse">
             </div>
+
+            <div class="row input-actions">
+                <label class="label-actions">Telefonnummer</label>
+                <input [(ngModel)]="appointement.userPhone" [ngModelOptions]="{standalone: true}" required type="text" class="form-control search-travel-type" placeholder="+4900000000000" pattern="([+]?)[0-9]+">
+            </div>
+
             <div class="row destination">
                 <label for="placesSelect" class="label-actions">Reiseziel</label>
                 <i class="bi bi-search search-city grey-color"></i>
@@ -35,6 +43,17 @@
                     (search)="getFiltredPlaces($event)" (open)="onOpen(placesSelect)">
                   </ng-select>
             </div>
+
+            <div class="row input-actions">
+                <label class="label-actions">Teilnehmer Typ</label>
+                <ng-select [(ngModel)]="appointement.appointementParticipantType" [ngModelOptions]="{standalone: true}" class="form-control" style="padding: 0; border: none;" placeholder="Teilnehmer Typ" [multiple]="false" [searchable]="false" required>
+                    <ng-option value="SINGLE" selected>Single</ng-option>
+                    <ng-option value="COUPLE" >Zu zweit</ng-option>
+                    <ng-option value="FAMILY" >Familie</ng-option>
+                    <ng-option value="GROUP" >Gruppe</ng-option>
+                 </ng-select>
+            </div>
+
             <div class="row destination">
                 <label for="select" class="label-actions">Reisearten</label>
                 <i class="bi bi-search search-city grey-color"></i>
@@ -45,69 +64,32 @@
           (search)="getFiltredActivities($event)">
         </ng-select>
             </div>
-            <div class="row input-actions">
-                <label class="label-actions">Teilnehmer Typ</label>
-                <ng-select [(ngModel)]="appointement.appointementParticipantType" [ngModelOptions]="{standalone: true}" class="form-control" style="padding: 0; border: none;" placeholder="Teilnehmer Typ" [multiple]="false" [searchable]="false" required>
-                    <ng-option value="SINGLE" selected>Single</ng-option>
-                    <ng-option value="COUPLE" >Couple</ng-option>
-                    <ng-option value="FAMILY" >Family</ng-option>
-                    <ng-option value="GROUP" >Group</ng-option>
-                 </ng-select>
-            </div>
-            <div class="row input-actions">
-                <label class="label-actions">Budget</label>
-                <input [(ngModel)]="appointement.apointementBudget" [ngModelOptions]="{standalone: true}" required type="text" class="form-control search-travel-type" placeholder="Budget">
-            </div>
+            
 
             <p class="parag-actions">Wählen Sie einen Termin für Ihre Beratung aus:</p>
-            <p class="label-actions">Tag</p>
-            <div class="Mycalendar">
-                <mat-calendar 
-                [selected]="selectedDate" 
-                [startAt]="startAt"
-                (selectedChange)="onSelect($event)">
-                </mat-calendar>
-            </div>
-
-            <p class="label-actions">Uhrzeit</p>
+            <div class="row">
+                <div class="col-lg-5 col-sm-12">
+                    <p class="label-actions">Datum</p>
+                    <div class="Mycalendar">
+                        <mat-calendar 
+                        [selected]="selectedDate" 
+                        [startAt]="startAt"
+                        (selectedChange)="onSelect($event)">
+                        </mat-calendar>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-sm-12">
+                    <p class="label-actions">Uhrzeit</p>
 
             <div class="radio-toolbar">
-                <div class="row radio-actions">
-                <input type="radio" id="radio9" name="radio9" value="radio9" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
-                <label for="radio9">9:00 - 10:00</label>
+                <div  class="row radio-actions">
+                    <div *ngFor="let time of availibilities" class="col-4 availibilities">
+                        <input type="radio" [id]="time.startDate" [name]="time.startDate" [value]="time.startDate" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
+                        <label [for]="time.startDate">{{time.startDate}}-{{time.endDate}}</label>
+                    </div>             
                </div>
-               <div class="row radio-actions">
-                <input type="radio" id="radio10" name="radio10" value="radio10" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
-                <label for="radio10">10:00 - 11:00</label>
+            </div>
                 </div>
-                <div class="row radio-actions">
-                <input type="radio" id="radio11" name="radio11" value="radio11" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
-                <label for="radio11">11:00 - 12:00</label> 
-                </div>
-                <div class="row radio-actions">
-                <input type="radio" id="radio12" name="radio12" value="radio12" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
-                <label for="radio12">12:00 - 13:00</label>
-            </div>
-            <div class="row radio-actions">
-                <input type="radio" id="radio13" name="radio13" value="radio13" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
-                <label for="radio13">13:00 - 14:00</label>
-            </div>
-            <div class="row radio-actions">
-                <input type="radio" id="radio14" name="radio14" value="radio14" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
-                <label for="radio14">14:00 - 15:00</label> 
-            </div>
-            <div class="row radio-actions">
-                <input type="radio" id="radio15" name="radio15" value="radio15" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
-                <label for="radio15">15:00 - 16:00</label>
-            </div>
-            <div class="row radio-actions">
-                <input type="radio" id="radio16" name="radio16" value="radio16" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
-                <label for="radio16">16:00 - 17:00</label>
-            </div>
-            <div class="row radio-actions">
-                <input type="radio" id="radio17" name="radio17" value="radio17" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
-                <label for="radio17">17:00 - 16:00</label> 
-            </div>
             </div>
 
             <div class="row action-buttons">

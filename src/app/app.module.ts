@@ -37,7 +37,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import localeDe from '@angular/common/locales/de';
+import { registerLocaleData } from '@angular/common';
 
+registerLocaleData(localeDe);
 @NgModule({
   declarations: [
     AppComponent,
