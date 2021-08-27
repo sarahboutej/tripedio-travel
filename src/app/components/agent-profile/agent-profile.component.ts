@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 import { AgentService } from 'src/app/shared/service/agent/agent.service';
 import { UtilsService } from 'src/app/shared/service/utils.service';
+import { AppointementModalComponent } from '../appointement-modal/appointement-modal.component';
+import { ModalConfig } from '../appointement-modal/modal.config';
 
 @Component({
   selector: 'app-agent-profile',
@@ -16,6 +18,13 @@ export class AgentProfileComponent implements OnInit {
   abbriviation='';
   @Input()
   agentUuid: any = '';
+  @ViewChild('modal') private modalComponent!: AppointementModalComponent;
+
+  modalConfig: ModalConfig={
+    modalTitle: 'Beratungstermin anfragen',
+    dismissButtonLabel: 'Senden',
+    closeButtonLabel: 'Abbrechen'
+  }
 
 
   constructor(private agentService:AgentService) { }
@@ -61,6 +70,10 @@ export class AgentProfileComponent implements OnInit {
     }, error => {
     });
 
+  }
+
+  async openModal() {
+    return await this.modalComponent.open(this.agentUuid);
   }
 
 }

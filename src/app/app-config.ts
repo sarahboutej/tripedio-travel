@@ -8,6 +8,7 @@ import { UtilsService } from './shared/service/utils.service';
 
 export interface Configuration {
     baseApiUrl: string;
+    GA_TRACKING_ID: string;
 }
 
 @Injectable({

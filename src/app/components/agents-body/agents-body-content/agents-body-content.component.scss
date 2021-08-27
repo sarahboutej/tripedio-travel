@@ -9,6 +9,7 @@
     .avatar-container {
       .agent-avatar {
         width: 130px;
+        height: 130px;
       }
     }
     .agent-detail-container {
@@ -17,6 +18,13 @@
         margin-left: 2.5rem;
         .agent-desc {
           word-wrap: break-word;
+        }
+        .agent-information {
+          .information-list {
+            > * {
+              display: inline-flex;
+            }
+          }
         }
       }
     }
@@ -32,6 +40,7 @@
       .agent-buttons {
         .user-btn {
           width: 100%!important;
+          height: auto!important;
         }
         .grey-btn {
           &:hover {
@@ -60,10 +69,12 @@
         .avatar-container {
           .agent-avatar {
             width: 80px;
+            height: 80px;
           }
         }
         .agent-detail-container {
           max-width: 100%;
+          width: 100%;
           .agent-details {
             margin: 0!important;
             .agent-desc {

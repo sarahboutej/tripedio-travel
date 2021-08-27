@@ -5,6 +5,7 @@
       <span class="text-color paragraphe-fs title-pb-2">Finden Sie heraus, warum Kunden Tripedeo lieben</span>
     </div>
     <div class="row">
+      <div class="owl-wrapper d-none d-md-block">
         <owl-carousel-o [options]="slideOptions">
           <ng-container *ngFor="let item of testimonialsItems">
             <ng-template carouselSlide [id]="item.id">
@@ -27,6 +28,34 @@
             </ng-template>
           </ng-container>
         </owl-carousel-o>
+      </div>
+      <div class="swipe-wrapper d-block d-md-none">
+        <swiper
+          [direction]="'vertical'"
+          [slidesPerView]="3"
+          [loop]="true"
+          [navigation]="true"
+          class="mySwiper testimonial-swiper">
+            <ng-template swiperSlide  *ngFor="let item of testimonialsItems">
+              <div class="testimonial-item p-4">
+                <div class="testimonial-header d-flex align-items-center justify-content-between">
+                  <img class="user-avatar" [src]="item.avatar" [title]="item.userName" [alt]="item.userName"/>
+                  <div class="stars-rate">
+                    <i *ngFor="let n of counter(item.stars) ;let k = index" class="bi bi-star-fill text-warning pe-2"></i>
+                  </div>
+                </div>
+                <div class="testimonial-content">
+                  <h4 class="user-small-text fw-bold text-color mt-3">{{ item.title }} </h4>
+                  <p class="user-small-text grey-color mb-0">{{ item.description }}</p>
+                </div>
+                <div class="testimonial-footer">
+                  <h5 class="user-small-text fw-bold text-color mt-2">{{ item.userName }} </h5>
+                  <p class="user-small-text grey-color mb-0"> {{item.userInfo}} </p>
+                </div>
+              </div>
+            </ng-template>
+          </swiper>
+        </div>
     </div>
   </div>
 </section>

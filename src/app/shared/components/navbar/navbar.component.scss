@@ -22,7 +22,7 @@
 
 @media screen and (max-width: 767px) {
   div#navbarNav {
-    margin-top: 1.875rem;
+    margin-top: 1.875rem; 
   } 
   .user-menu-button {
     &:focus {
@@ -38,6 +38,8 @@
 
   .tripedeo-mobile-menu {
     margin-top: 40px!important;
+    position: relative;
+    z-index:  38;
     .navbar-nav {
       position: fixed;
       background: #fff;

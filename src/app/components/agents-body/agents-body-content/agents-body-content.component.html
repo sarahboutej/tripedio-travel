@@ -1,23 +1,23 @@
 <div class="agent-items-container">
   <div class="agent-item mb-4" *ngFor="let agent of agentItems">
     <div class="d-flex item-wrapper">
-      <div class="avatar-container">
+      <div class="avatar-container col-lg-2">
         <img [src]="urlPhotoBack + agent?.agentPhoto?.mediaUrl" class="agent-avatar rounded-circle" />
         <h3 class="text-color paragraphe-fs fw-medium mb-4 ms-3 line-heigth-24 d-inline d-lg-none">{{ agent.agentFullName }}</h3>
       </div>
-      <div class="agent-detail-container">
+      <div class="agent-detail-container col-lg-7">
         <div class="agent-details me-4">
           <h3 class="text-color paragraphe-fs fw-medium mb-4 line-heigth-24 d-none d-lg-block">
             {{ agent.agentFullName }}</h3>
           <p class="user-x-small-text grey-color line-heigth-24 agent-desc">{{ agent.agentDescription }}</p>
           <div class="agent-information">
-            <p class="mb-2">
+            <p class="mb-2 information-list">
               <span class="fw-medium user-x-small-text text-color line-heigth-24 me-3">Reiseziele</span>
               <a *ngFor="let destionation of agent.destination" 
               [routerLink]="['.']" [queryParams]="{reiseziele: destionation}"
               class="destination-label primary-color user-x-small-text line-heigth-24 me-2 text-decoration-none">{{ destionation }}</a>
             </p>
-            <p class="mb-2">
+            <p class="mb-2  information-list">
               <span class="fw-medium user-x-small-text text-color line-heigth-24 me-3">Reisearten</span>
               <a *ngFor="let travel of agent.travelType" 
               [routerLink]="['.']" [queryParams]="{reisearten: travel}"
@@ -30,27 +30,16 @@
           </div>
         </div>
       </div>
-      <div class="agent-actions-container">
-        <!-- <div class="agent-action-header mb-4 d-flex justify-content-between">
-          <div class="agent-stars-rate d-flex">
-            <i *ngFor="let n of counter(3) ;let k = index" class="bi bi-star-fill text-warning pe-2"></i>
-            <i *ngFor="let n of counter(2) ;let k = index" class="bi bi-star-fill start-grey-color pe-2"></i>
-          </div>
-          <a class="text-color user-x-small-text line-heigth-24 ms-2 text-decoration-none" href="#"> review Bewertungen</a>
-        </div> -->
-        <div class="agent-availability mb-4">
-          <p class="mb-0 fw-medium user-x-small-text text-color line-heigth-24 me-3">Verfügbarkeit</p>
-          <p *ngFor="let time of agent.availabilityDate" class="mb-2 d-flex">
-            <span class="user-x-small-text text-color line-heigth-24 me-3 days-label">{{ time.days }}</span>
-            <span class="primary-color user-x-small-text line-heigth-24 me-2 text-decoration-none time-label">{{ time.time }}</span>
-          </p>
-        </div>
+      <div class="agent-actions-container col-lg-3">
         <div class="agent-buttons">
-          <button type="button" class="btn user-btn orange-gb text-white user-x-small-text fw-medium mb-2">Videoanruf vereinbaren</button>
+          <button type="button" class="btn user-btn orange-gb text-white user-x-small-text fw-medium mb-2" (click)="openModal(agent.agentUuid)">Videoanruf vereinbaren</button>
           <button type="button" class="btn user-btn grey-btn grey-gb primary-color user-x-small-text fw-medium" routerLink="/{{agent.agentUuid}}">Gesamtes Profil anzeigen</button>
-
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<app-appointement-modal #modal [modalConfig]="modalConfig">
+  <!--  body of the modal  -->
+</app-appointement-modal>

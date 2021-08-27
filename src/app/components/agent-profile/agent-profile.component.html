@@ -1,8 +1,14 @@
 <div class="main-content-profile">
     <div class="entry-content">
-        <img *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" class="d-none d-lg-block d-md-block img-fluid" src="assets/images/img-video.jpg">
-        <img *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" class="d-sm-block d-md-none img-fluid" src="assets/images/img-video.jpg">
-        
+        <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" height="484" width="100%" class="d-none d-lg-block d-md-block video-block"  loop controls>
+            <source  src="assets/videos/intro.mp4"  type="video/mp4"/>
+        </video>
+
+        <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" height="169" width="100%" class="d-sm-block d-md-none video-block"  loop controls>
+            <source  src="assets/videos/intro.mp4"  type="video/mp4"/>
+        </video>
+
+
         <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo!=null && agent.agentVideo!=undefined" height="484" width="100%" class="d-none d-lg-block d-md-block video-block"  loop controls>
             <source  [src]="urlBack+agent.agentVideo.mediaUrl"  type="video/mp4"/>
         </video>
@@ -14,7 +20,7 @@
     <div class="inner-content"> 
         <div class="container">
             <div class="button-content">
-                <button type="button" class="btn user-btn orange-gb  d-none d-lg-block d-md-block text-white user-x-small-text fw-medium">
+                <button type="button" class="btn user-btn orange-gb  d-none d-lg-block d-md-block text-white user-x-small-text fw-medium" (click)="openModal()">
                     Videoanruf vereinbaren
                 </button>
             </div>
@@ -61,16 +67,17 @@
                 </div>
                 <div class="col-lg-8 col-sm-12">
                     <div *ngIf="agent!=null && agent!=undefined" class="about-profile">
-                        <h3 class="fw-medium mb-4 line-heigth-24 ">About {{agent.agentFirstName}}</h3>
+                        <h3 class="fw-medium mb-4 line-heigth-24 ">Über {{agent.agentFirstName}}</h3>
                             <p class="grey-color  mb-0">
                                 {{agent.agentDescription}}
                             </p>
                     </div>
                     <div *ngIf="listactivities!=null&&listactivities!=undefined&&listactivities.length > 0" class="galleries">
-                        <h3 class="fw-medium mb-4 line-heigth-24 ">Travel types gallery</h3>
+                        <h3 class="fw-medium mb-4 line-heigth-24 ">Reisearten</h3>
                         <div class="row" >
                             <div  *ngFor="let act of listactivities" class="col-6 col-md-3 col-sm-6 col-xs-6">
-                                <img *ngIf="act.activityPhoto" class="img-fluid img-activity" [src]="urlBack+act.activityPhoto.mediaUrl">
+                                
+                                <div *ngIf="act.activityPhoto" class="under-content img-fluid img-activity" [ngStyle]="{'background-image': 'url(' + urlBack + act.activityPhoto.mediaUrl + ')'}"></div>
                             </div>
                         </div>
                     </div>
@@ -79,3 +86,7 @@
         </div>
     </div>
 </div>
+
+<app-appointement-modal #modal [modalConfig]="modalConfig">
+    <!--  body of the modal  -->
+</app-appointement-modal>

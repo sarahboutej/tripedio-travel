@@ -1,4 +1,4 @@
-<section class="travel-type-container section-bp">
+<section id="travel-type" class="travel-type-container section-bp">
   <div class="container-lg">
     <div class="row align-items-center carousel-mb">
       <h3 class="user-big-text light-heigth-xbig text-white fw-bold user-big-text-mobile">Reisearten</h3>
@@ -11,11 +11,10 @@
           <ng-template carouselSlide [id]="slide.id">
               <span class="destination-img-title text-white user-meduim-text fw-extra-bold" >{{ slide.title }}</span>
               <img [src]="slide.src" [alt]="slide.title" [title]="slide.title">
-
           </ng-template>
         </ng-container>
       </owl-carousel-o>
-    </div>
+      </div>
       <div class="swipe-wrapper d-block d-md-none">
         <swiper
         [direction]="'vertical'"

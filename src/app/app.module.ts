@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -33,11 +33,20 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { DatenschutzComponent } from './pages/datenschutz/datenschutz.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
 import { AppConfig } from './app-config';
+import { AppointementModalComponent } from './components/appointement-modal/appointement-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import localeDe from '@angular/common/locales/de';
+import { registerLocaleData } from '@angular/common';
 
 // Configs
 export function initConfig(config: AppConfig) {
   return () => config.load();
 }
+
+registerLocaleData(localeDe);
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +72,8 @@ export function initConfig(config: AppConfig) {
     AgentProfileComponent,
     ProfileComponent,
     DatenschutzComponent,
-    ImprintComponent
+    ImprintComponent,
+    AppointementModalComponent
   ],
   imports: [
     BrowserModule,
@@ -75,9 +85,14 @@ export function initConfig(config: AppConfig) {
     SwiperModule,
     NgSelectModule,
     HttpClientModule,
-    FormsModule
+    NgbModule ,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    InfiniteScrollModule
   ],
   providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'de-DE'},
+    {provide: LOCALE_ID, useValue: 'de'},
     {
       provide: APP_INITIALIZER,
       useFactory: initConfig,

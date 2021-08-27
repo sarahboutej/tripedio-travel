@@ -41,7 +41,7 @@ export class TestimonialsComponent implements OnInit {
     {
       id: '2',
       avatar: 'assets/images/user2.jpg',
-      userName: 'Florian B',
+      userName: 'Isabel B',
       title: 'Unvergessliches Erlebnis',
       stars: 5,
       description: 'Unsere Familie hatte einen tollen Urlaub in Südafrika, den wir nie vergessen werden.',
@@ -50,7 +50,7 @@ export class TestimonialsComponent implements OnInit {
     {
       id: '3',
       avatar: 'assets/images/user3.jpg',
-      userName: 'Florian B',
+      userName: 'Maria M',
       title: 'Großartige Beratung!',
       stars: 5,
       description: 'Unser Reiseexperte kannte sich mit Wander- und Radtouren sehr gut aus und hat eine perfekte Reise für uns geplant!',

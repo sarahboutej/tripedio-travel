@@ -45,7 +45,7 @@ export class AgentService {
     return this.http.get<any>(api, {params: params});
   }
 
-  getFiltredAgents(filterMap: any): Observable<any[]> {
+  getFiltredAgents(filterMap: any): Observable<any> {
     let api = `${this.AGENTS_API}/filtred`;
 
     let params = new HttpParams();
@@ -61,7 +61,7 @@ export class AgentService {
       params=params.set('noConsultancyFee', filterMap.noConsultancyFee);
     }
     
-    return this.http.get<any[]>(api, {params: params});
+    return this.http.get<any>(api, {params: params});
   }
 
   saveSubscritpion(subscription:Subscription): Observable<any>
