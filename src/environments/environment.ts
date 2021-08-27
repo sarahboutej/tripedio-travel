@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 
-  baseApiUrl: 'http://localhost:8099',
+  baseApiUrl: 'https://tripedeodev.website/api',
   GA_TRACKING_ID: ""
 };
 
