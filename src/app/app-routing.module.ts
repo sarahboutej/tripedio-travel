@@ -16,10 +16,6 @@ const routes: Routes = [
     path: 'reiseexperten',
     component: AgentsSearchResultComponent,
   },
-  {
-    path: ':agentUuid',
-    component: ProfileComponent,
-  },
   { 
     path: 'imprint', 
     component: ImprintComponent 
@@ -27,6 +23,10 @@ const routes: Routes = [
   { 
     path: 'datenschutz', 
     component: DatenschutzComponent 
+  },
+  {
+    path: ':agentUuid',
+    component: ProfileComponent,
   },
 ];
 

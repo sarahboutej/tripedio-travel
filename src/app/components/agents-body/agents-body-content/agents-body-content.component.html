@@ -2,7 +2,8 @@
   <div class="agent-item mb-4" *ngFor="let agent of agentItems">
     <div class="d-flex item-wrapper">
       <div class="avatar-container col-lg-2">
-        <img [src]="urlPhotoBack + agent?.agentPhoto?.mediaUrl" class="agent-avatar rounded-circle" />
+        <img *ngIf="agent.agentPhoto!=null && agent.agentPhoto!=undefined" [src]="urlPhotoBack + agent?.agentPhoto?.mediaUrl" class="agent-avatar rounded-circle" />
+        <div *ngIf="agent.agentPhoto==null || agent.agentPhoto==undefined" class="agent-avatar rounded-circle img-profile" id="profileImageEdit">{{agent.agentFullName.split(' ')[0].toUpperCase().charAt(0)}}{{agent.agentFullName.split(' ')[1].toUpperCase().charAt(0)}}</div>
         <h3 class="text-color paragraphe-fs fw-medium mb-4 ms-3 line-heigth-24 d-inline d-lg-none">{{ agent.agentFullName }}</h3>
       </div>
       <div class="agent-detail-container col-lg-7">
