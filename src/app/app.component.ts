@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { AppConfig } from './app-config';
 declare const gtag: Function;
 
 @Component({
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit{
   cookieDismiss = 'Akzeptieren';
   cookieLinkText = 'Cookie-Einstellung';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private appConfig: AppConfig) {
   }
 
   ngOnInit(): void {
@@ -57,8 +57,8 @@ export class AppComponent implements OnInit{
   addGAScript() {
     let gtagScript: HTMLScriptElement = document.createElement('script');
     gtagScript.async = true;
-    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + environment.GA_TRACKING_ID;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + this.appConfig.getConfig().GA_TRACKING_ID;
     document.head.prepend(gtagScript);
-    gtag('config', environment.GA_TRACKING_ID, { send_page_view: false });
+    gtag('config', this.appConfig.getConfig().GA_TRACKING_ID, { send_page_view: false });
   }
 }

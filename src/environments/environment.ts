@@ -3,10 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-
-  baseApiUrl: 'https://tripedeodev.website/api',
-  GA_TRACKING_ID: ""
+  production: false
 };
 
 /*
