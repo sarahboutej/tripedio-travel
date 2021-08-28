@@ -25,7 +25,7 @@ const routes: Routes = [
     component: DatenschutzComponent 
   },
   {
-    path: ':agentUuid',
+    path: 'agent/:agentUuid',
     component: ProfileComponent,
   },
 ];
