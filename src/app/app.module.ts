@@ -40,6 +40,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import localeDe from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -73,7 +74,8 @@ registerLocaleData(localeDe);
     ProfileComponent,
     DatenschutzComponent,
     ImprintComponent,
-    AppointementModalComponent
+    AppointementModalComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

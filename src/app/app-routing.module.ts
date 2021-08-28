@@ -6,6 +6,7 @@ import { AgentsSearchResultComponent } from './pages/agents-search-result/agents
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
 import { DatenschutzComponent } from './pages/datenschutz/datenschutz.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'agent/:agentUuid',
     component: ProfileComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   },
 ];
 

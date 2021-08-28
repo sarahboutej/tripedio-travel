@@ -1,0 +1,49 @@
+@import '../../../styles/variables.scss';
+
+.footer {
+  background-color: $greyLightBg;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.logo-row {
+  margin-top: 1.5rem;
+}
+
+.content-wrapper {
+  min-height: calc(100vh - 152px);
+  svg {
+    width: 100%!important;
+    height: auto!important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .content-wrapper {
+    .user-btn {
+      width: 100%!important;
+      margin-top: 2rem;
+    }
+  }
+}
+@media screen and (max-width: 537px) {
+  .footer {
+    .paragraphe-fs {
+      font-size: 0.9rem!important;
+    }
+  }
+}
+
+@media screen and (max-width: 537px) {
+  .footer {
+    .row {
+      display: block!important;
+      > * {
+        width: 100%!important;
+      }
+      .footer-text {
+        text-align: left!important;
+      }
+    }
+  }
+}
