@@ -22,12 +22,8 @@ export class AgentsBodyComponent implements OnInit {
     this.filtredMap.page = 1;
     this.filtredMap.noConsultancyFee = false;
     this.route.queryParams.subscribe(params => {
-      if(params['reisearten']) {
-        this.filtredMap.activity = params['reisearten'].split(",");
-      }
-      if(params['reiseziele']) {
-        this.filtredMap.place = params['reiseziele'].split(",");
-      }
+      this.filtredMap.activity = params['reisearten'] ? params['reisearten'].split(",") : [];
+      this.filtredMap.place = params['reiseziele'] ? params['reiseziele'].split(",") : [];
       this.getFiltredAgents();
     });
   }
