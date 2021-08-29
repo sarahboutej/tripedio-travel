@@ -36,6 +36,7 @@ export class AppointementModalComponent implements OnInit {
 
   format = 'yyyy-MM-dd';
   availibilities: Array<any> = [];
+  endDates : string[] = [];
 
   constructor(private modalService: NgbModal, private agentService: AgentService,private appointmentService:AppointmentService,public datepipe: DatePipe) { }
 
@@ -124,6 +125,7 @@ export class AppointementModalComponent implements OnInit {
   }
 
   initialise(){
+    this.endDates = [];
     this.appointementPlaces = [];
     this.appointementActivities= [];
     this.appointement=new AppointementModel(new Date(),"","","","",this.appointementPlaces,this.appointementActivities,0,"Single","");
@@ -139,6 +141,16 @@ export class AppointementModalComponent implements OnInit {
           this.availibilities=result;
         }
       );
+    }
+    
+  }
+  changeEndDate(event: any) {
+    this.endDates = [];
+    let result = this.availibilities.filter(idState => idState.startDate === event);
+    console.log(result);
+    for(let i=0; i<result.length;i++){
+      this.endDates.push(result[i].endDate);
+      
     }
     
   }

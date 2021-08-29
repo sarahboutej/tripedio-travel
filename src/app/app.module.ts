@@ -40,6 +40,8 @@ import { MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import localeDe from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 // Configs
@@ -90,7 +92,9 @@ registerLocaleData(localeDe);
     NgbModule ,
     MatDatepickerModule,
     MatNativeDateModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'de-DE'},
