@@ -10,7 +10,7 @@
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="tab-pane-wrapper">
       <i class="bi bi-search search-city grey-color"></i>
-      <ng-select  #placesSelect (close)="placesSelect.blur()" class="form-control" style="padding: 0; border: none;" [items]="places" [multiple]="true"
+      <ng-select  #placesSelect (close)="placesSelect.blur()" class="form-control city-search" style="padding: 0; border: none;" [items]="places" [multiple]="true"
           [maxSelectedItems]="3" bindLabel="superPlaceLabel" [ngModelOptions]="{standalone: true}"
           notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" [clearSearchOnAdd]="true"
           placeholder="z.b: Spanien, Süd Afrika" [(ngModel)]="selectedPlacesItems" [selectOnTab]="true"

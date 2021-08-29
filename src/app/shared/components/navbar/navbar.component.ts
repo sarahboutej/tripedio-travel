@@ -16,6 +16,12 @@ export class NavbarComponent implements OnInit {
 
   showMobileMenu() {
     this.showNavbarMobileMenu = !this.showNavbarMobileMenu
+    const bodyTag = document.body;
+    if ( this.showNavbarMobileMenu ) {
+      bodyTag.classList.add('mobile-menu-opened');
+    } else {
+      bodyTag.classList.remove('mobile-menu-opened');
+    }
   }
 
 
