@@ -36,6 +36,9 @@
             .agent-img-wrapper{
                 position: absolute;
             }
+            .text-resume{
+               font-size: 14px;
+            }
             > div{
                 h3{
                     font-size: 1.5rem;
@@ -79,12 +82,7 @@
     }
 
     #profileImageEdit {
-        /*font-family: Arial, Helvetica, sans-serif;
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;*/
         background: #D9DDE0;
-        font-size: 6.5rem;
         color: white;
         text-align: center;
       }
@@ -133,7 +131,7 @@
                     clear: both;
                     .info-profile{
                         .agent-img-wrapper{
-                            top: -90px;
+                          top: -90px;
                         }
                     }
                 }
@@ -170,6 +168,11 @@
           .info-profile{
             .agent-img-wrapper{
               top: -53px;
+            }
+            >div{
+              h5{
+                font-size: 14px!important;
+              }
             }
           }
           .about-profile{
