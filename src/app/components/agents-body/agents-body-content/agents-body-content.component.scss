@@ -7,6 +7,9 @@
     border-radius: 1rem;
     border: 1px solid $bgGreyColor;
     .avatar-container {
+      #profileImageEdit{
+        line-height: 130px;
+      }
       .agent-avatar {
         width: 130px;
         height: 130px;
@@ -72,10 +75,14 @@
       .item-wrapper {
         flex-wrap: wrap;
         .avatar-container {
-          .agent-avatar {
-            width: 80px;
-            height: 80px;
-          }
+            #profileImageEdit{
+              line-height: 80px;
+              font-size: 2rem!important;
+            }
+            .agent-avatar {
+              width: 80px;
+              height: 80px;           
+            }
         }
         .agent-detail-container {
           max-width: 100%;
@@ -97,18 +104,15 @@
       }
     }
   }
-
-  .img-profile{
-    font-size: 3rem!important;
-  }
 }
 
-.img-profile{
-  font-size: 5.5rem;
-}
+
 
 #profileImageEdit {
   background: $stars-grey-color;
   color: white;
   text-align: center;
+  font-size: 3.5rem;
+  display: inline-block;
+
 }
