@@ -362,6 +362,22 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .mobile-menu-opened {
   overflow-y: hidden!important;
 }
+
+.custom-ng-select {
+  .ng-select-container {
+    .ng-value-container {
+      padding-left: .6rem!important;
+      padding-top: 0!important;
+    }
+    &:before{
+      font-family: bootstrap-icons !important;
+      content: "";
+      margin-left: .6rem;
+      color: #797979 !important;
+    }
+  }
+}
+
 /*------------------------Responsive Design ------------------*/
 
 @media screen and (max-width: 767px) {

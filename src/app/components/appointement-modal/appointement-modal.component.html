@@ -35,8 +35,7 @@
 
             <div class="row select-actions">
                 <label for="placesSelect" class="label-actions">Reiseziel</label>
-                <i class="bi bi-search search-city grey-color"></i>
-                <ng-select required #placesSelect (close)="placesSelect.blur()" class="form-control" 
+                <ng-select required #placesSelect (close)="placesSelect.blur()" class="form-control custom-ng-select" 
                     style="padding: 0; border: none;" [items]="places" [multiple]="true"
                     [maxSelectedItems]="3" bindLabel="superPlaceLabel" [ngModelOptions]="{standalone: true}"
                     notFoundText="Keine Elemente gefunden" [closeOnSelect]="false"
@@ -57,8 +56,7 @@
 
             <div class="row select-actions">
                 <label for="select2" class="label-actions">Reiseart</label>
-                <i class="bi bi-search search-city grey-color"></i>
-                <ng-select required #activityselect (close)="activityselect.blur()" class="form-control" style="padding: 0; border: none;" 
+                <ng-select required #activityselect (close)="activityselect.blur()" class="form-control custom-ng-select" style="padding: 0; border: none;" 
                 [items]="activities" [multiple]="true"
                 [maxSelectedItems]="3" bindLabel="activityTypeLabel" [ngModelOptions]="{standalone: true}"
                 notFoundText="Keine Elemente gefunden" [closeOnSelect]="false"
