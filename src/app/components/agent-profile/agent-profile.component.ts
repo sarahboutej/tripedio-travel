@@ -18,6 +18,7 @@ export class AgentProfileComponent implements OnInit {
   abbriviation='';
   @Input()
   agentUuid: any = '';
+  playVideo: boolean = true;
   @ViewChild('modal') private modalComponent!: AppointementModalComponent;
 
   modalConfig: ModalConfig={
@@ -74,6 +75,17 @@ export class AgentProfileComponent implements OnInit {
 
   async openModal() {
     return await this.modalComponent.open(this.agentUuid);
+  }
+  triggerVideo() {
+    var myVideo: any = document.getElementById("agent-video");
+    if (myVideo.paused) {
+      myVideo.play();
+      this.playVideo = false;
+    }
+    else {
+      myVideo.pause();
+      this.playVideo = true;
+    }
   }
 
 }

@@ -1,21 +1,23 @@
 <div class="main-content-profile">
     <div class="entry-content">
-        <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" height="484" width="100%" class="d-none d-lg-block d-md-block video-block"  loop controls>
+        <video 
+        *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" 
+        width="100%" 
+        class="video-block"  
+        id="agent-video"
+        poster="assets/images/video-poster.webp"
+        (click)="triggerVideo()">
             <source  src="assets/videos/intro.mp4"  type="video/mp4"/>
         </video>
-
-        <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" height="169" width="100%" class="d-sm-block d-md-none video-block"  loop controls>
-            <source  src="assets/videos/intro.mp4"  type="video/mp4"/>
-        </video>
-
-
-        <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo!=null && agent.agentVideo!=undefined" height="484" width="100%" class="d-none d-lg-block d-md-block video-block"  loop controls>
+        <video 
+        *ngIf="agent!=null && agent!=undefined && agent.agentVideo!=null && agent.agentVideo!=undefined" 
+        width="100%" 
+        class="video-block"
+        poster="assets/images/video-poster.webp"
+        id="agent-video" >
             <source  [src]="urlBack+agent.agentVideo.mediaUrl"  type="video/mp4"/>
         </video>
-
-        <video *ngIf="agent!=null && agent!=undefined && agent.agentVideo!=null && agent.agentVideo!=undefined" height="169" width="100%" class="d-sm-block d-md-none video-block"  loop controls>
-            <source  [src]="urlBack+agent.agentVideo.mediaUrl"  type="video/mp4"/>
-        </video>
+        <i *ngIf="playVideo" (click)="triggerVideo()" class="bi bi-play agent-video-play"></i>
     </div>
     <div class="inner-content"> 
         <div class="container">
@@ -44,12 +46,6 @@
                         <p class="grey-color  mb-0 d-sm-block d-md-none">
                             I  believe great trip comes from focusing on the right questions, not the right answers.
                         </p>
-                        <!--<div class="stars d-none d-lg-block d-md-block">
-                            <i _ngcontent-krp-c80="" class="bi bi-star-fill text-warning pe-2 ng-star-inserted"></i>
-                            <i _ngcontent-krp-c80="" class="bi bi-star-fill text-warning pe-2 ng-star-inserted"></i>
-                            <i _ngcontent-krp-c80="" class="bi bi-star-fill text-warning pe-2 ng-star-inserted"></i>
-                            <i _ngcontent-krp-c80="" class="bi bi-star-fill text-warning pe-2 ng-star-inserted"></i>
-                        </div>-->
                         <div *ngIf="listCountries!=null&&listCountries!=undefined&&listCountries.length > 0" class="destinations">
                             <h5 class="user-small-text fw-bold text-color">Reiseziele</h5>
                             <span *ngFor="let place of listCountries">{{place.specialityLabel}}</span>
