@@ -12,17 +12,35 @@ export class DestinationFilterComponent implements OnInit {
   destinationsList: any[] = [];
 
   selectedDestinations: string[] = [];
+  places: any[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private agentService: AgentService) { }
 
   ngOnInit(): void {
+    
     this.route.queryParams.subscribe(params => {
       if(params['reiseziele']) {
-        this.selectedDestinations = params['reiseziele'].split(",");
-        this.commitedDestinations = Object.assign([], this.selectedDestinations);
+        var listDestinations = params['reiseziele'].split(",");
+        this.getPlaces(listDestinations);
       }
       this.getDestinations();
     });
+  }
+
+  getPlaces(listDestinations:any){
+    this.places=[];
+    this.selectedDestinations = [];
+    this.agentService.getPlaces().subscribe(response => {
+      this.places=response;
+      for( var destination of listDestinations){
+        if(this.places.find(x => x.superPlaceLabel === destination)){
+          this.selectedDestinations.push(destination);
+        }
+      }
+      this.commitedDestinations = Object.assign([], this.selectedDestinations);
+    }, error => {
+    });
+
   }
 
   getDestinations() {

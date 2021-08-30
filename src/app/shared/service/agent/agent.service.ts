@@ -80,4 +80,8 @@ export class AgentService {
   getAgentPlaces(uuid: string ): Observable<any> {
     return this.http.get<any>(`${this.AGENT_PLACE_API}/${uuid}`);
   }
+
+  getPlaces(): Observable<any> {
+    return this.http.get<any>(`${this.SUPER_PLACE_API}`);
+  }
 }
