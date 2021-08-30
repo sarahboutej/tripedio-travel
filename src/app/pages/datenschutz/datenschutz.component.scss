@@ -1,7 +1,14 @@
 @import '../../../styles/variables.scss';
 
 .why-use-container {
-    background-color: $bgGreyColor;
+    margin-top: 8rem;
+    padding-bottom: 8rem;
+    h1{
+       margin-bottom: 1.5rem;
+    }
+    h2, h3, h4{
+       margin-top: 1.5rem;
+    }
   }
   
   @media screen and (max-width: 767px) {
