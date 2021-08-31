@@ -31,6 +31,7 @@ export class AppointementModalComponent implements OnInit {
 
   
   selected:string="";
+  selectedEnd:string="";
 
   agentUuid='';
 
@@ -114,6 +115,8 @@ export class AppointementModalComponent implements OnInit {
   }
 
   onSelect(event: any) {
+    this.selected='';
+    this.selectedEnd='';
     this.selectedDate = event;
     var formatedDate=this.datepipe.transform(this.selectedDate, this.format);
     this.appointmentService.getAvalibilityByDay(this.agentUuid, formatedDate).subscribe(

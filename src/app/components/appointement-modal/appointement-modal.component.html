@@ -104,7 +104,8 @@
                             <label class="label-time">bis</label> </div>
                         <div class="col-lg-5 col-sm-5">
                             <ng-select  class="form-control" style="padding: 0; border: none;" placeholder="" [multiple]="false"
-                             [searchable]="false" required>
+                             [searchable]="false" required
+                             [(ngModel)]="selectedEnd" [ngModelOptions]="{standalone: true}">
                                 <ng-option *ngFor="let timeend of endDates" value="timeend">{{timeend}}</ng-option>
                              </ng-select>
                         </div>
