@@ -5,17 +5,15 @@
         width="100%" 
         class="video-block"  
         id="agent-video"
-        poster="assets/images/video-poster.webp"
         (click)="triggerVideo()">
-            <source  src="assets/videos/intro.mp4"  type="video/mp4"/>
+            <source  src="assets/videos/intro.mp4#t=5,20"  type="video/mp4"/>
         </video>
         <video 
         *ngIf="agent!=null && agent!=undefined && agent.agentVideo!=null && agent.agentVideo!=undefined" 
         width="100%" 
         class="video-block"
-        poster="assets/images/video-poster.webp"
         id="agent-video" >
-            <source  [src]="urlBack+agent.agentVideo.mediaUrl"  type="video/mp4"/>
+            <source  [src]="urlBack+agent.agentVideo.mediaUrl + '#t=5,20'"  type="video/mp4"/>
         </video>
         <i *ngIf="playVideo" (click)="triggerVideo()" class="bi bi-play agent-video-play"></i>
     </div>
@@ -43,9 +41,7 @@
                                 Videoanruf vereinbaren
                             </button>
                         </div>
-                        <p class="text-resume grey-color  mb-0 d-sm-block d-md-none">
-                            I  believe great trip comes from focusing on the right questions, not the right answers.
-                        </p>
+
                         <div *ngIf="listCountries!=null&&listCountries!=undefined&&listCountries.length > 0" class="destinations">
                             <h5 class="user-small-text fw-bold text-color">Reiseziele</h5>
                             <span *ngFor="let place of listCountries">{{place.specialityLabel}}</span>
