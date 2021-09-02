@@ -42,6 +42,7 @@ import { registerLocaleData } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { HeaderTabsMobileComponent } from './components/header/header-tabs-mobile/header-tabs-mobile.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -76,7 +77,8 @@ registerLocaleData(localeDe);
     DatenschutzComponent,
     ImprintComponent,
     AppointementModalComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HeaderTabsMobileComponent
   ],
   imports: [
     BrowserModule,

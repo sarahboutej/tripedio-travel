@@ -1,0 +1,92 @@
+@import '../../../../styles/variables';
+
+.header-tab-container {
+
+  .nav-link {
+    background-color: $greyBg;
+    color: $secondaryColor;
+    border-radius: 8px 8px 0 0!important;
+    margin-left: 1px;
+  }
+  .nav-link.active {
+    color: white;
+    background-color: $primaryColor;
+    border-color: transparent;
+    border-radius: 8px 8px 0 0!important;
+  }
+}
+
+#tab-content-wrapper {
+  padding: 2.5rem 1.5rem;
+  background: $primaryColor;
+  border-radius: 0 8px 8px 8px;
+  max-width: 548px;
+  width: 548px;
+  .tab-pane-wrapper {
+    position: relative;
+    .search-city {
+      position: absolute;
+      top:6px;
+      left: 12px;
+      z-index: 1;
+    }
+    .city-search.ng-select {
+      z-index: 0!important;
+    }
+    .input-address {
+      &::placeholder {
+        color: $greyMediumColor;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #tab-content-wrapper {
+    max-width: 100%!important;
+    width: 100%!important;
+    margin-bottom: 48px!important;
+  }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .nav-tabs {
+    margin-top: 0!important;
+  }
+  #tab-content-wrapper {
+    max-width: 100%!important;
+    width: 100%!important;
+    margin-bottom: 1.5rem;
+  }
+}
+
+:host ::ng-deep ng-select .ng-select-container > .ng-value-container {
+  padding: .375rem 2.25rem !important;
+}
+
+:host ::ng-deep ng-select .ng-select-container > .ng-value-container > div[role="combobox"] {
+  padding: 0 !important;
+}
+
+:host ::ng-deep ng-select .ng-select-container > .ng-value-container > .ng-value {
+  margin-bottom: 0 !important;
+}
+
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar {
+  width: 8px;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+:host ::ng-deep ng-select div.ng-select-container > span.ng-clear-wrapper .ng-clear,
+:host ::ng-deep ng-select div.ng-select-container > span.ng-arrow-wrapper .ng-arrow {
+  display: none !important;
+}
