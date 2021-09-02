@@ -1,5 +1,13 @@
 <div class="main-content-profile">
     <div class="entry-content">
+      <video 
+      *ngIf="agent!=null && agent!=undefined && agent.agentVideo!=null && agent.agentVideo!=undefined" 
+      width="100%" 
+      class="video-block"
+      id="agent-video"
+      (click)="triggerVideo()">
+          <source  [src]="urlBack+agent.agentVideo.mediaUrl"  type="video/mp4"/>
+      </video>
         <video 
         *ngIf="agent!=null && agent!=undefined && agent.agentVideo==null" 
         width="100%" 
@@ -7,13 +15,6 @@
         id="agent-video"
         (click)="triggerVideo()">
             <source  src="assets/videos/intro.mp4#t=5,20"  type="video/mp4"/>
-        </video>
-        <video 
-        *ngIf="agent!=null && agent!=undefined && agent.agentVideo!=null && agent.agentVideo!=undefined" 
-        width="100%" 
-        class="video-block"
-        id="agent-video" >
-            <source  [src]="urlBack+agent.agentVideo.mediaUrl + '#t=5,20'"  type="video/mp4"/>
         </video>
         <i *ngIf="playVideo" (click)="triggerVideo()" class="bi bi-play agent-video-play"></i>
     </div>
