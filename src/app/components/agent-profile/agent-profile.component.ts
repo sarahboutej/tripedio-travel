@@ -76,6 +76,7 @@ export class AgentProfileComponent implements OnInit {
   async openModal() {
     return await this.modalComponent.open(this.agentUuid);
   }
+  
   triggerVideo() {
     var myVideo: any = document.getElementById("agent-video");
     if (myVideo.paused) {
