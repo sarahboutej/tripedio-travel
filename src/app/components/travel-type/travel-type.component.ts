@@ -42,22 +42,22 @@ export class TravelTypeComponent implements OnInit {
   images = [
     { 
       id: '1',
-      src: 'assets/images/travel-type-1.jpg',
+      src: 'assets/images/travel-type-1.webp',
       title: 'Kreuzfahrt'
     },
     { 
       id: '2',
-      src: 'assets/images/travel-type-2.jpg',
+      src: 'assets/images/travel-type-2.webp',
       title: 'Pauschalreise'
     },
     { 
       id: '3',
-      src: 'assets/images/travel-type-4.jpg',
+      src: 'assets/images/travel-type-4.webp',
       title: 'Golfurlaub'
     },
     { 
       id: '4',
-      src: 'assets/images/travel-type-3.jpg',
+      src: 'assets/images/travel-type-3.webp',
       title: 'Wanderurlaub'
     }
   ];

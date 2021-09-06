@@ -31,7 +31,7 @@ export class TestimonialsComponent implements OnInit {
   testimonialsItems = [
     {
       id: '1',
-      avatar: 'assets/images/user1.jpg',
+      avatar: 'assets/images/user1.webp',
       userName: 'Florian B',
       title: 'Super Easy',
       stars: 5,
@@ -40,7 +40,7 @@ export class TestimonialsComponent implements OnInit {
     },
     {
       id: '2',
-      avatar: 'assets/images/user2.jpg',
+      avatar: 'assets/images/user2.webp',
       userName: 'Isabel B',
       title: 'Unvergessliches Erlebnis',
       stars: 5,
@@ -49,7 +49,7 @@ export class TestimonialsComponent implements OnInit {
     },
     {
       id: '3',
-      avatar: 'assets/images/user3.jpg',
+      avatar: 'assets/images/user3.webp',
       userName: 'Maria M',
       title: 'Großartige Beratung!',
       stars: 5,
