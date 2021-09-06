@@ -19,6 +19,7 @@ export class AgentProfileComponent implements OnInit {
   @Input()
   agentUuid: any = '';
   playVideo: boolean = true;
+  mute: boolean = false;
   @ViewChild('modal') private modalComponent!: AppointementModalComponent;
 
   modalConfig: ModalConfig={
@@ -87,6 +88,24 @@ export class AgentProfileComponent implements OnInit {
       myVideo.pause();
       this.playVideo = true;
     }
+  }
+
+  triggerMute() {
+    var myVideo: any = document.getElementById("agent-video");
+    if (myVideo.muted) {
+       this.mute = true;
+        myVideo.muted = false;
+    }
+    else {
+      this.mute = false;
+      myVideo.muted = true;
+    }
+  }
+
+  triggerReload() {
+    var myVideo: any = document.getElementById("agent-video");
+    myVideo.currentTime = 0;
+    myVideo.play();
   }
 
 }

@@ -16,7 +16,15 @@
         (click)="triggerVideo()">
             <source  src="assets/videos/intro.mp4#t=5,20"  type="video/mp4"/>
         </video>
-        <i *ngIf="playVideo" (click)="triggerVideo()" class="bi bi-play agent-video-play"></i>
+        <i *ngIf="playVideo; else videoControl" (click)="triggerVideo()" class="bi bi-play agent-video-play"></i>
+        <ng-template #videoControl >
+          <div class="video-control">
+            <i (click)="triggerMute()" class="bi agent-video-sound" [class]="mute && 'bi-volume-mute' || 'bi-volume-off'"></i>
+            <i (click)="triggerReload()" class="bi bi-arrow-repeat agent-video-replay"></i>
+          </div>
+        </ng-template>
+        
+
     </div>
     <div class="inner-content"> 
         <div class="container">

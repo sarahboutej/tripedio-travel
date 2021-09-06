@@ -23,7 +23,26 @@
       align-items: center;
       justify-content: center;
       background: #14141454;
-  }
+    }
+    .video-control {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: white;
+      display: flex;
+      align-items: center;
+      .agent-video-sound {
+        font-size: 1.7rem;
+        margin-right: 10px;
+        text-shadow: 0px 0px 10px black;
+        cursor: pointer;
+      }
+      .agent-video-replay {
+        font-size: 1.3rem;
+        text-shadow: 0px 0px 8px black;
+        cursor: pointer;
+      }
+   }
   }
     .inner-content{
         padding-bottom: 8rem;
