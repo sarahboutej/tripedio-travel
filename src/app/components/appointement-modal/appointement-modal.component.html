@@ -13,6 +13,7 @@
     <div class="modal-body body-model">
         <form id="form"  (ngSubmit)="dismiss()" role="form" #testForm="ngForm" ngNativeValidate>
             <div class="row input-actions">
+                <app-alert-error *ngIf="showAlertError" [message]="message"></app-alert-error>
                 <div class="col-lg-6 col-sm-12 col-actions first-col">
                 <label class="label-actions">Vorname</label>
                 <input [(ngModel)]="appointement.userFirstName" [ngModelOptions]="{standalone: true}" required type="text" class="form-control search-travel-type" placeholder="Ihr Vorname">          

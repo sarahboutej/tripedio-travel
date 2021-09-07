@@ -43,6 +43,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HeaderTabsMobileComponent } from './components/header/header-tabs-mobile/header-tabs-mobile.component';
+import { AlertErrorComponent } from './shared/components/alert/alert-error/alert-error.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -78,7 +79,8 @@ registerLocaleData(localeDe);
     ImprintComponent,
     AppointementModalComponent,
     NotFoundComponent,
-    HeaderTabsMobileComponent
+    HeaderTabsMobileComponent,
+    AlertErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +98,10 @@ registerLocaleData(localeDe);
     InfiniteScrollModule,
     MatFormFieldModule,
     MatInputModule
-  ],
+  ], 
+  exports: [
+      AlertErrorComponent,
+    ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'de-DE'},
     {provide: LOCALE_ID, useValue: 'de'},

@@ -2,7 +2,7 @@ import { ActivityTypeModel } from './activity-type.model';
 
 export class AppointementModel {
 
-appointementDate:Date;
+appointementDate:any;
 userEmail: string;
 userFirstName: string;
 userLastName: string;

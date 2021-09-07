@@ -36,13 +36,25 @@ export class AppointementModalComponent implements OnInit {
   agentUuid='';
 
   format = 'yyyy-MM-dd';
+  formatAppointmentDate = 'yyyy-MM-dd HH:mm:ss';
   availibilities: Array<any> = [];
   endDates : string[] = [];
+  showAlertError=false;
+  message='';
+
 
   constructor(private modalService: NgbModal, private agentService: AgentService,private appointmentService:AppointmentService,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
     this.initialise();
+    let intervalId = setInterval(() => {
+      if(this.showAlertError){
+        this.showAlertError=false;
+      }
+      if(this.showAlertError){
+        this.showAlertError=false;
+      }
+  }, 15000);
    }
 
   open(agentUuid:any): Promise<boolean> {
@@ -79,16 +91,25 @@ export class AppointementModalComponent implements OnInit {
 
     this.appointement.apointementActivitiesDto=this.appointementActivities;
     this.appointement.apointementPlaces=this.appointementPlaces;
-    this.appointement.appointementDate=this.selectedDate;
+    var formatedDate=this.datepipe.transform(this.selectedDate, this.formatAppointmentDate);
+    this.appointement.appointementDate=formatedDate;
     if(this.appointement.appointementParticipantType=="Single"){
       this.appointement.appointementParticipantType="SINGLE";
     }
     this.appointement.agentUuid=this.agentUuid;
-    this.appointmentService.createAppointment(this.appointement).subscribe(response => {
-      this.initialise();
-      this.modalRef.dismiss("dismiss");
-    }, error => {
-    });
+
+    if(new Date().getTime()>this.selectedDate.getTime())
+    {
+      this.message='Ausgewähltes Datum und Uhrzeit müssen größer als das Datum des Tages sein!';
+      this.showAlertError=true;
+    }else{
+      this.appointmentService.createAppointment(this.appointement).subscribe(response => {
+        this.initialise();
+        this.modalRef.dismiss("dismiss");
+      }, error => {
+      });
+    }
+    
 
     
   }
