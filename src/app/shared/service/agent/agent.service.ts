@@ -70,7 +70,7 @@ export class AgentService {
   }
 
   getAgentByUuid(uuid: string ): Observable<any> {
-    return this.http.get<any>(`${this.AGENTS_API}/${uuid}`);
+    return this.http.get<any>(`${this.AGENTS_API}/profile/${uuid}`);
   }
 
   getAgentActivities(uuid: string ): Observable<any> {
