@@ -54,7 +54,7 @@ export class AppointementModalComponent implements OnInit {
       if(this.showAlertError){
         this.showAlertError=false;
       }
-  }, 15000);
+  }, 25000);
    }
 
   open(agentUuid:any): Promise<boolean> {
@@ -107,6 +107,7 @@ export class AppointementModalComponent implements OnInit {
         this.initialise();
         this.modalRef.dismiss("dismiss");
       }, error => {
+        console.log(error);
       });
     }
     

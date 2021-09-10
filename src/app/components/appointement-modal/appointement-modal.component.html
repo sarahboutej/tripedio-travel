@@ -38,8 +38,8 @@
                 <label for="placesSelect" class="label-actions">Reiseziel</label>
                 <ng-select required #placesSelect (close)="placesSelect.blur()" class="form-control custom-ng-select" 
                     style="padding: 0; border: none;" [items]="places" [multiple]="true"
-                    [maxSelectedItems]="3" bindLabel="superPlaceLabel" [ngModelOptions]="{standalone: true}"
-                    notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true"
+                    [maxSelectedItems]="10" bindLabel="superPlaceLabel" [ngModelOptions]="{standalone: true}"
+                    notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" [clearSearchOnAdd]="true"
                     placeholder="Reiseziel suchen" [(ngModel)]="selectedPlacesItems"
                     (search)="getFiltredPlaces($event)" (open)="onOpen(placesSelect)">
                   </ng-select>
@@ -59,8 +59,8 @@
                 <label for="select2" class="label-actions">Reiseart</label>
                 <ng-select required #activityselect (close)="activityselect.blur()" class="form-control custom-ng-select" style="padding: 0; border: none;" 
                 [items]="activities" [multiple]="true"
-                [maxSelectedItems]="3" bindLabel="activityTypeLabel" [ngModelOptions]="{standalone: true}"
-                notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true"
+                [maxSelectedItems]="10" bindLabel="activityTypeLabel" [ngModelOptions]="{standalone: true}"
+                notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" [clearSearchOnAdd]="true"
                 placeholder="Reisearten suchen" [(ngModel)]="selectedActivityItems"
                 (search)="getFiltredActivities($event)">
         </ng-select>

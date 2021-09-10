@@ -67,7 +67,6 @@ export class AgentProfileComponent implements OnInit {
   getAgentPlaces(uuid:any){
     this.listCountries=[];
     this.agentService.getAgentPlaces(uuid).subscribe(response => {
-      console.log(response);
       this.listCountries=response;
     }, error => {
     });
