@@ -60,7 +60,7 @@
                 <ng-select required #activityselect (close)="activityselect.blur()" class="form-control custom-ng-select" style="padding: 0; border: none;" 
                 [items]="activities" [multiple]="true"
                 [maxSelectedItems]="3" bindLabel="activityTypeLabel" [ngModelOptions]="{standalone: true}"
-                notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" [clearSearchOnAdd]="true"
+                notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true"
                 placeholder="Reisearten suchen" [(ngModel)]="selectedActivityItems"
                 (search)="getFiltredActivities($event)">
         </ng-select>
