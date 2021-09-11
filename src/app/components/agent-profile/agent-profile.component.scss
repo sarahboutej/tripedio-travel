@@ -8,6 +8,7 @@
       height: 414px!important;
       min-height: 414px!important;
       max-height: 414px!important;
+      background: black!important
     }
     .agent-video-play {
       position: absolute;
@@ -115,9 +116,6 @@
       .img-activity{
          padding-top: 20px;
       }  
-      .video-block{
-        object-fit: fill;
-      }
 
       .img-profile{
         width: 180px;
