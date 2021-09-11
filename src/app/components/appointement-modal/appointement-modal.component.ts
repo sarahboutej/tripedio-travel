@@ -107,7 +107,10 @@ export class AppointementModalComponent implements OnInit {
         this.initialise();
         this.modalRef.dismiss("dismiss");
       }, error => {
-        console.log(error);
+        if(error.status == 400){
+          this.message='mit dieser E-Mail wurde bereits ein Agentenkonto erstellt!';
+          this.showAlertError=true;
+       }
       });
     }
     
@@ -172,7 +175,6 @@ export class AppointementModalComponent implements OnInit {
   changeEndDate(event: any) {
     this.endDates = [];
     let result = this.availibilities.filter(idState => idState.startDate === event);
-    console.log(result);
     for(let i=0; i<result.length;i++){
       this.endDates.push(result[i].endDate);
       
