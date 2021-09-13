@@ -12,18 +12,21 @@
 @font-face {
   font-family: $font-family-Inter;
   src:url("assets/font/Inter/Inter-Regular.ttf");
+  font-display: swap
 }
 
 @font-face {
   font-family: $font-family-Inter;
   src:url("assets/font/Inter/Inter-SemiBold.ttf");
   font-weight: 600;
+  font-display: swap
 }
 
 @font-face {
   font-family: $font-family-Inter;
   src:url("assets/font/Inter/Inter-ExtraBold.ttf");
   font-weight: 800;
+  font-display: swap
 }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
