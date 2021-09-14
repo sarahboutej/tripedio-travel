@@ -46,7 +46,8 @@
   }
   
   ::ng-deep ng-select .ng-select-container > .ng-value-container > .ng-value {
-    margin-bottom: 0 !important;
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
   }
   
   ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar {
@@ -78,7 +79,7 @@
   }
 
   ::ng-deep .ng-select.ng-select-multiple .ng-select-container {
-    height: 32px!important;
+    min-height: 32px!important;
   }
   
   ::ng-deep .ng-select.ng-select-single .ng-select-container {
