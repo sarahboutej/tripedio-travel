@@ -29,6 +29,7 @@ export class AgentsBodyComponent implements OnInit {
   }
 
   getFiltredAgents() {
+    this.filtredMap.page = 1;
     this.agentService.getFiltredAgents(this.filtredMap).subscribe(
       result => {
         this.filtredAgentsCount = result.count;
@@ -39,13 +40,7 @@ export class AgentsBodyComponent implements OnInit {
 
   consultancyFeeChange(event: any) {
     this.filtredMap.noConsultancyFee = event || false;
-
-    this.agentService.getFiltredAgents(this.filtredMap).subscribe(
-      result => {
-        this.filtredAgentsCount = result.count;
-        this.filtredAgents = [...result.items];
-      }
-    );
+    this.getFiltredAgents();
   }
   
   displaySidebarMobile() {
