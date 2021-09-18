@@ -3,8 +3,8 @@
     <input type="checkbox" id="online">
     <label class="user-x-small-text text-black  line-heigth-24" for="online">Jetzt Online</label>
   </div> -->
-  <div class="form-group mb-0">
-    <input type="checkbox" id="fee" [(ngModel)]="noConsultancyFee"  (change)="checkConsultancyFee($event)">
-    <label class="user-x-small-text text-black  line-heigth-24" for="fee">Keine Beratungsgebühr</label>
+  <div class="form-group mb-0" [class]="division">
+    <input type="checkbox" [id]="'fee-'+division" [(ngModel)]="noConsultancyFee"  (change)="checkConsultancyFee($event)">
+    <label class="user-x-small-text text-black  line-heigth-24" [for]="'fee-'+division">Keine Beratungsgebühr</label>
   </div>
 </div>

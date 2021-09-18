@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-agents-body-sidebar',
@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class AgentsBodySidebarComponent implements OnInit {
   @Output() consultancyEvent = new EventEmitter<boolean>();
+  @Input() mediaDivision = 'desktop';
   
   constructor() { }
 

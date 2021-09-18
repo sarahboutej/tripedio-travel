@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-agent-options',
@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class AgentOptionsComponent implements OnInit {
   noConsultancyFee: boolean = false;
+  @Input() division = '';
 
   @Output() consultancyEvent = new EventEmitter<boolean>();
   
@@ -19,4 +20,5 @@ export class AgentOptionsComponent implements OnInit {
     const ischecked = (<HTMLInputElement>event.target).checked;
     this.consultancyEvent.emit(ischecked);
   }
+
 }

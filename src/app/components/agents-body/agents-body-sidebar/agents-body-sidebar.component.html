@@ -1,5 +1,5 @@
 <div class="agent-sidebar-wrapper">
-  <app-agent-options (consultancyEvent)="consultancyFeeChange($event)"></app-agent-options>
+  <app-agent-options (consultancyEvent)="consultancyFeeChange($event)" [division]="mediaDivision"></app-agent-options>
   <app-destination-filter></app-destination-filter>
   <app-travel-type-filter></app-travel-type-filter>
 </div>

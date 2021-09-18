@@ -45,6 +45,12 @@ export class AgentsBodyComponent implements OnInit {
   
   displaySidebarMobile() {
     this.displaySidebar = !this.displaySidebar;
+    const bodyTag = document.body;
+    if ( this.displaySidebar ) {
+      bodyTag.classList.add('mobile-menu-opened');
+    } else {
+      bodyTag.classList.remove('mobile-menu-opened');
+    }
   }
   
   onScrollDown() {  

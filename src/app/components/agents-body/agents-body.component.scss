@@ -1,6 +1,5 @@
 @import '../../../styles/variables';
 .agents-title-container {
-  margin-top: 4.7rem;
   h1 {
     line-height: 32px;
   }
@@ -23,9 +22,11 @@
   background: white;
   width: 100%;
   min-height: 100vh;
+  height: 100%;
   top: 0;
   left: 0;
   z-index: 9999;
+  overflow-y: scroll;
 }
 
 @media screen and (max-width: 767px) {
