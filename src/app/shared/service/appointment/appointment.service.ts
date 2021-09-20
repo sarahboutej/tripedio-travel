@@ -20,4 +20,8 @@ export class AppointmentService {
   getAvalibilityByDay(agentUuid:any,date:any): Observable<any> {
     return this.http.get<any>(`${this.AVAILIBILITY_API}/${agentUuid}/${date}`);
   }
+
+  getAllAgentavailabilities(agentUuid:any): Observable<any> {
+    return this.http.get<any>(`${this.AVAILIBILITY_API}/${agentUuid}`);
+  }
 }

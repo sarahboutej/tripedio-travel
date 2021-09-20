@@ -30,6 +30,10 @@ const routes: Routes = [
     component: ProfileComponent,
   },
   {
+    path: 'notfoundpage',
+    component: NotFoundComponent,
+  },
+  {
     path: '**',
     component: NotFoundComponent,
   },

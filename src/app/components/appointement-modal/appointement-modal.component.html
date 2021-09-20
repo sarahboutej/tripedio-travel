@@ -76,7 +76,7 @@
                         <input matInput [matDatepicker]="picker" placeholder="" onfocus="this.blur()" readonly="readonly"
                         [(ngModel)]="selectedDate" [ngModelOptions]="{standalone: true}" (dateInput)="onSelect($event.value)" required>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-datepicker #picker  [dateClass]="dateClass"></mat-datepicker>
                     </mat-form-field>
                 </div>
                     <!--<div class="Mycalendar">

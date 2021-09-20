@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, TemplateRef, Injectable } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, TemplateRef, Injectable, ViewEncapsulation } from '@angular/core';
 import { NgbModalRef, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalConfig } from './modal.config';
 import { AgentService } from 'src/app/shared/service/agent/agent.service';
@@ -6,11 +6,13 @@ import { AppointementModel } from 'src/app/shared/model/appointement.model';
 import { AppointmentService } from 'src/app/shared/service/appointment/appointment.service';
 import { ActivityTypeModel } from 'src/app/shared/model/activity-type.model';
 import { DatePipe } from '@angular/common';
+import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-appointement-modal',
   templateUrl: './appointement-modal.component.html',
   styleUrls: ['./appointement-modal.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   providers: [DatePipe]
 })
 @Injectable()
@@ -38,6 +40,7 @@ export class AppointementModalComponent implements OnInit {
   format = 'yyyy-MM-dd';
   formatAppointmentDate = 'yyyy-MM-dd HH:mm:ss';
   availibilities: Array<any> = [];
+  allAvailibilities: Array<any> = [];
   endDates : string[] = [];
   showAlertError=false;
   message='';
@@ -169,6 +172,11 @@ export class AppointementModalComponent implements OnInit {
           this.availibilities=result;
         }
       );
+      this.appointmentService.getAllAgentavailabilities(this.agentUuid).subscribe(
+        result => {
+          this.allAvailibilities=result;
+        }
+      );
     }
     
   }
@@ -181,5 +189,33 @@ export class AppointementModalComponent implements OnInit {
     }
     
   }
+
+  dateClass = (d: Date): MatCalendarCellCssClasses => {
+    const date = d.getDay();
+    let days: number[]=[];
+    // Highlight available days
+    for(let i=0; i<this.allAvailibilities.length;i++){
+      if(this.allAvailibilities[i].agentAvailabilityDay==='MONDAY'&& !days.includes(1)){
+         days.push(1);
+      }else if(this.allAvailibilities[i].agentAvailabilityDay==='TUESDAY'&& !days.includes(2)){
+        days.push(2);
+      }
+      else if(this.allAvailibilities[i].agentAvailabilityDay==="WEDNESDAY"&& !days.includes(3)){
+        days.push(3);
+      }
+      else if(this.allAvailibilities[i].agentAvailabilityDay==="THURSDAY"&& !days.includes(4)){
+        days.push(4);
+      }else if(this.allAvailibilities[i].agentAvailabilityDay==="FRIDAY"&& !days.includes(5)){
+        days.push(5);
+      }else if(this.allAvailibilities[i].agentAvailabilityDay==="SATURDAY"&& !days.includes(6)){
+        days.push(6);
+      }else if(this.allAvailibilities[i].agentAvailabilityDay==="SUNDAY"&& !days.includes(0)){
+        days.push(0);
+      }
+    }
+    return days.includes(date) ? 'highlight-dates' : '';
+  };
+
+
 
 }

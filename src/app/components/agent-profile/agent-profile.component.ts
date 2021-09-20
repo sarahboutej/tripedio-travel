@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AgentService } from 'src/app/shared/service/agent/agent.service';
 import { UtilsService } from 'src/app/shared/service/utils.service';
@@ -29,7 +30,7 @@ export class AgentProfileComponent implements OnInit {
   }
 
 
-  constructor(private agentService:AgentService) { }
+  constructor(private agentService:AgentService,private router: Router) { }
 
   ngOnInit(): void {
     this.agentService.getAgentByUuid(this.agentUuid).subscribe(response => {
@@ -49,6 +50,10 @@ export class AgentProfileComponent implements OnInit {
         }
         
       }
+    }, error => {
+      if(error.status == 404){
+        this.router.navigateByUrl('/notfoundpage');
+     }
     });
     this.getAgentActivities(this.agentUuid);
     this.getAgentPlaces(this.agentUuid);
