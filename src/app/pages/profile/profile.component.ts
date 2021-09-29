@@ -1,6 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AgentService } from 'src/app/shared/service/agent/agent.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +10,7 @@ export class ProfileComponent implements OnInit {
   @Output()
   agentUuid:any='';
 
-  constructor(private agentService:AgentService,private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -19,13 +18,6 @@ export class ProfileComponent implements OnInit {
       if(!this.agentUuid || this.agentUuid == '') {
          this.router.navigateByUrl(`/`);
       }
-
-      this.agentService.getAgentByUuid(this.agentUuid).subscribe(response => {
-      }, error => {
-        console.log(error);
-          this.router.navigateByUrl('/notfoundpage');
-      });
-
     });
   }
 

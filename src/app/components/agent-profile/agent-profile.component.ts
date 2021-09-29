@@ -48,14 +48,15 @@ export class AgentProfileComponent implements OnInit {
         if(profileImageMobile!=null){
           profileImageMobile.innerHTML = intials;
         }
-        this.getAgentActivities(this.agentUuid);
-        this.getAgentPlaces(this.agentUuid);
         
       }
     }, error => {
+      if(error.status == 404){
         this.router.navigateByUrl('/notfoundpage');
+     }
     });
-    
+    this.getAgentActivities(this.agentUuid);
+    this.getAgentPlaces(this.agentUuid);
 
   }
 
