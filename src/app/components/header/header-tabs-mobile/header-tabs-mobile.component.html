@@ -12,7 +12,7 @@
       <i class="bi bi-search search-city grey-color"></i>
       <ng-select  #placesSelect (close)="placesSelect.blur()" class="form-control city-search" style="padding: 0; border: none;" [items]="places" [multiple]="true"
           [maxSelectedItems]="3" bindLabel="superPlaceLabel" [ngModelOptions]="{standalone: true}"
-          notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" [clearSearchOnAdd]="true"
+          notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true"
           placeholder="z.b: Spanien, Süd Afrika" [(ngModel)]="selectedPlacesItems" [selectOnTab]="true"
           (search)="getFiltredPlaces($event)" (open)="onOpen(placesSelect)">
         </ng-select>
@@ -24,7 +24,7 @@
       <i class="bi bi-search search-city grey-color"></i>
       <ng-select #select (close)="select.blur()" class="form-control" style="padding: 0; border: none;" [items]="activities" [multiple]="true"
           [maxSelectedItems]="3" bindLabel="activityTypeLabel" [ngModelOptions]="{standalone: true}"
-          notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" [clearSearchOnAdd]="true"
+          notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true"
           placeholder="z.b: Kreuzfahrt, Pauschalreise" [(ngModel)]="selectedActivityItems"
           (search)="getFiltredActivities($event)">
         </ng-select>

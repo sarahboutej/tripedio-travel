@@ -21,4 +21,13 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit() {
+    // Hack: Scrolls to top of Page after page view initialized
+    let top = document.getElementById('topNavigation');
+    if (top !== null) {
+      top.scrollIntoView();
+      top = null;
+    }
+  }
+
 }

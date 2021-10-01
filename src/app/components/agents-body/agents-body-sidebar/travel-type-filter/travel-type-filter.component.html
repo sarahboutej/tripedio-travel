@@ -8,8 +8,16 @@
     <input type="text" [(ngModel)]="activityLabel" class="form-control search-travel-type" placeholder="Suchen" (input)="getActivities()">
   </div>
   <div class="travel-options">
+    <div *ngIf="reisearten.length>0">
     <div *ngFor="let option of travelTypeOption; let indexOfItem = index" class="form-group animate__animated animate__fadeInUp">
-      <div>
+      <div *ngIf="reisearten.length!=0&&reisearten.includes(option.activityTypeLabel)">
+        <input type="checkbox" [id]="option.activityTypeLabel" [checked]="reisearten.includes(option.activityTypeLabel)" (change)="checkValue(option.activityTypeLabel, $event)">
+        <label class="user-x-small-text text-black  line-heigth-24" [for]="option.activityTypeLabel">{{ option.activityTypeLabel }}</label>
+      </div>
+    </div>
+  </div>
+    <div *ngFor="let option of travelTypeOption; let indexOfItem = index" class="form-group animate__animated animate__fadeInUp">
+      <div *ngIf="!reisearten.includes(option.activityTypeLabel)">
         <input type="checkbox" [id]="option.activityTypeLabel" [checked]="reisearten.includes(option.activityTypeLabel)" (change)="checkValue(option.activityTypeLabel, $event)">
         <label class="user-x-small-text text-black  line-heigth-24" [for]="option.activityTypeLabel">{{ option.activityTypeLabel }}</label>
       </div>
