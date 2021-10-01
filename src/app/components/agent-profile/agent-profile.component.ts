@@ -49,14 +49,14 @@ export class AgentProfileComponent implements OnInit {
           profileImageMobile.innerHTML = intials;
         }
         
+        
       }
     }, error => {
-      if(error.status == 404){
         this.router.navigateByUrl('/notfoundpage');
-     }
     });
     this.getAgentActivities(this.agentUuid);
     this.getAgentPlaces(this.agentUuid);
+    
 
   }
 
