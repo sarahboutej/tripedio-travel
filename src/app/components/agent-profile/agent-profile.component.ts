@@ -17,6 +17,7 @@ export class AgentProfileComponent implements OnInit {
   listactivities:any=[];
   urlBack= UtilsService.BASE_API_URL;
   abbriviation='';
+  htmlDescription = '';
   @Input()
   agentUuid: any = '';
   playVideo: boolean = true;
@@ -35,6 +36,13 @@ export class AgentProfileComponent implements OnInit {
   ngOnInit(): void {
     this.agentService.getAgentByUuid(this.agentUuid).subscribe(response => {
       this.agent=response;
+      if(this.agent && this.agent.agentDescription) {
+        var descriptionLine = this.agent.agentDescription.split('\n');
+        descriptionLine.forEach((line:any) => {
+         this.htmlDescription += '<p>'+line+'</p>'
+        });
+      }
+      console.warn('agent.agentDescription',this.agent.agentDescription);
       if(this.agent!= null&&this.agent!=undefined&&this.agent.agentPhoto==null){
         const fullName = this.agent.agentFirstName+' '+this.agent.agentLastName;
         const intials = fullName.split(' ').map(name => name[0]).join('').toUpperCase(); 
@@ -48,7 +56,6 @@ export class AgentProfileComponent implements OnInit {
         if(profileImageMobile!=null){
           profileImageMobile.innerHTML = intials;
         }
-        
         
       }
     }, error => {

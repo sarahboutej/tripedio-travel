@@ -69,8 +69,7 @@
                 <div class="col-lg-8 col-sm-12">
                     <div *ngIf="agent!=null && agent!=undefined" class="about-profile">
                         <h3 class="fw-medium mb-4 line-heigth-24 ">Über {{agent.agentFirstName}}</h3>
-                            <p class="grey-color  mb-0">
-                                {{agent.agentDescription}}
+                            <p class="grey-color  mb-0" [innerHTML]="htmlDescription">
                             </p>
                     </div>
                     <div *ngIf="listactivities!=null&&listactivities!=undefined&&listactivities.length > 0" class="galleries">
