@@ -490,8 +490,22 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 }
 
 .highlight-dates{
-  background-color: #9ddca0 !important;
+  //background-color: #9ddca0 !important;
   border-radius: 50%;
+}
+
+.highlight-dates .mat-calendar-body-cell-content.mat-focus-indicator{
+  color: #2fb633 !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: #ecf5ff;
+  color: #205bd8!important;
+  font-weight: bold!important;
+}
+
+.mat-calendar-body-cell-content.mat-focus-indicator{
+  color: #a5b2bc;
 }
 
 

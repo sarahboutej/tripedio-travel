@@ -213,7 +213,7 @@ export class AppointementModalComponent implements OnInit {
         days.push(0);
       }
     }
-    return days.includes(date) ? 'highlight-dates' : '';
+    return (days.includes(date)&&d>=new Date()) ? 'highlight-dates' : '';
   };
 
 
