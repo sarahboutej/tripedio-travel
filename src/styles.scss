@@ -76,8 +76,14 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .orange-gb {
   background-color: $orangeColor!important;
 }
+.orange-chip-gb {
+  background-color: $chipOrange!important;
+}
 .grey-gb {
   background-color: $stars-grey-color!important;
+}
+.leight-grey-gb {
+  background-color: $greyLightBg!important;
 }
 .grey-cancel {
   width: auto!important;
@@ -128,6 +134,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .paragraphe-fs {
   font-size: 1.125rem;
 }
+
+.section-padding {
+  padding: 1.5rem
+}
 .title-padding {
   padding: 2.5rem 0;
 }
@@ -138,6 +148,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .title-pb {
   padding-bottom: 5rem!important;
 }
+
+.subtitle-pb {
+  padding-bottom: 1.5rem!important;
+}
+
 
 .title-pb-2 {
   padding-bottom: 3.75rem!important;
@@ -152,17 +167,29 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   padding-right: 5rem;
 }
 .br-8 {
-  border-radius: 8px;
+  border-radius: 0.5rem;
+}
+
+.br-4 {
+  border-radius: 0.25rem;
+}
+
+.hoverable {
+  cursor: pointer;
+  &:hover {
+    color: $orangeHoverColor!important;
+  }
 }
 
 .full-height {
   height: 100%;
 }
 .light-heigth-big {
-  line-height: 28px;
+  // 28px
+  line-height: 1.75rem;
 }
 .light-heigth-xbig {
-  line-height: 60px;
+  line-height: 3.75rem;
 }
 .line-heigth-24 {
   line-height: 1.5rem;

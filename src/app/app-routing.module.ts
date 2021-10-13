@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AgentsSearchResultComponent } from './pages/agents-search-result/agents-search-result.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AgentComponent } from './pages/agent/agent.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
 import { DatenschutzComponent } from './pages/datenschutz/datenschutz.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'agent/:agentUuid',
     component: ProfileComponent,
+  },
+  {
+    path: 'profile/:agentUuid',
+    component: AgentComponent,
   },
   {
     path: 'notfoundpage',

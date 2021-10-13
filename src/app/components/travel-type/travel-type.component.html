@@ -10,7 +10,7 @@
         <ng-container *ngFor="let slide of images">
           <ng-template carouselSlide [id]="slide.id">
               <span class="destination-img-title text-white user-meduim-text fw-extra-bold" >{{ slide.title }}</span>
-              <img [routerLink]="['/reiseexperten']" [queryParams]="{reisearten: slide.title}" [src]="slide.src" [alt]="slide.title" [title]="slide.title" class="destination-action">
+              <img [routerLink]="['/reiseexperten']" [queryParams]="{reisearten: slide.title}" [src]="slide.src" [alt]="slide.title" [title]="slide.title" class="destination-action" loading="lazy">
           </ng-template>
         </ng-container>
       </owl-carousel-o>

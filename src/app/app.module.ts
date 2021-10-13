@@ -29,6 +29,7 @@ import { AgentOptionsComponent } from './components/agents-body/agents-body-side
 import { TravelTypeFilterComponent } from './components/agents-body/agents-body-sidebar/travel-type-filter/travel-type-filter.component';
 import { AgentProfileComponent } from './components/agent-profile/agent-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AgentComponent } from './pages/agent/agent.component';
 import { DatenschutzComponent } from './pages/datenschutz/datenschutz.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
 import { AppConfig } from './app-config';
@@ -44,6 +45,9 @@ import { MatInputModule } from '@angular/material/input';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HeaderTabsMobileComponent } from './components/header/header-tabs-mobile/header-tabs-mobile.component';
 import { AlertErrorComponent } from './shared/components/alert/alert-error/alert-error.component';
+import { AgentProfileViewComponent } from './components/agent-profile-view/agent-profile-view.component';
+import { AgentGalleryComponent } from './components/agent-profile-view/agent-gallery/agent-gallery.component';
+import { AgentVideoComponent } from './components/agent-profile-view/agent-video/agent-video.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -81,6 +85,10 @@ registerLocaleData(localeDe);
     NotFoundComponent,
     HeaderTabsMobileComponent,
     AlertErrorComponent,
+    AgentProfileViewComponent,
+    AgentComponent,
+    AgentGalleryComponent,
+    AgentVideoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,63 @@
+<div class="agent-picture-items">
+    <div *ngIf="agentCountryGallery.specialityPhotos && agentCountryGallery.specialityPhotos.length && agentCountryGallery.specialityPhotos.length === 3" class="agent-picture">
+      <div class="agent-pic-wrapper d-flex align-items-stretch mb-3">
+        <div class="agent-picture-container col-6" [ngStyle]="{'background-image': 'url(' + agentCountryGallery.specialityPhotos[0].mediaUrl + ')'}"></div>
+        <div class="agent-picture-description orange-chip-gb d-flex align-items-center ms-3 px-5 col-6">
+            <div class="contry-decription">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z"/></svg>
+                <p class="text-color">{{ agentCountryGallery.specialityDescription }} </p>
+                <div class="agent-rdv-button d-flex justify-content-end">
+                  <button 
+                    type="button" 
+                    class="btn user-btn orange-gb text-white user-x-small-text fw-medium d-flex align-items-center">
+                    <i class="bi bi-camera-video me-2"></i><span>Videoanruf vereinbaren</span>
+                  </button>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="agent-pic-wrapper d-flex">
+        <div class="agent-picture-container col-6" [ngStyle]="{'background-image': 'url(' + agentCountryGallery.specialityPhotos[1].mediaUrl + ')'}"></div>
+        <div class="agent-picture-container ms-3 col-6" [ngStyle]="{'background-image': 'url(' + agentCountryGallery.specialityPhotos[2].mediaUrl + ')'}"></div>
+      </div>
+    </div>
+    <div *ngIf="agentCountryGallery.specialityPhotos && agentCountryGallery.specialityPhotos.length && agentCountryGallery.specialityPhotos.length === 2" class="agent-picture">
+      <div class="agent-pic-wrapper d-flex align-items-stretch">
+        <div class="col-6" >
+          <div class="agent-picture-container mb-3" [ngStyle]="{'background-image': 'url(' + agentCountryGallery.specialityPhotos[0].mediaUrl + ')'}"></div>
+          <div class="agent-picture-container " [ngStyle]="{'background-image': 'url(' + agentCountryGallery.specialityPhotos[1].mediaUrl + ')'}"></div>
+        </div>
+        <div class="agent-picture-description d-flex align-items-center orange-chip-gb ms-3 px-5 col-6">
+            <div class="contry-decription">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z"/></svg>
+              <p class="text-color">{{ agentCountryGallery.specialityDescription }} </p>
+              <div class="agent-rdv-button d-flex justify-content-end">
+                <button 
+                  type="button" 
+                  class="btn user-btn orange-gb text-white user-x-small-text fw-medium d-flex align-items-center">
+                  <i class="bi bi-camera-video me-2"></i><span>Videoanruf vereinbaren</span>
+                </button>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="agentCountryGallery.specialityPhotos && agentCountryGallery.specialityPhotos.length && agentCountryGallery.specialityPhotos.length === 1" class="agent-picture">
+      <div class="agent-pic-wrapper d-flex align-items-stretch">
+        <div class="agent-picture-container orange-chip-gb col-6" [ngStyle]="{'background-image': 'url(' + agentCountryGallery.specialityPhotos[0].mediaUrl + ')'}"></div>
+        <div class="agent-picture-description d-flex align-items-center orange-chip-gb ms-3 px-5 col-6">
+            <div class="contry-decription">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z"/></svg>
+              <p class="text-color">{{ agentCountryGallery.specialityDescription }} </p>
+              <div class="agent-rdv-button d-flex justify-content-end">
+                <button 
+                  type="button" 
+                  class="btn user-btn orange-gb text-white user-x-small-text fw-medium d-flex align-items-center">
+                  <i class="bi bi-camera-video me-2"></i><span>Videoanruf vereinbaren</span>
+                </button>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

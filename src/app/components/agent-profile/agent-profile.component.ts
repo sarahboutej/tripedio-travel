@@ -42,7 +42,6 @@ export class AgentProfileComponent implements OnInit {
          this.htmlDescription += '<p>'+line+'</p>'
         });
       }
-      console.warn('agent.agentDescription',this.agent.agentDescription);
       if(this.agent!= null&&this.agent!=undefined&&this.agent.agentPhoto==null){
         const fullName = this.agent.agentFirstName+' '+this.agent.agentLastName;
         const intials = fullName.split(' ').map(name => name[0]).join('').toUpperCase(); 

@@ -1,0 +1,105 @@
+<div class="agent-profile-main-content">
+  <div class="agent-profile-images">
+    <div class="agent-cover-picture"></div>
+    <div *ngIf="agent != null && agent != undefined" class="agent-profile-picture">
+        <img
+          *ngIf="
+            agent.agentPhoto != null && agent.agentPhoto != undefined;
+            else abbreviation"
+          class="
+            agent-avatar
+            rounded-circle
+            d-none d-lg-block d-md-block
+            img-fluid img-profile"
+          [src]="urlBack + agent.agentPhoto.mediaUrl"/>
+        <ng-template #abbreviation>
+          <div
+            *ngIf="agent.agentPhoto == null || agent.agentPhoto == undefined"
+            class="
+              agent-avatar
+              rounded-circle
+              d-none d-lg-block d-md-block
+              img-fluid img-profile"
+            id="profileImageEdit">
+            {{ abbriviation }}
+          </div>
+        </ng-template>
+    </div>
+  </div>
+  <div class="container agent-profile-body">
+   <div class="agent-rdv-button">
+      <button 
+        type="button" 
+        class="btn user-btn orange-gb text-white user-x-small-text fw-medium d-flex align-items-center" (click)="openModal()">
+        <i class="bi bi-camera-video me-2"></i><span>Videoanruf vereinbaren</span>
+      </button>
+   </div>
+   <div class="agent-info-container mb-5 d-flex">
+     <div class="agent-info leight-grey-gb section-padding pt-0 col-6">
+      <div *ngIf="agent!=null && agent!=undefined" class="agent-fullname d-flex justify-content-between">
+        <h4 class="text-color big-title-size line-heigth-40 fw-bold subtitle-pb mt-3">{{agent.agentFirstName}} {{agent.agentLastName}} </h4>
+        <div class="agent-btn-actions">
+          <button type="button" class="btn btn-link orange-chip-gb me-2">
+            <img src="assets/images/calendar.svg" loading="lazy"/>
+          </button>
+          <button type="button" class="btn btn-link orange-chip-gb">
+            <img src="assets/images/man.svg" loading="lazy"/>
+          </button>
+
+        </div>
+      </div>
+      <div *ngIf="agent && agent.agentDescription" class="agent-description">
+        <p class="grey-color mb-0 description-text text-color ">
+          {{ agent.agentDescription }}
+          <span class="read-more-link text-color  leight-grey-gb fw-medium hoverable">More+</span>
+        </p>
+      </div>
+      <div class="agent-destination">
+        <h5 class="text-color paragraphe-fs fw-medium my-3 line-heigth-24">
+          Reiseziele
+        </h5>
+        <div *ngIf="listCountries && listCountries.length" class="destination-items">
+          <span class="orange-chip-gb orange-color me-2 mb-2 px-3 py-2 br-4 user-x-small-text d-inline-flex" *ngFor="let place of listCountries">{{ place.specialityLabel }}</span>
+        </div>
+      </div>
+      <div *ngIf="listactivities && listactivities.length" class="agent-travel-type">
+        <h5 class="text-color paragraphe-fs fw-medium my-3 line-heigth-24">
+          Reisearten
+        </h5>
+        <div class="travel-type-items">
+          <span class="orange-chip-gb orange-color me-2 mb-2 px-3 py-2 br-4 user-x-small-text d-inline-flex" *ngFor="let act of listactivities">{{act.activityLabel}}</span>
+        </div>
+      </div>
+      <div *ngIf="agent && agent.agentConsultancyFee"  class="agent-fee">
+        <h5 class="text-color paragraphe-fs fw-medium my-3 line-heigth-24">
+          Beratungsgebühr
+        </h5>
+        <div class="fee-items">
+          <span class="orange-chip-gb orange-color me-2 px-3 py-2 br-4 user-x-small-text">{{ agent.agentConsultancyFee }}€ </span>
+        </div>
+      </div>
+     </div>
+     <div class="agent-video d-flex br-4 align-items-center justify-content-center ms-3 col-6 ">
+       <app-agent-video [agentVideo]="agent.agentVideo"></app-agent-video>
+     </div>
+   </div>
+   <div class="agent-gallery mb-5">
+     <h4 class="user-meduim-text fw-bold mb-4"> Galerie </h4>
+     <nav ngbNav #nav="ngbNav" class="nav-tabs">
+      <ng-container  ngbNavItem>
+        <a ngbNavLink>{{ listCountries[0].specialityLabel }}</a>
+        <ng-template ngbNavContent>
+          <app-agent-gallery [agentCountryGallery]="listCountries[0]"></app-agent-gallery>
+        </ng-template>
+      </ng-container>
+      <ng-container *ngFor="let place of listCountries.slice(1)"  ngbNavItem>
+        <a ngbNavLink>{{ place.specialityLabel }}</a>
+        <ng-template ngbNavContent>
+          <app-agent-gallery [agentCountryGallery]="place"></app-agent-gallery>
+        </ng-template>
+      </ng-container>
+    </nav>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+   </div>
+  </div>
+</div>

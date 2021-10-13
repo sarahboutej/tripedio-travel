@@ -1,0 +1,22 @@
+@import "../../../../styles/variables";
+
+.agent-picture-items {
+    .agent-pic-wrapper {
+      .agent-picture-container {
+        height: 380px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+    .agent-picture-description {
+      .contry-decription {
+        svg {
+          fill: $orangeColor!important;
+        }
+        .bi-camera-video {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
