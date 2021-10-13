@@ -46,7 +46,7 @@ export class DestinationFilterComponent implements OnInit {
   getDestinations() {
     this.agentService.getFiltredPlaces(this.destinationSelectedValue, 5).subscribe(
       result => {
-        this.destinationsList = [...result];
+        this.destinationsList = [...result.items];
       }
     );
   }
@@ -54,7 +54,7 @@ export class DestinationFilterComponent implements OnInit {
   getFiltredDestination(text: any): void {
     this.agentService.getFiltredPlaces(text, 5).subscribe(
       result => {
-        this.destinationsList = [...result];
+        this.destinationsList = [...result.items];
       }
     );
   }

@@ -40,8 +40,9 @@
                     style="padding: 0; border: none;" [items]="places" [multiple]="true"
                     [maxSelectedItems]="10" bindLabel="superPlaceLabel" [ngModelOptions]="{standalone: true}"
                     notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true"
-                    placeholder="Reiseziel suchen" [(ngModel)]="selectedPlacesItems"
-                    (search)="getFiltredPlaces($event)" (open)="onOpen(placesSelect)">
+                    placeholder="Reiseziel suchen" [(ngModel)]="selectedPlacesItems" [loading]="placesLoading"
+                    [virtualScroll]="true" (search)="getFiltredPlaces($event)" (scroll)="onScrollPlaces(placesSelect.searchTerm, $event)" 
+                    (scrollToEnd)="fetchMorePlaces(placesSelect.searchTerm)" (open)="onOpenPlaces()">
                   </ng-select>
             </div>
 
@@ -58,12 +59,13 @@
             <div class="row select-actions">
                 <label for="select2" class="label-actions">Reiseart</label>
                 <ng-select required #activityselect (close)="activityselect.blur()" class="form-control custom-ng-select" style="padding: 0; border: none;" 
-                [items]="activities" [multiple]="true"
-                [maxSelectedItems]="10" bindLabel="activityTypeLabel" [ngModelOptions]="{standalone: true}"
-                notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true"
-                placeholder="Reisearten suchen" [(ngModel)]="selectedActivityItems"
-                (search)="getFiltredActivities($event)">
-        </ng-select>
+                    [items]="activities" [multiple]="true"
+                    [maxSelectedItems]="10" bindLabel="activityTypeLabel" [ngModelOptions]="{standalone: true}"
+                    notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true" [loading]="activitiesLoading"
+                    placeholder="Reisearten suchen" [(ngModel)]="selectedActivityItems"
+                    [virtualScroll]="true" (search)="getFiltredActivities($event)" (scroll)="onScrollActivities(activityselect.searchTerm, $event)" 
+                    (scrollToEnd)="fetchMoreActivities(activityselect.searchTerm)" (open)="onOpenActivities()">
+                </ng-select>
             </div>
             
 

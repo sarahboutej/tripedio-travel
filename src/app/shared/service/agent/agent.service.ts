@@ -17,7 +17,7 @@ export class AgentService {
 
   constructor(private http: HttpClient) { }
   
-  getFiltredPlaces(superPlaceLabel?: string, offset?: number): Observable<any> {
+  getFiltredPlaces(superPlaceLabel?: string, offset?: number, page?: number): Observable<any> {
     let api = `${this.SUPER_PLACE_API}/filtred`;
     
     let params = new HttpParams();
@@ -27,11 +27,14 @@ export class AgentService {
     if(offset !== undefined && offset !== -1) {
       params=params.set('offset', '' + offset);
     }
+    if(page !== undefined && page !== -1) {
+      params=params.set('page', '' + page);
+    }
 
     return this.http.get<any>(api, {params: params});
   }
   
-  getFiltredActivities(activityLabel?: string, offset?: number): Observable<any> {
+  getFiltredActivities(activityLabel?: string, offset?: number, page?: number): Observable<any> {
     let api = `${this.ACTIVITIES_API}/filtred`;
 
     let params = new HttpParams();
@@ -40,6 +43,9 @@ export class AgentService {
     }
     if(offset !== undefined && offset !== -1) {
       params=params.set('offset', '' + offset);
+    }
+    if(page !== undefined && page !== -1) {
+      params=params.set('page', '' + page);
     }
     
     return this.http.get<any>(api, {params: params});

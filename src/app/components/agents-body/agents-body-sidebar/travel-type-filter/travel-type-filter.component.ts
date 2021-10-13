@@ -29,7 +29,7 @@ export class TravelTypeFilterComponent implements OnInit {
   getActivities() {
     this.agentService.getFiltredActivities(this.activityLabel, this.optionToShow).subscribe(
       result => {
-        this.travelTypeOption = result;
+        this.travelTypeOption = result.items;
         this.route.queryParams.subscribe(params => {
           if(params['reisearten']) {
             this.reisearten = params['reisearten'].split(",");
