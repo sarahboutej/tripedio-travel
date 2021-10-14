@@ -16,6 +16,9 @@ export class AgentProfileViewComponent implements OnInit {
   listCountries:any=[];
   listactivities:any=[];
 
+  isFullDescription: boolean = false;
+  btnLabel: string = '+More'
+
   urlBack= UtilsService.BASE_API_URL;
 
   abbriviation='';
@@ -33,8 +36,12 @@ export class AgentProfileViewComponent implements OnInit {
       this.agent=response;
       if(this.agent && this.agent.agentDescription) {
         var descriptionLine = this.agent.agentDescription.split('\n');
-        descriptionLine.forEach((line:any) => {
-         this.htmlDescription += '<p>'+line+'</p>'
+        descriptionLine.forEach((line:any, index:Number) => {
+         if(index === descriptionLine.length-1) {
+           this.htmlDescription += '<p class="desc-paragraph">'+line+'</p>'
+         } else {
+           this.htmlDescription += '<p >'+line+'</p>'
+         }
         });
       }
       if(this.agent!= null&&this.agent!=undefined&&this.agent.agentPhoto==null){
@@ -114,6 +121,18 @@ export class AgentProfileViewComponent implements OnInit {
 
   async openModal() {
     return await this.modalComponent.open(this.agentUuid);
+  }
+
+  displayFullDescription() {
+    this.isFullDescription = !this.isFullDescription;
+    var descTag: any = document.getElementById("agent-decription");
+    if ( this.isFullDescription ) {
+      descTag.classList.add('show-full-description');
+      this.btnLabel = "-Less"
+    } else {
+      descTag.classList.remove('show-full-description');
+      this.btnLabel = "+More"
+    }
   }
 
 }

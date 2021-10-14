@@ -79,6 +79,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .orange-chip-gb {
   background-color: $chipOrange!important;
 }
+
+.blue-chip-bg {
+  background-color: $stars-grey-color!important;
+}
+
 .grey-gb {
   background-color: $stars-grey-color!important;
 }
@@ -99,6 +104,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   &:focus {
     box-shadow: none!important;
   }
+}
+
+.desc-paragraph {
+  display: inline;
 }
 
 .bg-light-grey {

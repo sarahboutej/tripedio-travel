@@ -39,25 +39,57 @@
           .btn {
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
-            width: 4.375rem;
+            width: 3.75rem;
             height: 3.75rem;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
             box-shadow: none !important;
           }
         }
         .agent-description {
+          position: relative;
+          &:after {
+            width: 20px;
+            content: "";
+            position: absolute;
+            right: 60px;
+            top: 25px;
+            height: 20px;
+            background-image: linear-gradient(
+              to right,
+              #fafafab5,
+              $greyLightBg
+            );
+          }
           .description-text {
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             position: relative;
-            .read-more-link {
-              position: absolute;
-              top: 1.563rem;
-              right: 0;
-              padding-left: 0.75rem;
-              font-weight: 600;
-            }
+          }
+          .read-more-link {
+            position: absolute;
+            top: 1.563rem;
+            right: 0;
+            padding-left: 0.75rem;
+            font-weight: 600;
+          }
+        }
+
+        .show-full-description {
+          &:after {
+            display: none;
+          }
+          .description-text {
+            overflow: initial !important;
+            background: $greyLightBg;
+            -webkit-line-clamp: initial !important;
+            display: inline;
+          }
+          .read-more-link {
+            position: inherit;
+            top: 0;
           }
         }
       }
@@ -67,12 +99,12 @@
       }
     }
     .agent-gallery {
-      .nav-tabs{
-        border-bottom: none!important;
+      .nav-tabs {
+        border-bottom: none !important;
         margin-bottom: 1.5rem;
         .nav-link {
-          margin-bottom: 0!important;
-          border: none!important;
+          margin-bottom: 0 !important;
+          border: none !important;
           color: black;
           font-size: 1.25rem;
           font-weight: 500;
@@ -82,8 +114,8 @@
           margin-right: 2rem;
         }
         .nav-link.active {
-          color: $orangeColor!important;
-          border-bottom: 3px solid $orangeColor!important;
+          color: $orangeColor !important;
+          border-bottom: 3px solid $orangeColor !important;
         }
       }
     }
