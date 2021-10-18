@@ -3,7 +3,8 @@
 .agent-picture-items {
     .agent-pic-wrapper {
       .agent-picture-container {
-        height: 380px;
+        min-height: 380px;
+        height: 100%!important;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -11,11 +12,22 @@
     }
     .agent-picture-description {
       .contry-decription {
+        height: 100%;
         svg {
           fill: $orangeColor!important;
         }
         .bi-camera-video {
           font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .agent-picture-items {
+      .agent-pic-wrapper {
+        .agent-picture-container {
+          height: 300px;
         }
       }
     }

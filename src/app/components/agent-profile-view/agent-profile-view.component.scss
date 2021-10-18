@@ -27,8 +27,11 @@
         border: 0.4rem solid white;
         margin-top: -7rem;
         border: 0.4rem solid white;
-        width: 245px;
-        height: 245px;
+        width: 15.313rem;
+        height: 15.313rem;
+      }
+      #profileImageEdit {
+        color: white!important;
       }
     }
 
@@ -116,14 +119,26 @@
         }
       }
       .agent-video {
-        background: black;
-        border-radius: 4px;
+        .agent-wrapper-video {
+          background: black;
+          border-radius: 4px;
+          height: 100%;
+        }
       }
     }
     .agent-gallery {
       .nav-tabs {
         border-bottom: none !important;
         margin-bottom: 1.5rem;
+        overflow-x: scroll!important;
+        flex-wrap: nowrap!important;
+        &::-webkit-scrollbar {
+          width: 0;  /* Remove scrollbar space */
+          background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        &::-webkit-scrollbar-thumb {
+          background: transparent;
+        }
         .nav-link {
           margin-bottom: 0 !important;
           border: none !important;
@@ -134,11 +149,60 @@
           padding-right: 0;
           padding-left: 0;
           margin-right: 2rem;
+          height: 48px!important;
+          white-space: nowrap!important;
         }
         .nav-link.active {
           color: $orangeColor !important;
           border-bottom: 3px solid $orangeColor !important;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .agent-fullname {
+    h4 {
+      font-size: 1.5rem!important;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .agent-profile-images {
+    .agent-cover-picture {
+      height: 11.875rem!important;
+      min-height: 11.875em!important;
+      max-height: 11.875rem!important;
+    }
+    .agent-profile-picture {
+      .agent-avatar {
+        width: 9.063rem!important;
+        height: 9.063rem!important;
+        margin-top: -5rem!important;
+      }
+      #profileImageEdit {
+        font-size: 2rem!important;
+      }
+    }
+  }
+  .agent-profile-body {
+    .agent-rdv-button {
+      position: initial!important;
+      margin-top: 1rem!important;
+      margin-bottom: 2rem;
+      .user-btn {
+        width: 100%!important;
+        justify-content: center!important;
+      }
+    }
+  }
+  .agent-gallery {
+    .nav-tabs {
+      .nav-link {
+        font-size: 1.15rem!important;
+        margin-right: 1.5rem!important;
       }
     }
   }
