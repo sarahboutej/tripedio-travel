@@ -34,7 +34,7 @@
      <div class="agent-info leight-grey-gb section-padding pt-0 col-md-6">
       <div *ngIf="agent!=null && agent!=undefined" class="agent-fullname d-flex justify-content-between">
         <h4 class="text-color big-title-size line-heigth-40 fw-bold subtitle-pb mt-3">{{agent.agentFirstName}} {{agent.agentLastName}} </h4>
-        <div class="agent-btn-actions">
+        <div class="agent-btn-actions d-md-block d-none">
           <button type="button" class="btn btn-link blue-chip-bg  me-2">
             <img src="assets/images/calendar.svg" loading="lazy"/>
           </button>
@@ -44,9 +44,9 @@
           </div>
         </div>
         <div *ngIf="agent && agent.agentDescription" class="agent-description" id="agent-decription">
-          <p *ngIf="!isFullDescription; else htmlDesc" class="grey-color mb-0 description-text text-color">{{ agent.agentDescription }}</p>
+          <p *ngIf="!isFullDescription; else htmlDesc" class="grey-color mb-0 description-text user-x-small-text  text-color">{{ agent.agentDescription }}</p>
           <ng-template #htmlDesc>
-            <p class="grey-color mb-0 description-text text-color " [innerHTML]="htmlDescription"></p>
+            <p class="grey-color mb-0 description-text text-color user-x-small-text" [innerHTML]="htmlDescription"></p>
           </ng-template>
           <span class="read-more-link text-color leight-grey-gb fw-medium hoverable"
             (click)="displayFullDescription()">{{ btnLabel }}</span>
