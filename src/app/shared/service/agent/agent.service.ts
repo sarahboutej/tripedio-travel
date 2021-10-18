@@ -14,6 +14,7 @@ export class AgentService {
   API_SUBSCRIPTION=UtilsService.BASE_API_URL+'/api/subscriptions';
   AGENT_PLACE_API = UtilsService.BASE_API_URL + '/api/specialities';
   AGENT_ACTIVITY_API = UtilsService.BASE_API_URL + '/api/agent-activities';
+  AGENT_GALLERY_API = UtilsService.BASE_API_URL + '/api/galleries';
 
   constructor(private http: HttpClient) { }
   
@@ -85,6 +86,10 @@ export class AgentService {
 
   getAgentPlaces(uuid: string ): Observable<any> {
     return this.http.get<any>(`${this.AGENT_PLACE_API}/${uuid}`);
+  }
+
+  getAgentGalleries(uuid: string ): Observable<any> {
+    return this.http.get<any>(`${this.AGENT_GALLERY_API}/${uuid}`);
   }
 
   getPlaces(): Observable<any> {

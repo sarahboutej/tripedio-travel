@@ -15,6 +15,7 @@ export class AgentProfileViewComponent implements OnInit {
   agent: any;
   listCountries:any=[];
   listactivities:any=[];
+  listGalleries:any=[];
 
   isFullDescription: boolean = false;
   btnLabel: string = '+More'
@@ -69,6 +70,7 @@ export class AgentProfileViewComponent implements OnInit {
     });
     this.getAgentActivities(this.agentUuid);
     this.getAgentPlaces(this.agentUuid);
+    this.getAgentGalleries(this.agentUuid);
   }
 
   getAgentActivities(uuid:any){
@@ -76,52 +78,17 @@ export class AgentProfileViewComponent implements OnInit {
     this.agentService.getAgentActivities(uuid).subscribe(response => {
       this.listactivities=response;
     }, error => {
+      console.log(error);
     });
 
   }
 
   getAgentPlaces(uuid:any){
     this.listCountries=[];
-    const newListOfCountry:any=[];
     this.agentService.getAgentPlaces(uuid).subscribe(response => {
       this.listCountries=response;
-      this.listCountries.forEach((country: any, index: Number) => {
-        const newElemtCountry = {
-          "specialityId": country.specialityId,
-          "specialityLabel": country.specialityLabel,
-          "specialityDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "specialityPhotos": [{}]
-        }
-        const elemtObj = {
-          "mediaUrl": String,
-        }
-        newElemtCountry.specialityPhotos.shift();
-        if (index === 0) {
-          newElemtCountry.specialityPhotos.push({
-            "mediaUrl": "assets/images/one.webp",
-          });
-          newElemtCountry.specialityPhotos.push({
-            "mediaUrl": "assets/images/two.webp",
-          });
-          newElemtCountry.specialityPhotos.push({
-            "mediaUrl": "assets/images/three.webp",
-          })
-        } else if (index === 1) {
-          newElemtCountry.specialityPhotos.push({
-            "mediaUrl": "assets/images/four.webp",
-          });
-          newElemtCountry.specialityPhotos.push({
-            "mediaUrl": "assets/images/five.webp",
-          });
-        } else {
-          newElemtCountry.specialityPhotos.push({
-            "mediaUrl": "assets/images/three.webp",
-          });
-        }
-        newListOfCountry.push(newElemtCountry);
-      });
-      this.listCountries = newListOfCountry;
     }, error => {
+      console.log(error);
     });
   }
 
@@ -140,6 +107,16 @@ export class AgentProfileViewComponent implements OnInit {
       descTag.classList.remove('show-full-description');
       this.btnLabel = "+More"
     }
+  }
+
+  getAgentGalleries(uuid:any){
+    this.listGalleries=[];
+    this.agentService.getAgentGalleries(uuid).subscribe(response => {
+      this.listGalleries=response;
+      console.log(this.listGalleries);
+    }, error => {
+      console.log(error);
+    });
   }
 
 }
