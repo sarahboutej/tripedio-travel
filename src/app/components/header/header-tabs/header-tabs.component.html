@@ -11,7 +11,7 @@
     <div class="tab-pane-wrapper">
       <i class="bi bi-search search-city grey-color"></i>
       <ng-select #placesSelect (close)="placesSelect.blur()" class="form-control city-search" style="padding: 0; border: none;" [items]="places" [multiple]="true"
-          [maxSelectedItems]="3" bindLabel="superPlaceLabel" [ngModelOptions]="{standalone: true}"
+          [maxSelectedItems]="3" bindLabel="superPlaceLabel" [ngModelOptions]="{standalone: true}" dropdownPosition="top"
           notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true" [loading]="placesLoading"
           placeholder="z.b: Spanien, Süd Afrika" [(ngModel)]="selectedPlacesItems" [selectOnTab]="true"
           [virtualScroll]="true" (search)="getFiltredPlaces($event)" (scroll)="onScrollPlaces(placesSelect.searchTerm, $event)" 
@@ -26,7 +26,7 @@
       <ng-select #select (close)="select.blur()" class="form-control city-search" style="padding: 0; border: none;" [items]="activities" [multiple]="true"
           [maxSelectedItems]="3" bindLabel="activityTypeLabel" [ngModelOptions]="{standalone: true}"
           notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true" [loading]="activitiesLoading"
-          placeholder="z.b: Kreuzfahrt, Pauschalreise" [(ngModel)]="selectedActivityItems"
+          placeholder="z.b: Kreuzfahrt, Pauschalreise" [(ngModel)]="selectedActivityItems" dropdownPosition="top"
           [virtualScroll]="true" (search)="getFiltredActivities($event)" (scroll)="onScrollActivities(select.searchTerm, $event)" 
           (scrollToEnd)="fetchMoreActivities(select.searchTerm)" (open)="onOpenActivities()">
         </ng-select>
