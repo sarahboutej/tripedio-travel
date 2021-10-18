@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { AppointementModalComponent } from '../../appointement-modal/appointement-modal.component';
+import { ModalConfig } from '../../appointement-modal/modal.config';
 
 @Component({
   selector: 'app-agent-gallery',
@@ -9,10 +11,23 @@ export class AgentGalleryComponent implements OnInit {
 
   @Input()
   agentCountryGallery: any = [];
+  @ViewChild('modal') private modalComponent!: AppointementModalComponent;
+
+  modalConfig: ModalConfig={
+    modalTitle: 'Beratungstermin anfragen',
+    dismissButtonLabel: 'Senden',
+    closeButtonLabel: 'Abbrechen'
+  }
+  @Input()
+  agentUuid: any = '';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  async openModal() {
+    return await this.modalComponent.open(this.agentUuid);
   }
 
 }

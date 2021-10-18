@@ -1,12 +1,12 @@
 <div class="agent-video-wrapper d-flex align-items-center">
     <video *ngIf="agentVideo; else defaultVideo"
-    width=" 100%" class="video-block" id="agent-video" poster="assets/images/agent-video-thumbnail.webp"
+    width=" 100%" class="video-block" id="agent-video" [poster]="poster"
         (click)="triggerVideo()">
         <source [src]="urlBack + agentVideo.mediaUrl" type="video/mp4" />
     </video>
     <ng-template #defaultVideo>
         <video width="100%" class="video-block"
-            poster="assets/images/agent-video-thumbnail.webp" id="agent-video" (click)="triggerVideo()">
+            [poster]="poster" id="agent-video" (click)="triggerVideo()">
             <source src="assets/videos/Video.mp4" type="video/mp4" />
         </video>
     </ng-template>

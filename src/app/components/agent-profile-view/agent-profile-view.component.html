@@ -1,6 +1,10 @@
 <div class="agent-profile-main-content">
   <div class="agent-profile-images">
-    <div class="agent-cover-picture"></div>
+    <div *ngIf="agent != null && agent != undefined && (agent.agentCoverPhoto == null || agent.agentCoverPhoto == undefined)" class="agent-cover-picture"></div> 
+    <div *ngIf="agent != null && agent != undefined && agent.agentCoverPhoto != null && agent.agentCoverPhoto != undefined" class="agent-cover-picture-extend">
+      <img [src]="urlBack + agent.agentCoverPhoto.mediaUrl"/>
+    </div>
+
     <div *ngIf="agent != null && agent != undefined" class="agent-profile-picture">
         <img
           *ngIf="
@@ -34,7 +38,7 @@
         <i class="bi bi-camera-video me-2"></i><span>Videoanruf vereinbaren</span>
       </button>
    </div>
-   <div class="agent-info-container mb-5 d-flex">
+   <div *ngIf="agent && agent.agentVideo" class="agent-info-container mb-5 d-flex">
      <div class="agent-info leight-grey-gb section-padding pt-0 col-6">
       <div *ngIf="agent!=null && agent!=undefined" class="agent-fullname d-flex justify-content-between">
         <h4 class="text-color big-title-size line-heigth-40 fw-bold subtitle-pb mt-3">{{agent.agentFirstName}} {{agent.agentLastName}} </h4>
@@ -81,22 +85,71 @@
       </div>
      </div>
      <div *ngIf="agent" class="agent-video d-flex br-4 align-items-center justify-content-center ms-3 col-6 ">
-       <app-agent-video [agentVideo]="agent.agentVideo"></app-agent-video>
+       <app-agent-video [agentVideo]="agent.agentVideo" [agentVideoPresentation]="agent.agentVideoPresentation" ></app-agent-video>
      </div>
    </div>
+
+   <div *ngIf="agent && !agent.agentVideo" class="agent-info-container mb-5 d-flex">
+    <div class="agent-info leight-grey-gb section-padding pt-0 col-12">
+     <div *ngIf="agent!=null && agent!=undefined" class="agent-fullname d-flex justify-content-between">
+       <h4 class="text-color big-title-size line-heigth-40 fw-bold subtitle-pb mt-3">{{agent.agentFirstName}} {{agent.agentLastName}} </h4>
+       <div class="agent-btn-actions">
+         <button type="button" class="btn btn-link blue-chip-bg  me-2">
+           <img src="assets/images/calendar.svg" loading="lazy"/>
+         </button>
+         <button type="button" class="btn btn-link blue-chip-bg ">
+           <img src="assets/images/man.svg" loading="lazy"/>
+         </button>
+
+       </div>
+     </div>
+     <div *ngIf="agent && agent.agentDescription" class="agent-description" id="agent-decription">
+       <p *ngIf="!isFullDescription; else htmlDesc" class="grey-color mb-0 description-text text-color">{{ agent.agentDescription }}</p>
+       <ng-template #htmlDesc>
+         <p class="grey-color mb-0 description-text text-color " [innerHTML]="htmlDescription"></p>
+       </ng-template>
+       <span class="read-more-link text-color leight-grey-gb fw-medium hoverable" (click)="displayFullDescription()">{{ btnLabel }}</span>
+     </div>
+     <div *ngIf="listCountries && listCountries.length  && !isFullDescription"  class="agent-destination">
+       <h5 class="text-color paragraphe-fs fw-medium my-3 line-heigth-24">
+         Reiseziele
+       </h5>
+       <div class="destination-items">
+         <span class="orange-chip-gb orange-color me-2 mb-2 px-3 py-2 br-4 user-x-small-text d-inline-flex" *ngFor="let place of listCountries">{{ place.specialityLabel }}</span>
+       </div>
+     </div>
+     <div *ngIf="listactivities && listactivities.length && !isFullDescription" class="agent-travel-type">
+       <h5 class="text-color paragraphe-fs fw-medium my-3 line-heigth-24">
+         Reisearten
+       </h5>
+       <div class="travel-type-items">
+         <span class="orange-chip-gb orange-color me-2 mb-2 px-3 py-2 br-4 user-x-small-text d-inline-flex" *ngFor="let act of listactivities">{{act.activityLabel}}</span>
+       </div>
+     </div>
+     <div *ngIf="agent && agent.agentConsultancyFee  && !isFullDescription"  class="agent-fee">
+       <h5 class="text-color paragraphe-fs fw-medium my-3 line-heigth-24">
+         Beratungsgebühr
+       </h5>
+       <div class="fee-items">
+         <span class="orange-chip-gb orange-color me-2 px-3 py-2 br-4 user-x-small-text">{{ agent.agentConsultancyFee }}€ </span>
+       </div>
+     </div>
+    </div>
+  </div>
+
    <div *ngIf="agent && listCountries.length" class="agent-gallery mb-5">
      <h4 class="user-meduim-text fw-bold mb-4"> Galerie </h4>
      <nav ngbNav #nav="ngbNav" class="nav-tabs">
       <ng-container  ngbNavItem>
         <a ngbNavLink>{{ listCountries[0].specialityLabel }}</a>
         <ng-template ngbNavContent>
-          <app-agent-gallery [agentCountryGallery]="listCountries[0]"></app-agent-gallery>
+          <app-agent-gallery [agentCountryGallery]="listCountries[0]" [agentUuid]="agentUuid"></app-agent-gallery>
         </ng-template>
       </ng-container>
       <ng-container *ngFor="let place of listCountries.slice(1)"  ngbNavItem>
         <a ngbNavLink>{{ place.specialityLabel }}</a>
         <ng-template ngbNavContent>
-          <app-agent-gallery [agentCountryGallery]="place"></app-agent-gallery>
+          <app-agent-gallery [agentCountryGallery]="place" [agentUuid]="agentUuid"></app-agent-gallery>
         </ng-template>
       </ng-container>
     </nav>
@@ -104,3 +157,8 @@
    </div>
   </div>
 </div>
+
+
+<app-appointement-modal #modal [modalConfig]="modalConfig">
+  <!--  body of the modal  -->
+</app-appointement-modal>

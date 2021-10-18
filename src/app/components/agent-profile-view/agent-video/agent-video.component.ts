@@ -12,10 +12,15 @@ export class AgentVideoComponent implements OnInit {
   agentVideo: any = '';
   playVideo: boolean = true;
   urlBack= UtilsService.BASE_API_URL;
-
+  @Input()
+  agentVideoPresentation: any = '';
+  poster='assets/images/agent-video-thumbnail.webp';
   constructor() { }
 
   ngOnInit(): void {
+    if(this.agentVideoPresentation!=null &&this.agentVideoPresentation!=undefined){
+      this.poster=this.urlBack+this.agentVideoPresentation.mediaUrl;
+    }
   }
 
   triggerVideo() {

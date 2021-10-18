@@ -55,7 +55,6 @@ export class AgentsBodyComponent implements OnInit {
   
   onScrollDown() {  
     if(this.filtredAgentsCount > 0 && this.filtredMap.page * this.filtredMap.offset < this.filtredAgentsCount) {
-      console.log("onScrollDown");
       this.filtredMap.page = this.filtredMap.page + 1;
       this.agentService.getFiltredAgents(this.filtredMap).subscribe(
         result => {
