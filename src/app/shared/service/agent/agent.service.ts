@@ -77,7 +77,12 @@ export class AgentService {
   }
 
   getAgentByUuid(uuid: string ): Observable<any> {
-    return this.http.get<any>(`${this.AGENTS_API}/profile/${uuid}`);
+    let headers = new HttpHeaders();
+    let token = localStorage.getItem('token');
+    if(token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return this.http.get<any>(`${this.AGENTS_API}/profile/${uuid}`, {headers: headers});
   }
 
   getAgentActivities(uuid: string ): Observable<any> {
