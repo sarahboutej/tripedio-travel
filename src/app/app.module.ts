@@ -10,15 +10,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { HeaderComponent } from './components/header/header.component';
-import { WhyUseComponent } from './components/why-use/why-use.component';
-import { HeaderTabsComponent } from './components/header/header-tabs/header-tabs.component';
-import { StepsComponent } from './components/steps/steps.component';
-import { DestinationsComponent } from './components/destinations/destinations.component';
-import { TravelTypeComponent } from './components/travel-type/travel-type.component';
-import { BenefitsComponent } from './components/benefits/benefits.component';
-import { TestimonialsComponent } from './components/testimonials/testimonials.component';
-import { InspirationComponent } from './components/inspiration/inspiration.component';
+import { HeaderComponent } from './components/home-components/header/header.component';
+import { WhyUseComponent } from './components/home-components/why-use/why-use.component';
+import { HeaderTabsComponent } from './components/home-components/header/header-tabs/header-tabs.component';
+import { StepsComponent } from './components/home-components/steps/steps.component';
+import { DestinationsComponent } from './components/home-components/destinations/destinations.component';
+import { TravelTypeComponent } from './components/home-components/travel-type/travel-type.component';
+import { BenefitsComponent } from './components/home-components/benefits/benefits.component';
+import { TestimonialsComponent } from './components/home-components/testimonials/testimonials.component';
+import { InspirationComponent } from './components/home-components/inspiration/inspiration.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { AgentsSearchResultComponent } from './pages/agents-search-result/agents-search-result.component';
 import { AgentsBodyComponent } from './components/agents-body/agents-body.component';
@@ -43,11 +43,13 @@ import { registerLocaleData } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { HeaderTabsMobileComponent } from './components/header/header-tabs-mobile/header-tabs-mobile.component';
+import { HeaderTabsMobileComponent } from './components/home-components/header/header-tabs-mobile/header-tabs-mobile.component';
 import { AlertErrorComponent } from './shared/components/alert/alert-error/alert-error.component';
 import { AgentProfileViewComponent } from './components/agent-profile-view/agent-profile-view.component';
 import { AgentGalleryComponent } from './components/agent-profile-view/agent-gallery/agent-gallery.component';
 import { AgentVideoComponent } from './components/agent-profile-view/agent-video/agent-video.component';
+import { ArticlesComponent } from './pages/articles/articles.component';
+import { ArticleHeaderComponent } from './components/articles-components/article-header/article-header.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -88,7 +90,9 @@ registerLocaleData(localeDe);
     AgentProfileViewComponent,
     AgentComponent,
     AgentGalleryComponent,
-    AgentVideoComponent
+    AgentVideoComponent,
+    ArticlesComponent,
+    ArticleHeaderComponent
   ],
   imports: [
     BrowserModule,

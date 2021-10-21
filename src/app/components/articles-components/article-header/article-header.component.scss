@@ -1,0 +1,47 @@
+@import "../../../../styles/variables";
+.article-header-container {
+  background-image: url(../../../../assets/images/article-header.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  .article-container-wrapper {
+    min-height: calc(100vh - 7.75rem);
+    height: calc(100vh - 7.75rem);
+    position: relative;
+    .article-ancart-container {
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      position: absolute;
+      width: calc(100% - 1.5rem);
+      bottom: 3rem;
+      .ancart-item {
+        &:first-child {
+          &::before {
+            content: "";
+            position: absolute;
+            width: 30%;
+            height: 100% !important;
+            background: white;
+            left: -30%;
+            top: 0;
+          }
+        }
+      }
+      .ancart-item {
+        .encart-item-wrapper {
+          .encart-icon {
+            width: 3.75rem;
+            margin-right: 1rem;
+            text-align: center;
+            min-width: 3.75rem;
+          }
+          .encart-text {
+            .encart-title {
+              font-size: 1.563rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

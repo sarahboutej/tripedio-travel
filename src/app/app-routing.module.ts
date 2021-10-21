@@ -8,6 +8,7 @@ import { AgentComponent } from './pages/agent/agent.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
 import { DatenschutzComponent } from './pages/datenschutz/datenschutz.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ArticlesComponent } from './pages/articles/articles.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'profile/:agentUuid',
     component: AgentComponent,
+  },
+  {
+    path: 'articles',
+    component: ArticlesComponent,
   },
   {
     path: 'notfoundpage',
