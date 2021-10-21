@@ -2,6 +2,7 @@ import { Component, OnInit, Input,ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilsService } from 'src/app/shared/service/utils.service';
 import { AgentService } from 'src/app/shared/service/agent/agent.service';
+import { AppointmentService } from 'src/app/shared/service/appointment/appointment.service';
 import { AppointementModalComponent } from '../appointement-modal/appointement-modal.component';
 import { ModalConfig } from '../appointement-modal/modal.config';
 
@@ -16,14 +17,14 @@ export class AgentProfileViewComponent implements OnInit {
   listCountries:any=[];
   listactivities:any=[];
   listGalleries:any=[];
-
-  isFullDescription: boolean = false;
-  btnLabel: string = '+More'
+  agentAvailability:any=[];
 
   urlBack= UtilsService.BASE_API_URL;
 
   abbriviation='';
   htmlDescription = '';
+
+  showBackCard = false;
 
   @Input()
   agentUuid: any = '';
@@ -36,7 +37,7 @@ export class AgentProfileViewComponent implements OnInit {
     closeButtonLabel: 'Abbrechen'
   }
 
-  constructor(private agentService:AgentService,private router: Router) { }
+  constructor(private agentService:AgentService,private appointmentService:AppointmentService,private router: Router) { }
 
   ngOnInit(): void {
     this.agentService.getAgentByUuid(this.agentUuid).subscribe(response => {
@@ -71,6 +72,7 @@ export class AgentProfileViewComponent implements OnInit {
     this.getAgentActivities(this.agentUuid);
     this.getAgentPlaces(this.agentUuid);
     this.getAgentGalleries(this.agentUuid);
+    this.getAgentAvailability(this.agentUuid);
   }
 
   getAgentActivities(uuid:any){
@@ -92,20 +94,27 @@ export class AgentProfileViewComponent implements OnInit {
     });
   }
 
+  getAgentAvailability(uuid:any){
+    this.appointmentService.getAllAgentavailabilities(this.agentUuid).subscribe(
+      result => {
+        this.agentAvailability=result;
+      }, error => {
+        console.log(error);
+      });
+  }
+
   async openModal() {
     console.log(this.modalComponent);
     return await this.modalComponent.open(this.agentUuid);
   }
 
-  displayFullDescription() {
-    this.isFullDescription = !this.isFullDescription;
-    var descTag: any = document.getElementById("agent-decription");
-    if ( this.isFullDescription ) {
-      descTag.classList.add('show-full-description');
-      this.btnLabel = "-Less"
+  displayCardBack() {
+    this.showBackCard = !this.showBackCard;
+    var descTag: any = document.getElementById("about-agent");
+    if ( this.showBackCard ) {
+      descTag.classList.add('flip-card-Rotate');
     } else {
-      descTag.classList.remove('show-full-description');
-      this.btnLabel = "+More"
+      descTag.classList.remove('flip-card-Rotate');
     }
   }
 

@@ -50,6 +50,8 @@ import { AgentGalleryComponent } from './components/agent-profile-view/agent-gal
 import { AgentVideoComponent } from './components/agent-profile-view/agent-video/agent-video.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import { ArticleHeaderComponent } from './components/articles-components/article-header/article-header.component';
+import { AvailabilityComponent } from './components/agent-profile-view/availability/availability.component';
+import { AgentInformationComponent } from './components/agent-profile-view/agent-information/agent-information.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -92,7 +94,9 @@ registerLocaleData(localeDe);
     AgentGalleryComponent,
     AgentVideoComponent,
     ArticlesComponent,
-    ArticleHeaderComponent
+    ArticleHeaderComponent,
+    AvailabilityComponent,
+    AgentInformationComponent
   ],
   imports: [
     BrowserModule,

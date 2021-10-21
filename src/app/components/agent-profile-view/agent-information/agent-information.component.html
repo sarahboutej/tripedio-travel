@@ -1,0 +1,38 @@
+<div class="agent-info-content">
+    <div *ngIf="agent!=null && agent!=undefined" class="agent-fullname">
+        <h4 class="text-color big-title-size line-heigth-40 fw-bold subtitle-pb mt-3">{{agent.agentFirstName}} {{agent.agentLastName}} </h4>
+        </div>
+        <div *ngIf="agent && agent.agentDescription" class="agent-description" id="agent-decription">
+          <p *ngIf="!isFullDescription; else htmlDesc" class="grey-color mb-0 description-text user-x-small-text text-color">{{ agent.agentDescription }}</p>
+          <ng-template #htmlDesc>
+            <p class="grey-color mb-0 description-text text-color user-x-small-text" [innerHTML]="agentDesc"></p>
+          </ng-template>
+          <span class="read-more-link text-color leight-grey-gb fw-medium hoverable"
+            (click)="displayFullDescription()">{{ btnLabel }}</span>
+        </div>
+        <div *ngIf="listCountries && listCountries.length  && !isFullDescription" class="agent-destination">
+          <h5 class="text-color paragraphe-fs fw-medium my-3 line-heigth-24">
+            Reiseziele
+          </h5>
+          <div class="destination-items">
+            <span class="orange-chip-gb orange-color me-2 mb-2 px-3 py-2 br-4 user-x-small-text d-inline-flex"
+              *ngFor="let place of listCountries">{{ place.specialityLabel }}</span>
+          </div>
+        </div>
+        <div *ngIf="listactivities && listactivities.length && !isFullDescription" class="agent-travel-type">
+          <h5 class="text-color paragraphe-fs fw-medium my-3 line-heigth-24">
+            Reisearten
+          </h5>
+          <div class="travel-type-items">
+            <span class="orange-chip-gb orange-color me-2 mb-2 px-3 py-2 br-4 user-x-small-text d-inline-flex" *ngFor="let act of listactivities">{{act.activityLabel}}</span>
+          </div>
+        </div>
+        <div *ngIf="agent && agent.agentConsultancyFee  && !isFullDescription" class="agent-fee">
+          <h5 class="text-color paragraphe-fs fw-medium my-3 line-heigth-24">
+            Beratungsgebühr
+          </h5>
+          <div class="fee-items">
+            <span class="orange-chip-gb orange-color me-2 px-3 py-2 br-4 user-x-small-text">{{ agent.agentConsultancyFee }}€ </span>
+          </div>
+        </div>
+</div>

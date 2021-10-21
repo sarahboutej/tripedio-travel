@@ -1,0 +1,53 @@
+@import "../../../../styles/variables";
+.agent-info-content {
+  .agent-description {
+    position: relative;
+    &:after {
+      width: 20px;
+      content: "";
+      position: absolute;
+      right: 60px;
+      top: 25px;
+      height: 20px;
+      background-image: linear-gradient(to right, #fafafab5, $greyLightBg);
+    }
+    .description-text {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      position: relative;
+    }
+    .read-more-link {
+      position: absolute;
+      top: 1.25rem;
+      right: 0;
+      padding-left: 0.75rem;
+      font-weight: 600;
+    }
+  }
+
+  .show-full-description {
+     overflow: scroll;
+     max-height: 400px;
+     &::-webkit-scrollbar {
+        background: red;  /* Optional: just make scrollbar invisible */
+      }
+      &::-webkit-scrollbar-thumb {
+        background: yellow;
+      }
+    &:after {
+      display: none;
+    }
+    .description-text {
+      overflow: initial !important;
+      background: $greyLightBg;
+      -webkit-line-clamp: initial !important;
+      display: inline;
+    }
+    .read-more-link {
+      position: inherit;
+      top: 0;
+    }
+  }
+}

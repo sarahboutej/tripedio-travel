@@ -1,0 +1,10 @@
+<div class="availability-container">
+    <h4 class="text-color user-meduim-text line-heigth-40 fw-medium  subtitle-pb mt-3 mb-4">Availability </h4>
+    <div class="availability-days">
+        <div *ngFor="let date of agentAvailability" class="availability-day-item mb-3 align-items-center d-flex">
+            <span class="orange-chip-gb day-chip orange-color me-4 px-3 py-2 br-4 user-x-small-text text-center align-items-center">{{ date.agentAvailabilityDay.slice(0, 3) }}</span>
+            <span class="me-4">{{ date.agentAvailabilityStartDate.slice(0, 5) }}</span>
+            <span class="me-4">{{ date.agentAvailabilityEndDate.slice(0, 5) }}</span>
+        </div>
+    </div>
+</div>
