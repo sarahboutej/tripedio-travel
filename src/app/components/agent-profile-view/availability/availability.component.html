@@ -1,10 +1,18 @@
 <div class="availability-container">
     <h4 class="text-color user-meduim-text line-heigth-40 fw-medium  subtitle-pb mt-3 mb-4">Availability </h4>
-    <div class="availability-days">
+    <div *ngIf="agentAvailability.length; else noAvailability" class="availability-days">
         <div *ngFor="let date of agentAvailability" class="availability-day-item mb-3 align-items-center d-flex">
             <span class="orange-chip-gb day-chip orange-color me-4 px-3 py-2 br-4 user-x-small-text text-center align-items-center">{{ date.agentAvailabilityDay.slice(0, 3) }}</span>
             <span class="me-4">{{ date.agentAvailabilityStartDate.slice(0, 5) }}</span>
             <span class="me-4">{{ date.agentAvailabilityEndDate.slice(0, 5) }}</span>
         </div>
     </div>
+    <ng-template #noAvailability>
+        <div class="no-availability-container d-flex align-items-center justify-content-center text-center">
+            <div class="no-availability-content">
+                <img src="assets/images/calendar.png" loading="lazy"/>
+                <p class="no-available-text mb-0 grey-meduim-color ">Agent not available</p>
+            </div>
+        </div>
+    </ng-template>   
 </div>

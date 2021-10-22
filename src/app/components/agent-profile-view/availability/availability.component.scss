@@ -1,5 +1,23 @@
-.day-chip {
+.availability-container {
+  height: 100%;
+  .day-chip {
     width: 4.063rem;
     max-width: 4.063rem;
     min-width: 4.063rem;
+  }
+  
+  .no-availability-container {
+    height: 60%;
+    .no-availability-content {
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+      .no-available-text {
+        font-style: italic;
+      }
+    }
+  }
+
 }
+
