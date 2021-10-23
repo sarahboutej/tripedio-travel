@@ -42,6 +42,18 @@
           }
         }
       }
+      .item-border {
+        border-right: 1px solid $greyMediumColor;
+      }
+    }
+    .welcome-block-container {
+      padding-top: 15%;
+      .welcome-title {
+        font-size: 3.375rem;
+      }
+      .welcome-text {
+        font-size: 2.375rem;
+      }
     }
   }
 }
