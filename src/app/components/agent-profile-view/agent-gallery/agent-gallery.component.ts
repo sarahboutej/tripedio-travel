@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { AppointementModalComponent } from '../../appointement-modal/appointement-modal.component';
 import { ModalConfig } from '../../appointement-modal/modal.config';
+import { UtilsService } from 'src/app/shared/service/utils.service';
 
 @Component({
   selector: 'app-agent-gallery',
@@ -10,8 +11,9 @@ import { ModalConfig } from '../../appointement-modal/modal.config';
 export class AgentGalleryComponent implements OnInit {
 
   @Input()
-  agentCountryGallery: any = [];
+  agentCountryGallery: any;
   @ViewChild('modal') private modalComponent!: AppointementModalComponent;
+  urlBack= UtilsService.BASE_API_URL;
 
   modalConfig: ModalConfig={
     modalTitle: 'Beratungstermin anfragen',

@@ -104,7 +104,6 @@ export class AgentProfileViewComponent implements OnInit {
   }
 
   async openModal() {
-    console.log(this.modalComponent);
     return await this.modalComponent.open(this.agentUuid);
   }
 
@@ -122,7 +121,7 @@ export class AgentProfileViewComponent implements OnInit {
     this.listGalleries=[];
     this.agentService.getAgentGalleries(uuid).subscribe(response => {
       this.listGalleries=response;
-      console.log(this.listGalleries);
+      this.listGalleries=this.listGalleries.filter((item: { agentGalleryMedias: string | any[]; }) => item.agentGalleryMedias.length>0);
     }, error => {
       console.log(error);
     });

@@ -39,8 +39,11 @@
             <img src="assets/images/calendar-w.svg" loading="lazy"/>
           </ng-template>
         </button>
-        <button type="button" class="btn btn-link blue-chip-bg ">
+        <button *ngIf="agent.agentType=='TOUR_OPERATOR'" type="button" class="btn btn-link blue-chip-bg " ngbPopover="Reiseveranstalter" triggers="mouseenter:mouseleave">
           <img src="assets/images/man.svg" loading="lazy"/>
+        </button>
+        <button *ngIf="agent.agentType=='TRAVEL_SELLER'" type="button" class="btn btn-link blue-chip-bg " ngbPopover="Agentur" triggers="mouseenter:mouseleave">
+          <img src="assets/images/AG3.svg" loading="lazy"/>
         </button>
         </div>
        <div class="flip-card-inner leight-grey-gb">
@@ -68,19 +71,19 @@
        </div>
      </div>
 
-   <div *ngIf="agent && listCountries.length" class="agent-gallery mb-5">
+   <div *ngIf="agent && listGalleries.length" class="agent-gallery mb-5">
     <h4 class="user-meduim-text fw-bold text-black mb-4"> Galerie </h4>
     <nav ngbNav #nav="ngbNav" class="nav-tabs">
-     <ng-container  ngbNavItem>
-       <a ngbNavLink>{{ listCountries[0].specialityLabel }}</a>
+      <ng-container  *ngIf="listGalleries[0].agentGallerySpeciality && listGalleries[0].agentGallerySpeciality.agentSpecialitySuperPlace" ngbNavItem>
+        <a ngbNavLink>{{ listGalleries[0]!.agentGallerySpeciality!.agentSpecialitySuperPlace!.superPlaceLabel }}</a>
+        <ng-template ngbNavContent>
+          <app-agent-gallery [agentCountryGallery]="listGalleries[0]" [agentUuid]="agentUuid"></app-agent-gallery>
+        </ng-template>
+      </ng-container>
+     <ng-container *ngFor="let gallery of listGalleries.slice(1)"  ngbNavItem>
+       <a ngbNavLink>{{ gallery!.agentGallerySpeciality!.agentSpecialitySuperPlace!.superPlaceLabel }}</a>
        <ng-template ngbNavContent>
-         <app-agent-gallery [agentCountryGallery]="listCountries[0]" [agentUuid]="agentUuid"></app-agent-gallery>
-       </ng-template>
-     </ng-container>
-     <ng-container *ngFor="let place of listCountries.slice(1)"  ngbNavItem>
-       <a ngbNavLink>{{ place.specialityLabel }}</a>
-       <ng-template ngbNavContent>
-         <app-agent-gallery [agentCountryGallery]="place" [agentUuid]="agentUuid"></app-agent-gallery>
+         <app-agent-gallery [agentCountryGallery]="gallery" [agentUuid]="agentUuid"></app-agent-gallery>
        </ng-template>
      </ng-container>
    </nav>

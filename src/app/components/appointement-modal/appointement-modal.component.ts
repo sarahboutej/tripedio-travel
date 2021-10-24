@@ -161,6 +161,7 @@ export class AppointementModalComponent implements OnInit {
       );
       this.appointmentService.getAllAgentavailabilities(this.agentUuid).subscribe(
         result => {
+          console.log(result);
           this.allAvailibilities=result;
         }
       );
