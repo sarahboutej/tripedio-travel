@@ -52,6 +52,7 @@ import { ArticlesComponent } from './pages/articles/articles.component';
 import { ArticleHeaderComponent } from './components/articles-components/article-header/article-header.component';
 import { AvailabilityComponent } from './components/agent-profile-view/availability/availability.component';
 import { AgentInformationComponent } from './components/agent-profile-view/agent-information/agent-information.component';
+import { ArticleSebHeaderComponent } from './components/articles-components/article-seb-header/article-seb-header.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -96,7 +97,8 @@ registerLocaleData(localeDe);
     ArticlesComponent,
     ArticleHeaderComponent,
     AvailabilityComponent,
-    AgentInformationComponent
+    AgentInformationComponent,
+    ArticleSebHeaderComponent
   ],
   imports: [
     BrowserModule,
