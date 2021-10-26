@@ -31,11 +31,11 @@
      overflow: scroll;
      max-height: 400px;
      &::-webkit-scrollbar {
-      width: 8px;
+      width: 5px;
       background: transparent;  /* Optional: just make scrollbar invisible */
       }
       &::-webkit-scrollbar-thumb {
-        background: #888;
+        background: rgb(197, 197, 197);
         border-radius: 4px;
       }
     &:after {
