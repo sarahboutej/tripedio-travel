@@ -164,6 +164,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 .title-padding {
   padding: 2.5rem 0;
 }
+
+.paragraph-pb {
+  padding-bottom: 2.5rem;
+}
+
 .spacing-1 {
   letter-spacing: .5px !important;
 }
@@ -185,6 +190,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   padding-top: 8rem;
   padding-bottom: 8rem;
 }
+.section-pt-medium {
+  padding-top: 5rem;
+}
+
 .padding-x {
   padding-left: 5rem;
   padding-right: 5rem;
@@ -213,6 +222,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 }
 .light-heigth-xbig {
   line-height: 3.75rem;
+}
+.light-heigth-medium {
+  line-height: 2rem;
 }
 .line-heigth-24 {
   line-height: 1.5rem;

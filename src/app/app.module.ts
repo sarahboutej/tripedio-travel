@@ -52,7 +52,14 @@ import { ArticlesComponent } from './pages/articles/articles.component';
 import { ArticleHeaderComponent } from './components/articles-components/article-header/article-header.component';
 import { AvailabilityComponent } from './components/agent-profile-view/availability/availability.component';
 import { AgentInformationComponent } from './components/agent-profile-view/agent-information/agent-information.component';
-import { ArticleSebHeaderComponent } from './components/articles-components/article-seb-header/article-seb-header.component';
+import { ArticleSubHeaderComponent } from './components/articles-components/article-sub-header/article-sub-header.component';
+import { ArticleSectionOneComponent } from './components/articles-components/article-section-one/article-section-one.component';
+import { ArticleSectionTwoComponent } from './components/articles-components/article-section-two/article-section-two.component';
+import { ArticleSectionThreeComponent } from './components/articles-components/article-section-three/article-section-three.component';
+import { ArticlesNewsletterComponent } from './components/articles-components/articles-newsletter/articles-newsletter.component';
+import { ArticleSectionFourComponent } from './components/articles-components/article-section-four/article-section-four.component';
+import { ArticleSectionFiveComponent } from './components/articles-components/article-section-five/article-section-five.component';
+import { ArticleSectionSixComponent } from './components/articles-components/article-section-six/article-section-six.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -98,7 +105,14 @@ registerLocaleData(localeDe);
     ArticleHeaderComponent,
     AvailabilityComponent,
     AgentInformationComponent,
-    ArticleSebHeaderComponent
+    ArticleSubHeaderComponent,
+    ArticleSectionOneComponent,
+    ArticleSectionTwoComponent,
+    ArticleSectionThreeComponent,
+    ArticlesNewsletterComponent,
+    ArticleSectionFourComponent,
+    ArticleSectionFiveComponent,
+    ArticleSectionSixComponent
   ],
   imports: [
     BrowserModule,
