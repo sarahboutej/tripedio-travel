@@ -1,0 +1,90 @@
+<section class="article-section article-section-two section-pt-medium">
+    <div class="container-lg section-wrapper">
+        <h3 class="primary-color user-big-text light-heigth-xbig fw-bold user-big-text-mobile subtitle-pb ">Ihere
+            Resiseeperten Für Südafrika</h3>
+
+        <div class="testimonials-container mt-4 row">
+            <div class="owl-wrapper article-agent-container d-none d-md-block">
+                <owl-carousel-o [options]="slideOptions">
+                    <ng-container *ngFor="let item of testimonialsItems">
+                        <ng-template carouselSlide [id]="item.id">
+                            <div class="testimonial-item p-4">
+                                <div class="testimonial-header d-flex">
+                                    <img class="user-avatar" [src]="item.avatar" [title]="item.userName"
+                                        [alt]="item.userName" />
+                                    <div class="nuser-name-stars">
+                                        <h5 class="paragraphe-fs fw-medium text-color mt-2">{{ item.userName }} </h5>
+                                        <div class="stars-rate">
+                                            <i *ngFor="let n of counter(item.stars) ;let k = index"
+                                                class="bi bi-star-fill text-warning pe-2"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonial-content mb-4">
+                                    <p class="user-x-small-text grey-color mb-4">{{ item.description }}</p>
+                                    <div class="user-destination">
+                                        <p class="mb-0 user-x-small-text  fw-medium">Reiseziele</p>
+                                        <span class="me-2 mb-2 primary-color  user-x-small-text d-inline-flex"
+                                            *ngFor="let place of item.destination">{{ place.name }}</span>
+                                    </div>
+                                    <div class="user-travelType">
+                                        <p class="mb-0 user-x-small-text fw-medium">Reisearten</p>
+                                        <span class="me-2 mb-2 primary-color  user-x-small-text d-inline-flex"
+                                            *ngFor="let travel of item.travelType">{{ travel.name }}</span>
+                                    </div>
+                                    <div class="user-matching">
+                                        <p class="mb-0 user-x-small-text  fw-medium">Matching</p>
+                                        <span class="me-2 primary-color user-x-small-text">{{ item.matching }}</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-footer">
+                                    <button type="button"
+                                        class="btn user-btn orange-gb text-white user-x-small-text fw-medium me-2">Schedule video call</button>
+                                    <button type="button"
+                                        class="btn user-btn grey-btn grey-gb primary-color user-x-small-text fw-medium">Show full profile</button>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+            <div class="swipe-wrapper d-block d-md-none">
+                <swiper [direction]="'vertical'" [slidesPerView]="3" [loop]="true" [navigation]="true"
+                    class="mySwiper testimonial-swiper">
+                    <ng-template swiperSlide *ngFor="let item of testimonialsItems">
+                        <div class="testimonial-item p-4">
+                            <div class="testimonial-header d-flex align-items-center justify-content-between">
+                                <img class="user-avatar" [src]="item.avatar" [title]="item.userName"
+                                    [alt]="item.userName" />
+                                <div class="nuser-name-stars">
+                                    <h5 class="user-small-text fw-bold text-color mt-2">{{ item.userName }} </h5>
+                                    <div class="stars-rate">
+                                        <i *ngFor="let n of counter(item.stars) ;let k = index"
+                                            class="bi bi-star-fill text-warning pe-2"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <p class="user-small-text grey-color mb-0">{{ item.description }}</p>
+                                <div class="user-destination">
+                                    <p class="mb-0">Reiseziele</p>
+                                    <span class="me-2 mb-2 px-3 py-2 br-4 user-x-small-text d-inline-flex"
+                                        *ngFor="let place of item.destination">{{ place.name }}</span>
+                                </div>
+                                <div class="user-travelType">
+                                    <p class="mb-0">Reisearten</p>
+                                    <span class="me-2 mb-2 px-3 py-2 br-4 user-x-small-text d-inline-flex"
+                                        *ngFor="let travel of item.travelType">{{ travel.name }}</span>
+                                </div>
+                                <div class="user-matching">
+                                    <p class="mb-0">Matching</p>
+                                    <span class="me-2 px-3 py-2 br-4 user-x-small-text">{{ item.matching }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+        </div>
+    </div>
+</section>

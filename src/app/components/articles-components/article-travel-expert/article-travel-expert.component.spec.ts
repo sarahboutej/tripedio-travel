@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArticleSectionTwoComponent } from './article-section-two.component';
+import { ArticleTravelExpertComponent } from './article-travel-expert.component';
 
 describe('ArticleSectionTwoComponent', () => {
-  let component: ArticleSectionTwoComponent;
-  let fixture: ComponentFixture<ArticleSectionTwoComponent>;
+  let component: ArticleTravelExpertComponent;
+  let fixture: ComponentFixture<ArticleTravelExpertComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArticleSectionTwoComponent ]
+      declarations: [ ArticleTravelExpertComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArticleSectionTwoComponent);
+    fixture = TestBed.createComponent(ArticleTravelExpertComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

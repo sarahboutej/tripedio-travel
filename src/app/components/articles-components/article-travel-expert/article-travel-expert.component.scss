@@ -1,0 +1,8 @@
+@import '../../../../styles/variables';
+
+.grey-btn {
+    &:hover {
+      background-color: $greyHoverColor!important;
+      color: $primaryColor!important;
+    }
+  }

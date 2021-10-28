@@ -54,12 +54,13 @@ import { AvailabilityComponent } from './components/agent-profile-view/availabil
 import { AgentInformationComponent } from './components/agent-profile-view/agent-information/agent-information.component';
 import { ArticleSubHeaderComponent } from './components/articles-components/article-sub-header/article-sub-header.component';
 import { ArticleSectionOneComponent } from './components/articles-components/article-section-one/article-section-one.component';
-import { ArticleSectionTwoComponent } from './components/articles-components/article-section-two/article-section-two.component';
+import { ArticleTravelExpertComponent } from './components/articles-components/article-travel-expert/article-travel-expert.component';
 import { ArticleSectionThreeComponent } from './components/articles-components/article-section-three/article-section-three.component';
 import { ArticlesNewsletterComponent } from './components/articles-components/articles-newsletter/articles-newsletter.component';
 import { ArticleSectionFourComponent } from './components/articles-components/article-section-four/article-section-four.component';
 import { ArticleSectionFiveComponent } from './components/articles-components/article-section-five/article-section-five.component';
 import { ArticleSectionSixComponent } from './components/articles-components/article-section-six/article-section-six.component';
+import { ArticleUtilsInformationComponent } from './components/articles-components/article-utils-information/article-utils-information.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -107,12 +108,13 @@ registerLocaleData(localeDe);
     AgentInformationComponent,
     ArticleSubHeaderComponent,
     ArticleSectionOneComponent,
-    ArticleSectionTwoComponent,
+    ArticleTravelExpertComponent,
     ArticleSectionThreeComponent,
     ArticlesNewsletterComponent,
     ArticleSectionFourComponent,
     ArticleSectionFiveComponent,
-    ArticleSectionSixComponent
+    ArticleSectionSixComponent,
+    ArticleUtilsInformationComponent
   ],
   imports: [
     BrowserModule,
