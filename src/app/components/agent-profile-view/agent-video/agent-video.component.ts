@@ -14,7 +14,7 @@ export class AgentVideoComponent implements OnInit {
   urlBack= UtilsService.BASE_API_URL;
   @Input()
   agentVideoPresentation: any = '';
-  poster='assets/images/agent-video-thumbnail.webp';
+  poster='assets/images/cover-video-default.webp';
   constructor() { }
 
   ngOnInit(): void {
