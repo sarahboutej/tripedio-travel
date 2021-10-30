@@ -58,7 +58,7 @@ import { ArticleTravelExpertComponent } from './components/articles-components/a
 import { ArticleSectionThreeComponent } from './components/articles-components/article-section-three/article-section-three.component';
 import { ArticlesNewsletterComponent } from './components/articles-components/articles-newsletter/articles-newsletter.component';
 import { ArticleSectionFourComponent } from './components/articles-components/article-section-four/article-section-four.component';
-import { ArticleSectionFiveComponent } from './components/articles-components/article-section-five/article-section-five.component';
+import { ArticleSectionImagesComponent } from './components/articles-components/article-section-images/article-section-images.component';
 import { ArticleSectionSixComponent } from './components/articles-components/article-section-six/article-section-six.component';
 import { ArticleUtilsInformationComponent } from './components/articles-components/article-utils-information/article-utils-information.component';
 
@@ -112,7 +112,7 @@ registerLocaleData(localeDe);
     ArticleSectionThreeComponent,
     ArticlesNewsletterComponent,
     ArticleSectionFourComponent,
-    ArticleSectionFiveComponent,
+    ArticleSectionImagesComponent,
     ArticleSectionSixComponent,
     ArticleUtilsInformationComponent
   ],

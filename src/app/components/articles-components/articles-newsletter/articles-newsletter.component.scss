@@ -1,3 +1,33 @@
-.newsletter-section-wrapper  {
-    min-height: 250px;
+@import '../../../../styles/variables';
+
+.newsletter-section-wrapper {
+  .newletter-email {
+    .btn {
+      height: 52px !important;
+      box-shadow: none!important;
+    }
+    .email-address {
+      width: 70%;
+      height: 52px;
+      border: none;
+      border-radius: 5px;
+      padding: 12px;
+      padding-left: 3rem;
+      &::placeholder {
+          color: $greyMediumColor;
+      }
+    }
+  }
+  .newsletter-wrapper-global {
+    width: 100%;
+    text-align: right;
+    position: relative;
+    .bi.bi-envelope {
+        position: absolute;
+        top: 10px;
+        font-size: 22px;
+        color: $greyMediumColor;
+        padding-left: 1rem;
+    }
+ }
 }

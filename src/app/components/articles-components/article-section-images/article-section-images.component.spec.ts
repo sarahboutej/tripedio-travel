@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArticleSectionFiveComponent } from './article-section-five.component';
+import { ArticleSectionImagesComponent } from './article-section-images.component';
 
 describe('ArticleSectionFiveComponent', () => {
-  let component: ArticleSectionFiveComponent;
-  let fixture: ComponentFixture<ArticleSectionFiveComponent>;
+  let component: ArticleSectionImagesComponent;
+  let fixture: ComponentFixture<ArticleSectionImagesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArticleSectionFiveComponent ]
+      declarations: [ ArticleSectionImagesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArticleSectionFiveComponent);
+    fixture = TestBed.createComponent(ArticleSectionImagesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
