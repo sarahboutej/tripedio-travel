@@ -131,7 +131,6 @@
 }
 
 .flip-card-front, .flip-card-back {
-  position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
@@ -139,15 +138,9 @@
 }
 
 .flip-card-back {
+  position: absolute;
   transform: rotateY(180deg);
-}
-
-@media screen and (max-width: 991px) {
-  .agent-fullname {
-    h4 {
-      font-size: 1.5rem!important;
-    }
-  }
+  top:0;
 }
 
 @media screen and (max-width: 767px) {

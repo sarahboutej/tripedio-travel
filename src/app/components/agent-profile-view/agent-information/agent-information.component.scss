@@ -1,5 +1,11 @@
 @import "../../../../styles/variables";
 .agent-info-content {
+
+.agent-fullname {
+  max-width: 75%;
+  width: 75%;
+}
+
   .agent-description {
     position: relative;
     &:after {
@@ -53,3 +59,14 @@
     }
   }
 }
+
+@media screen and (max-width: 991px) {
+  .agent-fullname {
+    max-width: 70%;
+    width: 70%;
+    h4 {
+      font-size: 1.5rem!important;
+    }
+  }
+}
+
