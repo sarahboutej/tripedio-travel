@@ -59,7 +59,7 @@ import { ArticleSectionThreeComponent } from './components/articles-components/a
 import { ArticlesNewsletterComponent } from './components/articles-components/articles-newsletter/articles-newsletter.component';
 import { ArticleSectionFourComponent } from './components/articles-components/article-section-four/article-section-four.component';
 import { ArticleSectionImagesComponent } from './components/articles-components/article-section-images/article-section-images.component';
-import { ArticleSectionSixComponent } from './components/articles-components/article-section-six/article-section-six.component';
+import { ArticleSectionInfoComponent } from './components/articles-components/article-section-info/article-section-info.component';
 import { ArticleUtilsInformationComponent } from './components/articles-components/article-utils-information/article-utils-information.component';
 
 // Configs
@@ -113,7 +113,7 @@ registerLocaleData(localeDe);
     ArticlesNewsletterComponent,
     ArticleSectionFourComponent,
     ArticleSectionImagesComponent,
-    ArticleSectionSixComponent,
+    ArticleSectionInfoComponent,
     ArticleUtilsInformationComponent
   ],
   imports: [
