@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArticleSectionSixComponent } from './article-section-six.component';
+import { ArticleSectionInfoComponent } from './article-section-info.component';
 
-describe('ArticleSectionSixComponent', () => {
-  let component: ArticleSectionSixComponent;
-  let fixture: ComponentFixture<ArticleSectionSixComponent>;
+describe('ArticleSectionInfoComponent', () => {
+  let component: ArticleSectionInfoComponent;
+  let fixture: ComponentFixture<ArticleSectionInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArticleSectionSixComponent ]
+      declarations: [ ArticleSectionInfoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArticleSectionSixComponent);
+    fixture = TestBed.createComponent(ArticleSectionInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
