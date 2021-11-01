@@ -27,14 +27,14 @@ const routes: Routes = [
     path: 'datenschutz', 
     component: DatenschutzComponent 
   },
-  /*{
+  {
     path: 'agent/:agentUuid',
     component: AgentComponent,
   },
-  {
+  /*{
     path: 'articles',
     component: ArticlesComponent,
-  },
+  },*/
   {
     path: 'notfoundpage',
     component: NotFoundComponent,
