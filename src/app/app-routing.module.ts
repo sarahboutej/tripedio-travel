@@ -29,10 +29,6 @@ const routes: Routes = [
   },
   {
     path: 'agent/:agentUuid',
-    component: ProfileComponent,
-  },
-  {
-    path: 'profile/:agentUuid',
     component: AgentComponent,
   },
   {

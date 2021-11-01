@@ -34,10 +34,10 @@ export class AgentInformationComponent implements OnInit {
     var descTag: any = document.getElementById("agent-decription");
     if ( this.isFullDescription ) {
       descTag.classList.add('show-full-description');
-      this.btnLabel = "-Less"
+      this.btnLabel = "-Weniger"
     } else {
       descTag.classList.remove('show-full-description');
-      this.btnLabel = "+More"
+      this.btnLabel = "+Mehr"
     }
   }
 
