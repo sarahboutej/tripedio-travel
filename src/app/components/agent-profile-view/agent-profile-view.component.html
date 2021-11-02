@@ -32,8 +32,8 @@
    </div>
    <div *ngIf="agent" class="agent-info-container mb-5 d-flex">
      <div class="agent-info flip-card leight-grey-gb section-padding pt-0 col-md-6" id="about-agent">
-      <div class="agent-btn-actions d-md-block d-none">
-        <button type="button" class="btn btn-link blue-chip-bg  me-2" [ngClass]="showBackCard && 'orange-gb' || ''" (click)= "displayCardBack()">
+      <div class="agent-btn-actions d-flex">
+        <button type="button" class="btn btn-link blue-chip-bg d-md-block d-none me-2" [ngClass]="showBackCard && 'orange-gb' || ''" (click)= "displayCardBack()">
           <img *ngIf="!showBackCard; else backIcon" src="assets/images/calendar.svg" loading="lazy"/>
           <ng-template #backIcon>
             <img src="assets/images/calendar-w.svg" loading="lazy"/>
@@ -55,10 +55,11 @@
             [agent] = "agent" 
             [agentDesc] = "htmlDescription"
             [listCountries]="listCountries"
-            [listactivities]="listactivities">
+            [listactivities]="listactivities"
+            [agentAvailability] = "agentAvailability">
           </app-agent-information>
          </div>
-         <div class="flip-card-back leight-grey-gb">
+         <div class="flip-card-back d-md-block d-none leight-grey-gb">
            <app-availability [agentAvailability] = "agentAvailability"></app-availability>
          </div>
        </div>

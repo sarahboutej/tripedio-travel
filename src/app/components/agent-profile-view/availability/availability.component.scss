@@ -21,3 +21,11 @@
 
 }
 
+@media screen and (max-width: 767px) {
+  .availability-container h4 {
+    font-size: 1.125rem!important;
+    padding-bottom: 0!important;
+    margin-top: 2rem!important;
+  }
+}
+

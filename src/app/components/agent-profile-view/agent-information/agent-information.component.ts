@@ -19,6 +19,9 @@ export class AgentInformationComponent implements OnInit {
   @Input()
   listactivities: any = [];
 
+  @Input()
+  agentAvailability: any = [];
+
 
   isFullDescription: boolean = false;
 
