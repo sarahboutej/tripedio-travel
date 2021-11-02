@@ -22,7 +22,7 @@ export class AgentInformationComponent implements OnInit {
 
   isFullDescription: boolean = false;
 
-  btnLabel: string = '+More'
+  btnLabel: string = '+Mehr'
 
   constructor() { }
 
