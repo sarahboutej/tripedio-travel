@@ -45,7 +45,7 @@
         <button *ngIf="agent.agentType=='TOUR_OPERATOR'" type="button" class="btn btn-link blue-chip-bg " ngbPopover="Reiseveranstalter" triggers="mouseenter:mouseleave">
           <img src="assets/images/man.svg" loading="lazy"/>
         </button>
-        <button *ngIf="agent.agentType=='TRAVEL_SELLER'" type="button" class="btn btn-link blue-chip-bg " ngbPopover="Eiseverkäufer" triggers="mouseenter:mouseleave">
+        <button *ngIf="agent.agentType=='TRAVEL_SELLER'" type="button" class="btn btn-link blue-chip-bg " ngbPopover="Reiseverkäufer" triggers="mouseenter:mouseleave">
           <img src="assets/images/AG3.svg" loading="lazy"/>
         </button>
         </div>
@@ -79,13 +79,20 @@
     <h4 class="user-meduim-text fw-bold text-black mb-4"> Galerie </h4>
     <nav ngbNav #nav="ngbNav" class="nav-tabs">
       <ng-container  *ngIf="listGalleries[0].agentGallerySpeciality && listGalleries[0].agentGallerySpeciality.agentSpecialitySuperPlace" ngbNavItem>
-        <a ngbNavLink>{{ listGalleries[0]!.agentGallerySpeciality!.agentSpecialitySuperPlace!.superPlaceLabel }}</a>
+        <a *ngIf="listGalleries[0].agentGallerySpeciality && listGalleries[0].agentGallerySpeciality.agentSpecialitySuperPlace && listGalleries[0].agentGallerySpeciality.agentSpecialitySuperPlace.superPlaceLabel" ngbNavLink>{{ listGalleries[0]!.agentGallerySpeciality!.agentSpecialitySuperPlace!.superPlaceLabel }}</a>
+       <a *ngIf="listGalleries[0].agentGallerySpeciality && listGalleries[0].agentGallerySpeciality.agentSpecialitySuperPlace && listGalleries[0].agentGallerySpeciality.agentSpecialitySuperPlace.countryLabel" ngbNavLink>{{ listGalleries[0]!.agentGallerySpeciality!.agentSpecialitySuperPlace!.countryLabel }}</a>
+       <a *ngIf="listGalleries[0].agentGallerySpeciality && listGalleries[0].agentGallerySpeciality.agentSpecialitySuperPlace && listGalleries[0].agentGallerySpeciality.agentSpecialitySuperPlace.regionLabel" ngbNavLink>{{ listGalleries[0]!.agentGallerySpeciality!.agentSpecialitySuperPlace!.regionLabel }}</a>
+       <a *ngIf="listGalleries[0].agentGallerySpeciality && listGalleries[0].agentGallerySpeciality.agentSpecialitySuperPlace && listGalleries[0].agentGallerySpeciality.agentSpecialitySuperPlace.placeLabel" ngbNavLink>{{ listGalleries[0]!.agentGallerySpeciality!.agentSpecialitySuperPlace!.placeLabel }}</a>
+       
         <ng-template ngbNavContent>
           <app-agent-gallery [agentCountryGallery]="listGalleries[0]" [agentUuid]="agentUuid"></app-agent-gallery>
         </ng-template>
       </ng-container>
      <ng-container *ngFor="let gallery of listGalleries.slice(1)"  ngbNavItem>
-       <a ngbNavLink>{{ gallery!.agentGallerySpeciality!.agentSpecialitySuperPlace!.superPlaceLabel }}</a>
+       <a *ngIf="gallery.agentGallerySpeciality && gallery.agentGallerySpeciality.agentSpecialitySuperPlace && gallery.agentGallerySpeciality.agentSpecialitySuperPlace.superPlaceLabel" ngbNavLink>{{ gallery!.agentGallerySpeciality!.agentSpecialitySuperPlace!.superPlaceLabel }}</a>
+       <a *ngIf="gallery.agentGallerySpeciality && gallery.agentGallerySpeciality.agentSpecialitySuperPlace && gallery.agentGallerySpeciality.agentSpecialitySuperPlace.countryLabel" ngbNavLink>{{ gallery!.agentGallerySpeciality!.agentSpecialitySuperPlace!.countryLabel }}</a>
+       <a *ngIf="gallery.agentGallerySpeciality && gallery.agentGallerySpeciality.agentSpecialitySuperPlace && gallery.agentGallerySpeciality.agentSpecialitySuperPlace.regionLabel" ngbNavLink>{{ gallery!.agentGallerySpeciality!.agentSpecialitySuperPlace!.regionLabel }}</a>
+       <a *ngIf="gallery.agentGallerySpeciality && gallery.agentGallerySpeciality.agentSpecialitySuperPlace && gallery.agentGallerySpeciality.agentSpecialitySuperPlace.placeLabel" ngbNavLink>{{ gallery!.agentGallerySpeciality!.agentSpecialitySuperPlace!.placeLabel }}</a>
        <ng-template ngbNavContent>
          <app-agent-gallery [agentCountryGallery]="gallery" [agentUuid]="agentUuid"></app-agent-gallery>
        </ng-template>
