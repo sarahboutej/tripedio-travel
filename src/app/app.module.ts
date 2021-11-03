@@ -61,6 +61,8 @@ import { ArticleSectionFourComponent } from './components/articles-components/ar
 import { ArticleSectionImagesComponent } from './components/articles-components/article-section-images/article-section-images.component';
 import { ArticleSectionInfoComponent } from './components/articles-components/article-section-info/article-section-info.component';
 import { ArticleUtilsInformationComponent } from './components/articles-components/article-utils-information/article-utils-information.component';
+import { ArticleClimateInfoComponent } from './components/articles-components/article-climate-info/article-climate-info.component';
+import { ArticleWeatherInfoComponent } from './components/articles-components/article-weather-info/article-weather-info.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -114,7 +116,9 @@ registerLocaleData(localeDe);
     ArticleSectionFourComponent,
     ArticleSectionImagesComponent,
     ArticleSectionInfoComponent,
-    ArticleUtilsInformationComponent
+    ArticleUtilsInformationComponent,
+    ArticleClimateInfoComponent,
+    ArticleWeatherInfoComponent
   ],
   imports: [
     BrowserModule,

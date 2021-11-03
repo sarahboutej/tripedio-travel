@@ -1,0 +1,89 @@
+
+@import "../../../../styles/variables";
+
+.article-weather-section {
+  .weather-wrapper {
+    .weather-item {
+      cursor: pointer;
+      .weather-item-card {
+        min-height: 5rem;
+        .weather-rain-days {
+          img {
+            width: 1rem;
+            height: auto;
+          }
+        }
+      }
+      &:first-child {
+        .weather-timeline {
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            background: $stars-grey-color;
+            width: 0.5rem;
+            height: 0.5rem;
+            transform: rotate(45deg);
+            bottom: -2px;
+            left: 0;
+          }
+        }
+      }
+      &:last-child {
+        .weather-timeline {
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            background: $stars-grey-color;
+            width: 0.5rem;
+            height: 0.5rem;
+            transform: rotate(45deg);
+            bottom: -2px;
+            right: 0;
+          }
+        }
+      }
+      .weather-timeline {
+        .months-timeline {
+          border-bottom: 2px solid $stars-grey-color;
+          padding-bottom: 0.825rem;
+        }
+      }
+    }
+    .weather-item.active {
+      .weather-item-card {
+        .weather-min-max {
+          -ms-transition: all .5s ease;
+          -webkit-transition: all .5s ease;
+          -moz-transition: all .5s ease;
+          -o-transition: all .5s ease;
+          transition: all .5s ease;
+          color: white!important;
+          background: $orangeColor!important;
+        } 
+        .weather-rain-days {
+          -ms-transition: all .5s ease;
+          -webkit-transition: all .5s ease;
+          -moz-transition: all .5s ease;
+          -o-transition: all .5s ease;
+          transition: all .5s ease;
+          background-color: $chipOrange!important;
+          .rain-day-number {
+            color: $orangeColor!important;
+          }
+          svg path {
+            fill: $orangeColor!important;
+          }
+        }
+      }
+      .weather-timeline {
+        .months-timeline {
+          border-bottom-color: $orangeColor;
+          border-bottom-width: 4px;
+          margin-top: -1px;
+        }
+      }
+    } 
+  }
+}

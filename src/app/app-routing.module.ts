@@ -31,10 +31,10 @@ const routes: Routes = [
     path: 'agent/:agentUuid',
     component: AgentComponent,
   },
-  /*{
+  {
     path: 'articles',
     component: ArticlesComponent,
-  },*/
+  },
   {
     path: 'notfoundpage',
     component: NotFoundComponent,

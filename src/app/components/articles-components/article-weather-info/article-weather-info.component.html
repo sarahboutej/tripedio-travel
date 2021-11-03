@@ -1,0 +1,43 @@
+<section class="article-section article-weather-section section-pt-medium">
+    <div class="container-lg section-wrapper">
+        <div class="section-first-row paragraph-pb">
+            <h3 class="primary-color user-big-text light-heigth-xbig fw-bold user-big-text-mobile subtitle-pb ">Südafrika : Wetter und Klimatabelle</h3>
+        </div>
+        <div class="section-second-row weather-wrapper d-flex">
+            <div *ngFor="let month of weatherArray; let i=index"  (click)="selectItem(i+1)" [ngClass]="{'active': selectedIndex == i+1}" class="col weather-item align-self-end">
+              <div class="weather-item-card mx-2 mb-4"  [ngStyle]="{'padding-bottom.px': month.max+12}">
+                <div class="weather-card-content orange-chip-gb">
+                  <div class="weather-min-max py-4">
+                    <span class="weather-min-max-text d-block text-center user-xx-small-text black-text">Max. {{ month.max }}°</span>
+                    <span class="weather-min-max-text d-block text-center user-xx-small-text black-text">Min. {{ month.min }}°</span>
+                  </div>
+                  <div class="weather-rain-days p-2 orange-gb d-flex justify-content-center">
+                    <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.33902 8.4754C5.46402 8.4754 3.58902 8.4754 1.71402 8.4754C0.739248 8.4754 0.165854 7.99177 0.0282391 7.01876C-0.0118985 6.71937 -0.0118985 6.39695 0.0454409 6.10332C0.200257 5.33182 0.779386 4.87122 1.5592 4.82516C1.59934 4.82516 1.64521 4.82516 1.68535 4.8194C1.91471 4.80213 1.96058 4.7388 1.90897 4.51426C1.76562 3.89245 1.86884 3.3167 2.25874 2.80429C2.7748 2.12491 3.60622 1.86006 4.42044 2.10764C4.66127 2.18248 4.70714 2.15945 4.78168 1.9234C5.14292 0.771904 6.10049 0.0349479 7.27595 0.00616054C8.48581 -0.0283843 9.47205 0.639482 9.90209 1.7737C9.99384 2.01552 10.0282 2.03279 10.2863 1.95218C11.0833 1.69886 11.909 1.93491 12.4422 2.56823C12.9927 3.22458 13.0902 4.05942 12.7117 4.8194C12.6716 4.90577 12.6831 5.01516 12.6716 5.11303C12.7691 5.12455 12.878 5.15909 12.9698 5.14182C13.8987 4.94607 14.7186 5.47576 14.9422 6.41998C15.1544 7.33542 14.6785 8.14722 13.761 8.37752C13.4743 8.45237 13.1647 8.4754 12.8723 8.4754C11.0259 8.48115 9.18535 8.4754 7.33902 8.4754Z" fill="white"/>
+                      <path d="M9.83286 13.6857C9.873 13.6857 9.89593 13.6799 9.90167 13.6857C10.3317 14.1405 10.6356 14.6644 10.6528 15.3035C10.6643 15.7065 10.2801 16.0174 9.8558 16.0002C9.40855 15.9829 9.08172 15.6605 9.10465 15.2287C9.14479 14.6241 9.46016 14.1405 9.83286 13.6857Z" fill="white"/>
+                      <path d="M12.2696 9.46533C12.6882 9.9432 12.9864 10.4326 13.0437 11.0314C13.0838 11.4632 12.7513 11.8086 12.2983 11.8201C11.8396 11.8317 11.4611 11.4977 11.4898 11.0659C11.5414 10.4499 11.851 9.94896 12.2696 9.46533Z" fill="white"/>
+                      <path d="M5.11991 13.668C5.52702 14.1343 5.84812 14.641 5.87106 15.2858C5.88252 15.6946 5.54995 15.994 5.11991 16.0055C4.70707 16.017 4.35156 15.7119 4.32289 15.3204C4.28275 14.8655 4.71853 13.9558 5.11991 13.668Z" fill="white"/>
+                      <path d="M2.70682 9.46533C3.1254 9.94896 3.4293 10.4441 3.48663 11.0544C3.52677 11.4862 3.17127 11.8259 2.71829 11.8259C2.25384 11.8317 1.8926 11.4862 1.93274 11.0486C1.98434 10.4383 2.28824 9.9432 2.70682 9.46533Z" fill="white"/>
+                      <path d="M7.48815 9.45947C7.91246 9.95462 8.22783 10.4498 8.26223 11.0716C8.28517 11.5034 7.9526 11.82 7.50535 11.8258C7.05237 11.8316 6.69686 11.5091 6.7198 11.0716C6.74847 10.444 7.07531 9.95462 7.48815 9.45947Z" fill="white"/>
+                      </svg>
+                      
+                    <span class="rain-day-number text-white user-xx-small-text fw-medium ms-2">{{ month.rainDay }} Tage</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col weather-timeline">
+                <div class="months-timeline text-center">
+                  <span class="user-x-small-text text-color line-heigth-24">{{ month.month.slice(0, 3) }}</span>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="section-third-row weather-timeline-wrapper d-flex">
+          <!--<div *ngFor="let month of weatherArray; let i=index"  (click)="selectItem(i+1)" [ngClass]="{'active': selectedIndex == i+1}"  class="col weather-item">
+            <div class="months-timeline text-center">
+              <span class="user-x-small-text text-color line-heigth-24">{{ month.month.slice(0, 3) }}</span>
+            </div>
+          </div>-->
+      </div>
+    </div>
+</section>
