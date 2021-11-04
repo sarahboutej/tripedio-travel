@@ -89,6 +89,7 @@
         margin-bottom: 1.5rem;
         overflow-x: scroll!important;
         flex-wrap: nowrap!important;
+        scrollbar-color: #5555551a transparent;
         &::-webkit-scrollbar {
           width: 0!important;  /* Remove scrollbar space */
           background: transparent!important;  /* Optional: just make scrollbar invisible */
