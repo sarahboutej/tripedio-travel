@@ -36,6 +36,13 @@
   font-display: swap
 }
 
+@font-face {
+  font-family: $font-family-Inter;
+  src:url("assets/font/Inter/Inter-Black.ttf");
+  font-weight: 900;
+  font-display: swap
+}
+
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   font-family: $font-family-Inter;
   font-size: 0.875 rem!important;
@@ -162,6 +169,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   font-size: 1.25rem;
 }
 
+.paragraphe-fs-small {
+  font-size: 1.125rem;
+}
+
 .sub-title-size {
   font-size: 1.25rem;
 }
@@ -263,6 +274,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 }
 .fw-extra-bold {
   font-weight: 800!important;
+}
+.fw-black {
+  font-weight: 900!important;
 }
 .link-td {
   text-decoration: none!important;

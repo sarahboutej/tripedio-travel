@@ -63,6 +63,7 @@ import { ArticleSectionInfoComponent } from './components/articles-components/ar
 import { ArticleUtilsInformationComponent } from './components/articles-components/article-utils-information/article-utils-information.component';
 import { ArticleClimateInfoComponent } from './components/articles-components/article-climate-info/article-climate-info.component';
 import { ArticleWeatherInfoComponent } from './components/articles-components/article-weather-info/article-weather-info.component';
+import { ArticleTripedeoAdvantagesComponent } from './components/articles-components/article-tripedeo-advantages/article-tripedeo-advantages.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -118,7 +119,8 @@ registerLocaleData(localeDe);
     ArticleSectionInfoComponent,
     ArticleUtilsInformationComponent,
     ArticleClimateInfoComponent,
-    ArticleWeatherInfoComponent
+    ArticleWeatherInfoComponent,
+    ArticleTripedeoAdvantagesComponent
   ],
   imports: [
     BrowserModule,

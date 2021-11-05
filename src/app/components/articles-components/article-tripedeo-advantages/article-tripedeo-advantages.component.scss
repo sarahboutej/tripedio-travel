@@ -1,0 +1,29 @@
+.article-section-advantages {
+  .section-items-wrapper {
+    background: linear-gradient(#F6F6F6F0, #F6F6F6F0), url('../../../../assets/images/bottom-section-bg.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+  .advantage-item-container {
+    .advantage-icon {
+      img {
+        width: 5rem;
+        max-width: 5rem;
+        height: auto;
+      }
+    }
+  }
+  .section-seconde-row {
+    .advantage-item-container {
+      .advantage-icon {
+        img {
+          width: 4rem;
+          max-width: 4rem;
+          height: auto;
+        }
+      }
+    }
+  }
+}
