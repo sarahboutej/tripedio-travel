@@ -26,6 +26,9 @@ export class AgentGalleryComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if(this.agentCountryGallery){
+      this.agentCountryGallery.agentGalleryDescription=decodeURIComponent(escape(this.agentCountryGallery.agentGalleryDescription));
+    }
   }
 
   async openModal() {
