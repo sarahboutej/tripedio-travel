@@ -12,28 +12,28 @@
                                 <div class="testimonial-header d-flex">
                                     <img class="user-avatar" [src]="item.avatar" [title]="item.userName"
                                         [alt]="item.userName" />
-                                    <div class="nuser-name-stars">
+                                    <div class="nuser-name-stars mt-3">
                                         <h5 class="paragraphe-fs fw-medium text-color mt-2">{{ item.userName }} </h5>
-                                        <div class="stars-rate">
+                                        <!--<div class="stars-rate">
                                             <i *ngFor="let n of counter(item.stars) ;let k = index"
                                                 class="bi bi-star-fill text-warning pe-2"></i>
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                                 <div class="testimonial-content mb-4">
                                     <p class="user-x-small-text grey-color mb-4">{{ item.description }}</p>
                                     <div class="user-destination">
-                                        <p class="mb-0 user-x-small-text  fw-medium">Reiseziele</p>
+                                        <p class="mb-0 user-x-small-text text-color fw-medium">Reiseziele</p>
                                         <span class="me-2 mb-2 primary-color  user-x-small-text d-inline-flex"
                                             *ngFor="let place of item.destination">{{ place.name }}</span>
                                     </div>
                                     <div class="user-travelType">
-                                        <p class="mb-0 user-x-small-text fw-medium">Reisearten</p>
+                                        <p class="mb-0 user-x-small-text text-color fw-medium">Reisearten</p>
                                         <span class="me-2 mb-2 primary-color  user-x-small-text d-inline-flex"
                                             *ngFor="let travel of item.travelType">{{ travel.name }}</span>
                                     </div>
                                     <div class="user-matching">
-                                        <p class="mb-0 user-x-small-text  fw-medium">Matching</p>
+                                        <p class="mb-0 user-x-small-text text-color fw-medium">Matching</p>
                                         <span class="me-2 primary-color user-x-small-text">{{ item.matching }}</span>
                                     </div>
                                 </div>
