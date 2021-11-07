@@ -4,7 +4,7 @@
             <h3 class="primary-color user-big-text light-heigth-xbig fw-bold user-big-text-mobile subtitle-pb ">Südafrika : Wetter und Klimatabelle</h3>
         </div>
         <div class="section-second-row weather-wrapper d-flex">
-            <div *ngFor="let month of weatherArray; let i=index"  (click)="selectItem(i+1)" [ngClass]="{'active': selectedIndex == i+1}" class="col weather-item align-self-end">
+            <div *ngFor="let month of weatherArray; let i=index"  (click)="selectItem(i+1)" [ngClass]="{'active': selectedIndex == i+1}" class="col-md weather-item align-self-end">
               <div class="weather-item-card mx-2 mb-4"  [ngStyle]="{'padding-bottom.px': month.max+12}">
                 <div class="weather-card-content orange-chip-gb">
                   <div class="weather-min-max py-4">
@@ -32,12 +32,5 @@
               </div>
             </div>
         </div>
-        <div class="section-third-row weather-timeline-wrapper d-flex">
-          <!--<div *ngFor="let month of weatherArray; let i=index"  (click)="selectItem(i+1)" [ngClass]="{'active': selectedIndex == i+1}"  class="col weather-item">
-            <div class="months-timeline text-center">
-              <span class="user-x-small-text text-color line-heigth-24">{{ month.month.slice(0, 3) }}</span>
-            </div>
-          </div>-->
-      </div>
     </div>
 </section>

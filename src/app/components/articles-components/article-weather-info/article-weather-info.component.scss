@@ -3,6 +3,19 @@
 
 .article-weather-section {
   .weather-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-color: transparent transparent !important;
+    scrollbar-width: none!important;
+    &::-webkit-scrollbar {
+      width: 0!important;  /* Remove scrollbar space */
+      background: transparent!important;  /* Optional: just make scrollbar invisible */
+    }
+    &::-webkit-scrollbar-thumb {
+      width: 0!important;
+      background: transparent!important;
+    }
+
     .weather-item {
       cursor: pointer;
       .weather-item-card {
@@ -85,5 +98,21 @@
         }
       }
     } 
+  }
+}
+
+/*------------------------Responsive Design ------------------*/
+
+@media screen and (max-width: 767px) {
+  .article-weather-section {
+    .weather-wrapper {
+      .weather-item {
+        .weather-item-card {
+          .weather-rain-days {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
   }
 }

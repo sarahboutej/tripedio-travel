@@ -606,6 +606,34 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   .title-padding-mobile {
     padding: 1.5rem 0!important;
   }
+  .article-page-wrapper {
+   .user-big-text  {
+    font-size: 1.25rem!important;
+   }
+  }
+  .article-agent-container, .article-travel-modes-container {
+    .owl-carousel {
+      .owl-nav {
+        display: none!important
+      }
+    }
+  }
+  .article-mobile-dsiplay {
+    overflow-x: scroll;
+    scrollbar-color: transparent transparent !important;
+    scrollbar-width: none!important;
+    &::-webkit-scrollbar {
+      width: 0!important;
+      background: transparent!important;
+    }
+    &::-webkit-scrollbar-thumb {
+      width: 0!important;
+      background: transparent!important;
+    }
+    .col-md {
+      flex: 0 0 90%!important;
+    }
+  }
   
 }
 

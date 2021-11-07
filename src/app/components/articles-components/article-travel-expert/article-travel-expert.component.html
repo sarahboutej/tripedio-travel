@@ -4,7 +4,7 @@
             Resiseeperten Für Südafrika</h3>
 
         <div class="testimonials-container mt-4 row">
-            <div class="owl-wrapper article-agent-container d-none d-md-block">
+            <div class="owl-wrapper article-agent-container">
                 <owl-carousel-o [options]="slideOptions">
                     <ng-container *ngFor="let item of testimonialsItems">
                         <ng-template carouselSlide [id]="item.id">
@@ -48,7 +48,7 @@
                     </ng-container>
                 </owl-carousel-o>
             </div>
-            <div class="swipe-wrapper d-block d-md-none">
+            <!--<div class="swipe-wrapper d-block d-md-none">
                 <swiper [direction]="'vertical'" [slidesPerView]="3" [loop]="true" [navigation]="true"
                     class="mySwiper testimonial-swiper">
                     <ng-template swiperSlide *ngFor="let item of testimonialsItems">
@@ -84,7 +84,7 @@
                         </div>
                     </ng-template>
                 </swiper>
-            </div>
+            </div>-->
         </div>
     </div>
 </section>

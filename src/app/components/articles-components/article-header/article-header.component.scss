@@ -58,3 +58,68 @@
     }
   }
 }
+
+/*------------------------Responsive Design ------------------*/
+
+@media screen and (max-width: 767px) {
+  .article-header-container {
+    background-attachment: inherit!important;
+    .article-container-wrapper {
+      min-height: 20rem;
+      height: 20rem;
+      .article-ancart-container {
+        padding-bottom: 0.5rem!important;
+        padding-top: 1rem!important;
+        bottom: 1.5rem;
+        position: absolute !important;
+        width: 100% !important;
+        overflow-y: scroll!important;
+        left: 0!important;
+        scrollbar-color: white white !important;
+        scrollbar-width: none!important;
+        border-top-right-radius: 0rem!important;
+        border-bottom-right-radius: 0rem!important;
+        &::-webkit-scrollbar {
+          width: 0!important;  /* Remove scrollbar space */
+          background: transparent!important;  /* Optional: just make scrollbar invisible */
+        }
+        &::-webkit-scrollbar-thumb {
+          width: 0!important;
+          background: transparent!important;
+        }
+        .ancart-item {
+          width: 15.625rem;
+          min-width: 15.625rem;
+        }
+        .encart-item-wrapper {
+          .encart-icon {
+            img {
+              width: 2.5rem!important;
+              height: auto!important;
+            }
+          }
+          .encart-text {
+            .encart-title {
+              font-size: 0.875rem!important;
+            }
+            .encart-text-content {
+              font-size: 0.75rem!important;
+            }
+          }
+        }
+      }
+      .item-border {
+        border-right:  none!important;
+      }
+    }
+    .welcome-block-container {
+      padding-top: 5%!important;
+      .welcome-title {
+        font-size: 1.5rem!important;
+      }
+      .welcome-text {
+        font-size: 0.938rem!important;
+      }
+    }
+  }
+}
