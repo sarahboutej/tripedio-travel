@@ -19,7 +19,7 @@ export class ArticleTravelExpertComponent implements OnInit {
       0: {
         items: 1
       },
-      768: {
+      767: {
         items: 2
       },
       992: {

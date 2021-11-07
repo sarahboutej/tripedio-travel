@@ -29,14 +29,13 @@
 }
 
 /*------------------------Responsive Design ------------------*/
-
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   .article-section-advantages {
     .section-items-wrapper {
       .section-first-row {
         overflow-x: scroll;
         scrollbar-color: transparent transparent !important;
-        scrollbar-width: 0!important;
+        scrollbar-width: none!important;
         &::-webkit-scrollbar {
           width: 0!important;  /* Remove scrollbar space */
           background: transparent!important;  /* Optional: just make scrollbar invisible */
@@ -45,14 +44,36 @@
           width: 0!important;
           background: transparent!important;
         }
-        .col-md-4 {
-          flex: 0 0 100%;
+        .col-lg-4 {
+          flex: 0 0 50%;
+          margin: 0 1rem;
           .advantage-item-container {
             display: block!important;
             text-align: center!important;
+            .advantage-icon  {
+              width: 6rem;
+              height: 6rem;
+              margin: auto!important;
+              display: flex;
+              align-items: center;
+              img {
+                display: block;
+                margin: auto;
+              }
+            }
           }
         }
       }
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .article-section-advantages {
+    .section-items-wrapper {
+        .col-lg-4 {
+          flex: 0 0 100%;
+        }
+      }
+    }
+  }

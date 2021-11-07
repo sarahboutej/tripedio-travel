@@ -10,3 +10,35 @@
 .info-img-icon {
     width: 6.875rem;
 }
+
+/*------------------------Responsive Design ------------------*/
+
+@media screen and (max-width: 767px) {
+    .article-info-section {
+        .container-lg {
+            padding: 0!important;
+        }
+    }
+    .section-first-row {
+        h6.sub-title {
+            font-size: 0.875rem!important;
+        }
+    }
+    .text-container {
+        text-align: center;
+        .user-btn {
+          width: 100%!important;
+        }
+    }
+    .info-text-wrapper {
+      width: 85%;
+      margin: auto;
+      .info-text-title {
+        font-size: 0.875rem!important;
+      }
+      .info-text-container {
+        font-size: 0.875rem!important;
+        text-align: justify;
+      }
+    }
+}

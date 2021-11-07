@@ -21,6 +21,7 @@
       .weather-item-card {
         min-height: 5rem;
         .weather-rain-days {
+          white-space: nowrap;
           img {
             width: 1rem;
             height: auto;

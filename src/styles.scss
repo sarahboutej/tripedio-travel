@@ -568,6 +568,30 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
 
 /*------------------------Responsive Design ------------------*/
 
+@media screen and (max-width: 991px) {
+  .article-page-wrapper {
+    .user-big-text  {
+     font-size: 2rem!important;
+    }
+   }
+   .article-mobile-dsiplay {
+    overflow-x: scroll;
+    scrollbar-color: transparent transparent !important;
+    scrollbar-width: none!important;
+    &::-webkit-scrollbar {
+      width: 0!important;
+      background: transparent!important;
+    }
+    &::-webkit-scrollbar-thumb {
+      width: 0!important;
+      background: transparent!important;
+    }
+    .col-lg {
+      flex: 0 0 60%!important;
+    }
+  }
+}
+
 @media screen and (max-width: 767px) {
   .mobile-menu-opened {
     overflow-y: hidden!important;
@@ -610,6 +634,10 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
    .user-big-text  {
     font-size: 1.25rem!important;
    }
+   .small-title-size {
+    font-size: 0.875rem!important;
+   }
+
   }
   .article-agent-container, .article-travel-modes-container {
     .owl-carousel {
@@ -619,17 +647,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
     }
   }
   .article-mobile-dsiplay {
-    overflow-x: scroll;
-    scrollbar-color: transparent transparent !important;
-    scrollbar-width: none!important;
-    &::-webkit-scrollbar {
-      width: 0!important;
-      background: transparent!important;
-    }
-    &::-webkit-scrollbar-thumb {
-      width: 0!important;
-      background: transparent!important;
-    }
     .col-md {
       flex: 0 0 90%!important;
     }
@@ -726,4 +743,18 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   color: #a5b2bc;
 }
 
+@media screen and ( max-width: 1400px ) and ( min-width: 1200px ) {
+    .article-agent-container {
+      .testimonial-item {
+        .testimonial-footer {
+          button {
+            width: 100%!important;
+          }
+          .user-btn.orange-gb {
+            margin-bottom: 0.75rem;
+          }
+        }
+      }
+    }
+  }
 
