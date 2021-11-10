@@ -11,19 +11,20 @@
 @media screen and (max-width: 991px) {
   .sub-header-wrapper{ 
     .sub-header-items {
-      padding-top: 1rem!important;
-      padding-bottom: 1rem!important;
+      padding-top: 0.75rem !important;
+      padding-bottom: 0.75rem !important;
       overflow-x: scroll;
       scrollbar-color: transparent transparent !important;
+      scrollbar-width: none!important;
       &::-webkit-scrollbar {
         width: 0!important;  /* Remove scrollbar space */
-        background: transparent!important;  /* Optional: just make scrollbar invisible */
+        background: transparent!important;
+        display: none;  /* Optional: just make scrollbar invisible */
       }
       &::-webkit-scrollbar-thumb {
         width: 0!important;
         background: transparent!important;
       }
-        scrollbar-width: none!important;
       .encart-subheader-title {
         white-space:nowrap!important;
       }

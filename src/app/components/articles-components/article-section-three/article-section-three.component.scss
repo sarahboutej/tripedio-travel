@@ -1,3 +1,36 @@
 .item-container {
     height: 100%;
 }
+
+/*------------------------Responsive Design ------------------*/
+
+@media screen and (max-width: 767px) {
+    .article-section-three {
+        .container-lg {
+            .section-first-row {
+                h6.sub-title {
+                    font-size: 1.125rem!important;
+                }
+                h3.subtitle-pb {
+                    padding-bottom: 0!important;
+                }
+            }
+            .section-seconde-row  {
+                .item-container  {
+									display: flex;
+									flex-direction: column;
+									align-content: center;
+									justify-content: center;
+									.item-title {
+										text-align: center;
+										font-size: 1.125rem!important;
+									}
+									.item-text {
+										text-align: justify;
+										font-size: 0.875rem!important;
+									}
+                }
+            }
+        }
+    }
+}

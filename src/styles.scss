@@ -645,10 +645,37 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
         display: none!important
       }
     }
+    .article-image-title {
+      font-size: 1rem!important;
+    }
   }
   .article-mobile-dsiplay {
     .col-md {
       flex: 0 0 90%!important;
+    }
+    .col-lg {
+      flex: 0 0 90%!important;
+    }
+  }
+
+  .article-agent-container {
+    .testimonial-item {
+      .testimonial-header {
+        margin-top: 0rem!important;
+        .user-avatar {
+          position: absolute;
+          left: 37%;
+          margin: auto;
+          display: inline-block;
+          top: -4rem;
+        }
+        .nuser-name-stars {
+          margin-top:3rem!important
+        }
+      }
+      .testimonial-footer {
+        
+      }
     }
   }
   

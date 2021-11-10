@@ -72,7 +72,8 @@
   .article-section-advantages {
     .section-items-wrapper {
         .col-lg-4 {
-          flex: 0 0 100%;
+          flex: 0 0 100%!important;
+          margin: 0!important;
         }
       }
     }
