@@ -10,8 +10,10 @@
                         <ng-template carouselSlide [id]="item.id">
                             <div class="testimonial-item p-4">
                                 <div class="testimonial-header d-flex">
-                                    <img class="user-avatar" [src]="item.avatar" [title]="item.userName"
+                                    <div class="article-agent-avatar">
+                                        <img class="user-avatar" [src]="item.avatar" [title]="item.userName"
                                         [alt]="item.userName" />
+                                    </div>
                                     <div class="nuser-name-stars mt-3">
                                         <h5 class="paragraphe-fs fw-medium text-color mt-2">{{ item.userName }} </h5>
                                         <!--<div class="stars-rate">

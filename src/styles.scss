@@ -662,19 +662,21 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
     .testimonial-item {
       .testimonial-header {
         margin-top: 0rem!important;
-        .user-avatar {
+        .article-agent-avatar {
           position: absolute;
-          left: 37%;
+          left: 0;
+          right: 0;
           margin: auto;
+          text-align: center;
           display: inline-block;
           top: -4rem;
+          .user-avatar {
+            margin: auto!important;
+          }
         }
         .nuser-name-stars {
           margin-top:3rem!important
         }
-      }
-      .testimonial-footer {
-        
       }
     }
   }
