@@ -16,6 +16,7 @@ export class AgentService {
   AGENT_ACTIVITY_API = UtilsService.BASE_API_URL + '/api/agent-activities';
   AGENT_GALLERY_API = UtilsService.BASE_API_URL + '/api/galleries';
 
+
   constructor(private http: HttpClient) { }
   
   getFiltredPlaces(superPlaceLabel?: string, offset?: number, page?: number): Observable<any> {

@@ -1,6 +1,6 @@
 @import "../../../../styles/variables";
 .article-header-container {
-  background-image: url(../../../../assets/images/article-header.webp);
+  // background-image: url(../../../../assets/images/article-header.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -32,7 +32,7 @@
         .encart-item-wrapper {
           .encart-icon {
             width: 3.75rem;
-            margin-right: 1rem;
+            margin-right: 2rem;
             text-align: center;
             min-width: 3.75rem;
           }

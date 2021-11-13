@@ -35,8 +35,8 @@ import { ImprintComponent } from './pages/imprint/imprint.component';
 import { AppConfig } from './app-config';
 import { AppointementModalComponent } from './components/appointement-modal/appointement-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import localeDe from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
@@ -68,6 +68,7 @@ import { ArticleSpecialistsComponent } from './components/articles-components/ar
 import { ArticleTravelModesComponent } from './components/articles-components/article-travel-modes/article-travel-modes.component';
 import { ArticleTravelCombinationComponent } from './components/articles-components/article-travel-combination/article-travel-combination.component';
 import { DestinationNavItemComponent } from './shared/components/navbar/destination-nav-item/destination-nav-item.component';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -128,7 +129,7 @@ registerLocaleData(localeDe);
     ArticleSpecialistsComponent,
     ArticleTravelModesComponent,
     ArticleTravelCombinationComponent,
-    DestinationNavItemComponent
+    DestinationNavItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -140,26 +141,26 @@ registerLocaleData(localeDe);
     SwiperModule,
     NgSelectModule,
     HttpClientModule,
-    NgbModule ,
+    NgbModule,
     MatDatepickerModule,
     MatNativeDateModule,
     InfiniteScrollModule,
     MatFormFieldModule,
-    MatInputModule
-  ], 
-  exports: [
-      AlertErrorComponent,
-    ],
+    MatInputModule,
+    ToastrModule.forRoot(),
+  ],
+  exports: [AlertErrorComponent],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'de-DE'},
-    {provide: LOCALE_ID, useValue: 'de'},
+    { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
+    { provide: LOCALE_ID, useValue: 'de' },
     {
       provide: APP_INITIALIZER,
       useFactory: initConfig,
       deps: [AppConfig],
-      multi: true
-    }
+      multi: true,
+    },
+    ToastrService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

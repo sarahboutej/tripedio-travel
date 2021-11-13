@@ -32,7 +32,7 @@ const routes: Routes = [
     component: AgentComponent,
   },
   {
-    path: 'articles',
+    path: 'articles/:destinationUuid',
     component: ArticlesComponent,
   },
   {

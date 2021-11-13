@@ -6,9 +6,11 @@ import { AppConfig } from 'src/app/app-config';
 })
 export class UtilsService {
   public static BASE_API_URL: string;
+  public static BASE_STRAPI_API_URL: string;
   constructor(private appConfig: AppConfig) {}
   
-  public static setConfig(baseApi: string) {
-    UtilsService.BASE_API_URL = baseApi;
+  public static setConfig(config: any) {
+    UtilsService.BASE_API_URL = config.baseApiUrl;
+    UtilsService.BASE_STRAPI_API_URL = config.baseStrapiApiUrl;
   }
 }

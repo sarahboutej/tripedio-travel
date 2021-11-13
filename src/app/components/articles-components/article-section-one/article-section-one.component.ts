@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-article-section-one',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-section-one.component.scss']
 })
 export class ArticleSectionOneComponent implements OnInit {
-
+  @Input() data : any;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,31 +1,29 @@
 <section class="article-section article-section-images section-pt-medium">
   <div class="container-lg section-wrapper">
     <div class="section-first-row article-mobile-dsiplay d-flex">
-      <div class="col-lg">
+      <div class="col-lg" *ngFor="let item of data">
         <div class="encart-wrapper br-8 me-3">
-          <div class="item-image-container d-flex align-items-end br-8" 
-          [ngStyle]="{'background-image': 'url(assets/images/thumbnail1.webp)'}">
-          </div>
-          <h3 class="article-image-title text-white fw-extra-bold paragraphe-fs  p-4 light-heigth-medium  mb-0"> Den Kibale Forest Nationalpark-
-            Zu Besuch bei den Schimpansen</h3>
-        </div>
-      </div>
-      <div class="col-lg">
-        <div class="encart-wrapper br-8 mx-3">
-          <div class="item-image-container d-flex align-items-end br-8"
-             [ngStyle]="{'background-image': 'url(assets/images/thumbnail2.webp)'}">
-          </div>
-          <h3 class="article-image-title text-white fw-extra-bold paragraphe-fs  light-heigth-medium  p-4 mb-0"> Ben bwindi Impentrable Nationalpark-
-            Heimat der Berggorillas</h3>
-        </div>
-      </div>
-      <div class="col-lg">
-        <div class="encart-wrapper br-8 ms-3">
-          <div class="item-image-container d-flex align-items-end br-8"
-          [ngStyle]="{'background-image': 'url(assets/images/thumbnail3.webp)'}">
-          </div>
-          <h3 class="article-image-title text-white fw-extra-bold paragraphe-fs  p-4 light-heigth-medium  mb-0"> Den Victoriasee-
-            Der größte See Afrikas</h3>
+          <div
+            class="item-image-container d-flex align-items-end br-8"
+            [ngStyle]="{
+              'background-image': item.image_file
+                ? 'url(' + BASE_STRAPI_API_URL + item.image_file.url + ')'
+                : 'url(' + '../../../../assets/images/thumbnail1.webp' + ')'
+            }"
+          ></div>
+          <h3
+            class="
+              article-image-title
+              text-white
+              fw-extra-bold
+              paragraphe-fs
+              p-4
+              light-heigth-medium
+              mb-0
+            "
+          >
+            {{ item.image_name }}
+          </h3>
         </div>
       </div>
     </div>

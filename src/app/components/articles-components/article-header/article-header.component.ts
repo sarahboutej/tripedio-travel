@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UtilsService } from 'src/app/shared/service/utils.service';
 
 @Component({
   selector: 'app-article-header',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-header.component.scss']
 })
 export class ArticleHeaderComponent implements OnInit {
-
+  @Input() data : any;
   constructor() { }
-
+  BASE_STRAPI_API_URL = UtilsService.BASE_STRAPI_API_URL;
   ngOnInit(): void {
   }
-
+  
 }

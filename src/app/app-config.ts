@@ -35,7 +35,7 @@ export class AppConfig {
                 }))
                 .subscribe((responseData: Configuration) => {
                     this.config = responseData;
-                    UtilsService.setConfig(responseData.baseApiUrl);
+                    UtilsService.setConfig(responseData);
                     resolve(true);
                 });
             return observableThrowError('Server error');

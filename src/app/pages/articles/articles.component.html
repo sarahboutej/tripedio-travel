@@ -1,21 +1,22 @@
 <div class="article-page-wrapper">
-    <app-navbar></app-navbar>
-    <app-article-header></app-article-header>
-    <app-article-sub-header></app-article-sub-header>
-    <app-article-section-one></app-article-section-one>
-    <article-travel-expert></article-travel-expert>
-    <app-article-section-three></app-article-section-three>
-    <app-articles-newsletter></app-articles-newsletter>
-    <app-article-section-four></app-article-section-four>
-    <article-section-images></article-section-images>
-    <article-section-info></article-section-info>
-    <article-climate-info></article-climate-info>
-    <article-weather-info></article-weather-info>
-    <app-article-utils-information></app-article-utils-information>
-    <article-tripedeo-advantages></article-tripedeo-advantages>
-    <article-specialists></article-specialists>
-    <article-travel-modes></article-travel-modes>
-    <article-travel-combination></article-travel-combination>
-    <app-footer></app-footer>
-  </div>
-  
+  <app-navbar></app-navbar>
+  <app-article-header [data]="articles"></app-article-header>
+  <app-article-sub-header [data]="articles.subheaders"></app-article-sub-header>
+  <app-article-section-one [data]="articles"></app-article-section-one>
+  <article-travel-expert></article-travel-expert>
+  <app-article-section-three></app-article-section-three>
+  <app-articles-newsletter
+    [data]="articles.destination_name"
+  ></app-articles-newsletter>
+  <app-article-section-four></app-article-section-four>
+  <article-section-images
+    [data]="articles.section_image_item"
+  ></article-section-images>
+  <article-section-info [data]="articles"></article-section-info>
+  <article-climate-info [data]="articles"></article-climate-info>
+  <article-weather-info [data]="articles"></article-weather-info>
+  <app-article-utils-information
+    [data]="articles.travel_information"
+  ></app-article-utils-information>
+  <app-footer></app-footer>
+</div>

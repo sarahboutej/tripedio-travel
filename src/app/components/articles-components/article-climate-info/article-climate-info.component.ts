@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'article-climate-info',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-climate-info.component.scss']
 })
 export class ArticleClimateInfoComponent implements OnInit {
-
+  @Input() data : any;
   constructor() { }
 
   ngOnInit(): void {

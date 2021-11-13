@@ -35,6 +35,7 @@
               "src/styles/bootstrap-icons.css",
               "src/styles/font-awesome.css",
               "node_modules/animate.css/animate.min.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
             "scripts": [
