@@ -1,0 +1,15 @@
+<div  href="#" class="dropdown-item destination-item d-flex align-items-start"> 
+    <img [src]="'assets/images/'+destination.name+'.svg'" class="me-3" loading="lazy"/>
+    <div class="destination-place-list">
+        <a class="fw-bold paragraphe-fs text-black hoverable d-block text-decoration-none" href="#"> 
+            {{ destination.destinationLabel }}
+        </a> 
+        <ul class="destination-place-items list-unstyled">
+            <li *ngFor="let place of destination.place" class="destination-item-place"> 
+                <a class="text-decoration-none text-black paragraphe-fs hoverable" href="#"> {{ place.name }}</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+

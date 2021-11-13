@@ -7,8 +7,42 @@
         color: $titleColor!important;
       }
     }
+    .reiseziele-menu {
+      position: initial;
+      .nav-link {
+        &:after {
+          display: none;
+        }
+      }
+      > ul.dropdown-menu {
+        display: block;
+        width: 100vw;
+        right: 0;
+        background-color: white;
+        transform: scaleY(0);    
+        transform-origin: top;
+        transition: transform 0.26s ease;
+        border: none !important;
+        top: 4.688rem;
+        .dropdown-menu-container  {
+          flex-wrap: wrap;
+          .destination-item-wrapper {
+            flex: 1 0 21%; /* explanation below */
+            margin: 5px;
+          }
+        }
+
+      }
+      &:hover {
+        > ul.dropdown-menu {
+          transform: scaleY(1);
+        }
+      }
+    }
   }
 }
+
+
 @media screen and (min-width: 768px){
     .navbar{
         position: fixed;

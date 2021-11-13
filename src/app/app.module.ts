@@ -67,6 +67,7 @@ import { ArticleTripedeoAdvantagesComponent } from './components/articles-compon
 import { ArticleSpecialistsComponent } from './components/articles-components/article-specialists/article-specialists.component';
 import { ArticleTravelModesComponent } from './components/articles-components/article-travel-modes/article-travel-modes.component';
 import { ArticleTravelCombinationComponent } from './components/articles-components/article-travel-combination/article-travel-combination.component';
+import { DestinationNavItemComponent } from './shared/components/navbar/destination-nav-item/destination-nav-item.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -126,7 +127,8 @@ registerLocaleData(localeDe);
     ArticleTripedeoAdvantagesComponent,
     ArticleSpecialistsComponent,
     ArticleTravelModesComponent,
-    ArticleTravelCombinationComponent
+    ArticleTravelCombinationComponent,
+    DestinationNavItemComponent
   ],
   imports: [
     BrowserModule,

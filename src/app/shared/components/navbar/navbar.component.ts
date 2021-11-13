@@ -9,6 +9,92 @@ export class NavbarComponent implements OnInit {
   
   showNavbarMobileMenu: boolean = false;
 
+  destinations = [
+    {
+      id: '1',
+      name: 'afrika',
+      destinationLabel: 'Afrika',
+      place: [
+        {name: 'South Afrika'},
+        {name: 'Tanzania'},
+        {name: 'Seychelles'},
+        {name: 'Kenya'},
+      ]
+    },
+    {
+      id: '2',
+      name: 'asia',
+      destinationLabel: 'Asia',
+      place: [
+        {name: 'Bhutan'},
+        {name: 'Cambodia'},
+        {name: 'China'},
+        {name: 'India'},
+      ]
+    },
+    {
+      id: '3',
+      name: 'central-america',
+      destinationLabel: 'Central America',
+      place: [
+        {name: 'Costa Rica'},
+        {name: 'Panama'}
+      ]
+    },
+    {
+      id: '4',
+      name: 'europe',
+      destinationLabel: 'Europe',
+      place: [
+        {name: 'Greece'},
+        {name: 'Iceland'},
+        {name: 'Italy'},
+        {name: 'Croatia'}
+      ]
+    },
+    {
+      id: '5',
+      name: 'middle-east',
+      destinationLabel: 'Middle East',
+      place: [
+        {name: 'Jordan'},
+        {name: 'Oman'},
+        {name: 'UAE'}
+      ]
+    },
+    {
+      id: '6',
+      name: 'north-america',
+      destinationLabel: 'North America',
+      place: [
+        {name: 'USA'},
+        {name: 'Canada'},
+        {name: 'Mexico'}
+      ]
+    },
+    {
+      id: '7',
+      name: 'oceania',
+      destinationLabel: 'Oceania',
+      place: [
+        {name: 'Australia'},
+        {name: 'New Zealand'}
+      ]
+    },
+    {
+      id: '8',
+      name: 'south-america',
+      destinationLabel: 'South America',
+      place: [
+        {name: 'Chile'},
+        {name: 'Ecuador'},
+        {name: 'Argentina'},
+        {name: 'Brazil'},
+      ]
+    },
+
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
