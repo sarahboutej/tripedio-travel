@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AgentService } from 'src/app/shared/service/agent/agent.service';
 import { UtilsService } from 'src/app/shared/service/utils.service';
+import { AppointementModalComponent } from '../../appointement-modal/appointement-modal.component';
+import { ModalConfig } from '../../appointement-modal/modal.config';
 
 @Component({
   selector: 'article-travel-expert',
@@ -8,6 +10,12 @@ import { UtilsService } from 'src/app/shared/service/utils.service';
   styleUrls: ['./article-travel-expert.component.scss']
 })
 export class ArticleTravelExpertComponent implements OnInit {
+  @ViewChild('modal') private modalComponent!: AppointementModalComponent;
+  modalConfig: ModalConfig={
+    modalTitle: 'Beratungstermin anfragen',
+    dismissButtonLabel: 'Senden',
+    closeButtonLabel: 'Abbrechen'
+  }
   @Input() data : any;
   urlPhotoBack= UtilsService.BASE_API_URL;
   slideOptions = {
@@ -54,4 +62,7 @@ export class ArticleTravelExpertComponent implements OnInit {
     return new Array(i);
   }
 
+  async openModal(agentUuid:any) {
+    return await this.modalComponent.open(agentUuid);
+  }
 }

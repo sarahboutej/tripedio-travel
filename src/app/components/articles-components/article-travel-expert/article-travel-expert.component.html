@@ -44,9 +44,9 @@
                                 </div>
                                 <div class="testimonial-footer">
                                     <button type="button"
-                                        class="btn user-btn orange-gb text-white user-x-small-text fw-medium me-2">Schedule video call</button>
+                                        class="btn user-btn orange-gb text-white user-x-small-text fw-medium me-2" (click)="openModal(agent.agentUuid)">Schedule video call</button>
                                     <button type="button"
-                                        class="btn user-btn grey-btn grey-gb primary-color user-x-small-text fw-medium">Show full profile</button>
+                                        class="btn user-btn grey-btn grey-gb primary-color user-x-small-text fw-medium" routerLink="/agent/{{agent.agentUuid}}">Show full profile</button>
                                 </div>
                             </div>
                         </ng-template>
@@ -93,3 +93,6 @@
         </div>
     </div>
 </section>
+<app-appointement-modal #modal [modalConfig]="modalConfig">
+    <!--  body of the modal  -->
+  </app-appointement-modal>
