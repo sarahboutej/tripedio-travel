@@ -1,21 +1,23 @@
 <section class="article-section article-section-two section-pt-medium">
     <div class="container-lg section-wrapper">
         <h3 class="primary-color user-big-text light-heigth-xbig fw-bold user-big-text-mobile subtitle-pb ">Ihere
-            Resiseeperten Für Südafrika</h3>
+            Resiseeperten Für {{data}}</h3>
 
         <div class="testimonials-container mt-4 row">
             <div class="owl-wrapper article-agent-container">
                 <owl-carousel-o [options]="slideOptions">
-                    <ng-container *ngFor="let item of testimonialsItems">
-                        <ng-template carouselSlide [id]="item.id">
+                    <ng-container *ngFor="let agent of filtredAgents">
+                        <ng-template carouselSlide [id]="agent.agentUuid">
                             <div class="testimonial-item p-4">
                                 <div class="testimonial-header d-flex">
                                     <div class="article-agent-avatar">
-                                        <img class="user-avatar" [src]="item.avatar" [title]="item.userName"
-                                        [alt]="item.userName" />
+                                        <img *ngIf="agent.agentPhoto!=null && agent.agentPhoto!=undefined" [title]="agent.agentFullName"
+                                        [alt]="agent.agentFullName" [src]="urlPhotoBack + agent?.agentPhoto?.mediaUrl" class="user-avatar" />
+                                        <div *ngIf="agent.agentPhoto==null || agent.agentPhoto==undefined" class="user-avatar agent-avatar rounded-circle img-profile d-flex align-items-center justify-content-center" id="profileImageEdit">{{agent.agentFullName.split(' ')[0].toUpperCase().charAt(0)}}{{agent.agentFullName.split(' ')[1].toUpperCase().charAt(0)}}</div>
+                                       
                                     </div>
                                     <div class="nuser-name-stars mt-3">
-                                        <h5 class="paragraphe-fs fw-medium text-color mt-2">{{ item.userName }} </h5>
+                                        <h5 class="paragraphe-fs fw-medium text-color mt-2">{{ agent.agentFullName }} </h5>
                                         <!--<div class="stars-rate">
                                             <i *ngFor="let n of counter(item.stars) ;let k = index"
                                                 class="bi bi-star-fill text-warning pe-2"></i>
@@ -23,20 +25,21 @@
                                     </div>
                                 </div>
                                 <div class="testimonial-content mb-4">
-                                    <p class="user-x-small-text grey-color mb-4">{{ item.description }}</p>
+                                    <p class="user-x-small-text grey-color mb-4 user-description">{{ agent.agentDescription || 'Beschreibung nicht ausgefüllt' }}</p>
                                     <div class="user-destination">
                                         <p class="mb-0 user-x-small-text text-color fw-medium">Reiseziele</p>
-                                        <span class="me-2 mb-2 primary-color  user-x-small-text d-inline-flex"
-                                            *ngFor="let place of item.destination">{{ place.name }}</span>
+                                        <a class="me-2 mb-2 primary-color  user-x-small-text d-inline-flex text-decoration-none"
+                                        [routerLink]="['/reiseexperten']" [queryParams]="{reiseziele: destionation}"
+                                            *ngFor="let destionation of agent.destination">{{ destionation }}</a>
                                     </div>
                                     <div class="user-travelType">
                                         <p class="mb-0 user-x-small-text text-color fw-medium">Reisearten</p>
-                                        <span class="me-2 mb-2 primary-color  user-x-small-text d-inline-flex"
-                                            *ngFor="let travel of item.travelType">{{ travel.name }}</span>
+                                        <a class="me-2 mb-2 primary-color  user-x-small-text d-inline-flex text-decoration-none"
+                                        *ngFor="let travel of agent.travelType" [routerLink]="['/reiseexperten']" [queryParams]="{reisearten: travel}">{{ travel }}</a>
                                     </div>
                                     <div class="user-matching">
                                         <p class="mb-0 user-x-small-text text-color fw-medium">Matching</p>
-                                        <span class="me-2 primary-color user-x-small-text">{{ item.matching }}</span>
+                                        <span class="me-2 primary-color user-x-small-text">{{ agent.agentScore }}</span>
                                     </div>
                                 </div>
                                 <div class="testimonial-footer">
