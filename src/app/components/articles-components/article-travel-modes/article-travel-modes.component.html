@@ -5,13 +5,13 @@
         <div class="testimonials-container travel-modes-container  mt-4 row">
             <div class="owl-wrapper article-travel-modes-container">
                 <owl-carousel-o [options]="slideOptions">
-                    <ng-container *ngFor="let item of travelModes">
+                    <ng-container *ngFor="let item of data">
                         <ng-template carouselSlide [id]="item.id">
                             <div class="encart-wrapper br-8">
                                 <div class="item-image-container d-flex align-items-end br-8" 
-                                [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+                                [ngStyle]="{'background-image': 'url(' + BASE_STRAPI_API_URL+ item.image_file.url + ')'}">
                                 </div>
-                                <h3 class="article-image-title text-white fw-extra-bold user-meduim-text p-4 light-heigth-medium  mb-0"> {{ item.title }}</h3>
+                                <h3 class="article-image-title text-white fw-extra-bold user-meduim-text p-4 light-heigth-medium  mb-0"> {{ item.image_name }}</h3>
                               </div>
                         </ng-template>
                     </ng-container>

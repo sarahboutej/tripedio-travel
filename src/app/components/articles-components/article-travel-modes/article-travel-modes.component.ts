@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UtilsService } from 'src/app/shared/service/utils.service';
 
 @Component({
   selector: 'article-travel-modes',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-travel-modes.component.scss']
 })
 export class ArticleTravelModesComponent implements OnInit {
-
+  BASE_STRAPI_API_URL = UtilsService.BASE_STRAPI_API_URL;
+ @Input() data : any;
   slideOptions = {
     loop: true,
     mouseDrag: true,
@@ -28,24 +30,6 @@ export class ArticleTravelModesComponent implements OnInit {
     },
     nav: true
   };
-
-  travelModes = [
-    {
-      id: '1',
-      image: 'assets/images/travel-mode1.webp',
-      title: 'Luxusurlaub Südafrika'
-    },
-    {
-      id: '2',
-      image: 'assets/images/travel-mode2.webp',
-      title: 'Golfurlaub Südafrika'
-    },
-    {
-      id: '3',
-      image: 'assets/images/travel-mode3.webp',
-      title: 'Safari Kenia'
-    },
-  ];
 
   constructor() { }
 
