@@ -32,16 +32,16 @@
     </div>
     <div class="article-ancart-container d-flex py-4 bg-white">
       <div
-        class="ancart-item col"
+        class="ancart-item col-md-4"
         *ngFor="let item of data.tripedeo_avantages.slice(0, 3); let i = index"
         [ngClass]="{
-          'pe-4': i == 0,
-          'px-4': i == 1,
-          'ps-4': i == 2,
+          'pe-md-4 pe-2': i == 0,
+          'px-md-4 px-0': i == 1,
+          'ps-md-4 px-2': i == 2,
           'item-border': i == 0 || i == 1
         }"
       >
-        <div class="encart-item-wrapper d-flex align-items-start">
+        <div class="encart-item-wrapper d-flex align-items-center">
           <div class="encart-icon">
             <img
               *ngIf="!item.logo.url"
@@ -61,7 +61,9 @@
             <p class="encart-text-content mb-0 grey-color paragraphe-fs">
               {{ item.description }}
             </p>
-          </div>
+            <button type="button" class="btn user-btn orange-gb text-white user-x-small-text fw-medium px-5 mt-4">
+                Reiseberaterfinden
+            </button>
         </div>
       </div>
     </div>

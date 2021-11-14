@@ -674,6 +674,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
           top: -4rem;
           .user-avatar {
             margin: auto!important;
+            position: absolute;
+            left: 37%;
+            margin: auto;
+            display: inline-block;
+            top: -4rem;
           }
         }
         .nuser-name-stars {
