@@ -6,3 +6,19 @@
       color: $primaryColor!important;
     }
   }
+  #profileImageEdit {
+    background: $stars-grey-color;
+    color: white;
+    text-align: center;
+    font-size: 3.5rem;
+    display: inline-block;
+  
+  }
+  .user-description{
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 126px;
+  }
