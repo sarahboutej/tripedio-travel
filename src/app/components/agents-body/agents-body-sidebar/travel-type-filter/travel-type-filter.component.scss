@@ -1,5 +1,6 @@
 @import '../../../../../styles/variables';
 .travel-type-filter-wrapper {
+  
   .form-group {
     position: relative;
     .search-travel-type {
@@ -42,7 +43,7 @@
       border: 2px solid #d9dde0;
       border-radius: 4px;
       &:checked {
-        background: #2c67ff!important;
+        background: $orangeColor!important;
         margin: 0px;
         position: relative;
         &:before {
@@ -66,4 +67,8 @@
       top: -4px;
     }
   }
+  a{
+    color: $orangeColor!important;
+  }
+  
 }

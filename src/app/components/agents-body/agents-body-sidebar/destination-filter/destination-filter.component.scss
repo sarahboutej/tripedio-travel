@@ -39,16 +39,15 @@
   .destination-chip {
     display: flex;
     flex-wrap: wrap;
-    
     .destination-alert {
       padding-top: 0.25rem;
       padding-bottom: 0.25rem;
       padding-left: 0.5rem;
       padding-right: 2rem;
       display: inline;
-      background-color: $primaryChip!important;
+      background-color: $orangeColor!important;
       color: white!important;
-      border-radius: 8px;
+      border-radius: 15px;
       border: none;
       .btn-close {
         padding: 0.625rem!important;
@@ -69,8 +68,13 @@
 }
 
 :host ::ng-deep ng-select .ng-dropdown-panel .scroll-host  {
-  max-width: 276px;
+ 
   max-height: 186px;
+
+}
+:host ::ng-deep ng-select .ng-dropdown-panel  {
+ 
+  height: 190px;
 
 }
 :host ::ng-deep ng-select .ng-select-container > .ng-value-container > div[role="combobox"] {
@@ -99,8 +103,9 @@
 :host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 :host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items .ng-option {
-  padding: 3px 10px !important;
+  padding: 0 10px !important;
   background-color: #ffffff !important;
 }
 :host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-footer {

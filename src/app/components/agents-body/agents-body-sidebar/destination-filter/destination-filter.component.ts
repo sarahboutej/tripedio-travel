@@ -32,12 +32,17 @@ export class DestinationFilterComponent implements OnInit {
     this.selectedDestinations = [];
     this.agentService.getPlaces().subscribe(response => {
       this.places=response;
-      
       for( var destination of listDestinations){
         if(this.places.find(x => x.superPlaceLabel === destination)){
           this.selectedDestinations.push(destination);
+          this.selectedDestinations = this.selectedDestinations.filter((test, index, array) =>
+           index === array.findIndex((findTest) =>
+              findTest === test
+           )
+        );
         }
       }
+      
       this.commitedDestinations = Object.assign([], this.selectedDestinations);
     }, error => {
     });
@@ -45,10 +50,14 @@ export class DestinationFilterComponent implements OnInit {
   }
 
   getDestinations() {
-    this.agentService.getFiltredPlaces(this.destinationSelectedValue, 6).subscribe(
+    this.agentService.getFiltredPlaces(this.destinationSelectedValue, 12).subscribe(
       result => {
         this.destinationsList = [...result.items];
-        console.log(this.destinationsList)
+        this.destinationsList = this.destinationsList.filter((test, index, array) =>
+           index === array.findIndex((findTest) =>
+              findTest.superPlaceLabel === test.superPlaceLabel
+           )
+        );
       }
     );
   }
