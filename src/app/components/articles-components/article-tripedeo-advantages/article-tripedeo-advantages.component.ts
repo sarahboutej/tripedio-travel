@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UtilsService } from 'src/app/shared/service/utils.service';
 
 @Component({
   selector: 'article-tripedeo-advantages',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-tripedeo-advantages.component.scss']
 })
 export class ArticleTripedeoAdvantagesComponent implements OnInit {
+  @Input() data : any;
+  BASE_STRAPI_API_URL = UtilsService.BASE_STRAPI_API_URL;
 
   constructor() { }
 
