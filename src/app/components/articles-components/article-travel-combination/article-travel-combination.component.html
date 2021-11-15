@@ -5,10 +5,7 @@
         </h3>
         <div class="section-first-row combination-list-wrapper py-5 shadow-sm px-4">
             <ul class="combination-list">
-                <li class="combination-list-item paragraphe-fs primary-color fw-medium-1 mb-3">Familienurlaub Insel</li>
-                <li class="combination-list-item paragraphe-fs primary-color fw-medium-1 mb-3">Golf südafrika</li>
-                <li class="combination-list-item paragraphe-fs primary-color fw-medium-1 mb-3">Lorem ipsum dolor </li>
-                <li class="combination-list-item paragraphe-fs primary-color fw-medium-1 mb-3">Lorem ipsum dolor </li>
+                <li *ngFor="let item of data" class="combination-list-item paragraphe-fs primary-color fw-medium-1 mb-3">{{item.type_title}}</li>
               </ul>
         </div>
        
