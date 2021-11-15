@@ -32,6 +32,7 @@ export class DestinationFilterComponent implements OnInit {
     this.selectedDestinations = [];
     this.agentService.getPlaces().subscribe(response => {
       this.places=response;
+      
       for( var destination of listDestinations){
         if(this.places.find(x => x.superPlaceLabel === destination)){
           this.selectedDestinations.push(destination);
@@ -44,15 +45,16 @@ export class DestinationFilterComponent implements OnInit {
   }
 
   getDestinations() {
-    this.agentService.getFiltredPlaces(this.destinationSelectedValue, 5).subscribe(
+    this.agentService.getFiltredPlaces(this.destinationSelectedValue, 6).subscribe(
       result => {
         this.destinationsList = [...result.items];
+        console.log(this.destinationsList)
       }
     );
   }
 
   getFiltredDestination(text: any): void {
-    this.agentService.getFiltredPlaces(text, 5).subscribe(
+    this.agentService.getFiltredPlaces(text, 6).subscribe(
       result => {
         this.destinationsList = [...result.items];
       }

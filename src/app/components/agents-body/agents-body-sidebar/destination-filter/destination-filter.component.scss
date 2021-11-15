@@ -1,12 +1,19 @@
 @import '../../../../../styles/variables';
 .destination-filter-wrapper {
+  
   .destination-input-group {
+    margin-bottom: 202px;
     position: relative;
+ 
     .destination-data-input {
+      :hover{
+        background-color: $bgLightGrey;
+      }
       padding-left: 2.3rem;
       background: transparent;
       margin-bottom: 1.125rem;
       border-color: $stars-grey-color!important;
+      
       &::placeholder {
         color: $greyMediumColor!important;
       }
@@ -25,6 +32,7 @@
       left: 10px;
       color: $secondaryColor!important;
       z-index: 9999;
+      
     }
   }
 
@@ -54,20 +62,32 @@
 }
 
 
+
 :host ::ng-deep ng-select .ng-select-container > .ng-value-container {
   padding: .375rem 2.25rem !important;
+
 }
 
+:host ::ng-deep ng-select .ng-dropdown-panel .scroll-host  {
+  max-width: 276px;
+  max-height: 186px;
+
+}
 :host ::ng-deep ng-select .ng-select-container > .ng-value-container > div[role="combobox"] {
   padding: 0 !important;
+  
 }
 
 :host ::ng-deep ng-select .ng-select-container > .ng-value-container > .ng-value {
   margin-bottom: 0 !important;
+  
 }
+:host ::ng-deep .ng-select .ng-select-container .ng-value-container .ng-input>input {
+  padding-left: 35px!important;
 
+}
 :host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar {
-  width: 8px;
+  width: 3.99px;
 }
 :host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items.scroll-host::-webkit-scrollbar-track {
   background: #f1f1f1;
@@ -98,7 +118,7 @@
 
 .destination-option {
   display: flex; 
-  padding: 5px; 
+  padding: 3px; 
   justify-content: space-between;
   .destination-option-label {
     color: #2D2D2D;
@@ -107,7 +127,9 @@
     font-weight: normal; 
     font-size: 14px; 
     line-height: 24px;
+    
   }
+ 
 }
 
 .selected-item {
