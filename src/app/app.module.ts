@@ -69,6 +69,7 @@ import { ArticleTravelModesComponent } from './components/articles-components/ar
 import { ArticleTravelCombinationComponent } from './components/articles-components/article-travel-combination/article-travel-combination.component';
 import { DestinationNavItemComponent } from './shared/components/navbar/destination-nav-item/destination-nav-item.component';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { NavbarReponsiveComponent } from './shared/components/navbar/navbar-reponsive/navbar-reponsive.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -130,6 +131,7 @@ registerLocaleData(localeDe);
     ArticleTravelModesComponent,
     ArticleTravelCombinationComponent,
     DestinationNavItemComponent,
+    NavbarReponsiveComponent,
   ],
   imports: [
     BrowserModule,
