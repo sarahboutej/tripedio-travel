@@ -63,9 +63,14 @@ export class DestinationFilterComponent implements OnInit {
   }
 
   getFiltredDestination(text: any): void {
-    this.agentService.getFiltredPlaces(text, 6).subscribe(
+    this.agentService.getFiltredPlaces(text, 12).subscribe(
       result => {
         this.destinationsList = [...result.items];
+        this.destinationsList = this.destinationsList.filter((test, index, array) =>
+        index === array.findIndex((findTest) =>
+           findTest.superPlaceLabel === test.superPlaceLabel
+        )
+     );
       }
     );
   }
