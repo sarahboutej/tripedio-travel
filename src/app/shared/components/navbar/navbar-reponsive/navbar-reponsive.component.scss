@@ -1,0 +1,80 @@
+@import "../../../../../styles/variables";
+
+.destinaition-container {
+  .destination-header {
+    .destination-bg {
+      height: 12.5rem;
+      min-height: 12.5rem;
+      max-height: 12.5rem;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+    }
+  }
+	.destination-content {
+		.accordion {
+			.accordion-item {
+				border-color: $bgLightGrey!important;
+				.accordion-header {
+					.accordion-button {
+						background-color: transparent!important;
+						box-shadow: none!important;
+						color: black!important;
+						&:focus {
+							box-shadow: none;
+						}
+					}
+					.accordion-button.collapsed {
+						color: $primaryColor!important;
+						background: $bgLightGrey!important;
+					}
+				}
+				.accordion-collapse {
+					-webkit-animation-duration: .5s;
+					animation-duration: .5s;
+					-webkit-animation-duration: .5s;
+					animation-duration: .5s;
+					-webkit-animation-fill-mode: both;
+					animation-fill-mode: both;
+				}
+				.accordion-collapse.show {
+					li {
+						color: $primaryColor!important;
+					}
+				}
+			}
+		}
+	}
+}
+
+.animate__animated {
+	-webkit-transition: background-image .8s linear;
+	-moz-transition: background-image .8s linear;
+	-o-transition: background-image .8s linear;
+	-ms-transition: background-image .8s linear;
+	transition: background-image .8s linear;
+}
+
+/* Fading entrances  */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.animate__fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}

@@ -16,7 +16,7 @@
       </button>
       <div class="collapse navbar-collapse home-page-menu" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-        <li (click)="showMobileMenu()" class="nav-item dropdown reiseziele-menu ps-md-0">
+        <li (click)="showDestinationsMenu()" class="nav-item dropdown reiseziele-menu ps-md-0">
             <a href="/#destination" class="nav-link grey-color user-x-small-text dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown">
               <i class="bi bi-globe2 pe-2 paragraphe-fs"></i>Reiseziele</a>
               <ul class="d-none d-md-block dropdown-menu shadow p-5">
@@ -39,6 +39,10 @@
     </div>
   </div>
 </nav>
+
+<div *ngIf="showDestinationsMobileMenu" class="destinations-wrapper">
+  <navbar-reponsive [destinations]= "destinations" (hideDestination)="showDestinationsMenu()"></navbar-reponsive>
+</div>
 
 <div class="landing-container">
   <p class="landing-text">Dies ist eine Testversion – der Go-Live erfolgt in Kürze</p>

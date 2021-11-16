@@ -1,0 +1,53 @@
+<div class="destinaition-container">
+  <div class="destination-header">
+    <div class="destination-title d-flex align-items-center p-4">
+      <i class="bi bi-chevron-left text-black" (click) = "hideDestinationmenu()"></i>
+      <span
+        class="ps-2 text-color paragraphe-fs fw-medium-1 light-heigth-medium"
+        >Reiseziele</span
+      >
+    </div>
+    <div
+      class="destination-bg animate__animated animate__fadeIn d-flex align-items-end px-4 pb-2"
+      [ngStyle]="{
+        'background-image': 'url(' + destination.destinationBg + ')'
+      }">
+				<span class="text-white fw-bold user-meduim-text">{{ destination.destinationLabel }}</span>
+		</div>
+  </div>
+<div class="destination-content">
+  <div class="accordion">
+    <div
+      class="accordion-item"
+      *ngFor="let destinationItem of destinations; let i = index" >
+      <h2 class="accordion-header" [attr.id]="'heading' + i">
+        <button
+          class="accordion-button text-uppercase small-title-size fw-medium px-4"
+          type="button"
+          (click)="destinationToDisplay(destinationItem.name)"
+          [class.collapsed]="destinationName === destinationItem.name"
+          data-bs-toggle="collapse"
+          [attr.data-target]="'#collapse' + i"
+          aria-expanded="true"
+          [attr.aria-controls]="'collapse' + i" >
+          {{ destinationItem.destinationLabel }}
+        </button>
+      </h2>
+      <div
+        [attr.id]="'collapse' + i"
+        class="accordion-collapse collapse animate__fadeIn"
+        [class.show]="destinationName === destinationItem.name"
+        [attr.aria-labelledby]="'heading' + i"
+        data-bs-parent="#accordionExample" >
+        <div class="accordion-body px-4">
+          <ul class="list-unstyled">
+            <li *ngFor="let country of destinationItem.place" class="small-title-size text-black py-2">
+              {{ country.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
