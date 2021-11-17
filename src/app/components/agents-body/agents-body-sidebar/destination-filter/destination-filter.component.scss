@@ -67,6 +67,9 @@
   padding: .375rem 2.25rem !important;
 
 }
+:host ::ng-deep .ng-dropdown-panel.ng-select-bottom .ng-dropdown-panel-items .ng-option:last-child{
+  padding:.0125rem .35rem!important;    
+}
 
 :host ::ng-deep ng-select .ng-dropdown-panel .scroll-host  {
  
@@ -128,13 +131,13 @@
   padding: 3px; 
   justify-content: space-between;
   .destination-option-label {
-    color: #000000;
+    color: $textColor;
     font-family:Inter; 
     font-style: normal; 
     font-weight: normal; 
     font-size: 14px; 
     line-height: 24px;
-    margin-left: 4%;
+    padding:.0125rem 1.25rem    
   }
  
 }
