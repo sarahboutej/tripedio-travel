@@ -50,7 +50,7 @@ export class DestinationFilterComponent implements OnInit {
   }
 
   getDestinations() {
-    this.agentService.getFiltredPlaces(this.destinationSelectedValue, 12).subscribe(
+    this.agentService.getFiltredPlaces(this.destinationSelectedValue, 84).subscribe(
       result => {
         this.destinationsList = [...result.items];
         this.destinationsList = this.destinationsList.filter((test, index, array) =>
@@ -63,7 +63,7 @@ export class DestinationFilterComponent implements OnInit {
   }
 
   getFiltredDestination(text: any): void {
-    this.agentService.getFiltredPlaces(text, 12).subscribe(
+    this.agentService.getFiltredPlaces(text, 84).subscribe(
       result => {
         this.destinationsList = [...result.items];
         this.destinationsList = this.destinationsList.filter((test, index, array) =>
@@ -107,5 +107,4 @@ export class DestinationFilterComponent implements OnInit {
     });
   }
 
-  test() {}
 }

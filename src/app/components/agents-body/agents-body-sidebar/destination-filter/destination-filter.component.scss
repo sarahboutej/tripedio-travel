@@ -4,10 +4,11 @@
   .destination-input-group {
     margin-bottom: 202px;
     position: relative;
- 
+   
     .destination-data-input {
       :hover{
         background-color: $bgLightGrey;
+        font-weight: bold;
       }
       padding-left: 2.3rem;
       background: transparent;
@@ -66,6 +67,9 @@
   padding: .375rem 2.25rem !important;
 
 }
+:host ::ng-deep .ng-dropdown-panel.ng-select-bottom .ng-dropdown-panel-items .ng-option:last-child{
+  padding:.0125rem .35rem!important;    
+}
 
 :host ::ng-deep ng-select .ng-dropdown-panel .scroll-host  {
  
@@ -75,7 +79,6 @@
 :host ::ng-deep ng-select .ng-dropdown-panel  {
  
   height: 190px;
-
 }
 :host ::ng-deep ng-select .ng-select-container > .ng-value-container > div[role="combobox"] {
   padding: 0 !important;
@@ -105,8 +108,10 @@
 }
 
 :host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-panel-items .ng-option {
-  padding: 0 10px !important;
+  padding: 0 0 !important;
   background-color: #ffffff !important;
+  
+  
 }
 :host ::ng-deep ng-select .ng-dropdown-panel div.ng-dropdown-footer {
   border-top: none !important;
@@ -126,13 +131,13 @@
   padding: 3px; 
   justify-content: space-between;
   .destination-option-label {
-    color: #2D2D2D;
-    font-family: Inter; 
+    color: $textColor;
+    font-family:Inter; 
     font-style: normal; 
     font-weight: normal; 
     font-size: 14px; 
     line-height: 24px;
-    
+    padding:.0125rem 1.25rem    
   }
  
 }
