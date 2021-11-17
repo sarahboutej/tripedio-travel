@@ -6,10 +6,10 @@
   <div class="container-lg article-container-wrapper">
     <div class="welcome-block-container">
       <h1 class="welcome-title text-white fw-bold">
-        {{ data.destination_name }} Rundreise
+        {{ data.Title }}
       </h1>
       <p class="welcome-text mb-0 text-white fw-medium-1">
-        {{ data.introduction_title }}
+        Hier den passenden Reisespezialisten finden.
       </p>
       <button type="button" class="
           btn
@@ -25,78 +25,51 @@
       </button>
     </div>
     <div class="article-ancart-container d-flex py-4 bg-white">
-      <div class="ancart-item col-md-4" *ngFor="let item of data.tripedeo_avantages.slice(0, 3); let i = index"
-        [ngClass]="{
-          'pe-md-4 pe-2': i == 0,
-          'px-md-4 px-0': i == 1,
-          'ps-md-4 px-2': i == 2,
-          'item-border': i == 0 || i == 1
-        }">
-        <div class="encart-item-wrapper d-flex align-items-center">
-          <div class="encart-icon">
-            <img *ngIf="!item.logo.url" src="assets/images/free.svg" loading="lazy" />
-            <img *ngIf="item.logo.url" [src]="BASE_STRAPI_API_URL + item.logo.url" loading="lazy" />
+      <div class="ancart-item item-border pe-md-4 pe-2 col-md-4">
+          <div class="encart-item-wrapper d-flex align-items-center">
+              <div class="encart-icon">
+                  <img src="assets/images/icon-1.svg" loading="lazy"/>
+              </div>
+              <div class="encart-text">
+                  <h4 class="encart-title primary-color fw-bold">
+                      Top Reisespezialisten
+                  </h4>
+                  <p class="encart-text-content mb-0 grey-color paragraphe-fs">
+                      Beratung durch handverlesene Experten
+                  </p>
+              </div>
           </div>
-          <div class="encart-text">
-            <h4 class="encart-title primary-color fw-bold">
-              {{ item.title }}
-            </h4>
-            <p class="encart-text-content mb-0 grey-color paragraphe-fs">
-              {{ item.description }}
-            </p>
-            <button type="button" class="btn user-btn orange-gb text-white user-x-small-text fw-medium px-5 mt-4">
-              Reiseberaterfinden
-            </button>
+      </div>
+      <div class="ancart-item item-border px-md-4 px-0 col-md-4">
+          <div class="encart-item-wrapper d-flex align-items-center">
+              <div class="encart-icon">
+                  <img src="assets/images/icon-2.svg" loading="lazy"/>
+              </div>
+              <div class="encart-text">
+                  <h4 class="encart-title primary-color fw-bold">
+                      Individuelle Planung
+                  </h4>
+                  <p class="encart-text-content mb-0 grey-color paragraphe-fs">
+                      Urlaub genau nach Ihren Wünschen
+                  </p>
+              </div>
           </div>
-        </div>
-        <div class="article-ancart-container d-flex py-4 bg-white">
-            <div class="ancart-item item-border pe-md-4 pe-2 col-md-4">
-                <div class="encart-item-wrapper d-flex align-items-center">
-                    <div class="encart-icon">
-                        <img src="assets/images/icon-1.svg" loading="lazy"/>
-                    </div>
-                    <div class="encart-text">
-                        <h4 class="encart-title primary-color fw-bold">
-                            Top Reisespezialisten
-                        </h4>
-                        <p class="encart-text-content mb-0 grey-color paragraphe-fs">
-                            Beratung durch handverlesene Experten
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="ancart-item item-border px-md-4 px-0 col-md-4">
-                <div class="encart-item-wrapper d-flex align-items-center">
-                    <div class="encart-icon">
-                        <img src="assets/images/icon-2.svg" loading="lazy"/>
-                    </div>
-                    <div class="encart-text">
-                        <h4 class="encart-title primary-color fw-bold">
-                            Individuelle Planung
-                        </h4>
-                        <p class="encart-text-content mb-0 grey-color paragraphe-fs">
-                            Urlaub genau nach Ihren Wünschen
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="ancart-item ps-md-4 px-2 col-md-4">
-                <div class="encart-item-wrapper d-flex align-items-center">
-                    <div class="encart-icon">
-                        <img src="assets/images/free.svg" loading="lazy"/>
-                    </div>
-                    <div class="encart-text">
-                        <h4 class="encart-title primary-color fw-bold">
-                            100 % kostenfrei
-                        </h4>
-                        <p class="encart-text-content mb-0 grey-color paragraphe-fs">
-                            Kostenfreie Beratung und Angebotserstellung
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      </div>
+      <div class="ancart-item ps-md-4 px-2 col-md-4">
+          <div class="encart-item-wrapper d-flex align-items-center">
+              <div class="encart-icon">
+                  <img src="assets/images/free.svg" loading="lazy"/>
+              </div>
+              <div class="encart-text">
+                  <h4 class="encart-title primary-color fw-bold">
+                      100 % kostenfrei
+                  </h4>
+                  <p class="encart-text-content mb-0 grey-color paragraphe-fs">
+                      Kostenfreie Beratung und Angebotserstellung
+                  </p>
+              </div>
+          </div>
+      </div>
   </div>
   </div>
 </header>
