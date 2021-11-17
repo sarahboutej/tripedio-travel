@@ -1,54 +1,27 @@
 @import '../../../../../styles/variables';
 
 .agent-options {
-  .form-group {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .form-group input {
-    padding: 0;
-    height: initial;
-    width: initial;
-    margin-bottom: 0;
-    display: none;
-    cursor: pointer;
-  }
-  
-  .form-group label {
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .form-group label:before {
-    content:'';
-    -webkit-appearance: none;
-    background-color: transparent;
-    border: 2px solid $stars-grey-color;
-    padding: 8px;
-    border-radius: 4px;
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
-    cursor: pointer;
-    margin-right: 5px;
-    margin-bottom: 3px;
-  }
-  
-  .form-group input:checked + label:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 4px;
-    left: 7px;
-    width: 5px;
-    height: 11px;
-    border: solid  $stars-grey-color;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-  }
-
-  .form-group input:checked + label::before {
-    background-color: $primaryChip;
-  }
+  .form-switch {
+    .form-check-input {
+      height: 1.063rem;
+      width: 2rem;
+      margin-top: -0.125rem;
+      background-color: $uncheckedColor;
+      border-color: $uncheckedColor;
+      border: none;
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+      &:focus {
+        border-color: rgba(0, 0, 0, 0.25);
+        outline: 0;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+      }
+      &:checked {
+        background-color: $checkedColor;
+        border-color: $checkedColor;
+        border: none;
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+      }
+    }
+  } 
 }
