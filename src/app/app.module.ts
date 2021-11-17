@@ -70,6 +70,7 @@ import { ArticleTravelCombinationComponent } from './components/articles-compone
 import { DestinationNavItemComponent } from './shared/components/navbar/destination-nav-item/destination-nav-item.component';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { NavbarReponsiveComponent } from './shared/components/navbar/navbar-reponsive/navbar-reponsive.component';
+import { AgencyFilterComponent } from './components/agents-body/agents-body-sidebar/agency-filter/agency-filter.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -132,6 +133,7 @@ registerLocaleData(localeDe);
     ArticleTravelCombinationComponent,
     DestinationNavItemComponent,
     NavbarReponsiveComponent,
+    AgencyFilterComponent,
   ],
   imports: [
     BrowserModule,

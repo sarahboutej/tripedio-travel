@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AgentService } from 'src/app/shared/service/agent/agent.service';
 
 @Component({
-  selector: 'app-destination-filter',
+  selector: 'destination-filter',
   templateUrl: './destination-filter.component.html',
   styleUrls: ['./destination-filter.component.scss']
 })

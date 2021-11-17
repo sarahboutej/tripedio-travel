@@ -1,9 +1,9 @@
 @import '../../../../../styles/variables';
-.travel-type-filter-wrapper {
+.agency-filter-wrapper {
   
   .form-group {
     position: relative;
-    .search-travel-type {
+    .search-agency {
       padding-left: 2.3rem;
       background: transparent;
       margin-bottom: 1.125rem;
@@ -24,7 +24,7 @@
       color: $secondaryColor!important;
     }
   }
-  .travel-options {
+  .agency-options {
     .form-group {
       display: block;
       margin-bottom: 10px;

@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AgentService } from 'src/app/shared/service/agent/agent.service';
 
 @Component({
-  selector: 'app-travel-type-filter',
+  selector: 'travel-type-filter',
   templateUrl: './travel-type-filter.component.html',
   styleUrls: ['./travel-type-filter.component.scss']
 })
