@@ -4,14 +4,14 @@
   </div>
   <div class="form-group destination-input-group">
     <i class="bi bi-search"></i>
-    <ng-select #placesSelect (close)="placesSelect.blur()" [isOpen]="true" class="form-control destination-data-input"
+    <ng-select #placesSelect (close)="placesSelect.blur()"  class="form-control destination-data-input"
       style="padding: 0; border: none;" [items]="destinationsList"   bindLabel="superPlaceLabel"
       notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" placeholder="Suche nach Reiseziel"
       [selectOnTab]="true" (search)="getFiltredDestination($event.term)">
       <ng-template ng-multi-label-tmp let-items="items" let-clear="clear"></ng-template>
       <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
-        <div class="destination-option">
-          <div class="destination-option-label" (click)="commitSelectedDestinations(item.superPlaceLabel, true);pushSelectedDestinations()">{{item.superPlaceLabel}}</div>
+        <div class="destination-option" (click)="commitSelectedDestinations(item.superPlaceLabel, true);pushSelectedDestinations()">
+          <div class="destination-option-label" >{{item.superPlaceLabel}}</div>
         </div>
       </ng-template>
     </ng-select>
