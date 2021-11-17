@@ -20,6 +20,7 @@ export class ArticlesComponent implements OnInit {
 
       this.articleService.getArticlesForDestination(this.destinationUuid).subscribe(response => {
         this.articles = response;
+        console.log(response)
       }, error => {
         this.router.navigateByUrl('/notfoundpage');
       });
