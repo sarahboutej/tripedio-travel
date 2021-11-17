@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-agent-options',
+  selector: 'agent-options',
   templateUrl: './agent-options.component.html',
   styleUrls: ['./agent-options.component.scss']
 })
