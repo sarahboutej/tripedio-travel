@@ -1,4 +1,4 @@
-<section class="article-section article-info-section section-pt-medium">
+<section *ngIf="data&&data.decouvertes_pays_region" class="article-section article-info-section section-pt-medium">
     <div class="container-lg section-wrapper">
         <div class="section-first-row mx-3 mx-md-0">
             <h3 class="primary-color user-big-text light-heigth-xbig fw-bold user-big-text-mobile subtitle-pb ">{{data.decouvertes_pays_region.decouverte_title}}</h3>
