@@ -1,5 +1,10 @@
 @import '../../../styles/variables';
+
 .agents-title-container {
+  background: linear-gradient(#F6F6F6F0, #F6F6F6F0), url('../../../assets/images/bottom-section-bg.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   h1 {
     line-height: 32px;
   }
