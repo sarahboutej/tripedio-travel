@@ -7,7 +7,7 @@
     <i class="bi bi-search"></i>
     <ng-select #placesSelect (close)="placesSelect.blur()" [isOpen]="true" class="form-control destination-data-input"
       style="padding: 0; border: none;" [items]="destinationsList"   bindLabel="superPlaceLabel"
-      notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" placeholder="Suche nach Reiseziel" (add)="test()"
+      notFoundText="&nbsp;&nbsp;Keine Elemente gefunden" [closeOnSelect]="false" placeholder="Suche nach Reiseziel"
       [selectOnTab]="true" (search)="getFiltredDestination($event.term)">
       <ng-template ng-multi-label-tmp let-items="items" let-clear="clear"></ng-template>
       <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
