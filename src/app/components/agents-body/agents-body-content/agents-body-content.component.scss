@@ -1,9 +1,8 @@
 @import '../../../../styles/variables';
 .agent-items-container {
-  padding-left: 2.125rem;
+  padding-left: 5rem;
   .agent-item {
     box-shadow: 0px 0px 16px 0px #CECECE40;
-    padding: 2rem 1.5rem;
     border-radius: 1rem;
     border: 1px solid $bgGreyColor;
     .avatar-container {
@@ -11,14 +10,19 @@
         line-height: 130px;
       }
       .agent-avatar {
-        width: 130px;
-        height: 130px;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
       }
     }
     .agent-detail-container {
       max-width: 52%;
       .agent-details {
-        margin-left: 2.5rem;
+        margin-left: 1rem;
         .agent-desc {
           word-wrap: break-word;
           overflow: hidden;
@@ -68,6 +72,58 @@
   }
 }
 
+
+/* Fading entrances  */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.animate__fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.animate__animated {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@media screen and (max-width: 1199px) {
+  .agent-items-container {
+    padding-left: 3rem!important;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .agent-items-container {
     padding-left: 0!important;
@@ -80,8 +136,10 @@
               font-size: 2rem!important;
             }
             .agent-avatar {
-              width: 80px;
-              height: 80px;           
+              width: 90px;
+              height: 115px; 
+              border-top-right-radius: .5rem;
+              border-bottom-right-radius: .5rem;             
             }
         }
         .agent-detail-container {
@@ -113,6 +171,8 @@
   color: white;
   text-align: center;
   font-size: 3.5rem;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
