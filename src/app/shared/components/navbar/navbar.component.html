@@ -1,5 +1,5 @@
 <nav class="navbar py-3 navbar navbar-light bg-white navbar-expand-md shadow-sm home-page-navbar" [class]="showNavbarMobileMenu && 'tripedeo-mobile-menu' || ''" id="topNavigation">
-    <div class="container-lg">
+    <div class="container-xl">
       <a class="navbar-brand home-page-logo" href="#">
         <svg width="202" height="32" viewBox="0 0 202 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M3.30169 21.5066C1.2954 18.7488 0 15.9293 0 12.8018C2.93835 12.9404 7.74081 14.9279 9.27318 17.2543C7.1563 18.1633 4.5971 20.536 3.55446 21.8456L3.30169 21.5066Z" fill="#BDDAD3"/>
@@ -20,7 +20,7 @@
             <a href="/#destination" class="nav-link grey-color user-x-small-text dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown">
               <i class="bi bi-globe2 pe-2 paragraphe-fs"></i>Reiseziele</a>
               <ul class="d-none d-md-block dropdown-menu shadow p-5">
-                <div class="container-lg dropdown-menu-container d-flex">
+                <div class="container-xl dropdown-menu-container d-flex">
                   <li *ngFor="let country of destinations" class="destination-item-wrapper mb-4">
                     <destination-nav-item [destination]="country"></destination-nav-item>
                   </li>
@@ -40,7 +40,7 @@
   </div>
 </nav>
 
-<div *ngIf="showDestinationsMobileMenu" class="destinations-wrapper">
+<div *ngIf="showDestinationsMobileMenu" class="destinations-wrapper d-md-none d-block">
   <navbar-reponsive [destinations]= "destinations" (hideDestination)="showDestinationsMenu()"></navbar-reponsive>
 </div>
 
