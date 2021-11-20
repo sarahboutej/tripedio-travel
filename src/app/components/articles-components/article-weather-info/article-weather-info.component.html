@@ -1,10 +1,10 @@
-<section *ngIf="data&&data.climate_table" class="article-section article-weather-section section-pt-medium">
+<section *ngIf="data&&data.weather_table" class="article-section article-weather-section section-pt-medium">
   <div class="container-xl section-wrapper">
     <div class="section-first-row paragraph-pb">
-        <h3 class="primary-color user-big-text light-heigth-xbig fw-bold user-big-text-mobile subtitle-pb ">{{data.destination_name}} : Wetter und Klimatabelle</h3>
+        <h3 class="primary-color user-big-text light-heigth-xbig fw-bold user-big-text-mobile subtitle-pb ">{{data.weather_table.title}}</h3>
     </div>
     <div class="section-second-row weather-wrapper d-flex">
-      <div *ngFor="let month of data.climate_table.climate_details; let i=index"  (click)="selectItem(i+1)" [ngClass]="{'active': selectedIndex == i+1}" class="col weather-item align-self-end">
+      <div *ngFor="let month of data.weather_table.weather_item; let i=index"  (click)="selectItem(i+1)" [ngClass]="{'active': selectedIndex == i+1}" class="col weather-item align-self-end">
         <div class="weather-item-card mx-2 mb-4"  [ngStyle]="{'padding-bottom.px': month.max_temperature+12}">
           <div class="weather-card-content orange-chip-gb">
             <div class="weather-min-max py-4">
