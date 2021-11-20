@@ -39,7 +39,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import localeDe from '@angular/common/locales/de';
-import { registerLocaleData } from '@angular/common';
+import { APP_BASE_HREF, registerLocaleData } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -155,6 +155,7 @@ registerLocaleData(localeDe);
   ],
   exports: [AlertErrorComponent],
   providers: [
+    { provide: APP_BASE_HREF, useValue: '/ds' },
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
     { provide: LOCALE_ID, useValue: 'de' },
     {
