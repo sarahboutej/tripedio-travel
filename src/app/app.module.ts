@@ -155,7 +155,7 @@ registerLocaleData(localeDe);
   ],
   exports: [AlertErrorComponent],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/ds' },
+    { provide: APP_BASE_HREF, useValue: '/de' },
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
     { provide: LOCALE_ID, useValue: 'de' },
     {
