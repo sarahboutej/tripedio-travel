@@ -1,4 +1,4 @@
-<header *ngIf="data&&data.tripedeo_avantages" class="article-header-container" [ngStyle]="{
+<header *ngIf="data" class="article-header-container" [ngStyle]="{
     'background-image': data.cover_image
       ? 'url(' + BASE_STRAPI_API_URL + data.cover_image.url + ')'
       : 'url(' + '../../../../assets/images/article-header.webp' + ')'
@@ -20,7 +20,7 @@
           fw-medium
           px-5
           mt-4
-        ">
+        " routerLink="/reiseexperten">
         Reiseberaterfinden
       </button>
     </div>
