@@ -1,12 +1,13 @@
 <div  href="#" class="dropdown-item destination-item d-flex align-items-start"> 
-    <img [src]="'assets/images/'+destination.name+'.svg'" class="me-3" loading="lazy"/>
+    <img src="assets/images/afrika.svg" class="me-3" loading="lazy"/>
     <div class="destination-place-list">
-        <a class="fw-bold paragraphe-fs text-black hoverable d-block text-decoration-none" href="#"> 
-            {{ destination.destinationLabel }}
+        <a class="fw-bold paragraphe-fs text-black d-block text-decoration-none"> 
+            {{ destination.Name }}
         </a> 
         <ul class="destination-place-items list-unstyled">
-            <li *ngFor="let place of destination.place" class="destination-item-place"> 
-                <a class="text-decoration-none text-black paragraphe-fs hoverable" href="#"> {{ place.name }}</a>
+            <li *ngFor="let place of destination.destination" class="destination-item-place"> 
+                <a *ngIf="place.tripedeo_url" class="text-decoration-none text-black paragraphe-fs hoverable" [routerLink]="'/articles/'+place.tripedeo_url"> {{ place.Name }}</a>
+                <a *ngIf="!place.tripedeo_url" class="text-decoration-none text-black paragraphe-fs hoverable"> {{ place.Name }}</a>
             </li>
         </ul>
     </div>
