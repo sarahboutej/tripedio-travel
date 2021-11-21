@@ -12,6 +12,8 @@ export class AgencyFilterComponent implements OnInit {
   optionToShow = 3;
   buttonText= 'Mehr'
   agencyList: any[] =[];
+  AllAgency: any[] =[];
+
   agencyLabel: string = '';
   reiseburo: string[] = [];
 
@@ -22,16 +24,16 @@ export class AgencyFilterComponent implements OnInit {
       if(params['reiseburo']) {
         this.reiseburo = params['reiseburo'].split(",");
       }
+      this.getAllAgency();
       this.getAgency();
     }); 
    }
 
+
     getAgency() {
       this.agentService.getFiltredAgency(this.agencyLabel, this.optionToShow).subscribe(
         result => {
-          this.agencyList = result.items;
-         console.log(this.agencyList)
-          
+          this.agencyList = result.items; 
           this.route.queryParams.subscribe(params => {
             if(params['reiseburo']) {
               this.reiseburo = params['reiseburo'].split(",");
@@ -41,13 +43,23 @@ export class AgencyFilterComponent implements OnInit {
       );
     }
 
+    getAllAgency() {
+      this.agentService.getFiltredAgency(this.agencyLabel).subscribe(
+        result => {
+          this.AllAgency = result.items; 
+        }
+      );
+    }
+
     getNameAgenceByUuid(uid:string){
       let agencyName;
-      for(let i = 0;i<this.agencyList.length;i++){
-        if(this.agencyList[i].agencyUuid === uid){
-          agencyName = this.agencyList[i].agencyName;
-        }
+        for(let i = 0;i<this.AllAgency.length;i++){
+          if(this.AllAgency[i].agencyUuid === uid){
+            agencyName = this.AllAgency[i].agencyName;
+          }
       }
+      
+
       return agencyName;
     }
 
