@@ -11,13 +11,13 @@
 		<div *ngIf="reiseburo.length>0">
 			<div *ngFor="let agency of reiseburo; let indexOfItem = index" class="form-group">
 				<input type="checkbox" [id]="agency" [checked]="'agency'" (change)="checkValue(agency, $event)">
-				<label class="user-x-small-text text-black  line-heigth-24" [for]="agency">{{ agency }}</label>
+				<label class="user-x-small-text text-black  line-heigth-24" [for]="agency">{{getNameAgenceByUuid(agency)}}</label>
 			</div>
 		</div>
 		<div *ngFor="let agency of agencyList; let indexOfItem = index" class="form-group">
-			<div *ngIf="!reiseburo.includes(agency.agencyName)">
-				<input type="checkbox" [id]="agency.agencyName" [checked]="reiseburo.includes(agency.agencyName)"
-					(change)="checkValue(agency.agencyName, $event)">
+			<div *ngIf="!reiseburo.includes(agency.agencyUuid)">
+				<input type="checkbox" [id]="agency.agencyUuid" [checked]="reiseburo.includes(agency.agencyUuid)"
+					(change)="checkValue(agency.agencyUuid, $event)">
 				<label class="user-x-small-text text-black  line-heigth-24" [for]="agency.agencyName">{{
 					agency.agencyName }}</label>
 			</div>

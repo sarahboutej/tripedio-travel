@@ -55,14 +55,13 @@ export class AgentService {
     
     return this.http.get<any>(api, {params: params});
   }
-  getFiltredAgency(agencyName?: string, offset?: number, page?: number): Observable<any> {
+  getFiltredAgency(agencyUid?: string, offset?: number, page?: number): Observable<any> {
     let api = `${this.AGENCIES_API}/filtred`;
 
     let params = new HttpParams();
-    if(agencyName) {
-      params=params.set('agency', agencyName);
-      console.log(agencyName)
-      console.log(params)
+    if(agencyUid) {
+      params=params.set('agency', agencyUid);
+      console.log(agencyUid)
     }
     if(offset !== undefined && offset !== -1) {
       params=params.set('offset', '' + offset);
@@ -87,7 +86,7 @@ export class AgentService {
       params=params.set('place', filterMap.place);
     }
     if(filterMap.agency) {
-      params=params.set('agencies', filterMap.agency);
+      params=params.set('agency', filterMap.agency);
     }
     if(filterMap.noConsultancyFee) {
       params=params.set('noConsultancyFee', filterMap.noConsultancyFee);

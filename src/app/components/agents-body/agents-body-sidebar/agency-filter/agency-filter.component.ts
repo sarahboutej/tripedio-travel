@@ -30,7 +30,7 @@ export class AgencyFilterComponent implements OnInit {
       this.agentService.getFiltredAgency(this.agencyLabel, this.optionToShow).subscribe(
         result => {
           this.agencyList = result.items;
-         
+         console.log(this.agencyList)
           
           this.route.queryParams.subscribe(params => {
             if(params['reiseburo']) {
@@ -40,6 +40,17 @@ export class AgencyFilterComponent implements OnInit {
         }
       );
     }
+
+    getNameAgenceByUuid(uid:string){
+      let agencyName;
+      for(let i = 0;i<this.agencyList.length;i++){
+        if(this.agencyList[i].agencyUuid === uid){
+          agencyName = this.agencyList[i].agencyName;
+        }
+      }
+      return agencyName;
+    }
+
   showMore() {
     if( this.optionToShow === 3 ) {
       this.optionToShow = -1;
@@ -54,6 +65,7 @@ export class AgencyFilterComponent implements OnInit {
   }
 
   checkValue(agencyLabel: string, event:Event){
+    
     const ischecked = (<HTMLInputElement>event.target).checked;
     if(ischecked) {
       this.reiseburo.push(agencyLabel);
