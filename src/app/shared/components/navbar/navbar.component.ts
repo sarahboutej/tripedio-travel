@@ -17,7 +17,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.articleService.getRegions().subscribe(response => {
-      console.log(response)
       this.destinations=response;
     }, error => {
       console.log(error);

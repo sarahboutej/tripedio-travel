@@ -1,5 +1,6 @@
 <div  href="#" class="dropdown-item destination-item d-flex align-items-start"> 
-    <img src="assets/images/afrika.svg" class="me-3" loading="lazy"/>
+    <img *ngIf="destination.regien_image" [src]="BASE_STRAPI_API_URL+destination.regien_image.url" class="me-3" loading="lazy"/>
+    <img *ngIf="!destination.regien_image" src="assets/images/afrika.svg" class="me-3" loading="lazy"/>
     <div class="destination-place-list">
         <a class="fw-bold paragraphe-fs text-black d-block text-decoration-none"> 
             {{ destination.Name }}

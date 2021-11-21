@@ -7,12 +7,12 @@
         >Reiseziele</span
       >
     </div>
-    <div
+    <div *ngIf="destination"
       class="destination-bg animate__animated animate__fadeIn d-flex align-items-end px-4 pb-2"
       [ngStyle]="{
-        'background-image': 'url(' + destination.destinationBg + ')'
+        'background-image': 'url(' + BASE_STRAPI_API_URL+destination.regien_image.url + ')'
       }">
-				<span class="text-white fw-bold user-meduim-text">{{ destination.destinationLabel }}</span>
+				<span class="text-white fw-bold user-meduim-text">{{ destination.Name }}</span>
 		</div>
   </div>
 <div class="destination-content">
@@ -24,25 +24,26 @@
         <button
           class="accordion-button text-uppercase small-title-size fw-medium px-4"
           type="button"
-          (click)="destinationToDisplay(destinationItem.name)"
-          [class.collapsed]="destinationName === destinationItem.name"
+          (click)="destinationToDisplay(destinationItem.Name)"
+          [class.collapsed]="destinationName === destinationItem.Name"
           data-bs-toggle="collapse"
           [attr.data-target]="'#collapse' + i"
           aria-expanded="true"
           [attr.aria-controls]="'collapse' + i" >
-          {{ destinationItem.destinationLabel }}
+          {{ destinationItem.Name }}
         </button>
       </h2>
       <div
         [attr.id]="'collapse' + i"
         class="accordion-collapse collapse animate__fadeIn"
-        [class.show]="destinationName === destinationItem.name"
+        [class.show]="destinationName === destinationItem.Name"
         [attr.aria-labelledby]="'heading' + i"
         data-bs-parent="#accordionExample" >
         <div class="accordion-body px-4">
-          <ul class="list-unstyled">
-            <li *ngFor="let country of destinationItem.place" class="small-title-size text-black py-2">
-              {{ country.name }}
+          <ul *ngIf="destinationItem.destination" class="list-unstyled">
+            <li *ngFor="let country of destinationItem.destination" class="small-title-size text-black py-2">
+              <span *ngIf="country.tripedeo_url" [routerLink]="'/articles/'+country.tripedeo_url"> {{ country.Name }}</span>
+              <span *ngIf="!country.tripedeo_url"> {{ country.Name }}</span>
             </li>
           </ul>
         </div>

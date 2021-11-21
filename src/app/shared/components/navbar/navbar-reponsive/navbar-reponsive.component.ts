@@ -1,4 +1,5 @@
 import { Component, OnInit, Input,Output, EventEmitter} from '@angular/core';
+import { UtilsService } from 'src/app/shared/service/utils.service';
 
 @Component({
   selector: 'navbar-reponsive',
@@ -14,11 +15,11 @@ export class NavbarReponsiveComponent implements OnInit {
   destinationName: any = 'afrika';
 
   destination: any;
-
+  BASE_STRAPI_API_URL = UtilsService.BASE_STRAPI_API_URL;
   constructor() { }
 
   ngOnInit(): void {
-    this.destination = this.destinations.find((item:any) => item.name === this.destinationName)
+    this.destination = this.destinations.find((item:any) => item.Name === this.destinationName)
   }
   
   destinationToDisplay(item:any) {
@@ -27,7 +28,7 @@ export class NavbarReponsiveComponent implements OnInit {
     } else {
       this.destinationName = item
     }
-    this.destination = this.destinations.find((destItem:any) => destItem.name === item)
+    this.destination = this.destinations.find((destItem:any) => destItem.Name === item)
   }
 
   hideDestinationmenu() {
