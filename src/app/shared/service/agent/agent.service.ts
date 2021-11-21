@@ -11,9 +11,12 @@ export class AgentService {
   AGENTS_API = UtilsService.BASE_API_URL + '/api/agents';
   SUPER_PLACE_API = UtilsService.BASE_API_URL + '/api/super-places';
   ACTIVITIES_API = UtilsService.BASE_API_URL + '/api/activities';
+  AGENCIES_API = UtilsService.BASE_API_URL + '/api/agencies';
+
   API_SUBSCRIPTION=UtilsService.BASE_API_URL+'/api/subscriptions';
   AGENT_PLACE_API = UtilsService.BASE_API_URL + '/api/specialities';
   AGENT_ACTIVITY_API = UtilsService.BASE_API_URL + '/api/agent-activities';
+
   AGENT_GALLERY_API = UtilsService.BASE_API_URL + '/api/galleries';
 
 
@@ -52,6 +55,24 @@ export class AgentService {
     
     return this.http.get<any>(api, {params: params});
   }
+  getFiltredAgency(agencyName?: string, offset?: number, page?: number): Observable<any> {
+    let api = `${this.AGENCIES_API}/filtred`;
+
+    let params = new HttpParams();
+    if(agencyName) {
+      params=params.set('agency', agencyName);
+      console.log(agencyName)
+      console.log(params)
+    }
+    if(offset !== undefined && offset !== -1) {
+      params=params.set('offset', '' + offset);
+    }
+    if(page !== undefined && page !== -1) {
+      params=params.set('page', '' + page);
+    }
+    
+    return this.http.get<any>(api, {params: params});
+  }
 
   getFiltredAgents(filterMap: any): Observable<any> {
     let api = `${this.AGENTS_API}/filtred`;
@@ -64,6 +85,9 @@ export class AgentService {
     }
     if(filterMap.place) {
       params=params.set('place', filterMap.place);
+    }
+    if(filterMap.agency) {
+      params=params.set('agencies', filterMap.agency);
     }
     if(filterMap.noConsultancyFee) {
       params=params.set('noConsultancyFee', filterMap.noConsultancyFee);
@@ -89,7 +113,7 @@ export class AgentService {
   getAgentActivities(uuid: string ): Observable<any> {
     return this.http.get<any>(`${this.AGENT_ACTIVITY_API}/${uuid}`);
   }
-
+ 
   getAgentPlaces(uuid: string ): Observable<any> {
     return this.http.get<any>(`${this.AGENT_PLACE_API}/${uuid}`);
   }

@@ -4,22 +4,25 @@
   </div>
   <div class="form-group">
     <i class="bi bi-search"></i>
-    <input type="text" [(ngModel)]="activityLabel" class="form-control search-travel-type" placeholder="Suche nach Reisearten" (input)="getActivities()">
+    <input type="text" [(ngModel)]="activityLabel" class="form-control search-travel-type"
+      placeholder="Suche nach Reisearten" (input)="getActivities()">
   </div>
   <div class="travel-options">
     <div *ngIf="reisearten.length>0">
-    <div *ngFor="let option of reisearten; let indexOfItem = index" class="form-group">
+      <div *ngFor="let option of reisearten; let indexOfItem = index" class="form-group">
         <input type="checkbox" [id]="option" [checked]="option" (change)="checkValue(option, $event)">
-        <label class="user-x-small-text text-black  line-heigth-24" [for]="option">{{ option }}</label>   
-    </div>
-  </div>
-    <div *ngFor="let option of travelTypeOption; let indexOfItem = index" class="form-group">
-      <div *ngIf="!reisearten.includes(option.activityTypeLabel)">
-        <input type="checkbox" [id]="option.activityTypeLabel" [checked]="reisearten.includes(option.activityTypeLabel)" (change)="checkValue(option.activityTypeLabel, $event)">
-        <label class="user-x-small-text text-black  line-heigth-24" [for]="option.activityTypeLabel">{{ option.activityTypeLabel }}</label>
+        <label class="user-x-small-text text-black  line-heigth-24" [for]="option">{{ option }}</label>
       </div>
     </div>
-    <a type="button" class="text-decoration-none blue-color user-x-small-text line-heigth-24" 
-    (click)="showMore()">{{ buttonText }}</a>
+    <div *ngFor="let option of travelTypeOption; let indexOfItem = index" class="form-group">
+      <div *ngIf="!reisearten.includes(option.activityTypeLabel)">
+        <input type="checkbox" [id]="option.activityTypeLabel" [checked]="reisearten.includes(option.activityTypeLabel)"
+          (change)="checkValue(option.activityTypeLabel, $event)">
+        <label class="user-x-small-text text-black  line-heigth-24" [for]="option.activityTypeLabel">{{
+          option.activityTypeLabel }}</label>
+      </div>
+    </div>
+    <a type="button" class="text-decoration-none blue-color user-x-small-text line-heigth-24" (click)="showMore()">{{
+      buttonText }}</a>
   </div>
 </div>
