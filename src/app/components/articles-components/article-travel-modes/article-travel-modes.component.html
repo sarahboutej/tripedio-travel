@@ -1,11 +1,11 @@
-<section *ngIf="data&&data.travel_modes" class="article-section article-section-two section-pt-medium">
+<section *ngIf="data&&data.popular_travel_modes&&data.popular_travel_modes.modes_images" class="article-section article-section-two section-pt-medium">
     <div class="container-xl section-wrapper">
         <h3 class="primary-color user-big-text light-heigth-xbig fw-bold user-big-text-mobile subtitle-pb ">Beliebte Reisearten in {{data.destination_name}}</h3>
 
         <div class="testimonials-container travel-modes-container  mt-4 row">
             <div class="owl-wrapper article-travel-modes-container">
                 <owl-carousel-o [options]="slideOptions">
-                    <ng-container *ngFor="let item of data.travel_modes">
+                    <ng-container *ngFor="let item of data.popular_travel_modes.modes_images">
                         <ng-template carouselSlide [id]="item.id">
                             <div class="encart-wrapper br-8">
                                 <div class="item-image-container d-flex align-items-end br-8" 
