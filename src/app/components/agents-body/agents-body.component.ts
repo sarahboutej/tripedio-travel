@@ -24,14 +24,17 @@ export class AgentsBodyComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.filtredMap.activity = params['reisearten'] ? params['reisearten'].split(",") : [];
       this.filtredMap.place = params['reiseziele'] ? params['reiseziele'].split(",") : [];
+      this.filtredMap.agency = params['reiseburo'] ? params['reiseburo'].split(",") : [];
+
       this.getFiltredAgents();
     });
   }
-
+  
   getFiltredAgents() {
     this.filtredMap.page = 1;
     this.agentService.getFiltredAgents(this.filtredMap).subscribe(
       result => {
+        console.log(result)
         this.filtredAgentsCount = result.count;
         this.filtredAgents = [...result.items];
       }

@@ -4,18 +4,26 @@
 	</div>
 	<div class="form-group">
 		<i class="bi bi-search"></i>
-		<input type="text" class="form-control search-agency"
+		<input type="text" [(ngModel)]="agencyLabel" class="form-control search-agency" (input)="getAgency()"
 			placeholder="Suche nach Reisebüro">
 	</div>
 	<div class="agency-options">
-		<div *ngFor="let agency of agencyListToShow;" class="form-group">
-			<div>
-				<input type="checkbox" [id]="agency.agencyLabel">
-				<label class="user-x-small-text text-black  line-heigth-24" [for]="agency.agencyLabel">{{
-					agency.agencyLabel }}</label>
+		<div *ngIf="reiseburo.length>0">
+			<div *ngFor="let agency of reiseburo; let indexOfItem = index" class="form-group">
+				<input type="checkbox" [id]="agency" [checked]="'agency'" (change)="checkValue(agency, $event)">
+				<label class="user-x-small-text text-black  line-heigth-24" [for]="agency">{{ agency }}</label>
 			</div>
 		</div>
-		<a type="button" class="text-decoration-none blue-color user-x-small-text line-heigth-24" (click)="showMore()">{{
+		<div *ngFor="let agency of agencyList; let indexOfItem = index" class="form-group">
+			<div *ngIf="!reiseburo.includes(agency.agencyName)">
+				<input type="checkbox" [id]="agency.agencyName" [checked]="reiseburo.includes(agency.agencyName)"
+					(change)="checkValue(agency.agencyName, $event)">
+				<label class="user-x-small-text text-black  line-heigth-24" [for]="agency.agencyName">{{
+					agency.agencyName }}</label>
+			</div>
+		</div>
+		<a type="button" class="text-decoration-none blue-color user-x-small-text line-heigth-24"
+			(click)="showMore()">{{
 			buttonText }}</a>
 	</div>
 </div>

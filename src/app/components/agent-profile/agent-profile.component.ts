@@ -62,7 +62,6 @@ export class AgentProfileComponent implements OnInit {
     });
     this.getAgentActivities(this.agentUuid);
     this.getAgentPlaces(this.agentUuid);
-    
 
   }
 
@@ -74,6 +73,7 @@ export class AgentProfileComponent implements OnInit {
     });
 
   }
+ 
 
   getAgentPlaces(uuid:any){
     this.listCountries=[];

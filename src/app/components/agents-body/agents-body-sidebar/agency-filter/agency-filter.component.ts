@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AgentService } from 'src/app/shared/service/agent/agent.service';
 
 @Component({
   selector: 'agency-filter',
@@ -9,59 +11,61 @@ export class AgencyFilterComponent implements OnInit {
 
   optionToShow = 3;
   buttonText= 'Mehr'
-  agencyList: any[] =[
-    {
-      "agencyId": 1,
-      "agencyLabel": " Reisebüro 1",
-    },
-    {
-      "agencyId": 2,
-      "agencyLabel": " Reisebüro 2",
-    },
-    {
-      "agencyId": 3,
-      "agencyLabel": " Reisebüro 3",
-    },
-    {
-      "agencyId": 4,
-      "agencyLabel": " Reisebüro 4",
-    },
-    {
-      "agencyId": 5,
-      "agencyLabel": " Reisebüro 5",
-    },
-    {
-      "agencyId": 6,
-      "agencyLabel": " Reisebüro 6",
-    },
-    {
-      "agencyId": 7,
-      "agencyLabel": " Reisebüro 7",
-    },
-    {
-      "agencyId": 8,
-      "agencyLabel": " Reisebüro 8",
-    }
-];
+  agencyList: any[] =[];
+  agencyLabel: string = '';
+  reiseburo: string[] = [];
 
-agencyListToShow:any [] = [];
-
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute, private agentService: AgentService) { }
 
   ngOnInit(): void {
-    this.agencyListToShow = this.agencyList.slice(0,3);
-  }
+    this.route.queryParams.subscribe(params => {
+      if(params['reiseburo']) {
+        this.reiseburo = params['reiseburo'].split(",");
+      }
+      this.getAgency();
+    }); 
+   }
 
+    getAgency() {
+      this.agentService.getFiltredAgency(this.agencyLabel, this.optionToShow).subscribe(
+        result => {
+          this.agencyList = result.items;
+         
+          
+          this.route.queryParams.subscribe(params => {
+            if(params['reiseburo']) {
+              this.reiseburo = params['reiseburo'].split(",");
+            }
+          });
+        }
+      );
+    }
   showMore() {
     if( this.optionToShow === 3 ) {
       this.optionToShow = -1;
       this.buttonText = 'Weniger',
-      this.agencyListToShow = this.agencyList;
+      this.getAgency();
     } else {
       this.optionToShow = 3;
       this.buttonText = 'Mehr';
-      this.agencyListToShow = this.agencyList.slice(0,3);
+      this.getAgency();
+      
     }
   }
 
+  checkValue(agencyLabel: string, event:Event){
+    const ischecked = (<HTMLInputElement>event.target).checked;
+    if(ischecked) {
+      this.reiseburo.push(agencyLabel);
+    } else {
+      this.reiseburo = this.reiseburo.filter(item => item !== agencyLabel);
+    }
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        reiseburo: this.reiseburo.join(',')
+      },
+      queryParamsHandling: 'merge'
+    });
+  }
 }
