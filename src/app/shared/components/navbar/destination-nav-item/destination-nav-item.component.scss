@@ -1,3 +1,19 @@
 .destination-item {
-    background-color: transparent!important;
+  background-color: transparent !important;
+  .navbar-img-wrapper {
+    width: 2.5rem;
+    height: 3.75rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    mask-image: url(../../../../../assets/images/mask.png);
+    mask-size: contain;
+    mask-position: center;
+    mask-mode: luminance;
+    mask-repeat: no-repeat;
+    -webkit-mask-image: url(../../../../../assets/images/mask.png);
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    -webkit-mask-type: luminance;
+    -webkit-mask-repeat: no-repeat;
+  }
 }
