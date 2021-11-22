@@ -1,5 +1,5 @@
 {
     "baseApiUrl":"https://tripedeo.com/api",
-    "baseStrapiApiUrl":"http://68.183.79.149:1337",
+    "baseStrapiApiUrl":"https://tripedeo.com/strapi-api",
     "GA_TRACKING_ID":"G-SM977FCDDS"
 }
