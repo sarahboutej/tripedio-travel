@@ -35,7 +35,6 @@ export class ArticlesComponent implements OnInit {
 
 
   getValueSection(event:any){
-    console.log(event)
     switch (event) {
       case "Sehenswürdigkeiten":
         this.sectionId = 1;
