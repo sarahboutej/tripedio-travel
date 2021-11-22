@@ -11,7 +11,7 @@
     <div class="col-md mx-md-0 px-3 text-center" *ngFor="let item of data">
       <span
         class="fw-medium-1 sub-title-size text-white encart-subheader-title"
-        >{{ item.Title }}</span
+        >   <a class="menu_links" (click)="sendSectionName(item.Title)">{{ item.Title }}</a> </span
       >
     </div>
   </div>

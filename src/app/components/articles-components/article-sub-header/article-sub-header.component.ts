@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-article-sub-header',
@@ -7,9 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ArticleSubHeaderComponent implements OnInit {
   @Input() data : any;
+  @Output() emitValue = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  sendSectionName(value:string) {
+    this.emitValue.emit(value);
+  }
 }
