@@ -40,4 +40,8 @@ export class ArticleTravelModesComponent implements OnInit {
     return new Array(i);
   }
 
+  goTo(url:string){
+    window.location.href =url;
+  }
+
 }

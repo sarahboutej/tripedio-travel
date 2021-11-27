@@ -21,7 +21,6 @@
 .agents-body-container {
   margin-bottom: 7.5rem;
 }
-
 .agents-filter-mobile {
   position: fixed;
   background: white;
@@ -59,3 +58,23 @@
   line-height: 24px;
   color: #000000;
 }
+
+.d-md-block{
+  overflow-y: scroll!important;
+  scrollbar-color: #55555550 transparent;
+  scrollbar-width: thin !important;
+  max-height: 950px!important;
+}
+.d-md-block::-webkit-scrollbar {
+  width: 8px!important;
+  }
+  .d-md-block::-webkit-scrollbar-track {
+  background: transparent;
+  }
+  .d-md-block::-webkit-scrollbar-thumb {
+  background: #55555550;
+  border-radius: 4px;
+  }
+  .d-md-block::-webkit-scrollbar-thumb:hover {
+  background: rgba(73, 70, 70, 0.527);
+  }
