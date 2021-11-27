@@ -12,4 +12,8 @@ export class ArticleTravelCombinationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goTo(url:string){
+    window.location.href =url;
+  }
+
 }
