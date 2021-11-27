@@ -17,7 +17,6 @@ export class AvailabilityComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.agentAvailability){
-      
       for(var i=0;i<this.agentAvailability.length;i++){
         if(this.agentAvailability[i].agentAvailabilityDay=="MONDAY"){
           this.agentAvailability[i].agentAvailabilityDay="MONTAG"
