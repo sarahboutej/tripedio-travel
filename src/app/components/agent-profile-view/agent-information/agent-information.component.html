@@ -36,6 +36,24 @@
           </div>
         </div>
         <div *ngIf="agentAvailability.length  && !isFullDescription" class="d-block d-md-none">
-          <app-availability [agentAvailability] = "agentAvailability"></app-availability>
+          <div class="availability-container">
+            <h4 class="text-color user-meduim-text line-heigth-40 fw-medium  subtitle-pb mt-3 mb-4">Availability </h4>
+            <div *ngIf="agentAvailability.length; else noAvailability" class="availability-days">
+                <div *ngFor="let date of agentAvailabilityDays" class="availability-day-item mb-2 align-items-center d-flex">
+                    <span class="orange-chip-gb day-chip orange-color me-4 px-3 py-2 br-4 user-x-small-text text-center align-items-center">{{ date[0].day.slice(0, 3) }}</span>
+                    <div *ngFor="let time of date" class="day-times pe-4">
+                        <span class="user-x-small-text text-color line-heigth-24">{{ time.start.slice(0, 5) }}</span> - <span  class="user-x-small-text text-color line-heigth-24">{{ time.end.slice(0, 5) }}</span>
+                    </div>
+                </div>
+            </div>
+            <ng-template #noAvailability>
+                <div class="no-availability-container d-flex align-items-center justify-content-center text-center">
+                    <div class="no-availability-content">
+                        <img src="assets/images/calendar.png" loading="lazy"/>
+                        <p class="no-available-text mb-0 grey-meduim-color ">Reiseberater ist nicht Verfügbar</p>
+                    </div>
+                </div>
+            </ng-template>   
+          </div>
         </div>
 </div>
