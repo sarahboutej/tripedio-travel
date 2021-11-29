@@ -27,7 +27,7 @@
                     <p class="info-text-container text-white light-heigth-medium sub-title-size ">
                         {{data.section_info.sectionCost.content}}
                     </p>
-                    <button type="button" routerLink="/reiseexperten" class="btn user-btn orange-gb text-white user-x-small-text fw-medium mt-3 mt-md-0">Reiseberatung vereinbaren</button>
+                    <button type="button" routerLink="/reiseexperten" [queryParams]="{reiseziele: data.destination_name}" class="btn user-btn orange-gb text-white user-x-small-text fw-medium mt-3 mt-md-0">Reiseberatung vereinbaren</button>
                 </div>
             </div>
         </div>
