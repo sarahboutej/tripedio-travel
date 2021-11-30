@@ -44,13 +44,15 @@ export class ArticleTravelExpertComponent implements OnInit {
   filtredAgents: any[] = [];
   filtredAgentsCount: number = 0;
   filtredMap: any = {
-    offset: 10
+    offset: 10,
+    place:[]
   };
   ngOnInit(): void {
     this.getFiltredAgents()
   }
   getFiltredAgents() {
     this.filtredMap.page = 1;
+    this.filtredMap.place.push(this.data);
     this.agentService.getFiltredAgents(this.filtredMap).subscribe(
       result => {
         this.filtredAgentsCount = result.count;
