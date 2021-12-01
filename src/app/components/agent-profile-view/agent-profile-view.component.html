@@ -31,6 +31,16 @@
       </button>
    </div>
    <div *ngIf="agent" class="agent-info-container mb-5 d-flex">
+    <div *ngIf="agent" class="agent-video d-md-block d-md-none br-4 col-md-6 ">
+      <div class="agent-wrapper-video d-flex align-items-center justify-content-center ms-3">
+        <app-agent-video 
+          [agentVideo]="agent.agentVideo" 
+          [agentVideoPresentation]="agent.agentVideoPresentation">
+        </app-agent-video>
+       </div>
+     </div>
+   </div>
+   <div *ngIf="agent" class="agent-info-container mb-5 d-flex">
      <div class="agent-info flip-card leight-grey-gb section-padding pt-0 col-md-6" id="about-agent">
       <div class="agent-btn-actions d-flex">
         <button type="button" class="btn btn-link blue-chip-bg d-md-block d-none me-2" [ngClass]="showBackCard && 'orange-gb' || ''" (click)= "displayCardBack()">
