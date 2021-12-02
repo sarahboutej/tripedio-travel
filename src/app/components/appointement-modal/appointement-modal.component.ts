@@ -7,6 +7,7 @@ import { AppointmentService } from 'src/app/shared/service/appointment/appointme
 import { ActivityTypeModel } from 'src/app/shared/model/activity-type.model';
 import { DatePipe } from '@angular/common';
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
+import { AppointementProposalsModel } from 'src/app/shared/model/appointement-proposals.model';
 
 @Component({
   selector: 'app-appointement-modal',
@@ -55,7 +56,8 @@ export class AppointementModalComponent implements OnInit {
   endDates : string[] = [];
   showAlertError=false;
   message='';
-
+  proposals : Array<AppointementProposalsModel> = [];
+  notshow=false;
 
   constructor(private modalService: NgbModal, private agentService: AgentService,private appointmentService:AppointmentService,public datepipe: DatePipe) { }
 
@@ -141,9 +143,20 @@ export class AppointementModalComponent implements OnInit {
     );
 
   }
+  handleChange(event:any) {
+    //console.log(event.target.value)
+    if(this.proposals.length<=1){
+      const prop=new AppointementProposalsModel(event.target.value,this.proposals.length);
+      this.proposals.push(prop);
+    }else{
+      if(this.proposals.find(x => x.appointementProposalsDate !== event.target.value))
+         this.notshow=true;
+    }
+  }
 
   initialise(){
     this.endDates = [];
+    this.proposals= [];
     this.appointementPlaces = [];
     this.appointementActivities= [];
     this.appointement=new AppointementModel(new Date(),"","","","",this.appointementPlaces,this.appointementActivities,0,"Single","");
@@ -161,7 +174,6 @@ export class AppointementModalComponent implements OnInit {
       );
       this.appointmentService.getAllAgentavailabilities(this.agentUuid).subscribe(
         result => {
-          console.log(result);
           this.allAvailibilities=result;
         }
       );
@@ -178,7 +190,8 @@ export class AppointementModalComponent implements OnInit {
     
   }
 
-  dateClass = (d: Date): MatCalendarCellCssClasses => {
+  dateClass() {
+    return  (d: Date): MatCalendarCellCssClasses => {
     const date = d.getDay();
     let days: number[]=[];
     // Highlight available days
@@ -203,6 +216,7 @@ export class AppointementModalComponent implements OnInit {
     }
     return (days.includes(date)&&d>=new Date()) ? 'highlight-dates' : '';
   };
+}
 
 
   //Places filter select
