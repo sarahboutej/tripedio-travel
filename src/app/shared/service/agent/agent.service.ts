@@ -61,7 +61,7 @@ export class AgentService {
     let params = new HttpParams();
     if(agencyUid) {
       params=params.set('agency', agencyUid);
-      console.log(agencyUid)
+      //console.log(agencyUid)
     }
     if(offset !== undefined && offset !== -1) {
       params=params.set('offset', '' + offset);
