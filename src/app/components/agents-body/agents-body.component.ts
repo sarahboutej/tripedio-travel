@@ -21,10 +21,12 @@ export class AgentsBodyComponent implements OnInit {
   ngOnInit(): void {
     this.filtredMap.page = 1;
     this.filtredMap.noConsultancyFee = false;
+    this.filtredMap.agentType = '';
     this.route.queryParams.subscribe(params => {
       this.filtredMap.activity = params['reisearten'] ? params['reisearten'].split(",") : [];
       this.filtredMap.place = params['reiseziele'] ? params['reiseziele'].split(",") : [];
       this.filtredMap.agency = params['reiseburo'] ? params['reiseburo'].split(",") : [];
+      this.filtredMap.land = params['land'] ? params['land'].split(",") : [];
 
       this.getFiltredAgents();
     });
@@ -34,7 +36,6 @@ export class AgentsBodyComponent implements OnInit {
     this.filtredMap.page = 1;
     this.agentService.getFiltredAgents(this.filtredMap).subscribe(
       result => {
-        //console.log(result)
         this.filtredAgentsCount = result.count;
         this.filtredAgents = [...result.items];
       }
@@ -46,6 +47,11 @@ export class AgentsBodyComponent implements OnInit {
     this.getFiltredAgents();
   }
   
+  typeAgent(event: any) {
+    this.filtredMap.agentType = event;   
+    this.getFiltredAgents();
+  }
+
   displaySidebarMobile() {
     this.displaySidebar = !this.displaySidebar;
     const bodyTag = document.body;

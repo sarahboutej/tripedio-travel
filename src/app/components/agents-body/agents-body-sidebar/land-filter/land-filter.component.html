@@ -1,0 +1,28 @@
+<div class="destination-filter-wrapper mb-4">
+    <div class="destination-filter-title d-flex align-items-center justify-content-between pb-3">
+      <span class="fw-medium user-x-small-text text-color line-heigth-24">Land</span>
+    </div>
+    <div class="form-group destination-input-group">
+      <i class="bi bi-search"></i>
+      <ng-select #placesSelect (close)="placesSelect.blur()"  class="form-control destination-data-input"
+        style="padding: 0; border: none;" [items]="landList"   bindLabel="superPlaceLabel"
+        notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" placeholder="Suche nach Land"
+        [selectOnTab]="true" (search)="getFiltredLands2($event.term)">
+        <ng-template ng-multi-label-tmp let-items="items" let-clear="clear"></ng-template>
+        <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+          <div class="destination-option" (click)="commitSelectedLands(item.superPlaceLabel, true);pushSelectedLands()">
+            <div class="destination-option-label" >{{item.superPlaceLabel}}</div>
+          </div>
+        </ng-template>
+      </ng-select>
+    </div>
+    <div class="destination-chip">
+      <div *ngFor="let selectedLand of selectedLands"
+        class="alert alert-primary destination-alert alert-dismissible fade show" style="margin-right: .25rem;"
+        role="alert">
+        <span>{{ selectedLand }}</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+          (click)="removeLand(selectedLand)"></button>
+      </div>
+    </div>
+  </div>

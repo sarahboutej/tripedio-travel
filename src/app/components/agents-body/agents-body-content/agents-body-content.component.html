@@ -1,5 +1,5 @@
 <div class="agent-items-container">
-  <div class="agent-item animate__animated animate__fadeIn mb-5 bg-light-grey" *ngFor="let agent of agentItems; let agentIndex = index" [class]="agent.agentScore !== '0%' && 'orange-chip-gb matching-up' || ''">
+  <div class="agent-item animate__animated animate__fadeIn mb-5 bg-light-grey" *ngFor="let agent of agentItems; let agentIndex = index" [class]="agent.matched ==true && 'orange-chip-gb matching-up' || ''">
     <div class="d-flex item-wrapper p-4 p-lg-0">
       <div class="avatar-container d-flex align-items-center col-lg-3 pe-3">
         <div *ngIf="agent.agentPhoto!=null && agent.agentPhoto!=undefined" [ngStyle]="{'background-image': 'url(' + urlPhotoBack + agent?.agentPhoto?.mediaUrl + ')'}" class="agent-avatar"></div>
