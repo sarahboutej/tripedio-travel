@@ -71,6 +71,8 @@ import { DestinationNavItemComponent } from './shared/components/navbar/destinat
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { NavbarReponsiveComponent } from './shared/components/navbar/navbar-reponsive/navbar-reponsive.component';
 import { AgencyFilterComponent } from './components/agents-body/agents-body-sidebar/agency-filter/agency-filter.component';
+import { LandFilterComponent } from './components/agents-body/agents-body-sidebar/land-filter/land-filter.component';
+import { AgentTypeComponent } from './components/agents-body/agents-body-sidebar/agent-type/agent-type.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -134,6 +136,8 @@ registerLocaleData(localeDe);
     DestinationNavItemComponent,
     NavbarReponsiveComponent,
     AgencyFilterComponent,
+    LandFilterComponent,
+    AgentTypeComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,17 +8,15 @@ import { Subscription } from '../../model/subscription.model';
   providedIn: 'root'
 })
 export class AgentService {
+
   AGENTS_API = UtilsService.BASE_API_URL + '/api/agents';
   SUPER_PLACE_API = UtilsService.BASE_API_URL + '/api/super-places';
   ACTIVITIES_API = UtilsService.BASE_API_URL + '/api/activities';
   AGENCIES_API = UtilsService.BASE_API_URL + '/api/agencies';
-
   API_SUBSCRIPTION=UtilsService.BASE_API_URL+'/api/subscriptions';
   AGENT_PLACE_API = UtilsService.BASE_API_URL + '/api/specialities';
   AGENT_ACTIVITY_API = UtilsService.BASE_API_URL + '/api/agent-activities';
-
   AGENT_GALLERY_API = UtilsService.BASE_API_URL + '/api/galleries';
-
 
   constructor(private http: HttpClient) { }
   
@@ -38,7 +36,24 @@ export class AgentService {
 
     return this.http.get<any>(api, {params: params});
   }
-  
+
+  getFiltredLands(superLandsLabel?: string, offset?: number, page?: number): Observable<any> {
+    let api = `${this.SUPER_PLACE_API}/filtred`;
+    
+    let params = new HttpParams();
+    if(superLandsLabel) {
+      params=params.set('land_label', superLandsLabel);
+    }
+    if(offset !== undefined && offset !== -1) {
+      params=params.set('offset', '' + offset);
+    }
+    if(page !== undefined && page !== -1) {
+      params=params.set('page', '' + page);
+    }
+
+    return this.http.get<any>(api, {params: params});
+  }
+
   getFiltredActivities(activityLabel?: string, offset?: number, page?: number): Observable<any> {
     let api = `${this.ACTIVITIES_API}/filtred`;
 
@@ -55,6 +70,7 @@ export class AgentService {
     
     return this.http.get<any>(api, {params: params});
   }
+
   getFiltredAgency(agencyUid?: string, offset?: number, page?: number): Observable<any> {
     let api = `${this.AGENCIES_API}/filtred`;
 
@@ -88,8 +104,14 @@ export class AgentService {
     if(filterMap.agency) {
       params=params.set('agency', filterMap.agency);
     }
+    if(filterMap.land) {
+      params=params.set('land', filterMap.land);
+    }
     if(filterMap.noConsultancyFee) {
       params=params.set('noConsultancyFee', filterMap.noConsultancyFee);
+    }
+    if(filterMap.agentType) {
+      params=params.set('agentType', filterMap.agentType );
     }
     
     return this.http.get<any>(api, {params: params});
@@ -122,6 +144,10 @@ export class AgentService {
   }
 
   getPlaces(): Observable<any> {
+    return this.http.get<any>(`${this.SUPER_PLACE_API}`);
+  }
+
+  getLands(): Observable<any> {
     return this.http.get<any>(`${this.SUPER_PLACE_API}`);
   }
 }

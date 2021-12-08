@@ -15,14 +15,14 @@
   <div class="container-xl">
     <div class="row">
       <div class="col-3 d-none d-md-block">
-        <app-agents-body-sidebar [mediaDivision]="'desktop'" (consultancyEvent)="consultancyFeeChange($event)"></app-agents-body-sidebar>
+        <app-agents-body-sidebar [mediaDivision]="'desktop'" (agentTypeEvent)="typeAgent($event)" (consultancyEvent)="consultancyFeeChange($event)"></app-agents-body-sidebar>
       </div>
       <div *ngIf="displaySidebar" class="agents-filter-mobile px-4 py-3">
         <div class="d-flex align-items-center justify-content-between filter-header">
           <h4 class="user-small-text fw-medium text-black line-heigth-24">Filter</h4>
           <a type="button" class="text-decoration-none blue-color user-small-text line-heigth-24" (click)="displaySidebarMobile()">Cancel</a>
         </div>
-        <app-agents-body-sidebar [mediaDivision]="'mobile'" (consultancyEvent)="consultancyFeeChange($event)"></app-agents-body-sidebar>
+        <app-agents-body-sidebar [mediaDivision]="'mobile'" (consultancyEvent)="consultancyFeeChange($event)" (agentTypeEvent)="typeAgent($event)"></app-agents-body-sidebar>
       </div>
       <div infinite-scroll (scrolled)="onScrollDown()" class="col-9 agents-body-mobile">
         <app-agents-body-content *ngIf="filtredAgentsCount > 0" [agentItems]="filtredAgents"></app-agents-body-content>

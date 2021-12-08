@@ -1,8 +1,10 @@
 <div class="agent-sidebar-wrapper">
   <agent-options (consultancyEvent)="consultancyFeeChange($event)" [division]="mediaDivision"></agent-options>
   <destination-filter></destination-filter>
+  <app-land-filter></app-land-filter>
   <travel-type-filter></travel-type-filter>
   <agency-filter></agency-filter>
+  <app-agent-type (agentTypeEvent)="typeAgent($event)" (agentTypeEvent1)="typeAgent1($event)" [division]="mediaDivision"></app-agent-type>
 </div>
 
 
