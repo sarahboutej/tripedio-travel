@@ -1,4 +1,5 @@
 import { ActivityTypeModel } from './activity-type.model';
+import { AppointementProposalsModel } from './appointement-proposals.model';
 
 export class AppointementModel {
 
@@ -12,7 +13,7 @@ apointementActivitiesDto :ActivityTypeModel[];
 apointementBudget:number;
 appointementParticipantType:string;
 userPhone: string;
-
+userAppointementProposals:AppointementProposalsModel[];
 constructor(appointementDate:Date,
     userEmail: string,
     userFirstName: string,
@@ -22,7 +23,8 @@ constructor(appointementDate:Date,
     apointementActivitiesDto :any[],
     apointementBudget:number,
     appointementParticipantType:string,
-    userPhone: string){
+    userPhone: string,
+    userAppointementProposals:AppointementProposalsModel[]){
 
 this.appointementDate=appointementDate;
 this.userEmail = userEmail;
@@ -34,6 +36,7 @@ this.apointementPlaces=apointementPlaces;
 this.apointementActivitiesDto=apointementActivitiesDto;
 this.apointementBudget=apointementBudget;
 this.appointementParticipantType=appointementParticipantType;
+this.userAppointementProposals=userAppointementProposals;
     
 }
 
