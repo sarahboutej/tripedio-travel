@@ -98,7 +98,7 @@
   }
   
   .radio-toolbar label {
-      display: inline-block;
+      display: block;
       background-color: #FFFFFF;
       color: $textColor;
       padding: 8px 16px;
@@ -118,7 +118,7 @@
   }
 
   .radio-actions{
-     padding-bottom: 5px;
+     margin-top: -0.25rem !important;
   }
 
   .input-actions{
@@ -196,7 +196,6 @@
   }
 
   .availibilities{
-    padding-bottom: 8px;
     padding-left: 5px;
     padding-right: 0;
   }

@@ -8,6 +8,10 @@
 @import '../src/styles/variables';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
 /*----------------- Global Style ---------------------------*/
 
 @font-face {
@@ -691,17 +695,13 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, p, .p,  span, a{
   
 }
 
-
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
-
  /*-------------------Calendar ------------------------*/
  .mat-calendar-header {
   padding: 0!important;
   .mat-calendar-controls {
+    padding: 0 0.75rem;
     .mat-calendar-period-button {
       padding: 0!important ;
-      width: 50%;
     }
   }
 }
