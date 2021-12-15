@@ -58,6 +58,7 @@ export class AppointementModalComponent implements OnInit {
   showAlertError=false;
   message='';
   notshow=false;
+  ischecked=false;
 
   constructor(private modalService: NgbModal, private agentService: AgentService,private appointmentService:AppointmentService,public datepipe: DatePipe) { }
 
@@ -91,36 +92,18 @@ export class AppointementModalComponent implements OnInit {
   }
 
   async dismiss(): Promise<void> {
-    this.appointementActivities=[];
-    for(let i=0; i<this.selectedActivityItems.length;i++){     
-      let activity= new ActivityTypeModel(this.selectedActivityItems[i].activityTypeId,this.selectedActivityItems[i].activityTypeLabel);
-      this.appointementActivities.push(activity);
-    }
-    this.appointementPlaces=[];
-    for(let i=0; i<this.selectedPlacesItems.length;i++){
-      this.appointementPlaces.push(this.selectedPlacesItems[i].superPlaceLabel);
-    }
-
-    this.appointement.apointementActivitiesDto=this.appointementActivities;
-    this.appointement.apointementPlaces=this.appointementPlaces;
 
     this.appointement.appointementDate=this.proposals[0].appointementProposalsDate;
-    if(this.appointement.appointementParticipantType=="Single"){
-      this.appointement.appointementParticipantType="SINGLE";
-    }
     this.appointement.userAppointementProposals=this.proposals;
     this.appointement.agentUuid=this.agentUuid;
     var isNotValidDate=false;
     //new Date().getTime()>this.selectedDate.getTime()
     if(this.proposals.find(x => new Date(x.appointementProposalsDate).getTime() < new Date().getTime())){
       isNotValidDate=true;
-      return;
-    }
-    if(isNotValidDate)
-    {
       this.message='Ausgewähltes Datum und Uhrzeit müssen größer als das Datum des Tages sein!';
       this.showAlertError=true;
-    }else{
+      return;
+    }
       this.appointmentService.createAppointment(this.appointement).subscribe(response => {
         this.initialise();
         this.modalRef.dismiss("dismiss");
@@ -130,7 +113,6 @@ export class AppointementModalComponent implements OnInit {
           this.showAlertError=true;
        }
       });
-    }
   }
 
   onSelect(event: any) {
@@ -146,19 +128,18 @@ export class AppointementModalComponent implements OnInit {
 
   }
   handleChange(event:any) {
-    //console.log(event.target.value)
     var splited=event.target.value.split(":");
     var date=this.selectedDate.setHours(Number(splited[0]), Number(splited[1]), 0); 
     var formatedDate=this.datepipe.transform(date, this.formatAppointmentDate);
     const prop=new AppointementProposalsModel(formatedDate,this.proposals.length);
     
-    if(this.proposals.length>=2){
-      if(this.proposals.find(x => x.appointementProposalsDate !== event.target.value))
-         this.notshow=true;
+    if(this.proposals.length>=2){ 
+      this.notshow=true;
     }
     if(this.proposals.length<3){
-      this.proposals.push(prop);     
+      this.proposals.push(prop); 
     } 
+
   }
 
   initialise(){
@@ -186,6 +167,8 @@ export class AppointementModalComponent implements OnInit {
         }
       );
     }
+    this.notshow=false;
+    this.ischecked=false;
     
   }
   changeEndDate(event: any) {

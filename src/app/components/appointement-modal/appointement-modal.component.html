@@ -29,46 +29,6 @@
                 <input [(ngModel)]="appointement.userEmail" [ngModelOptions]="{standalone: true}" required type="email" class="form-control search-travel-type" placeholder="Ihre E-Mail-Adresse">
             </div>
 
-            <div class="row input-actions">
-                <label class="label-actions">Telefonnummer</label>
-                <input [(ngModel)]="appointement.userPhone" [ngModelOptions]="{standalone: true}" required type="text" class="form-control search-travel-type" placeholder="+4900000000000" pattern="([+]?)[0-9]+">
-            </div>
-
-            <div class="row select-actions">
-                <label for="placesSelect" class="label-actions">Reiseziel</label>
-                <ng-select required #placesSelect (close)="placesSelect.blur()" class="form-control custom-ng-select" 
-                    style="padding: 0; border: none;" [items]="places" [multiple]="true"
-                    [maxSelectedItems]="10" bindLabel="superPlaceLabel" [ngModelOptions]="{standalone: true}"
-                    notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true"
-                    placeholder="Reiseziel suchen" [(ngModel)]="selectedPlacesItems" [loading]="placesLoading"
-                    [virtualScroll]="true" (search)="getFiltredPlaces($event)" (scroll)="onScrollPlaces(placesSelect.searchTerm, $event)" 
-                    (scrollToEnd)="fetchMorePlaces(placesSelect.searchTerm)" (open)="onOpenPlaces()">
-                  </ng-select>
-            </div>
-
-            <div class="row select-actions">
-                <label class="label-actions">Teilnehmer Typ</label>
-                <ng-select [(ngModel)]="appointement.appointementParticipantType" [ngModelOptions]="{standalone: true}" class="form-control" style="padding: 0; border: none;" placeholder="Teilnehmer Typ" [multiple]="false" [searchable]="false" required>
-                    <ng-option value="SINGLE" selected>Single</ng-option>
-                    <ng-option value="COUPLE" >Zu zweit</ng-option>
-                    <ng-option value="FAMILY" >Familie</ng-option>
-                    <ng-option value="GROUP" >Gruppe</ng-option>
-                 </ng-select>
-            </div>
-
-            <div class="row select-actions">
-                <label for="select2" class="label-actions">Reiseart</label>
-                <ng-select required #activityselect (close)="activityselect.blur()" class="form-control custom-ng-select" style="padding: 0; border: none;" 
-                    [items]="activities" [multiple]="true"
-                    [maxSelectedItems]="10" bindLabel="activityTypeLabel" [ngModelOptions]="{standalone: true}"
-                    notFoundText="Keine Elemente gefunden" [closeOnSelect]="true" [clearSearchOnAdd]="true" [loading]="activitiesLoading"
-                    placeholder="Reisearten suchen" [(ngModel)]="selectedActivityItems"
-                    [virtualScroll]="true" (search)="getFiltredActivities($event)" (scroll)="onScrollActivities(activityselect.searchTerm, $event)" 
-                    (scrollToEnd)="fetchMoreActivities(activityselect.searchTerm)" (open)="onOpenActivities()">
-                </ng-select>
-            </div>
-            
-
             <p class="parag-actions">Wählen Sie einen Termin für Ihre Beratung aus:</p>
             <div class="row">
                 <div class="col-lg-6 col-sm-12">
@@ -121,7 +81,8 @@
                     <div *ngFor="let time of availibilities" class="col-3 availibilities mb-2 ps-0 mt-1">
                         <input type="radio" [id]="time.startDate" [name]="time.startDate" [value]="time.startDate" 
                         (change)="handleChange($event)"
-                        [disabled]="notshow">
+                        [disabled]="notshow"
+                        [checked]="ischecked">
                         <label [for]="time.startDate" class="me-3 ">{{time.startDate}}</label>
                     </div>             
                </div>
