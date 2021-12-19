@@ -17,7 +17,15 @@
                 {{data.section_info.section2.content}}
             </p>
         </div>
-        <div *ngIf="data.section_info.sectionCost" class="section-seconde-row info-section-bg section-mt-medium section-pt-medium title-pb">
+        <div *ngIf="data.section_info.sectionCost" class="section-seconde-row info-section-bg section-mt-medium section-pt-medium title-pb"
+        [ngStyle]="{
+            'background': data.section_info.sectionCost.image_file
+            ? 'linear-gradient(#2B616Dcf, #2B616Dcf), url(' + BASE_STRAPI_API_URL + data.section_info.sectionCost.image_file.url + ')'
+            : 'linear-gradient(#2B616Dcf, #2B616Dcf),  url(' + '../../../../assets/images/section-africain-bg.webp' + ')',
+            'background-position': 'center',
+            'background-size': 'cover',
+            'background-repeat': 'no-repeat'
+          }">
             <div class="info-text-wrapper d-md-flex align-items-center">
                 <div class="icon-container text-center mb-4 mb-md-0 col-md-3">
                     <img src="assets/images/wallet.svg" alt="tripedeo article" loading="lazy" class="info-img-icon">
