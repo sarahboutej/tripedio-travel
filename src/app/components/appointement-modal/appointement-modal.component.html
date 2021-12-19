@@ -26,7 +26,9 @@
 
             <div class="row input-actions">
                 <label class="label-actions">E-Mail Adresse</label>
-                <input [(ngModel)]="appointement.userEmail" [ngModelOptions]="{standalone: true}" required type="email" class="form-control search-travel-type" placeholder="Ihre E-Mail-Adresse">
+                <input [(ngModel)]="appointement.userEmail" [ngModelOptions]="{standalone: true}" required type="email" class="form-control search-travel-type" placeholder="Ihre E-Mail-Adresse"
+                oninvalid="setCustomValidity('Fügen Sie eine gültige E-Mail Adresse hinzu !')"
+                oninput="setCustomValidity('')">
             </div>
 
             <p class="parag-actions">Wählen Sie einen Termin für Ihre Beratung aus:</p>
