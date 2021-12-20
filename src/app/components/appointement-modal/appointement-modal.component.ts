@@ -59,6 +59,7 @@ export class AppointementModalComponent implements OnInit {
   message='';
   notshow=false;
   ischecked=false;
+  proposalsIds: Array<any> = [];
 
   constructor(private modalService: NgbModal, private agentService: AgentService,private appointmentService:AppointmentService,public datepipe: DatePipe) { }
 
@@ -92,7 +93,11 @@ export class AppointementModalComponent implements OnInit {
   }
 
   async dismiss(): Promise<void> {
-
+    if(this.proposals.length>3){
+      this.message='Sie müssen nur 3 Datum auswählen!';
+      this.showAlertError=true;
+      return;
+    }
     this.appointement.appointementDate=this.proposals[0].appointementProposalsDate;
     this.appointement.userAppointementProposals=this.proposals;
     this.appointement.agentUuid=this.agentUuid;
@@ -128,23 +133,23 @@ export class AppointementModalComponent implements OnInit {
 
   }
   handleChange(event:any) {
-    var splited=event.target.value.split(":");
+    var value=event.target.value;
+    var checked=event.target.checked;
+    var splited=value.split(":");
     var date=this.selectedDate.setHours(Number(splited[0]), Number(splited[1]), 0); 
     var formatedDate=this.datepipe.transform(date, this.formatAppointmentDate);
     const prop=new AppointementProposalsModel(formatedDate,this.proposals.length);
-    
-    if(this.proposals.length>=2){ 
-      this.notshow=true;
+    if(checked){
+      this.proposals.push(prop);
+    }else{
+      this.proposals = this.proposals.filter(item => item.appointementProposalsDate != formatedDate);
     }
-    if(this.proposals.length<3){
-      this.proposals.push(prop); 
-    } 
-
   }
 
   initialise(){
     this.endDates = [];
     this.proposals= [];
+    this.proposalsIds= [];
     this.appointementPlaces = [];
     this.appointementActivities= [];
     this.proposals= [];

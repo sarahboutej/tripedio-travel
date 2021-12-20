@@ -79,10 +79,8 @@
             <div class="radio-toolbar">
                 <div  class="row radio-actions ">
                     <div *ngFor="let time of availibilities" class="col-3 availibilities mb-2 ps-0 mt-1">
-                        <input type="radio" [id]="time.startDate" [name]="time.startDate" [value]="time.startDate" 
-                        (change)="handleChange($event)"
-                        [disabled]="notshow"
-                        [checked]="ischecked">
+                        <input type="checkbox" [id]="time.startDate" [name]="time.startDate" [value]="time.startDate" 
+                        (change)="handleChange($event)">
                         <label [for]="time.startDate" class="me-3 ">{{time.startDate}}</label>
                     </div>             
                </div>
