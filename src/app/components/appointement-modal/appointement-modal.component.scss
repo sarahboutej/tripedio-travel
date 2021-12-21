@@ -91,7 +91,7 @@
     margin: 10px;
   }
   
-  .radio-toolbar input[type="radio"] {
+  .radio-toolbar input[type="checkbox"] {
     opacity: 0;
     position: fixed;
     width: 0;
@@ -113,7 +113,7 @@
     background-color: $radiocheckedColor;
   }
   
-  .radio-toolbar input[type="radio"]:checked + label {
+  .radio-toolbar input[type="checkbox"]:checked + label {
       background-color: $radiocheckedColor;
   }
 
