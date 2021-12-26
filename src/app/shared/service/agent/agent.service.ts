@@ -37,23 +37,6 @@ export class AgentService {
     return this.http.get<any>(api, {params: params});
   }
 
-  getFiltredLands(superLandsLabel?: string, offset?: number, page?: number): Observable<any> {
-    let api = `${this.SUPER_PLACE_API}/filtred`;
-    
-    let params = new HttpParams();
-    if(superLandsLabel) {
-      params=params.set('land_label', superLandsLabel);
-    }
-    if(offset !== undefined && offset !== -1) {
-      params=params.set('offset', '' + offset);
-    }
-    if(page !== undefined && page !== -1) {
-      params=params.set('page', '' + page);
-    }
-
-    return this.http.get<any>(api, {params: params});
-  }
-
   getFiltredActivities(activityLabel?: string, offset?: number, page?: number): Observable<any> {
     let api = `${this.ACTIVITIES_API}/filtred`;
 
@@ -144,10 +127,6 @@ export class AgentService {
   }
 
   getPlaces(): Observable<any> {
-    return this.http.get<any>(`${this.SUPER_PLACE_API}`);
-  }
-
-  getLands(): Observable<any> {
     return this.http.get<any>(`${this.SUPER_PLACE_API}`);
   }
 }
