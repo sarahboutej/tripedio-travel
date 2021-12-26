@@ -75,6 +75,7 @@ import { LandFilterComponent } from './components/agents-body/agents-body-sideba
 import { AgentTypeComponent } from './components/agents-body/agents-body-sidebar/agent-type/agent-type.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AgentVideoMobileComponent } from './components/agent-profile-view/agent-video-mobile/agent-video-mobile.component';
 
 // Configs
 export function initConfig(config: AppConfig) {
@@ -116,6 +117,7 @@ registerLocaleData(localeDe);
     AgentComponent,
     AgentGalleryComponent,
     AgentVideoComponent,
+    AgentVideoMobileComponent,
     ArticlesComponent,
     ArticleHeaderComponent,
     AvailabilityComponent,
