@@ -5,13 +5,13 @@
     <div class="form-group destination-input-group">
       <i class="bi bi-search"></i>
       <ng-select #placesSelect (close)="placesSelect.blur()"  class="form-control destination-data-input"
-        style="padding: 0; border: none;" [items]="landList"   bindLabel="superPlaceLabel"
+        style="padding: 0; border: none;" [items]="countries"
         notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" placeholder="Suche nach Land"
-        [selectOnTab]="true" (search)="getFiltredLands2($event.term)">
+        [selectOnTab]="true">
         <ng-template ng-multi-label-tmp let-items="items" let-clear="clear"></ng-template>
         <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
-          <div class="destination-option" (click)="commitSelectedLands(item.superPlaceLabel, true);pushSelectedLands()">
-            <div class="destination-option-label" >{{item.superPlaceLabel}}</div>
+          <div class="destination-option" (click)="commitSelectedLands(item, true);pushSelectedLands()">
+            <div class="destination-option-label" >{{item}}</div>
           </div>
         </ng-template>
       </ng-select>

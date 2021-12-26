@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AgentService } from 'src/app/shared/service/agent/agent.service';
+import * as i18nIsoCountries from 'i18n-iso-countries';
+declare var require: any;
 
 @Component({
   selector: 'app-land-filter',
@@ -12,68 +14,29 @@ export class LandFilterComponent implements OnInit {
   landSelectedValue = '';
   landList: any[] = [];
   selectedLands: string[] = [];
-  lands: any[] = [];
   commitedLands: string[] = [];
+  
+  countries:any = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private agentService: AgentService) { }
 
   ngOnInit(): void {
-    
     this.route.queryParams.subscribe(params => {
       if(params['land']) {
-        var listLands = params['land'].split(",");
-        this.getLands(listLands);
+        this.selectedLands = params['land'].split(",");
       }
-      this.getFiltredLands();
+      this.initCountries();
     });
   }
 
-  getLands(listLands:any){
-    this.lands=[];
-    this.selectedLands = [];
-    this.agentService.getLands().subscribe(response => {
-      this.lands=response;
-      for( var land of listLands){
-        if(this.lands.find(x => x.superPlaceLabel === land)){
-          this.selectedLands.push(land);
-          this.selectedLands = this.selectedLands.filter((test, index, array) =>
-           index === array.findIndex((findTest) =>
-              findTest === test
-           )
-        );
-        }
-      }
-      
-      this.commitedLands = Object.assign([], this.selectedLands);
-    }, error => {
-    });
-
-  }
-
-  getFiltredLands() {
-    this.agentService.getFiltredLands(this.landSelectedValue, 84).subscribe(
-      result => {
-        this.landList = [...result.items];
-        this.landList = this.landList.filter((test, index, array) =>
-           index === array.findIndex((findTest) =>
-              findTest.superPlaceLabel === test.superPlaceLabel
-           )
-        );
-      }
-    );
-  }
-
-  getFiltredLands2(text: any): void {
-    this.agentService.getFiltredLands(text, 84).subscribe(
-      result => {
-        this.landList = [...result.items];
-        this.landList = this.landList.filter((test, index, array) =>
-        index === array.findIndex((findTest) =>
-           findTest.superPlaceLabel === test.superPlaceLabel
-        )
-     );
-      }
-    );
+  initCountries() {
+    i18nIsoCountries.registerLocale(require("i18n-iso-countries/langs/de.json"));
+    let indexedArray  = i18nIsoCountries.getNames('de', {select: "official"});
+    this.countries=[];
+    for (let key in indexedArray) {
+      let value = indexedArray[key];
+      this.countries.push(value);
+    }
   }
 
   removeLand(landName: string) {

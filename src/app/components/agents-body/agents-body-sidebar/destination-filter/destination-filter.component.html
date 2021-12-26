@@ -5,9 +5,11 @@
   <div class="form-group destination-input-group">
     <i class="bi bi-search"></i>
     <ng-select #placesSelect (close)="placesSelect.blur()"  class="form-control destination-data-input"
-      style="padding: 0; border: none;" [items]="destinationsList"   bindLabel="superPlaceLabel"
+      style="padding: 0; border: none;" [items]="destinationsList"   bindLabel="superPlaceLabel" [loading]="destinationsLoading"
       notFoundText="Keine Elemente gefunden" [closeOnSelect]="false" placeholder="Suche nach Reiseziel"
-      [selectOnTab]="true" (search)="getFiltredDestination($event.term)">
+      [selectOnTab]="true" [virtualScroll]="true" (search)="getFiltredDestination($event.term)" 
+      (scroll)="onScrollDestinations(placesSelect.searchTerm, $event)" (scrollToEnd)="fetchMoreDestinations(placesSelect.searchTerm)" 
+      (open)="onOpenDestinations()">
       <ng-template ng-multi-label-tmp let-items="items" let-clear="clear"></ng-template>
       <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
         <div class="destination-option" (click)="commitSelectedDestinations(item.superPlaceLabel, true);pushSelectedDestinations()">
